@@ -1,0 +1,13 @@
+PODS:
+  - DateTools (1.7.0)
+  - DZNEmptyDataSet (1.7.2)
+
+DEPENDENCIES:
+  - DateTools
+  - DZNEmptyDataSet
+
+SPEC CHECKSUMS:
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
+
+COCOAPODS: 0.39.0
