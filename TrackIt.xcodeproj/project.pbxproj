@@ -25,6 +25,8 @@
 		96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C991BE86195009342FC /* UIColor+FlatUI.m */; };
 		96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9C1BE862FF009342FC /* DatePickerCell.m */; };
 		96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9F1BE86CC9009342FC /* ContainerViewController.m */; };
+		964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */; };
+		964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E4C1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,12 +55,16 @@
 		960105F41BE85CCF00979763 /* AmountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmountCell.m; path = Views/AmountCell.m; sourceTree = "<group>"; };
 		960105F61BE85CD800979763 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteCell.h; path = Views/NoteCell.h; sourceTree = "<group>"; };
 		960105F71BE85CD800979763 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteCell.m; path = Views/NoteCell.m; sourceTree = "<group>"; };
-		96434C981BE86195009342FC /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
-		96434C991BE86195009342FC /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		96434C981BE86195009342FC /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatUI.h"; path = "Utilities/UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		96434C991BE86195009342FC /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatUI.m"; path = "Utilities/UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		96434C9B1BE862FF009342FC /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerCell.h; path = Views/DatePickerCell.h; sourceTree = "<group>"; };
 		96434C9C1BE862FF009342FC /* DatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerCell.m; path = Views/DatePickerCell.m; sourceTree = "<group>"; };
 		96434C9E1BE86CC9009342FC /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = Controllers/ContainerViewController.h; sourceTree = "<group>"; };
 		96434C9F1BE86CC9009342FC /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerViewController.m; path = Controllers/ContainerViewController.m; sourceTree = "<group>"; };
+		964A6E491BE877080024A2B3 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIControl+Blocks.h"; path = "Utilities/UIControl+Blocks.h"; sourceTree = "<group>"; };
+		964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIControl+Blocks.m"; path = "Utilities/UIControl+Blocks.m"; sourceTree = "<group>"; };
+		964A6E4B1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RFKeyboardToolbar+DoneButton.h"; path = "Utilities/RFKeyboardToolbar+DoneButton.h"; sourceTree = "<group>"; };
+		964A6E4C1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RFKeyboardToolbar+DoneButton.m"; path = "Utilities/RFKeyboardToolbar+DoneButton.m"; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 				960105DB1BE8440B00979763 /* Controllers */,
 				960105EF1BE84FB200979763 /* Views */,
 				960105DA1BE8440200979763 /* Core Data */,
+				964A6E481BE876FE0024A2B3 /* Utilities */,
 				960105C01BE843A100979763 /* Supporting Files */,
 			);
 			path = TrackIt;
@@ -130,8 +137,6 @@
 		960105C01BE843A100979763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				96434C981BE86195009342FC /* UIColor+FlatUI.h */,
-				96434C991BE86195009342FC /* UIColor+FlatUI.m */,
 				960105D41BE843A100979763 /* Info.plist */,
 				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
 				960105C11BE843A100979763 /* main.m */,
@@ -186,6 +191,19 @@
 				960105ED1BE84FAE00979763 /* EntryCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		964A6E481BE876FE0024A2B3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				964A6E491BE877080024A2B3 /* UIControl+Blocks.h */,
+				964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */,
+				964A6E4B1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.h */,
+				964A6E4C1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m */,
+				96434C981BE86195009342FC /* UIColor+FlatUI.h */,
+				96434C991BE86195009342FC /* UIColor+FlatUI.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +329,7 @@
 			files = (
 				960105EE1BE84FAE00979763 /* EntryCell.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
+				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,
 				96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */,
 				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
 				960105E21BE8445E00979763 /* Entry.m in Sources */,
@@ -321,6 +340,7 @@
 				96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
+				964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */,
 				960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */,
 				96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */,
 			);

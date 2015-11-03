@@ -7,108 +7,141 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19D228ED87FF16C882731F1ED7992B4E /* DateTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85453EAF0E042A7201A238A4A1E215 /* DateTools-dummy.m */; };
-		22DC2D74E9117167CD17FD04C327EB9D /* DZNEmptyDataSet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55018776EED2BC78C69C93BB4DDD120B /* DZNEmptyDataSet-dummy.m */; };
-		2DAF4E8CD18ED10B30CCFB8FF1984A46 /* DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C8418C784EFBA3A191B5A0791BE23FF /* DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BC49A2B50306C45D4EBCAA50600EBE7 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FDD0DBEE04120E525D9D8295DA4833 /* UIScrollView+EmptyDataSet.m */; };
-		4159C0A759E6090F2C58FCB2492DFB05 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774BD6036F54979CB115435E9A791BC /* DTTimePeriod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4BB821C2BC1ED4467C903E168C69C4E9 /* Pods-TrackIt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DC06D62DC68E995765E740519045A761 /* Pods-TrackIt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		66D6CA16EF2371E39FAB73473A89D8C1 /* NSDate+DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AEFA4C6D13489C2C4F8ED821D20547 /* NSDate+DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F00A3D837A718CBC5D7C7157CCF71A2 /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = AE3E106425A72E5DE888CAEEC2842C75 /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		729719BE516B8080199215BB6A52117A /* DateTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A9DEE4AA660FC8310E25BCDBE1C8D32 /* DateTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7902018FD0635F9A5E4C13BFD67E3750 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05974CBE0B1FB5E72BAEAA8E47D8ADA4 /* DateTools.bundle */; };
+		122A2B013F94312A707BF4B78061D6E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		14769CB9CCA1E09EB3A57BFB91B44A89 /* RFKeyboardToolbar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5777445380B83268FE3DD2C9C1940C3C /* RFKeyboardToolbar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19D228ED87FF16C882731F1ED7992B4E /* DateTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13847251416DBF74FA7A9303FB9F0257 /* DateTools-dummy.m */; };
+		1FECDD86356D8141816303294CD2998D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		22DC2D74E9117167CD17FD04C327EB9D /* DZNEmptyDataSet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74F015827F1736E3E63305302A946AD2 /* DZNEmptyDataSet-dummy.m */; };
+		2DAF4E8CD18ED10B30CCFB8FF1984A46 /* DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = CC6BED397FA0D2808543DF7578CB04CF /* DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC49A2B50306C45D4EBCAA50600EBE7 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFAEA1B855875E32E05900FCFBA08FC /* UIScrollView+EmptyDataSet.m */; };
+		4082D26D3E8F4DCCC9FE79A1466E092D /* RFKeyboardToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 304289E1BD19ACEB7D6A2A1790DE19C4 /* RFKeyboardToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4159C0A759E6090F2C58FCB2492DFB05 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = B86627D4D75F80889A61319929CA8FF5 /* DTTimePeriod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		66D6CA16EF2371E39FAB73473A89D8C1 /* NSDate+DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DC643B4D3F274D004FBD57816D7E88B5 /* NSDate+DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6ED5E63355D33B2C4E742B317B3E4E27 /* RFKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA034F53E95B86EE5741D4BFBE2A906 /* RFKeyboardToolbar.m */; };
+		6F00A3D837A718CBC5D7C7157CCF71A2 /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = AA78A17587E6DED4DF0C9F6094177A49 /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		729719BE516B8080199215BB6A52117A /* DateTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A049482B39298B8F3B517A5C0B16E631 /* DateTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7902018FD0635F9A5E4C13BFD67E3750 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C61A0100E3A8EED58A269B21F7FAD77F /* DateTools.bundle */; };
 		7A2443603A6234236847E83E4D4D84DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		7A3C7A5DAEB1C695F060F0248053A1A6 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F897EB8DE500AE8EC1BC2E457C11AE4 /* NSDate+DateTools.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		801E845E678344633F3972FA4FC16B7C /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = C4106E1B502A66941BF3272AAC3FB3FE /* DTTimePeriodChain.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		90A87EE8782173326731F70E73C5602B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		9BC7910A61F45206D435065CD0F23BA0 /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = 055D7CB38E320DB8BAC1DC21178D5200 /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A4A5DE1784D58F0D9AC336BE0A4936C4 /* DTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B75CEF6961AF4773E6E34E9C6220AD /* DTConstants.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		AFF4480B4B63FA58209AEC8052207A92 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C418B99056E178FB0C4B2CCD73CDFDB1 /* DTTimePeriodCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B116B651388E34E3CE3E9097BC83D47F /* DZNEmptyDataSet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F3442FFCC845552D6B3CF2E45957911D /* DZNEmptyDataSet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4137B6F5B1EF819B8DF88A194F598ED /* DTError.h in Headers */ = {isa = PBXBuildFile; fileRef = 717D22F555BAC3714584DE8248D658BF /* DTError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A3C7A5DAEB1C695F060F0248053A1A6 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = AA52BE228CBEF944EBCDE71CAB027348 /* NSDate+DateTools.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		801E845E678344633F3972FA4FC16B7C /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D3F5AF68FDF3B9A7238EEFB3A482AF /* DTTimePeriodChain.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8F1EA3F0B62E8E5C22F7DC0E4A72E213 /* RFKeyboardToolbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFE4DA49E029AD6401A6C9C85326473 /* RFKeyboardToolbar-dummy.m */; };
+		9BC7910A61F45206D435065CD0F23BA0 /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = AF69B25BF452A35C8EB7619328CC2D35 /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4A5DE1784D58F0D9AC336BE0A4936C4 /* DTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61B140B014E2C36F0CD2E7352CE237 /* DTConstants.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AFF4480B4B63FA58209AEC8052207A92 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C914B5D765E1393CA6D49076B8ACF54 /* DTTimePeriodCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B116B651388E34E3CE3E9097BC83D47F /* DZNEmptyDataSet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70EF329028CF9698401A040D3963A972 /* DZNEmptyDataSet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4137B6F5B1EF819B8DF88A194F598ED /* DTError.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C6048D148D14AEDB1822B54BDD2981 /* DTError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B7FDAC105AB53E3D878BCF26E2860012 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		BACD24C419E7D6C8EBE4B72A36CA2AFE /* Pods-TrackIt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1549AD0D615EC335DC21581BB8A89037 /* Pods-TrackIt-dummy.m */; };
-		C16E0F1A698E02F1D49D4593A71BE38F /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C702BC8F69785395BE690C3F5057922 /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C16E0F1A698E02F1D49D4593A71BE38F /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 42A74251F3E4ED40DEF6639D65FA2FA7 /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C22A1E168E25FA42753EBA6C4AE0C6F3 /* RFToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A289E0D9D9F6695715DB1297690FD09A /* RFToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAAD45C4CF53ECB0A96811C4CCCFAA2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
-		CC1CD7BAF05F362DECAA5698D1100896 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC034729873DA25F841B8929A90DB9E /* DTError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		DD710EA2C8E2D3E0917519775D1F571C /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AE21509EE28457D5B76B0619842162E7 /* DTTimePeriodGroup.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E14B01B2BDDA7C86AC2EBC45FCFEF52E /* UIScrollView+EmptyDataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5084027E279B037273CD63C4F1198E12 /* UIScrollView+EmptyDataSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE13D588E52431089F7406353C90A144 /* DTTimePeriodChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 59764560A1237C4C2A521386B5CE4732 /* DTTimePeriodChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F423AB12C14DA731C42897A3D929D2B8 /* DTTimePeriodCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBD66509E644635BBB6B2F429F513DB /* DTTimePeriodCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC1CD7BAF05F362DECAA5698D1100896 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7837B89D336A1FABE8C032BB93840A1B /* DTError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D2E1AD3EFEB099C2356AE93556A84944 /* RFToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0042EEFE616CCE11D206E1A6AC8AB1 /* RFToolbarButton.m */; };
+		D5D0971788B05A820BD418B7B6FB4284 /* Pods-TrackIt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DC06D62DC68E995765E740519045A761 /* Pods-TrackIt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D76ABBF96A645B5DE99C4681A4D6DE66 /* Pods-TrackIt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1549AD0D615EC335DC21581BB8A89037 /* Pods-TrackIt-dummy.m */; };
+		DD710EA2C8E2D3E0917519775D1F571C /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FA320741C9C408940D92CFDC5403D5E2 /* DTTimePeriodGroup.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E14B01B2BDDA7C86AC2EBC45FCFEF52E /* UIScrollView+EmptyDataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AE20BC99E0EB22ACD2786FDE01B8B6 /* UIScrollView+EmptyDataSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE13D588E52431089F7406353C90A144 /* DTTimePeriodChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 506EBE942F3EB174D58354F934B46579 /* DTTimePeriodChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F423AB12C14DA731C42897A3D929D2B8 /* DTTimePeriodCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = FFF8C08B7EA42A351E15A4F800907C54 /* DTTimePeriodCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		81F74380759D291B8271CDA97BDC6090 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 16FB872D0D2D4BA0F378AB34D47CF95F;
-			remoteInfo = DZNEmptyDataSet;
-		};
-		E3F0CDE256DB79B532730E03CC33E541 /* PBXContainerItemProxy */ = {
+		0CE5E35182DDCC9EEAC35C4916E6B2E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AFEDA8059B169E4068B6DCC4D2F0B0E9;
 			remoteInfo = DateTools;
 		};
+		6A63D008304F3FA9AD84EEC5642EAFE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37C3F39475F9A371BB10FFCD05B8208A;
+			remoteInfo = RFKeyboardToolbar;
+		};
+		AA5BDCD2E6D9CC1329012AA9F6969F01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16FB872D0D2D4BA0F378AB34D47CF95F;
+			remoteInfo = DZNEmptyDataSet;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		055D7CB38E320DB8BAC1DC21178D5200 /* DTTimePeriod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriod.h; path = DateTools/DTTimePeriod.h; sourceTree = "<group>"; };
-		05974CBE0B1FB5E72BAEAA8E47D8ADA4 /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools.bundle; sourceTree = "<group>"; };
-		0762DFA7067EDCC3371FBB2DB147E16B /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BD5AA69C561842057B7EE746AA1902E /* DZNEmptyDataSet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNEmptyDataSet-prefix.pch"; sourceTree = "<group>"; };
+		0C914B5D765E1393CA6D49076B8ACF54 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
+		0FA034F53E95B86EE5741D4BFBE2A906 /* RFKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RFKeyboardToolbar.m; path = RFKeyboardToolbar/RFKeyboardToolbar.m; sourceTree = "<group>"; };
+		13847251416DBF74FA7A9303FB9F0257 /* DateTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DateTools-dummy.m"; sourceTree = "<group>"; };
 		1549AD0D615EC335DC21581BB8A89037 /* Pods-TrackIt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TrackIt-dummy.m"; sourceTree = "<group>"; };
-		21AEFA4C6D13489C2C4F8ED821D20547 /* NSDate+DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+DateTools.h"; path = "DateTools/NSDate+DateTools.h"; sourceTree = "<group>"; };
-		2C8418C784EFBA3A191B5A0791BE23FF /* DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DateTools.h; path = DateTools/DateTools.h; sourceTree = "<group>"; };
-		2F897EB8DE500AE8EC1BC2E457C11AE4 /* NSDate+DateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+DateTools.m"; path = "DateTools/NSDate+DateTools.m"; sourceTree = "<group>"; };
-		3774BD6036F54979CB115435E9A791BC /* DTTimePeriod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriod.m; path = DateTools/DTTimePeriod.m; sourceTree = "<group>"; };
-		397B0D53FF00AFA9A89413BF276C6B61 /* DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTools.xcconfig; sourceTree = "<group>"; };
+		2248BBF10186733A4F883B4892C75D66 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		280F09CB811F859C46660A6CEFBBCD19 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DZNEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A61B140B014E2C36F0CD2E7352CE237 /* DTConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTConstants.m; path = DateTools/DTConstants.m; sourceTree = "<group>"; };
+		2E8803C54232A9DCA549791968469DB9 /* DZNEmptyDataSet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DZNEmptyDataSet.modulemap; sourceTree = "<group>"; };
+		2F0042EEFE616CCE11D206E1A6AC8AB1 /* RFToolbarButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RFToolbarButton.m; path = RFKeyboardToolbar/RFToolbarButton.m; sourceTree = "<group>"; };
+		304289E1BD19ACEB7D6A2A1790DE19C4 /* RFKeyboardToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RFKeyboardToolbar.h; path = RFKeyboardToolbar/RFKeyboardToolbar.h; sourceTree = "<group>"; };
 		3AC7B7A38EA1CB049D06B90F3EE63CE1 /* Pods-TrackIt.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TrackIt.modulemap"; sourceTree = "<group>"; };
 		3B2F359670657E3809DD6823BF3E7870 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C702BC8F69785395BE690C3F5057922 /* DTConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTConstants.h; path = DateTools/DTConstants.h; sourceTree = "<group>"; };
-		4338C98AD6075F00DA51340904DE08CE /* DateTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DateTools.modulemap; sourceTree = "<group>"; };
+		3D19139F8FAF16276707305E0D9C5700 /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4008B37F7F6F72A8D38CD04ACACBB423 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		416CC454B05799C292D6C4B7C91EBF46 /* RFKeyboardToolbar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RFKeyboardToolbar-prefix.pch"; sourceTree = "<group>"; };
+		42A74251F3E4ED40DEF6639D65FA2FA7 /* DTConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTConstants.h; path = DateTools/DTConstants.h; sourceTree = "<group>"; };
 		48738F8A86AB3B7879559592080D07B0 /* Pods-TrackIt-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TrackIt-resources.sh"; sourceTree = "<group>"; };
-		5084027E279B037273CD63C4F1198E12 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
-		55018776EED2BC78C69C93BB4DDD120B /* DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
-		59764560A1237C4C2A521386B5CE4732 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodChain.h; path = DateTools/DTTimePeriodChain.h; sourceTree = "<group>"; };
+		506EBE942F3EB174D58354F934B46579 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodChain.h; path = DateTools/DTTimePeriodChain.h; sourceTree = "<group>"; };
+		5417EAB1F65BE4900F8BA728003AE62B /* DZNEmptyDataSet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DZNEmptyDataSet.xcconfig; sourceTree = "<group>"; };
+		55D3F5AF68FDF3B9A7238EEFB3A482AF /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
+		5777445380B83268FE3DD2C9C1940C3C /* RFKeyboardToolbar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RFKeyboardToolbar-umbrella.h"; sourceTree = "<group>"; };
 		5C29BBAE433122C5FA717D477433D06E /* Pods-TrackIt-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TrackIt-frameworks.sh"; sourceTree = "<group>"; };
-		5FBD66509E644635BBB6B2F429F513DB /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodCollection.h; path = DateTools/DTTimePeriodCollection.h; sourceTree = "<group>"; };
 		62BDB1D673F80390CF9624F4B9FC978F /* Pods-TrackIt-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TrackIt-acknowledgements.plist"; sourceTree = "<group>"; };
 		68284879631FE150CCE7686E4A010D94 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
-		68B75CEF6961AF4773E6E34E9C6220AD /* DTConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTConstants.m; path = DateTools/DTConstants.m; sourceTree = "<group>"; };
-		6A9DEE4AA660FC8310E25BCDBE1C8D32 /* DateTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-umbrella.h"; sourceTree = "<group>"; };
+		69C6048D148D14AEDB1822B54BDD2981 /* DTError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTError.h; path = DateTools/DTError.h; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		717D22F555BAC3714584DE8248D658BF /* DTError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTError.h; path = DateTools/DTError.h; sourceTree = "<group>"; };
-		738DCFAE87A3E5075F0A0365C583BA69 /* DZNEmptyDataSet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DZNEmptyDataSet.modulemap; sourceTree = "<group>"; };
-		7F16BBCDA6140BD5C5D8E9C77B16405F /* DateTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-prefix.pch"; sourceTree = "<group>"; };
-		AE21509EE28457D5B76B0619842162E7 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodGroup.m; path = DateTools/DTTimePeriodGroup.m; sourceTree = "<group>"; };
-		AE3E106425A72E5DE888CAEEC2842C75 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodGroup.h; path = DateTools/DTTimePeriodGroup.h; sourceTree = "<group>"; };
+		6E9ABD59E15AEB5C2FB5A4F435D4C9E8 /* DateTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-prefix.pch"; sourceTree = "<group>"; };
+		70EF329028CF9698401A040D3963A972 /* DZNEmptyDataSet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNEmptyDataSet-umbrella.h"; sourceTree = "<group>"; };
+		74F015827F1736E3E63305302A946AD2 /* DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
+		777571241C87D7FC77E9701DA0215869 /* RFKeyboardToolbar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RFKeyboardToolbar.xcconfig; sourceTree = "<group>"; };
+		7837B89D336A1FABE8C032BB93840A1B /* DTError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTError.m; path = DateTools/DTError.m; sourceTree = "<group>"; };
+		7A7580DB283F49BFD60BC35851011E5A /* DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTools.xcconfig; sourceTree = "<group>"; };
+		87C96FAC2E143D2A41ADB6477C07B8E4 /* DateTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DateTools.modulemap; sourceTree = "<group>"; };
+		8DFAEA1B855875E32E05900FCFBA08FC /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		93AE20BC99E0EB22ACD2786FDE01B8B6 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		A049482B39298B8F3B517A5C0B16E631 /* DateTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTools-umbrella.h"; sourceTree = "<group>"; };
+		A289E0D9D9F6695715DB1297690FD09A /* RFToolbarButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RFToolbarButton.h; path = RFKeyboardToolbar/RFToolbarButton.h; sourceTree = "<group>"; };
+		AA52BE228CBEF944EBCDE71CAB027348 /* NSDate+DateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+DateTools.m"; path = "DateTools/NSDate+DateTools.m"; sourceTree = "<group>"; };
+		AA78A17587E6DED4DF0C9F6094177A49 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodGroup.h; path = DateTools/DTTimePeriodGroup.h; sourceTree = "<group>"; };
+		AAFE4DA49E029AD6401A6C9C85326473 /* RFKeyboardToolbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RFKeyboardToolbar-dummy.m"; sourceTree = "<group>"; };
+		AF69B25BF452A35C8EB7619328CC2D35 /* DTTimePeriod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriod.h; path = DateTools/DTTimePeriod.h; sourceTree = "<group>"; };
 		B26AF08A570C112426C2D6CE7381A956 /* Pods-TrackIt-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TrackIt-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B86627D4D75F80889A61319929CA8FF5 /* DTTimePeriod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriod.m; path = DateTools/DTTimePeriod.m; sourceTree = "<group>"; };
+		B8CF4F6F75F011DDAE6E9F8060586B6C /* DZNEmptyDataSet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNEmptyDataSet-prefix.pch"; sourceTree = "<group>"; };
+		B8E1CD651E61BEBEE52E4C2BDC11A579 /* RFKeyboardToolbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFKeyboardToolbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE5F348A7492471152954FB1019B1367 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB5497016970AAEA492B4262DEFED92 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		C4106E1B502A66941BF3272AAC3FB3FE /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
-		C418B99056E178FB0C4B2CCD73CDFDB1 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
-		C6927673B630B0EEB1BD32F0907A1A62 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC6D27EAFC691B6159CA6CE423EE7C01 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DZNEmptyDataSet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61A0100E3A8EED58A269B21F7FAD77F /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools.bundle; sourceTree = "<group>"; };
+		CC6BED397FA0D2808543DF7578CB04CF /* DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DateTools.h; path = DateTools/DateTools.h; sourceTree = "<group>"; };
 		CF71AD792D03B92390F5E34B6E2BF919 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
-		D5FFA3FBD8AD5FC08FC2A9DAC1263552 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBC034729873DA25F841B8929A90DB9E /* DTError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTError.m; path = DateTools/DTError.m; sourceTree = "<group>"; };
 		DC06D62DC68E995765E740519045A761 /* Pods-TrackIt-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TrackIt-umbrella.h"; sourceTree = "<group>"; };
-		E4FDD0DBEE04120E525D9D8295DA4833 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
-		E5FC995FA378FEB87CD2EAD4308A9586 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC85453EAF0E042A7201A238A4A1E215 /* DateTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DateTools-dummy.m"; sourceTree = "<group>"; };
-		F3442FFCC845552D6B3CF2E45957911D /* DZNEmptyDataSet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNEmptyDataSet-umbrella.h"; sourceTree = "<group>"; };
-		F67D78EE92396A604A88AA5F669B3563 /* DZNEmptyDataSet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DZNEmptyDataSet.xcconfig; sourceTree = "<group>"; };
+		DC643B4D3F274D004FBD57816D7E88B5 /* NSDate+DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+DateTools.h"; path = "DateTools/NSDate+DateTools.h"; sourceTree = "<group>"; };
+		E4EB71F104361237FCDA775F4C314E72 /* RFKeyboardToolbar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RFKeyboardToolbar.modulemap; sourceTree = "<group>"; };
+		FA320741C9C408940D92CFDC5403D5E2 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodGroup.m; path = DateTools/DTTimePeriodGroup.m; sourceTree = "<group>"; };
+		FFF8C08B7EA42A351E15A4F800907C54 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodCollection.h; path = DateTools/DTTimePeriodCollection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4F7C010C550CCFF3F99D8795F8EDBE33 /* Frameworks */ = {
+		6A42D94602588B357B2C7D16580D5760 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90A87EE8782173326731F70E73C5602B /* Foundation.framework in Frameworks */,
+				122A2B013F94312A707BF4B78061D6E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57276059A5D3D73524DD598B10A7EB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FECDD86356D8141816303294CD2998D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,28 +165,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14582F3338C984C2A683684175C69E71 /* DateTools */ = {
+		1787DFD0BB975BE4AAC77CD731408094 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2C8418C784EFBA3A191B5A0791BE23FF /* DateTools.h */,
-				3C702BC8F69785395BE690C3F5057922 /* DTConstants.h */,
-				68B75CEF6961AF4773E6E34E9C6220AD /* DTConstants.m */,
-				717D22F555BAC3714584DE8248D658BF /* DTError.h */,
-				DBC034729873DA25F841B8929A90DB9E /* DTError.m */,
-				055D7CB38E320DB8BAC1DC21178D5200 /* DTTimePeriod.h */,
-				3774BD6036F54979CB115435E9A791BC /* DTTimePeriod.m */,
-				59764560A1237C4C2A521386B5CE4732 /* DTTimePeriodChain.h */,
-				C4106E1B502A66941BF3272AAC3FB3FE /* DTTimePeriodChain.m */,
-				5FBD66509E644635BBB6B2F429F513DB /* DTTimePeriodCollection.h */,
-				C418B99056E178FB0C4B2CCD73CDFDB1 /* DTTimePeriodCollection.m */,
-				AE3E106425A72E5DE888CAEEC2842C75 /* DTTimePeriodGroup.h */,
-				AE21509EE28457D5B76B0619842162E7 /* DTTimePeriodGroup.m */,
-				21AEFA4C6D13489C2C4F8ED821D20547 /* NSDate+DateTools.h */,
-				2F897EB8DE500AE8EC1BC2E457C11AE4 /* NSDate+DateTools.m */,
-				F164E0496FB1CF8362006517FDFF5954 /* Resources */,
-				A2BFD997B58A977D66794751FD9ADA2C /* Support Files */,
+				C61A0100E3A8EED58A269B21F7FAD77F /* DateTools.bundle */,
 			);
-			path = DateTools;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		18340F12838DEE43507667CC74401EB1 /* iOS */ = {
@@ -165,12 +182,36 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		28768A80C0AFA5E23CCAD120D1B9109D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFB5497016970AAEA492B4262DEFED92 /* Info.plist */,
+				E4EB71F104361237FCDA775F4C314E72 /* RFKeyboardToolbar.modulemap */,
+				777571241C87D7FC77E9701DA0215869 /* RFKeyboardToolbar.xcconfig */,
+				AAFE4DA49E029AD6401A6C9C85326473 /* RFKeyboardToolbar-dummy.m */,
+				416CC454B05799C292D6C4B7C91EBF46 /* RFKeyboardToolbar-prefix.pch */,
+				5777445380B83268FE3DD2C9C1940C3C /* RFKeyboardToolbar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RFKeyboardToolbar";
+			sourceTree = "<group>";
+		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				18340F12838DEE43507667CC74401EB1 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FD9E0044AB3CC3DBCC816398C7ACB84 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE5052C9AD672EE6B622F30A665F3ED0 /* DateTools */,
+				C20E0DD428C2D9ADFBBD139D28F210F3 /* DZNEmptyDataSet */,
+				F94D2249373B36EBE8560D27BCAA1906 /* RFKeyboardToolbar */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		6FD8BDC343903E4967C554338971C459 /* Pods-TrackIt */ = {
@@ -196,19 +237,10 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				970B26A70DBC0705F1355BA2A993CAF9 /* Pods */,
-				EC14378E74A32AC623FB9E061AB1D6B4 /* Products */,
+				4FD9E0044AB3CC3DBCC816398C7ACB84 /* Pods */,
+				EC7C5CDC231ACA5FEE7FACCC3CD78680 /* Products */,
 				99F60D5C9FF8467150D55829CFB74B55 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		970B26A70DBC0705F1355BA2A993CAF9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				14582F3338C984C2A683684175C69E71 /* DateTools */,
-				F86A856E2B6B7B68852B0E095609E8C9 /* DZNEmptyDataSet */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		99F60D5C9FF8467150D55829CFB74B55 /* Targets Support Files */ = {
@@ -219,79 +251,108 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A2BFD997B58A977D66794751FD9ADA2C /* Support Files */ = {
+		BE5052C9AD672EE6B622F30A665F3ED0 /* DateTools */ = {
 			isa = PBXGroup;
 			children = (
-				4338C98AD6075F00DA51340904DE08CE /* DateTools.modulemap */,
-				397B0D53FF00AFA9A89413BF276C6B61 /* DateTools.xcconfig */,
-				EC85453EAF0E042A7201A238A4A1E215 /* DateTools-dummy.m */,
-				7F16BBCDA6140BD5C5D8E9C77B16405F /* DateTools-prefix.pch */,
-				6A9DEE4AA660FC8310E25BCDBE1C8D32 /* DateTools-umbrella.h */,
-				D5FFA3FBD8AD5FC08FC2A9DAC1263552 /* Info.plist */,
+				CC6BED397FA0D2808543DF7578CB04CF /* DateTools.h */,
+				42A74251F3E4ED40DEF6639D65FA2FA7 /* DTConstants.h */,
+				2A61B140B014E2C36F0CD2E7352CE237 /* DTConstants.m */,
+				69C6048D148D14AEDB1822B54BDD2981 /* DTError.h */,
+				7837B89D336A1FABE8C032BB93840A1B /* DTError.m */,
+				AF69B25BF452A35C8EB7619328CC2D35 /* DTTimePeriod.h */,
+				B86627D4D75F80889A61319929CA8FF5 /* DTTimePeriod.m */,
+				506EBE942F3EB174D58354F934B46579 /* DTTimePeriodChain.h */,
+				55D3F5AF68FDF3B9A7238EEFB3A482AF /* DTTimePeriodChain.m */,
+				FFF8C08B7EA42A351E15A4F800907C54 /* DTTimePeriodCollection.h */,
+				0C914B5D765E1393CA6D49076B8ACF54 /* DTTimePeriodCollection.m */,
+				AA78A17587E6DED4DF0C9F6094177A49 /* DTTimePeriodGroup.h */,
+				FA320741C9C408940D92CFDC5403D5E2 /* DTTimePeriodGroup.m */,
+				DC643B4D3F274D004FBD57816D7E88B5 /* NSDate+DateTools.h */,
+				AA52BE228CBEF944EBCDE71CAB027348 /* NSDate+DateTools.m */,
+				1787DFD0BB975BE4AAC77CD731408094 /* Resources */,
+				CC883A6F0B6E8BAD134D68B0C7DDFD09 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/DateTools";
+			path = DateTools;
 			sourceTree = "<group>";
 		};
-		CDFE56396D0D80C7D093EB45B5F29464 /* Support Files */ = {
+		C20E0DD428C2D9ADFBBD139D28F210F3 /* DZNEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
-				738DCFAE87A3E5075F0A0365C583BA69 /* DZNEmptyDataSet.modulemap */,
-				F67D78EE92396A604A88AA5F669B3563 /* DZNEmptyDataSet.xcconfig */,
-				55018776EED2BC78C69C93BB4DDD120B /* DZNEmptyDataSet-dummy.m */,
-				0BD5AA69C561842057B7EE746AA1902E /* DZNEmptyDataSet-prefix.pch */,
-				F3442FFCC845552D6B3CF2E45957911D /* DZNEmptyDataSet-umbrella.h */,
-				C6927673B630B0EEB1BD32F0907A1A62 /* Info.plist */,
+				93AE20BC99E0EB22ACD2786FDE01B8B6 /* UIScrollView+EmptyDataSet.h */,
+				8DFAEA1B855875E32E05900FCFBA08FC /* UIScrollView+EmptyDataSet.m */,
+				C2CE8C68C345355CA7785F779C1E4D6C /* Support Files */,
+			);
+			path = DZNEmptyDataSet;
+			sourceTree = "<group>";
+		};
+		C2CE8C68C345355CA7785F779C1E4D6C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E8803C54232A9DCA549791968469DB9 /* DZNEmptyDataSet.modulemap */,
+				5417EAB1F65BE4900F8BA728003AE62B /* DZNEmptyDataSet.xcconfig */,
+				74F015827F1736E3E63305302A946AD2 /* DZNEmptyDataSet-dummy.m */,
+				B8CF4F6F75F011DDAE6E9F8060586B6C /* DZNEmptyDataSet-prefix.pch */,
+				70EF329028CF9698401A040D3963A972 /* DZNEmptyDataSet-umbrella.h */,
+				BE5F348A7492471152954FB1019B1367 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/DZNEmptyDataSet";
 			sourceTree = "<group>";
 		};
-		EC14378E74A32AC623FB9E061AB1D6B4 /* Products */ = {
+		CC883A6F0B6E8BAD134D68B0C7DDFD09 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0762DFA7067EDCC3371FBB2DB147E16B /* DateTools.framework */,
-				CC6D27EAFC691B6159CA6CE423EE7C01 /* DZNEmptyDataSet.framework */,
-				E5FC995FA378FEB87CD2EAD4308A9586 /* Pods_TrackIt.framework */,
+				87C96FAC2E143D2A41ADB6477C07B8E4 /* DateTools.modulemap */,
+				7A7580DB283F49BFD60BC35851011E5A /* DateTools.xcconfig */,
+				13847251416DBF74FA7A9303FB9F0257 /* DateTools-dummy.m */,
+				6E9ABD59E15AEB5C2FB5A4F435D4C9E8 /* DateTools-prefix.pch */,
+				A049482B39298B8F3B517A5C0B16E631 /* DateTools-umbrella.h */,
+				4008B37F7F6F72A8D38CD04ACACBB423 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DateTools";
+			sourceTree = "<group>";
+		};
+		EC7C5CDC231ACA5FEE7FACCC3CD78680 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D19139F8FAF16276707305E0D9C5700 /* DateTools.framework */,
+				280F09CB811F859C46660A6CEFBBCD19 /* DZNEmptyDataSet.framework */,
+				2248BBF10186733A4F883B4892C75D66 /* Pods_TrackIt.framework */,
+				B8E1CD651E61BEBEE52E4C2BDC11A579 /* RFKeyboardToolbar.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F164E0496FB1CF8362006517FDFF5954 /* Resources */ = {
+		F94D2249373B36EBE8560D27BCAA1906 /* RFKeyboardToolbar */ = {
 			isa = PBXGroup;
 			children = (
-				05974CBE0B1FB5E72BAEAA8E47D8ADA4 /* DateTools.bundle */,
+				304289E1BD19ACEB7D6A2A1790DE19C4 /* RFKeyboardToolbar.h */,
+				0FA034F53E95B86EE5741D4BFBE2A906 /* RFKeyboardToolbar.m */,
+				A289E0D9D9F6695715DB1297690FD09A /* RFToolbarButton.h */,
+				2F0042EEFE616CCE11D206E1A6AC8AB1 /* RFToolbarButton.m */,
+				28768A80C0AFA5E23CCAD120D1B9109D /* Support Files */,
 			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		F86A856E2B6B7B68852B0E095609E8C9 /* DZNEmptyDataSet */ = {
-			isa = PBXGroup;
-			children = (
-				5084027E279B037273CD63C4F1198E12 /* UIScrollView+EmptyDataSet.h */,
-				E4FDD0DBEE04120E525D9D8295DA4833 /* UIScrollView+EmptyDataSet.m */,
-				CDFE56396D0D80C7D093EB45B5F29464 /* Support Files */,
-			);
-			path = DZNEmptyDataSet;
+			path = RFKeyboardToolbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		49DBBA757EB2CC3C39766DCDAE8E7B74 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D0971788B05A820BD418B7B6FB4284 /* Pods-TrackIt-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D9C9A2043A53A3AE91808894C7E05FB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B116B651388E34E3CE3E9097BC83D47F /* DZNEmptyDataSet-umbrella.h in Headers */,
 				E14B01B2BDDA7C86AC2EBC45FCFEF52E /* UIScrollView+EmptyDataSet.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50052BE8AA899763ED9D6A87A36C347A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BB821C2BC1ED4467C903E168C69C4E9 /* Pods-TrackIt-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +369,16 @@
 				F423AB12C14DA731C42897A3D929D2B8 /* DTTimePeriodCollection.h in Headers */,
 				6F00A3D837A718CBC5D7C7157CCF71A2 /* DTTimePeriodGroup.h in Headers */,
 				66D6CA16EF2371E39FAB73473A89D8C1 /* NSDate+DateTools.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8CE85B6DF06A41765C1F4CDA53AB42 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14769CB9CCA1E09EB3A57BFB91B44A89 /* RFKeyboardToolbar-umbrella.h in Headers */,
+				4082D26D3E8F4DCCC9FE79A1466E092D /* RFKeyboardToolbar.h in Headers */,
+				C22A1E168E25FA42753EBA6C4AE0C6F3 /* RFToolbarButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,26 +399,44 @@
 			);
 			name = DZNEmptyDataSet;
 			productName = DZNEmptyDataSet;
-			productReference = CC6D27EAFC691B6159CA6CE423EE7C01 /* DZNEmptyDataSet.framework */;
+			productReference = 280F09CB811F859C46660A6CEFBBCD19 /* DZNEmptyDataSet.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		71065816CF2AD2327F004DABB799349E /* Pods-TrackIt */ = {
+		2ABDD965394304ADD040F81FC15C0C9F /* Pods-TrackIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7627A4D20F963F09AEF2A54499AA3F85 /* Build configuration list for PBXNativeTarget "Pods-TrackIt" */;
+			buildConfigurationList = 4CBA4F2C1A000DA54FA000FC31F11FB0 /* Build configuration list for PBXNativeTarget "Pods-TrackIt" */;
 			buildPhases = (
-				9BCC1429D8B25509893B95E052A636AE /* Sources */,
-				4F7C010C550CCFF3F99D8795F8EDBE33 /* Frameworks */,
-				50052BE8AA899763ED9D6A87A36C347A /* Headers */,
+				92D24D554F1D4A8C8700462BF481225D /* Sources */,
+				A57276059A5D3D73524DD598B10A7EB5 /* Frameworks */,
+				49DBBA757EB2CC3C39766DCDAE8E7B74 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1E0BA8BB9E8727DFEBC33EBFAF996470 /* PBXTargetDependency */,
-				E50743E0E75ABC4FD98218A7EC96B0A6 /* PBXTargetDependency */,
+				F86C8D46A575A26E66B8EFBF2B38EAD5 /* PBXTargetDependency */,
+				A97CD2F57B1BA219580DACFF8C3D8642 /* PBXTargetDependency */,
+				7D91681F4F2C5D3B6B0DDA603844D765 /* PBXTargetDependency */,
 			);
 			name = "Pods-TrackIt";
 			productName = "Pods-TrackIt";
-			productReference = E5FC995FA378FEB87CD2EAD4308A9586 /* Pods_TrackIt.framework */;
+			productReference = 2248BBF10186733A4F883B4892C75D66 /* Pods_TrackIt.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		37C3F39475F9A371BB10FFCD05B8208A /* RFKeyboardToolbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C55EC218A995DA81D26E2F343FC8C053 /* Build configuration list for PBXNativeTarget "RFKeyboardToolbar" */;
+			buildPhases = (
+				D66C44072C3AE46AA21E45A44BF06B4C /* Sources */,
+				6A42D94602588B357B2C7D16580D5760 /* Frameworks */,
+				DE8CE85B6DF06A41765C1F4CDA53AB42 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RFKeyboardToolbar;
+			productName = RFKeyboardToolbar;
+			productReference = B8E1CD651E61BEBEE52E4C2BDC11A579 /* RFKeyboardToolbar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		AFEDA8059B169E4068B6DCC4D2F0B0E9 /* DateTools */ = {
@@ -365,7 +454,7 @@
 			);
 			name = DateTools;
 			productName = DateTools;
-			productReference = 0762DFA7067EDCC3371FBB2DB147E16B /* DateTools.framework */;
+			productReference = 3D19139F8FAF16276707305E0D9C5700 /* DateTools.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -385,13 +474,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = EC14378E74A32AC623FB9E061AB1D6B4 /* Products */;
+			productRefGroup = EC7C5CDC231ACA5FEE7FACCC3CD78680 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				AFEDA8059B169E4068B6DCC4D2F0B0E9 /* DateTools */,
 				16FB872D0D2D4BA0F378AB34D47CF95F /* DZNEmptyDataSet */,
-				71065816CF2AD2327F004DABB799349E /* Pods-TrackIt */,
+				2ABDD965394304ADD040F81FC15C0C9F /* Pods-TrackIt */,
+				37C3F39475F9A371BB10FFCD05B8208A /* RFKeyboardToolbar */,
 			);
 		};
 /* End PBXProject section */
@@ -423,11 +513,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BCC1429D8B25509893B95E052A636AE /* Sources */ = {
+		92D24D554F1D4A8C8700462BF481225D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BACD24C419E7D6C8EBE4B72A36CA2AFE /* Pods-TrackIt-dummy.m in Sources */,
+				D76ABBF96A645B5DE99C4681A4D6DE66 /* Pods-TrackIt-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,27 +530,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D66C44072C3AE46AA21E45A44BF06B4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1EA3F0B62E8E5C22F7DC0E4A72E213 /* RFKeyboardToolbar-dummy.m in Sources */,
+				6ED5E63355D33B2C4E742B317B3E4E27 /* RFKeyboardToolbar.m in Sources */,
+				D2E1AD3EFEB099C2356AE93556A84944 /* RFToolbarButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1E0BA8BB9E8727DFEBC33EBFAF996470 /* PBXTargetDependency */ = {
+		7D91681F4F2C5D3B6B0DDA603844D765 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = DZNEmptyDataSet;
-			target = 16FB872D0D2D4BA0F378AB34D47CF95F /* DZNEmptyDataSet */;
-			targetProxy = 81F74380759D291B8271CDA97BDC6090 /* PBXContainerItemProxy */;
+			name = RFKeyboardToolbar;
+			target = 37C3F39475F9A371BB10FFCD05B8208A /* RFKeyboardToolbar */;
+			targetProxy = 6A63D008304F3FA9AD84EEC5642EAFE1 /* PBXContainerItemProxy */;
 		};
-		E50743E0E75ABC4FD98218A7EC96B0A6 /* PBXTargetDependency */ = {
+		A97CD2F57B1BA219580DACFF8C3D8642 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DateTools;
 			target = AFEDA8059B169E4068B6DCC4D2F0B0E9 /* DateTools */;
-			targetProxy = E3F0CDE256DB79B532730E03CC33E541 /* PBXContainerItemProxy */;
+			targetProxy = 0CE5E35182DDCC9EEAC35C4916E6B2E4 /* PBXContainerItemProxy */;
+		};
+		F86C8D46A575A26E66B8EFBF2B38EAD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DZNEmptyDataSet;
+			target = 16FB872D0D2D4BA0F378AB34D47CF95F /* DZNEmptyDataSet */;
+			targetProxy = AA5BDCD2E6D9CC1329012AA9F6969F01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3A753FEBB8B53C593D7B802441CF24F6 /* Release */ = {
+		13A56558EFE6AEB37E626035F14F8FD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 397B0D53FF00AFA9A89413BF276C6B61 /* DateTools.xcconfig */;
+			baseConfigurationReference = 777571241C87D7FC77E9701DA0215869 /* RFKeyboardToolbar.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -469,71 +575,14 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DateTools/DateTools-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DateTools/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/RFKeyboardToolbar/RFKeyboardToolbar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RFKeyboardToolbar/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DateTools/DateTools.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = DateTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6415BA4D87D446E5A778CF81AB61B184 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF71AD792D03B92390F5E34B6E2BF919 /* Pods-TrackIt.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TrackIt/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TrackIt/Pods-TrackIt.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_TrackIt;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9E393585A9CAF01D44C80A363D0971C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F67D78EE92396A604A88AA5F669B3563 /* DZNEmptyDataSet.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DZNEmptyDataSet/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet.modulemap";
+				MODULEMAP_FILE = "Target Support Files/RFKeyboardToolbar/RFKeyboardToolbar.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DZNEmptyDataSet;
+				PRODUCT_NAME = RFKeyboardToolbar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -542,61 +591,7 @@
 			};
 			name = Debug;
 		};
-		A0CE1555924EFF4C8DCDAFBCD73FB93F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 397B0D53FF00AFA9A89413BF276C6B61 /* DateTools.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DateTools/DateTools-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DateTools/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DateTools/DateTools.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DateTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A1CFA301DFFC086B20892EB33A86288F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F67D78EE92396A604A88AA5F669B3563 /* DZNEmptyDataSet.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DZNEmptyDataSet/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = DZNEmptyDataSet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		AFD1275A20B62A14593ED5CEE0DABF9A /* Debug */ = {
+		2503A3249AE5EB4CADCBB552775F48FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68284879631FE150CCE7686E4A010D94 /* Pods-TrackIt.debug.xcconfig */;
 			buildSettings = {
@@ -625,6 +620,141 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		28E1D1368EB7B8B6657B55B091BD6BC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 777571241C87D7FC77E9701DA0215869 /* RFKeyboardToolbar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RFKeyboardToolbar/RFKeyboardToolbar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RFKeyboardToolbar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RFKeyboardToolbar/RFKeyboardToolbar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = RFKeyboardToolbar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3A753FEBB8B53C593D7B802441CF24F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A7580DB283F49BFD60BC35851011E5A /* DateTools.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DateTools/DateTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DateTools/DateTools.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DateTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9E393585A9CAF01D44C80A363D0971C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5417EAB1F65BE4900F8BA728003AE62B /* DZNEmptyDataSet.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DZNEmptyDataSet/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DZNEmptyDataSet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A0CE1555924EFF4C8DCDAFBCD73FB93F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A7580DB283F49BFD60BC35851011E5A /* DateTools.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DateTools/DateTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DateTools/DateTools.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DateTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1CFA301DFFC086B20892EB33A86288F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5417EAB1F65BE4900F8BA728003AE62B /* DZNEmptyDataSet.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DZNEmptyDataSet/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DZNEmptyDataSet/DZNEmptyDataSet.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DZNEmptyDataSet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		C074F63C9EE7CB4D8C618390A32CEC35 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -699,6 +829,36 @@
 			};
 			name = Release;
 		};
+		FDEF1A5712FAEE25C4819798775CF9EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF71AD792D03B92390F5E34B6E2BF919 /* Pods-TrackIt.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TrackIt/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TrackIt/Pods-TrackIt.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TrackIt;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -720,11 +880,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7627A4D20F963F09AEF2A54499AA3F85 /* Build configuration list for PBXNativeTarget "Pods-TrackIt" */ = {
+		4CBA4F2C1A000DA54FA000FC31F11FB0 /* Build configuration list for PBXNativeTarget "Pods-TrackIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFD1275A20B62A14593ED5CEE0DABF9A /* Debug */,
-				6415BA4D87D446E5A778CF81AB61B184 /* Release */,
+				2503A3249AE5EB4CADCBB552775F48FC /* Debug */,
+				FDEF1A5712FAEE25C4819798775CF9EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -734,6 +894,15 @@
 			buildConfigurations = (
 				A0CE1555924EFF4C8DCDAFBCD73FB93F /* Debug */,
 				3A753FEBB8B53C593D7B802441CF24F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C55EC218A995DA81D26E2F343FC8C053 /* Build configuration list for PBXNativeTarget "RFKeyboardToolbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A56558EFE6AEB37E626035F14F8FD0 /* Debug */,
+				28E1D1368EB7B8B6657B55B091BD6BC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

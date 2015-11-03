@@ -13,11 +13,13 @@
 #import "UIColor+FlatUI.h"
 #import "AppDelegate.h"
 #import "NSDate+DateTools.h"
+#import "RFKeyboardToolbar+DoneButton.h"
 
 @interface AddEntryViewController ()
 
 @property (nonatomic) BOOL datePickerShowing;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
+@property (strong, nonatomic) RFKeyboardToolbar *doneBar;
 
 @end
 
@@ -32,6 +34,12 @@
     
     if(!self.entry)
         self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+    
+    self.doneBar = [RFKeyboardToolbar toolbarWithButtons:nil];
+    __weak AddEntryViewController *weakSelf = self;
+    [self.doneBar addDoneButtonWithHandler:^(id sender) {
+        [weakSelf.tableView endEditing:YES];
+    }];
 }
 
 #pragma mark - UIDatePicker
@@ -58,6 +66,12 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(range.location == 0 && range.length == 1 && ![string isEqualToString:@"$"])
+        return NO;
+    else return YES;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
@@ -122,6 +136,7 @@
         AmountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"amountCell" forIndexPath:indexPath];
         cell.textField.delegate = self;
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
+        cell.textField.inputAccessoryView = self.doneBar;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -130,6 +145,7 @@
     else if([identifier isEqualToString:@"noteCell"]) {
         NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noteCell" forIndexPath:indexPath];
         cell.textView.delegate = self;
+        cell.textView.inputAccessoryView = self.doneBar;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;

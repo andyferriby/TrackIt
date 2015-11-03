@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RFKeyboardToolbar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -27,7 +32,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71065816CF2AD2327F004DABB799349E</key>
+		<key>2ABDD965394304ADD040F81FC15C0C9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37C3F39475F9A371BB10FFCD05B8208A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
