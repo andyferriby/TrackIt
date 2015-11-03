@@ -59,6 +59,7 @@
     
     Entry *entry = [self.model entryAtIndex:indexPath.row];
     cell.amountLabel.text = [self.numberFormatter stringFromNumber:entry.amount];
+    cell.amountLabel.textColor = [UIColor colorWithRed:1/255.0 green:152/255.0 blue:117/255.0 alpha:1.0];
     cell.dateLabel.text = [[NSDate date] formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
     cell.noteLabel.text = entry.note;
     
@@ -82,8 +83,8 @@
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = @"No Spending Recorded";
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
-                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20.0f],
+                                 NSForegroundColorAttributeName: [UIColor colorWithRed:1/255.0 green:152/255.0 blue:117/255.0 alpha:1.0]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
