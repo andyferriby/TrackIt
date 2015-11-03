@@ -36,6 +36,12 @@
     self.tableView.emptyDataSetDelegate = self;
     
     self.tableView.tableFooterView = [UIView new];
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
 }
 
 #pragma mark - UITableView
@@ -57,6 +63,18 @@
     cell.noteLabel.text = entry.note;
     
     return cell;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.model deleteEntryAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadEmptyDataSet];
+    }
 }
 
 #pragma mark - DZNEmptyDataSet
@@ -84,6 +102,10 @@
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
+    return -1*self.navigationController.navigationBar.frame.size.height;
+}
+
 #pragma mark - EntryDelegate
 
 -(void)entryCanceled {
@@ -94,15 +116,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.model refreshEntries];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - Navigation
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"addEntrySegue"]) {
-        AddEntryViewController *vc = segue.destinationViewController;
-        vc.delegate = self;
-    }
+    [self.tableView reloadEmptyDataSet];
 }
 
 @end

@@ -114,6 +114,7 @@
     if([identifier isEqualToString:@"dateCell"]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
         cell.detailTextLabel.text = [self.entry.date formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
         return cell;
     }
@@ -121,6 +122,7 @@
         AmountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"amountCell" forIndexPath:indexPath];
         cell.textField.delegate = self;
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
         
@@ -128,11 +130,13 @@
     else if([identifier isEqualToString:@"noteCell"]) {
         NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noteCell" forIndexPath:indexPath];
         cell.textView.delegate = self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
     }
     else if([identifier isEqualToString:@"datePickerCell"]) {
         DatePickerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"datePickerCell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
     }
@@ -146,6 +150,7 @@
             cell.textLabel.text = @"Cancel";
             cell.textLabel.textColor = [UIColor redColor];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
         return cell;
     }

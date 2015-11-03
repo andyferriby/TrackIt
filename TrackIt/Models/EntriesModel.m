@@ -41,4 +41,16 @@
     }
 }
 
+-(void)deleteEntryAtIndex:(NSInteger)index {
+    Entry *entry = self.entries[index];
+    NSError *error;
+    
+    [((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext deleteObject:entry];
+    [((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext save:&error];
+    
+    if(error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+    [self refreshEntries];
+}
 @end

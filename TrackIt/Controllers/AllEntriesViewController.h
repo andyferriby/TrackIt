@@ -11,8 +11,6 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "AddEntryViewController.h"
 
-@interface AllEntriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface AllEntriesViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
 @end

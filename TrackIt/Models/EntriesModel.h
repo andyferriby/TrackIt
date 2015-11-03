@@ -13,6 +13,8 @@
 
 -(NSInteger)numberOfEntries;
 -(Entry *)entryAtIndex:(NSInteger)index;
+
 -(void)refreshEntries;
+-(void)deleteEntryAtIndex:(NSInteger)index;
 
 @end
