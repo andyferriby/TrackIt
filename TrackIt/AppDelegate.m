@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UIColor *moneyColor = [UIColor colorWithRed:1/255.0 green:152/255.0 blue:117/255.0 alpha:1.0];
+    UIFont *lightFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0];
+    UIFont *lightFontSmall = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
+    self.window.tintColor = moneyColor;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : moneyColor, NSFontAttributeName : lightFont}];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : moneyColor, NSFontAttributeName : lightFontSmall} forState:UIControlStateNormal];
+    
     return YES;
 }
 
