@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		960105C21BE843A100979763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105C11BE843A100979763 /* main.m */; };
 		960105C51BE843A100979763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105C41BE843A100979763 /* AppDelegate.m */; };
-		960105C81BE843A100979763 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105C71BE843A100979763 /* ViewController.m */; };
 		960105CB1BE843A100979763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105C91BE843A100979763 /* Main.storyboard */; };
-		960105CE1BE843A100979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105CC1BE843A100979763 /* TrackIt.xcdatamodeld */; };
 		960105D01BE843A100979763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960105CF1BE843A100979763 /* Assets.xcassets */; };
 		960105D31BE843A100979763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105D11BE843A100979763 /* LaunchScreen.storyboard */; };
+		960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */; };
+		960105E21BE8445E00979763 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E01BE8445E00979763 /* Entry.m */; };
+		960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105E31BE8449500979763 /* TrackIt.xcdatamodeld */; };
+		960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesViewController.m */; };
+		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
+		960105EE1BE84FAE00979763 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105ED1BE84FAE00979763 /* EntryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +25,21 @@
 		960105C11BE843A100979763 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		960105C31BE843A100979763 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		960105C41BE843A100979763 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		960105C61BE843A100979763 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		960105C71BE843A100979763 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		960105CA1BE843A100979763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		960105CD1BE843A100979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
 		960105CF1BE843A100979763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		960105D21BE843A100979763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		960105D41BE843A100979763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		960105DD1BE8445E00979763 /* Entry+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Entry+CoreDataProperties.h"; path = "Core Data/Entry+CoreDataProperties.h"; sourceTree = "<group>"; };
+		960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Entry+CoreDataProperties.m"; path = "Core Data/Entry+CoreDataProperties.m"; sourceTree = "<group>"; };
+		960105DF1BE8445E00979763 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entry.h; path = "Core Data/Entry.h"; sourceTree = "<group>"; };
+		960105E01BE8445E00979763 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entry.m; path = "Core Data/Entry.m"; sourceTree = "<group>"; };
+		960105E41BE8449500979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
+		960105E61BE8453300979763 /* AllEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesViewController.h; path = Controllers/AllEntriesViewController.h; sourceTree = "<group>"; };
+		960105E71BE8453300979763 /* AllEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesViewController.m; path = Controllers/AllEntriesViewController.m; sourceTree = "<group>"; };
+		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntriesModel.h; sourceTree = "<group>"; };
+		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntriesModel.m; sourceTree = "<group>"; };
+		960105EC1BE84FAE00979763 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryCell.h; path = Views/EntryCell.h; sourceTree = "<group>"; };
+		960105ED1BE84FAE00979763 /* EntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryCell.m; path = Views/EntryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +72,14 @@
 		960105BF1BE843A100979763 /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
-				960105C31BE843A100979763 /* AppDelegate.h */,
-				960105C41BE843A100979763 /* AppDelegate.m */,
-				960105C61BE843A100979763 /* ViewController.h */,
-				960105C71BE843A100979763 /* ViewController.m */,
 				960105C91BE843A100979763 /* Main.storyboard */,
 				960105CF1BE843A100979763 /* Assets.xcassets */,
-				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
-				960105D41BE843A100979763 /* Info.plist */,
-				960105CC1BE843A100979763 /* TrackIt.xcdatamodeld */,
+				960105C31BE843A100979763 /* AppDelegate.h */,
+				960105C41BE843A100979763 /* AppDelegate.m */,
+				960105DC1BE8441100979763 /* Models */,
+				960105DB1BE8440B00979763 /* Controllers */,
+				960105EF1BE84FB200979763 /* Views */,
+				960105DA1BE8440200979763 /* Core Data */,
 				960105C01BE843A100979763 /* Supporting Files */,
 			);
 			path = TrackIt;
@@ -77,9 +88,50 @@
 		960105C01BE843A100979763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				960105D41BE843A100979763 /* Info.plist */,
+				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
 				960105C11BE843A100979763 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		960105DA1BE8440200979763 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				960105E31BE8449500979763 /* TrackIt.xcdatamodeld */,
+				960105DD1BE8445E00979763 /* Entry+CoreDataProperties.h */,
+				960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */,
+				960105DF1BE8445E00979763 /* Entry.h */,
+				960105E01BE8445E00979763 /* Entry.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		960105DB1BE8440B00979763 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				960105E61BE8453300979763 /* AllEntriesViewController.h */,
+				960105E71BE8453300979763 /* AllEntriesViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		960105DC1BE8441100979763 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				960105E91BE84C8600979763 /* EntriesModel.h */,
+				960105EA1BE84C8600979763 /* EntriesModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		960105EF1BE84FB200979763 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				960105EC1BE84FAE00979763 /* EntryCell.h */,
+				960105ED1BE84FAE00979763 /* EntryCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,10 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960105C81BE843A100979763 /* ViewController.m in Sources */,
+				960105EE1BE84FAE00979763 /* EntryCell.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
-				960105CE1BE843A100979763 /* TrackIt.xcdatamodeld in Sources */,
+				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
+				960105E21BE8445E00979763 /* Entry.m in Sources */,
+				960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
+				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
+				960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,13 +362,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		960105CC1BE843A100979763 /* TrackIt.xcdatamodeld */ = {
+		960105E31BE8449500979763 /* TrackIt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				960105CD1BE843A100979763 /* TrackIt.xcdatamodel */,
+				960105E41BE8449500979763 /* TrackIt.xcdatamodel */,
 			);
-			currentVersion = 960105CD1BE843A100979763 /* TrackIt.xcdatamodel */;
-			path = TrackIt.xcdatamodeld;
+			currentVersion = 960105E41BE8449500979763 /* TrackIt.xcdatamodel */;
+			name = TrackIt.xcdatamodeld;
+			path = "Core Data/TrackIt.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
