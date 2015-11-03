@@ -8,10 +8,13 @@
 
 #import "AllEntriesViewController.h"
 #import "EntriesModel.h"
+#import "NSDate+DateTools.h"
+#import "AppDelegate.h"
 
 @interface AllEntriesViewController ()
 
 @property (strong, nonatomic) EntriesModel *model;
+@property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 
 @end
 
@@ -23,15 +26,16 @@
     
     self.model = [EntriesModel new];
     
+    self.numberFormatter = [[NSNumberFormatter alloc] init];
+    self.numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    
+    self.tableView.estimatedRowHeight = 96;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     
     self.tableView.tableFooterView = [UIView new];
-}
-
-#pragma mark - Action
-
-- (IBAction)addTapped:(id)sender {
 }
 
 #pragma mark - UITableView
@@ -48,8 +52,8 @@
     EntryCell *cell = (EntryCell *)[tableView dequeueReusableCellWithIdentifier:@"entryCell"];
     
     Entry *entry = [self.model entryAtIndex:indexPath.row];
-    cell.amountLabel.text = entry.amount.stringValue;
-
+    cell.amountLabel.text = [self.numberFormatter stringFromNumber:entry.amount];
+    cell.dateLabel.text = [[NSDate date] formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
     cell.noteLabel.text = entry.note;
     
     return cell;
@@ -78,6 +82,27 @@
                                  NSParagraphStyleAttributeName: paragraph};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+#pragma mark - EntryDelegate
+
+-(void)entryCanceled {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)entryAddedOrChanged {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.model refreshEntries];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"addEntrySegue"]) {
+        AddEntryViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
+    }
 }
 
 @end

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Entry : NSManagedObject
 
-+(instancetype)entryWithAmount:(NSNumber *)amount note:(nullable NSString *)note date:(NSDate *)date inManagedObjectContext:(NSManagedObjectContext *)context;
++(instancetype)entryWithAmount:(nullable NSNumber *)amount note:(nullable NSString *)note date:(nullable NSDate *)date inManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end
 

@@ -9,8 +9,9 @@
 @import UIKit;
 #import "EntryCell.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "AddEntryViewController.h"
 
-@interface AllEntriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface AllEntriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

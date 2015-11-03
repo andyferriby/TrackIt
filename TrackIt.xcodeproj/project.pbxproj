@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22FF9B0D98981D95C3B783DD /* libPods-TrackIt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A49CD75033ACDA266007BE /* libPods-TrackIt.a */; };
+		1AE69B46399AC00E4989F00D /* Pods_TrackIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */; };
 		960105C21BE843A100979763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105C11BE843A100979763 /* main.m */; };
 		960105C51BE843A100979763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105C41BE843A100979763 /* AppDelegate.m */; };
 		960105CB1BE843A100979763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105C91BE843A100979763 /* Main.storyboard */; };
@@ -19,6 +19,11 @@
 		960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesViewController.m */; };
 		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
 		960105EE1BE84FAE00979763 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105ED1BE84FAE00979763 /* EntryCell.m */; };
+		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
+		960105F51BE85CCF00979763 /* AmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F41BE85CCF00979763 /* AmountCell.m */; };
+		960105F81BE85CD800979763 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F71BE85CD800979763 /* NoteCell.m */; };
+		96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C991BE86195009342FC /* UIColor+FlatUI.m */; };
+		96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9C1BE862FF009342FC /* DatePickerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,12 +42,22 @@
 		960105E41BE8449500979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
 		960105E61BE8453300979763 /* AllEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesViewController.h; path = Controllers/AllEntriesViewController.h; sourceTree = "<group>"; };
 		960105E71BE8453300979763 /* AllEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesViewController.m; path = Controllers/AllEntriesViewController.m; sourceTree = "<group>"; };
-		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntriesModel.h; sourceTree = "<group>"; };
-		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntriesModel.m; sourceTree = "<group>"; };
+		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntriesModel.h; path = Models/EntriesModel.h; sourceTree = "<group>"; };
+		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntriesModel.m; path = Models/EntriesModel.m; sourceTree = "<group>"; };
 		960105EC1BE84FAE00979763 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryCell.h; path = Views/EntryCell.h; sourceTree = "<group>"; };
 		960105ED1BE84FAE00979763 /* EntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryCell.m; path = Views/EntryCell.m; sourceTree = "<group>"; };
-		C8A49CD75033ACDA266007BE /* libPods-TrackIt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrackIt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		960105F01BE857CB00979763 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryViewController.h; path = Controllers/AddEntryViewController.h; sourceTree = "<group>"; };
+		960105F11BE857CB00979763 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryViewController.m; path = Controllers/AddEntryViewController.m; sourceTree = "<group>"; };
+		960105F31BE85CCF00979763 /* AmountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmountCell.h; path = Views/AmountCell.h; sourceTree = "<group>"; };
+		960105F41BE85CCF00979763 /* AmountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmountCell.m; path = Views/AmountCell.m; sourceTree = "<group>"; };
+		960105F61BE85CD800979763 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteCell.h; path = Views/NoteCell.h; sourceTree = "<group>"; };
+		960105F71BE85CD800979763 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteCell.m; path = Views/NoteCell.m; sourceTree = "<group>"; };
+		96434C981BE86195009342FC /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		96434C991BE86195009342FC /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		96434C9B1BE862FF009342FC /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerCell.h; path = Views/DatePickerCell.h; sourceTree = "<group>"; };
+		96434C9C1BE862FF009342FC /* DatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerCell.m; path = Views/DatePickerCell.m; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
+		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22FF9B0D98981D95C3B783DD /* libPods-TrackIt.a in Frameworks */,
+				1AE69B46399AC00E4989F00D /* Pods_TrackIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +76,7 @@
 		0221DD8F576400897451E1FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C8A49CD75033ACDA266007BE /* libPods-TrackIt.a */,
+				DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +127,8 @@
 		960105C01BE843A100979763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				96434C981BE86195009342FC /* UIColor+FlatUI.h */,
+				96434C991BE86195009342FC /* UIColor+FlatUI.m */,
 				960105D41BE843A100979763 /* Info.plist */,
 				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
 				960105C11BE843A100979763 /* main.m */,
@@ -136,6 +153,8 @@
 			children = (
 				960105E61BE8453300979763 /* AllEntriesViewController.h */,
 				960105E71BE8453300979763 /* AllEntriesViewController.m */,
+				960105F01BE857CB00979763 /* AddEntryViewController.h */,
+				960105F11BE857CB00979763 /* AddEntryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -152,6 +171,12 @@
 		960105EF1BE84FB200979763 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96434C9B1BE862FF009342FC /* DatePickerCell.h */,
+				96434C9C1BE862FF009342FC /* DatePickerCell.m */,
+				960105F31BE85CCF00979763 /* AmountCell.h */,
+				960105F41BE85CCF00979763 /* AmountCell.m */,
+				960105F61BE85CD800979763 /* NoteCell.h */,
+				960105F71BE85CD800979763 /* NoteCell.m */,
 				960105EC1BE84FAE00979763 /* EntryCell.h */,
 				960105ED1BE84FAE00979763 /* EntryCell.m */,
 			);
@@ -283,10 +308,15 @@
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
 				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
 				960105E21BE8445E00979763 /* Entry.m in Sources */,
+				960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */,
+				960105F51BE85CCF00979763 /* AmountCell.m in Sources */,
+				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
 				960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */,
+				96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */,
+				96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
