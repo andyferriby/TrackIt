@@ -74,9 +74,23 @@
     else return YES;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    if(self.datePickerShowing) {
+        self.datePickerShowing = NO;
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     
     self.entry.amount = [self.formatter numberFromString:textField.text];
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView {
+    if(self.datePickerShowing) {
+        self.datePickerShowing = NO;
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView {
@@ -139,6 +153,8 @@
         cell.textField.inputAccessoryView = self.doneBar;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        cell.textField.text = [self.formatter stringFromNumber:self.entry.amount];
+        
         return cell;
         
     }
@@ -146,6 +162,7 @@
         NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noteCell" forIndexPath:indexPath];
         cell.textView.delegate = self;
         cell.textView.inputAccessoryView = self.doneBar;
+        cell.textView.text = self.entry.note;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -187,6 +204,12 @@
         [self.tableView endEditing:YES];
         if(!self.entry.amount) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops" message:@"You forgot to enter an amount." preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else if(!self.entry.note) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops" message:@"You forgot to record a note." preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             
             [self presentViewController:alert animated:YES completion:nil];

@@ -42,6 +42,8 @@
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+
 }
 
 #pragma mark - UITableView
@@ -60,8 +62,11 @@
     Entry *entry = [self.model entryAtIndex:indexPath.row];
     cell.amountLabel.text = [self.numberFormatter stringFromNumber:entry.amount];
     cell.amountLabel.textColor = [UIColor colorWithRed:1/255.0 green:152/255.0 blue:117/255.0 alpha:1.0];
-    cell.dateLabel.text = [[NSDate date] formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
+    cell.dateLabel.text = [entry.date formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
     cell.noteLabel.text = entry.note;
+    
+    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = self.editing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -76,6 +81,17 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadEmptyDataSet];
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(!self.editing)
+        return;
+        
+    AddEntryViewController *editVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addEditEntryVC"];
+    editVC.delegate = self;
+    editVC.title = @"Edit Entry";
+    editVC.entry = [self.model entryAtIndex:indexPath.row];
+    [self presentViewController:editVC animated:YES completion:nil];
 }
 
 #pragma mark - DZNEmptyDataSet

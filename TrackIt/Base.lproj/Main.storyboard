@@ -61,7 +61,7 @@
         <scene sceneID="d4P-yc-8c1">
             <objects>
                 <tableViewController id="4rn-vf-0An" customClass="AllEntriesViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qvr-Ff-Lw3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qvr-Ff-Lw3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -75,7 +75,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/2/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-F8-WKQ">
-                                            <rect key="frame" x="535" y="14" width="49" height="18"/>
+                                            <rect key="frame" x="527" y="14" width="49" height="18"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmR-ji-H77">
-                                            <rect key="frame" x="19" y="46" width="565" height="18"/>
+                                            <rect key="frame" x="19" y="46" width="557" height="18"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +99,7 @@
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="qmR-ji-H77" secondAttribute="bottom" id="6Kw-CZ-2PT"/>
-                                        <constraint firstAttribute="trailing" secondItem="qmR-ji-H77" secondAttribute="trailing" constant="16" id="A2R-9y-Mod"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="qmR-ji-H77" secondAttribute="trailing" constant="16" id="A2R-9y-Mod"/>
                                         <constraint firstItem="iO4-F8-WKQ" firstAttribute="centerY" secondItem="59w-Ud-gUN" secondAttribute="centerY" id="Ciz-9p-MVY"/>
                                         <constraint firstItem="qmR-ji-H77" firstAttribute="leading" secondItem="2dC-0w-TXK" secondAttribute="leadingMargin" constant="15" id="G09-WI-ueu"/>
                                         <constraint firstItem="qmR-ji-H77" firstAttribute="top" secondItem="59w-Ud-gUN" secondAttribute="bottom" constant="8" id="R0f-6J-A3m"/>
@@ -141,7 +141,7 @@
         <!--Add Entry View Controller-->
         <scene sceneID="luq-xu-TYf">
             <objects>
-                <viewController id="OK8-bp-oWS" customClass="AddEntryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addEditEntryVC" id="OK8-bp-oWS" customClass="AddEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3ml-NX-q43"/>
                         <viewControllerLayoutGuide type="bottom" id="mfS-hJ-wK8"/>
