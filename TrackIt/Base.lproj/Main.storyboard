@@ -74,14 +74,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/2/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-F8-WKQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="11/2/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-F8-WKQ">
                                             <rect key="frame" x="527" y="14" width="49" height="18"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59w-Ud-gUN">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="59w-Ud-gUN">
                                             <rect key="frame" x="16" y="8" width="69" height="30"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -98,6 +98,7 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
+                                        <constraint firstItem="iO4-F8-WKQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="59w-Ud-gUN" secondAttribute="trailing" constant="8" id="0h9-ZB-Fcd"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="qmR-ji-H77" secondAttribute="bottom" id="6Kw-CZ-2PT"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="qmR-ji-H77" secondAttribute="trailing" constant="16" id="A2R-9y-Mod"/>
                                         <constraint firstItem="iO4-F8-WKQ" firstAttribute="centerY" secondItem="59w-Ud-gUN" secondAttribute="centerY" id="Ciz-9p-MVY"/>
