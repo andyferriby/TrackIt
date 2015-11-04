@@ -94,6 +94,10 @@
     [self presentViewController:editVC animated:YES completion:nil];
 }
 
+-(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Needed to prevent setEditing:animated: from being called during swipe-to-delete
+}
+
 #pragma mark - DZNEmptyDataSet
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
