@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.model = [EntriesModel new];
+    self.model = [[EntriesModel alloc] initWithTimePeriod:@7];
     
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -80,6 +80,8 @@
         [self.model deleteEntryAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadEmptyDataSet];
+        // TODO: post notification with new total
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
     }
 }
 
@@ -138,6 +140,17 @@
     [self.model refreshEntries];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
+    
+    //TODO: post notification about new value
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
+}
+
+#pragma mark - Totals
+
+-(NSNumber *)updateValuesWithTimePeriod:(NSNumber *)numberOfDays {
+    [self.model refreshWithNewTimePeriod:numberOfDays];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    return [self.model totalSpending];
 }
 
 @end

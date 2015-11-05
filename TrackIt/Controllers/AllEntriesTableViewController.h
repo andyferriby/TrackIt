@@ -13,4 +13,6 @@
 
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
+-(NSNumber *)updateValuesWithTimePeriod:(NSNumber *)numberOfDays;
+
 @end

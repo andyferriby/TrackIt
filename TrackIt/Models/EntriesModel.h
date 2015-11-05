@@ -11,10 +11,14 @@
 
 @interface EntriesModel : NSObject
 
+-(instancetype)initWithTimePeriod:(NSNumber *)numberOfDays;
+
 -(NSInteger)numberOfEntries;
 -(Entry *)entryAtIndex:(NSInteger)index;
+-(NSNumber *)totalSpending;
 
 -(void)refreshEntries;
+-(void)refreshWithNewTimePeriod:(NSNumber *)numberOfDays;
 -(void)deleteEntryAtIndex:(NSInteger)index;
 
 @end

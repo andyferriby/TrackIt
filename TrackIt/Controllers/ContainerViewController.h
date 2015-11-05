@@ -10,4 +10,8 @@
 
 @interface ContainerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
+
 @end
