@@ -1,21 +1,116 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3734"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Total Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider=""/>
+                <controller id="AgC-eL-Hgc" customClass="TotalInterfaceController">
+                    <items>
+                        <label width="1" alignment="left" text="Track It" textAlignment="center" id="dc1-fe-v7Q">
+                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                        </label>
+                        <group width="1" alignment="left" layout="vertical" spacing="0.0" id="PmK-sF-5Dq">
+                            <items>
+                                <label width="1" alignment="left" text="Last 7 Days Total" textAlignment="center" id="KGc-eB-2ar">
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
+                                <label width="1" alignment="left" text="$23.00" textAlignment="center" id="JcC-0E-1Yt">
+                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="25"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" red="0.91764705879999997" green="0.96862745100000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <edgeInsets key="margins" left="4" right="4" top="10" bottom="10"/>
+                        </group>
+                        <button width="1" alignment="left" title="Add Entry" id="v1r-V5-ILh">
+                            <connections>
+                                <segue destination="Zkb-sm-ccz" kind="push" id="1OR-2V-BJK"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
+        </scene>
+        <!--Add Entry Interface Controller-->
+        <scene sceneID="9Da-EY-sWD">
+            <objects>
+                <controller id="Zkb-sm-ccz" customClass="AddEntryInterfaceController">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" radius="6" id="3Zz-IY-rVj">
+                            <items>
+                                <label width="1" alignment="left" text="Enter Value" textAlignment="center" id="5WO-K9-MdM">
+                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                </label>
+                                <group width="1" alignment="left" id="Vt8-FS-lpL">
+                                    <items>
+                                        <group width="0.5" alignment="left" layout="vertical" id="tid-oZ-z8U">
+                                            <items>
+                                                <label width="1" alignment="left" text="Dollars" textAlignment="center" id="n9s-ax-TTX">
+                                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </label>
+                                                <picker width="1" height="25" alignment="left" accessibilityLabel="Dollars" focusStyle="stack" indicatorMode="shownWhileFocused" id="F0f-bj-5hi">
+                                                    <connections>
+                                                        <action selector="dollarsValueChanged:" destination="Zkb-sm-ccz" id="3uj-cr-cYg"/>
+                                                    </connections>
+                                                </picker>
+                                            </items>
+                                        </group>
+                                        <group width="0.5" alignment="left" layout="vertical" id="95c-At-yPi">
+                                            <items>
+                                                <label width="1" alignment="left" text="Cents" textAlignment="center" id="GDC-Kx-PnD">
+                                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </label>
+                                                <picker width="1" height="25" alignment="right" accessibilityLabel="Cents" focusStyle="stack" indicatorMode="shownWhileFocused" id="80T-9W-haL">
+                                                    <connections>
+                                                        <action selector="centsValueChanged:" destination="Zkb-sm-ccz" id="RU1-Zm-ZgM"/>
+                                                    </connections>
+                                                </picker>
+                                            </items>
+                                        </group>
+                                    </items>
+                                    <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
+                                </group>
+                                <label width="1" alignment="left" text="$1.00" textAlignment="center" id="brD-EX-ZXT">
+                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="30"/>
+                                </label>
+                            </items>
+                        </group>
+                        <separator width="0.90000000000000002" alignment="center" alpha="0.40000000000000002" id="7gI-mf-ye5">
+                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </separator>
+                        <group width="1" alignment="left" layout="vertical" id="hiK-3y-2mm">
+                            <items>
+                                <label width="1" alignment="left" text="Enter Note" textAlignment="center" id="Lqp-R4-bbp" userLabel="Enter Note">
+                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                </label>
+                                <label width="1" alignment="left" text="Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum" textAlignment="left" numberOfLines="0" id="7ei-tE-ZW5"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="centsPicker" destination="80T-9W-haL" id="he4-Zy-WdU"/>
+                        <outlet property="dollarPicker" destination="F0f-bj-5hi" id="CIC-gw-FN6"/>
+                        <outlet property="valueLabel" destination="brD-EX-ZXT" id="stT-3b-sPR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="360" y="216"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModuleProvider="">
+                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController">
                     <items>
                         <group alignment="left" id="gv7-I2-MZq"/>
                         <group alignment="left" id="eew-Gs-W6Y"/>

@@ -6,15 +6,15 @@
 //  Copyright © 2015 Jason Ji. All rights reserved.
 //
 
-#import "InterfaceController.h"
+#import "TotalInterfaceController.h"
 
 
-@interface InterfaceController()
+@interface TotalInterfaceController()
 
 @end
 
 
-@implementation InterfaceController
+@implementation TotalInterfaceController
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];

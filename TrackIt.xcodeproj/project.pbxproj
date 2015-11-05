@@ -30,11 +30,12 @@
 		964A6E821BEAF8260024A2B3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E801BEAF8260024A2B3 /* Interface.storyboard */; };
 		964A6E841BEAF8260024A2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E831BEAF8260024A2B3 /* Assets.xcassets */; };
 		964A6E8B1BEAF8260024A2B3 /* WatchTrack Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 964A6E8A1BEAF8260024A2B3 /* WatchTrack Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		964A6E911BEAF8260024A2B3 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E901BEAF8260024A2B3 /* InterfaceController.m */; };
+		964A6E911BEAF8260024A2B3 /* TotalInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */; };
 		964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */; };
 		964A6E971BEAF8260024A2B3 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E961BEAF8260024A2B3 /* GlanceController.m */; };
 		964A6E991BEAF8260024A2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E981BEAF8260024A2B3 /* Assets.xcassets */; };
 		964A6E9D1BEAF8260024A2B3 /* WatchTrack.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 964A6E7E1BEAF8260024A2B3 /* WatchTrack.app */; };
+		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,14 +121,16 @@
 		964A6E831BEAF8260024A2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964A6E851BEAF8260024A2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964A6E8A1BEAF8260024A2B3 /* WatchTrack Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchTrack Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		964A6E8F1BEAF8260024A2B3 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		964A6E901BEAF8260024A2B3 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		964A6E8F1BEAF8260024A2B3 /* TotalInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TotalInterfaceController.h; sourceTree = "<group>"; };
+		964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotalInterfaceController.m; sourceTree = "<group>"; };
 		964A6E921BEAF8260024A2B3 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		964A6E951BEAF8260024A2B3 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
 		964A6E961BEAF8260024A2B3 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		964A6E981BEAF8260024A2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964A6E9A1BEAF8260024A2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		967174B81BEB069F00321787 /* AddEntryInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryInterfaceController.h; path = "WatchTrack Extension/AddEntryInterfaceController.h"; sourceTree = SOURCE_ROOT; };
+		967174B91BEB069F00321787 /* AddEntryInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryInterfaceController.m; path = "WatchTrack Extension/AddEntryInterfaceController.m"; sourceTree = SOURCE_ROOT; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -293,16 +296,26 @@
 		964A6E8E1BEAF8260024A2B3 /* WatchTrack Extension */ = {
 			isa = PBXGroup;
 			children = (
-				964A6E8F1BEAF8260024A2B3 /* InterfaceController.h */,
-				964A6E901BEAF8260024A2B3 /* InterfaceController.m */,
 				964A6E921BEAF8260024A2B3 /* ExtensionDelegate.h */,
 				964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */,
-				964A6E951BEAF8260024A2B3 /* GlanceController.h */,
-				964A6E961BEAF8260024A2B3 /* GlanceController.m */,
+				967174BB1BEB06AB00321787 /* Controllers */,
 				964A6E981BEAF8260024A2B3 /* Assets.xcassets */,
 				964A6E9A1BEAF8260024A2B3 /* Info.plist */,
 			);
 			path = "WatchTrack Extension";
+			sourceTree = "<group>";
+		};
+		967174BB1BEB06AB00321787 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				964A6E8F1BEAF8260024A2B3 /* TotalInterfaceController.h */,
+				964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */,
+				964A6E951BEAF8260024A2B3 /* GlanceController.h */,
+				964A6E961BEAF8260024A2B3 /* GlanceController.m */,
+				967174B81BEB069F00321787 /* AddEntryInterfaceController.h */,
+				967174B91BEB069F00321787 /* AddEntryInterfaceController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,8 +523,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */,
 				964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */,
-				964A6E911BEAF8260024A2B3 /* InterfaceController.m in Sources */,
+				964A6E911BEAF8260024A2B3 /* TotalInterfaceController.m in Sources */,
 				964A6E971BEAF8260024A2B3 /* GlanceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,6 +767,7 @@
 				964A6EA01BEAF8260024A2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		964A6EA21BEAF8260024A2B3 /* Build configuration list for PBXNativeTarget "WatchTrack" */ = {
 			isa = XCConfigurationList;
@@ -761,6 +776,7 @@
 				964A6EA41BEAF8260024A2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
