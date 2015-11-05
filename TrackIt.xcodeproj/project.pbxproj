@@ -16,7 +16,7 @@
 		960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */; };
 		960105E21BE8445E00979763 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E01BE8445E00979763 /* Entry.m */; };
 		960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105E31BE8449500979763 /* TrackIt.xcdatamodeld */; };
-		960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesViewController.m */; };
+		960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesTableViewController.m */; };
 		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
 		960105EE1BE84FAE00979763 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105ED1BE84FAE00979763 /* EntryCell.m */; };
 		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
@@ -43,8 +43,8 @@
 		960105DF1BE8445E00979763 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entry.h; path = "Core Data/Entry.h"; sourceTree = "<group>"; };
 		960105E01BE8445E00979763 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entry.m; path = "Core Data/Entry.m"; sourceTree = "<group>"; };
 		960105E41BE8449500979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
-		960105E61BE8453300979763 /* AllEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesViewController.h; path = Controllers/AllEntriesViewController.h; sourceTree = "<group>"; };
-		960105E71BE8453300979763 /* AllEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesViewController.m; path = Controllers/AllEntriesViewController.m; sourceTree = "<group>"; };
+		960105E61BE8453300979763 /* AllEntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesTableViewController.h; path = Controllers/AllEntriesTableViewController.h; sourceTree = "<group>"; };
+		960105E71BE8453300979763 /* AllEntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesTableViewController.m; path = Controllers/AllEntriesTableViewController.m; sourceTree = "<group>"; };
 		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntriesModel.h; path = Models/EntriesModel.h; sourceTree = "<group>"; };
 		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntriesModel.m; path = Models/EntriesModel.m; sourceTree = "<group>"; };
 		960105EC1BE84FAE00979763 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryCell.h; path = Views/EntryCell.h; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 		960105DB1BE8440B00979763 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				960105E61BE8453300979763 /* AllEntriesViewController.h */,
-				960105E71BE8453300979763 /* AllEntriesViewController.m */,
+				960105E61BE8453300979763 /* AllEntriesTableViewController.h */,
+				960105E71BE8453300979763 /* AllEntriesTableViewController.m */,
 				96434C9E1BE86CC9009342FC /* ContainerViewController.h */,
 				96434C9F1BE86CC9009342FC /* ContainerViewController.m */,
 				960105F01BE857CB00979763 /* AddEntryViewController.h */,
@@ -341,7 +341,7 @@
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */,
-				960105E81BE8453300979763 /* AllEntriesViewController.m in Sources */,
+				960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */,
 				96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

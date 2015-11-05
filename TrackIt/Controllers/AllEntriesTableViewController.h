@@ -1,5 +1,5 @@
 //
-//  AllEntriesViewController.h
+//  AllEntriesTableViewController.h
 //  TrackIt
 //
 //  Created by Jason Ji on 11/2/15.
@@ -11,6 +11,6 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "AddEntryViewController.h"
 
-@interface AllEntriesViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
+@interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
 @end

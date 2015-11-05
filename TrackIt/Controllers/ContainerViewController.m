@@ -8,11 +8,11 @@
 
 #import "ContainerViewController.h"
 #import "AddEntryViewController.h"
-#import "AllEntriesViewController.h"
+#import "AllEntriesTableViewController.h"
 
 @interface ContainerViewController ()
 
-@property (strong, nonatomic) AllEntriesViewController *allEntriesVC;
+@property (strong, nonatomic) AllEntriesTableViewController *allEntriesVC;
 
 @end
 

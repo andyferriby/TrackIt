@@ -1,24 +1,24 @@
 //
-//  AllEntriesViewController.m
+//  AllEntriesTableViewController.m
 //  TrackIt
 //
 //  Created by Jason Ji on 11/2/15.
 //  Copyright © 2015 Jason Ji. All rights reserved.
 //
 
-#import "AllEntriesViewController.h"
+#import "AllEntriesTableViewController.h"
 #import "EntriesModel.h"
 #import "NSDate+DateTools.h"
 #import "AppDelegate.h"
 
-@interface AllEntriesViewController ()
+@interface AllEntriesTableViewController ()
 
 @property (strong, nonatomic) EntriesModel *model;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 
 @end
 
-@implementation AllEntriesViewController
+@implementation AllEntriesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
