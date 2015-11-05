@@ -4,15 +4,45 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Glance - WatchTrack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Glance - WatchTrackIt.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>TrackIt.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WatchTrack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>WatchTrackIt.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>960105BC1BE843A100979763</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>964A6E531BEAF6850024A2B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>964A6E7D1BEAF8260024A2B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
