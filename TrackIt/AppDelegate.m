@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ContainerViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    UIColor *moneyColor = [UIColor colorWithRed:1/255.0 green:152/255.0 blue:117/255.0 alpha:1.0];
-    UIFont *lightFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0];
+    UIColor *moneyColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+    UIFont *lightFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:19.0];
     UIFont *lightFontSmall = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
     self.window.tintColor = moneyColor;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : moneyColor, NSFontAttributeName : lightFont}];
@@ -50,6 +51,19 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+#pragma mark - 3D Touch Quick Action
+
+-(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    if([shortcutItem.type isEqualToString:@"Add"]) {
+        UINavigationController *navVC = (UINavigationController *)self.window.rootViewController;
+        ContainerViewController *rootVC = (ContainerViewController *)navVC.topViewController;
+        if(!rootVC.presentedViewController) {
+            [rootVC performSegueWithIdentifier:@"addEntrySegue" sender:nil];
+        }
+        
+    }
 }
 
 #pragma mark - Core Data stack

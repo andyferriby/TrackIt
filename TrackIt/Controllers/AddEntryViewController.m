@@ -82,8 +82,13 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    self.entry.amount = [self.formatter numberFromString:textField.text];
+    if([textField.text isEqualToString:@"$"])
+        textField.text = nil;
+    else {
+        self.entry.amount = [self.formatter numberFromString:textField.text];
+        if(self.entry.amount)
+            textField.text = [self.formatter stringFromNumber:self.entry.amount];
+    }
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView {
@@ -142,6 +147,7 @@
     if([identifier isEqualToString:@"dateCell"]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
         cell.detailTextLabel.text = [self.entry.date formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
         return cell;
@@ -151,6 +157,7 @@
         cell.textField.delegate = self;
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
         cell.textField.inputAccessoryView = self.doneBar;
+        cell.textField.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.textField.text = [self.formatter stringFromNumber:self.entry.amount];
@@ -177,7 +184,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"saveCell" forIndexPath:indexPath];
         if(indexPath.row == 0) {
             cell.textLabel.text = @"Save";
-            cell.textLabel.textColor = [UIColor emeraldFlatColor];
+            cell.textLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
         }
         else {
             cell.textLabel.text = @"Cancel";
@@ -194,6 +201,7 @@
     if([identifier isEqualToString:@"dateCell"]) {
         self.datePickerShowing = !self.datePickerShowing;
         if(self.datePickerShowing) {
+            [tableView endEditing:YES];
             [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         }
         else {
