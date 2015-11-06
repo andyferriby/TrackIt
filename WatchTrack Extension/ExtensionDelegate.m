@@ -12,6 +12,14 @@
 
 - (void)applicationDidFinishLaunching {
     // Perform any final initialization of your application.
+    
+    self.watchDelegate = [WatchSessionDelegate new];
+    
+    if([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession];
+        session.delegate = self.watchDelegate;
+        [session activateSession];
+    }
 }
 
 - (void)applicationDidBecomeActive {

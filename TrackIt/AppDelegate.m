@@ -8,8 +8,13 @@
 
 #import "AppDelegate.h"
 #import "ContainerViewController.h"
+#import "EntriesModel.h"
+#import "WatchSessionDelegate.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) EntriesModel *watchModel;
+@property (strong, nonatomic) WatchSessionDelegate *watchDelegate;
 
 @end
 
@@ -25,6 +30,20 @@
     self.window.tintColor = moneyColor;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : moneyColor, NSFontAttributeName : lightFont}];
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : moneyColor, NSFontAttributeName : lightFontSmall} forState:UIControlStateNormal];
+    
+    // Watch Connectivity
+    
+    self.watchDelegate = [WatchSessionDelegate new];
+    self.watchModel = [[EntriesModel alloc] initWithTimePeriod:@7];
+    [self.watchModel refreshEntries];
+    
+    if([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession];
+        session.delegate = self.watchDelegate;
+        [session activateSession];
+        
+        [self.watchDelegate sendTotalToWatch:[self.watchModel totalSpending]];
+    }
     
     return YES;
 }

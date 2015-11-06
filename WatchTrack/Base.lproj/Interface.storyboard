@@ -27,12 +27,16 @@
                             <color key="backgroundColor" red="0.91764705879999997" green="0.96862745100000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                             <edgeInsets key="margins" left="4" right="4" top="10" bottom="10"/>
                         </group>
+                        <group width="1" height="10" alignment="left" id="eOD-bB-VSd"/>
                         <button width="1" alignment="left" title="Add Entry" id="v1r-V5-ILh">
                             <connections>
                                 <segue destination="Zkb-sm-ccz" kind="push" id="1OR-2V-BJK"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="totalLabel" destination="JcC-0E-1Yt" id="BLU-w2-Tia"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
@@ -94,8 +98,12 @@
                                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="20"/>
                                 </label>
-                                <label width="1" alignment="left" text="Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum" textAlignment="left" numberOfLines="0" id="7ei-tE-ZW5"/>
+                                <button width="50" height="50" alignment="center" backgroundImage="Microphone" id="oZH-Os-ZbY"/>
+                                <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="7ei-tE-ZW5">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </label>
                             </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="10"/>
                         </group>
                     </items>
                     <connections>

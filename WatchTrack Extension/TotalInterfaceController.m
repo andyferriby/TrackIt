@@ -11,15 +11,36 @@
 
 @interface TotalInterfaceController()
 
+@property (strong, nonatomic) NSNumberFormatter *formatter;
+
 @end
 
-
 @implementation TotalInterfaceController
+
+
+-(NSNumberFormatter *)formatter {
+    if(!_formatter) {
+        _formatter = [NSNumberFormatter new];
+        _formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    }
+    return _formatter;
+}
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
 
     // Configure interface objects here.
+    
+    NSNumber *totalSpending = [[NSUserDefaults standardUserDefaults] valueForKey:@"TotalSpending"];
+    if(totalSpending)
+        [self.totalLabel setText:[self.formatter stringFromNumber:totalSpending]];
+    else
+        [self.totalLabel setText:[self.formatter stringFromNumber:@0]];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalReceived" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        NSNumber *total = note.userInfo[@"total"];
+        [self.totalLabel setText:[self.formatter stringFromNumber:total]];
+    }];
 }
 
 - (void)willActivate {

@@ -36,6 +36,8 @@
 		964A6E991BEAF8260024A2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E981BEAF8260024A2B3 /* Assets.xcassets */; };
 		964A6E9D1BEAF8260024A2B3 /* WatchTrack.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 964A6E7E1BEAF8260024A2B3 /* WatchTrack.app */; };
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
+		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
+		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,10 @@
 		964A6E9A1BEAF8260024A2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		967174B81BEB069F00321787 /* AddEntryInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryInterfaceController.h; path = "WatchTrack Extension/AddEntryInterfaceController.h"; sourceTree = SOURCE_ROOT; };
 		967174B91BEB069F00321787 /* AddEntryInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryInterfaceController.m; path = "WatchTrack Extension/AddEntryInterfaceController.m"; sourceTree = SOURCE_ROOT; };
+		967174BC1BEC539200321787 /* WatchSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchSessionDelegate.h; path = Models/WatchSessionDelegate.h; sourceTree = "<group>"; };
+		967174BD1BEC539200321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchSessionDelegate.m; path = Models/WatchSessionDelegate.m; sourceTree = "<group>"; };
+		967174C01BEC5DA600321787 /* WatchSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSessionDelegate.h; sourceTree = "<group>"; };
+		967174C11BEC5DA600321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionDelegate.m; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +257,8 @@
 			children = (
 				960105E91BE84C8600979763 /* EntriesModel.h */,
 				960105EA1BE84C8600979763 /* EntriesModel.m */,
+				967174BC1BEC539200321787 /* WatchSessionDelegate.h */,
+				967174BD1BEC539200321787 /* WatchSessionDelegate.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -296,6 +304,8 @@
 		964A6E8E1BEAF8260024A2B3 /* WatchTrack Extension */ = {
 			isa = PBXGroup;
 			children = (
+				967174C01BEC5DA600321787 /* WatchSessionDelegate.h */,
+				967174C11BEC5DA600321787 /* WatchSessionDelegate.m */,
 				964A6E921BEAF8260024A2B3 /* ExtensionDelegate.h */,
 				964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */,
 				967174BB1BEB06AB00321787 /* Controllers */,
@@ -310,10 +320,10 @@
 			children = (
 				964A6E8F1BEAF8260024A2B3 /* TotalInterfaceController.h */,
 				964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */,
-				964A6E951BEAF8260024A2B3 /* GlanceController.h */,
-				964A6E961BEAF8260024A2B3 /* GlanceController.m */,
 				967174B81BEB069F00321787 /* AddEntryInterfaceController.h */,
 				967174B91BEB069F00321787 /* AddEntryInterfaceController.m */,
+				964A6E951BEAF8260024A2B3 /* GlanceController.h */,
+				964A6E961BEAF8260024A2B3 /* GlanceController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -511,6 +521,7 @@
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
 				960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */,
 				96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */,
+				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */,
@@ -524,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */,
+				967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */,
 				964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */,
 				964A6E911BEAF8260024A2B3 /* TotalInterfaceController.m in Sources */,
 				964A6E971BEAF8260024A2B3 /* GlanceController.m in Sources */,

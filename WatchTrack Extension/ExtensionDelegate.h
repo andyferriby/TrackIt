@@ -7,7 +7,10 @@
 //
 
 #import <WatchKit/WatchKit.h>
+#import "WatchSessionDelegate.h"
 
 @interface ExtensionDelegate : NSObject <WKExtensionDelegate>
+
+@property (strong, nonatomic) WatchSessionDelegate *watchDelegate;
 
 @end
