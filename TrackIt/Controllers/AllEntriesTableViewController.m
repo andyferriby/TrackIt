@@ -80,8 +80,10 @@
         [self.model deleteEntryAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadEmptyDataSet];
-        // TODO: post notification with new total
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
+        
+        [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
     }
 }
 
@@ -141,8 +143,9 @@
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
     
-    //TODO: post notification about new value
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
 }
 
 #pragma mark - Totals
