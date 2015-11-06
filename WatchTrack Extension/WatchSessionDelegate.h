@@ -11,4 +11,7 @@
 
 @interface WatchSessionDelegate : NSObject<WCSessionDelegate>
 
+@property (strong, nonatomic) WCSession *session;
+-(void)requestTotalFromiPhoneWithCompletion:(void (^)(NSNumber *total, NSError *error))completionHandler;
+
 @end

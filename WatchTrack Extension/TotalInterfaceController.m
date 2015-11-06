@@ -7,7 +7,7 @@
 //
 
 #import "TotalInterfaceController.h"
-
+#import "WatchSessionDelegate.h"
 
 @interface TotalInterfaceController()
 
@@ -34,8 +34,18 @@
     NSNumber *totalSpending = [[NSUserDefaults standardUserDefaults] valueForKey:@"TotalSpending"];
     if(totalSpending)
         [self.totalLabel setText:[self.formatter stringFromNumber:totalSpending]];
-    else
-        [self.totalLabel setText:[self.formatter stringFromNumber:@0]];
+    else {
+        WatchSessionDelegate *watchDelegate = [WatchSessionDelegate new];
+        [watchDelegate requestTotalFromiPhoneWithCompletion:^(NSNumber *total, NSError *error) {
+            if(error) {
+                [self.totalLabel setText:@"Unable to Load"];
+                [self.totalLabel setTextColor:[UIColor redColor]];
+            }
+            else
+                [self.totalLabel setText:[self.formatter stringFromNumber:total]];
+        }];
+    }
+        
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalReceived" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         NSNumber *total = note.userInfo[@"total"];

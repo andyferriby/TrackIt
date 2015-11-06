@@ -19,7 +19,7 @@
                                 <label width="1" alignment="left" text="Last 7 Days Total" textAlignment="center" id="KGc-eB-2ar">
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
-                                <label width="1" alignment="left" text="$23.00" textAlignment="center" id="JcC-0E-1Yt">
+                                <label width="1" alignment="left" text="Loading..." textAlignment="center" minimumScaleFactor="0.5" id="JcC-0E-1Yt">
                                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" weight="semibold" pointSize="25"/>
                                 </label>

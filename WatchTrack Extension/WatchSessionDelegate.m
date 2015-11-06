@@ -11,6 +11,31 @@
 
 @implementation WatchSessionDelegate
 
+-(instancetype)init {
+    self = [super init];
+    if(self) {
+        _session = [WCSession defaultSession];
+    }
+    return self;
+}
+
+-(void)requestTotalFromiPhoneWithCompletion:(void (^)(NSNumber * total, NSError *error))completionHandler {
+    
+    if(self.session.reachable) {
+        [self.session sendMessage:@{@"request" : @"total"}
+                     replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+                         NSNumber *total = replyMessage[@"total"];
+                         [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+                         if(completionHandler)
+                             completionHandler(total, nil);
+                     }
+                     errorHandler:^(NSError * _Nonnull error) {
+                         NSLog(@"%@", error.localizedDescription);
+                         completionHandler(nil, error);
+                     }];
+    }
+}
+
 #pragma mark - WCSessionDelegate
 
 -(void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {

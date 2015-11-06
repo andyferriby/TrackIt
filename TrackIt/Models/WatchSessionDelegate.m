@@ -7,6 +7,7 @@
 //
 
 #import "WatchSessionDelegate.h"
+#import "EntriesModel.h"
 
 @implementation WatchSessionDelegate
 
@@ -29,6 +30,14 @@
 
 -(void)session:(WCSession *)session didReceiveUserInfo:(NSDictionary<NSString *,id> *)userInfo {
     
+}
+
+-(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
+    if([message[@"request"] isEqualToString:@"total"]) {
+        EntriesModel *model = [[EntriesModel alloc] initWithTimePeriod:@7];
+        [model refreshEntries];
+        replyHandler(@{@"total" : [model totalSpending]});
+    }
 }
 
 @end
