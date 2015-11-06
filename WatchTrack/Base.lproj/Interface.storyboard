@@ -27,7 +27,7 @@
                             <color key="backgroundColor" red="0.91764705879999997" green="0.96862745100000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                             <edgeInsets key="margins" left="4" right="4" top="10" bottom="10"/>
                         </group>
-                        <group width="1" height="10" alignment="left" id="eOD-bB-VSd"/>
+                        <group width="1" height="4" alignment="left" id="eOD-bB-VSd"/>
                         <button width="1" alignment="left" title="Add Entry" id="v1r-V5-ILh">
                             <connections>
                                 <segue destination="Zkb-sm-ccz" kind="push" id="1OR-2V-BJK"/>

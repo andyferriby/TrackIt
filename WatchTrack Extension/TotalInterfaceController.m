@@ -31,6 +31,16 @@
 
     // Configure interface objects here.
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalReceived" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        NSNumber *total = note.userInfo[@"total"];
+        [self.totalLabel setText:[self.formatter stringFromNumber:total]];
+    }];
+}
+
+- (void)willActivate {
+    // This method is called when watch view controller is about to be visible to user
+    [super willActivate];
+    
     NSNumber *totalSpending = [[NSUserDefaults standardUserDefaults] valueForKey:@"TotalSpending"];
     if(totalSpending)
         [self.totalLabel setText:[self.formatter stringFromNumber:totalSpending]];
@@ -45,17 +55,6 @@
                 [self.totalLabel setText:[self.formatter stringFromNumber:total]];
         }];
     }
-        
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalReceived" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        NSNumber *total = note.userInfo[@"total"];
-        [self.totalLabel setText:[self.formatter stringFromNumber:total]];
-    }];
-}
-
-- (void)willActivate {
-    // This method is called when watch view controller is about to be visible to user
-    [super willActivate];
 }
 
 - (void)didDeactivate {
