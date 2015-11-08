@@ -47,4 +47,18 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalReceived" object:self userInfo:applicationContext];
 }
 
+-(void)sessionReachabilityDidChange:(WCSession *)session {
+    if(session.reachable) {
+        [self requestTotalFromiPhoneWithCompletion:^(NSNumber *total, NSError *error) {
+            if(error) {
+                
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalReceived" object:self userInfo:@{@"total" : total}];
+            }
+        }];
+    }
+}
+
 @end

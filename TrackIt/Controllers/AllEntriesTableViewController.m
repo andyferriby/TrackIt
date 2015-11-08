@@ -38,6 +38,9 @@
     self.tableView.tableFooterView = [UIView new];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -149,6 +152,16 @@
 }
 
 #pragma mark - Totals
+
+-(void)updateScreenFromBackground {
+    [self.model refreshEntries];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadEmptyDataSet];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
+}
 
 -(NSNumber *)updateValuesWithTimePeriod:(NSNumber *)numberOfDays {
     [self.model refreshWithNewTimePeriod:numberOfDays];
