@@ -114,7 +114,7 @@
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @"I guess you haven't spent any money yet! When you do, tap the + button below to record it.";
+    NSString *text = @"I guess you haven't spent any money recently! When you do, tap the + button below to record it.";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -153,6 +153,7 @@
 -(NSNumber *)updateValuesWithTimePeriod:(NSNumber *)numberOfDays {
     [self.model refreshWithNewTimePeriod:numberOfDays];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadEmptyDataSet];
     return [self.model totalSpending];
 }
 

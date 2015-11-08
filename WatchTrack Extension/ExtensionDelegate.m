@@ -24,6 +24,17 @@
 
 - (void)applicationDidBecomeActive {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [self.watchDelegate requestTotalFromiPhoneWithCompletion:^(NSNumber *total, NSError *error) {
+        if(error) {
+
+        }
+        else {
+            [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalReceived" object:self userInfo:@{@"total" : total}];
+        }
+    }];
+
 }
 
 - (void)applicationWillResignActive {
