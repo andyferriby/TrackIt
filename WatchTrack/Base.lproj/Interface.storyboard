@@ -60,7 +60,7 @@
                                                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                 </label>
-                                                <picker width="1" height="25" alignment="left" accessibilityLabel="Dollars" focusStyle="stack" indicatorMode="shownWhileFocused" id="F0f-bj-5hi">
+                                                <picker width="1" height="35" alignment="left" accessibilityLabel="Dollars" focusStyle="stack" indicatorMode="shownWhileFocused" id="F0f-bj-5hi">
                                                     <connections>
                                                         <action selector="dollarsValueChanged:" destination="Zkb-sm-ccz" id="3uj-cr-cYg"/>
                                                     </connections>
@@ -73,7 +73,7 @@
                                                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                 </label>
-                                                <picker width="1" height="25" alignment="right" accessibilityLabel="Cents" focusStyle="stack" indicatorMode="shownWhileFocused" id="80T-9W-haL">
+                                                <picker width="1" height="35" alignment="right" accessibilityLabel="Cents" focusStyle="stack" indicatorMode="shownWhileFocused" id="80T-9W-haL">
                                                     <connections>
                                                         <action selector="centsValueChanged:" destination="Zkb-sm-ccz" id="RU1-Zm-ZgM"/>
                                                     </connections>
