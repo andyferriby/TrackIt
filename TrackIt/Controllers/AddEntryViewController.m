@@ -20,6 +20,7 @@
 @property (nonatomic) BOOL datePickerShowing;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) RFKeyboardToolbar *doneBar;
+@property (weak, nonatomic) UITextView *onlyTextView;
 
 @end
 
@@ -40,6 +41,36 @@
     [self.doneBar addDoneButtonWithHandler:^(id sender) {
         [weakSelf.tableView endEditing:YES];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+#pragma mark - Keyboard
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
+    
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    if([self.onlyTextView isFirstResponder]) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
 }
 
 #pragma mark - UIDatePicker
@@ -170,6 +201,7 @@
         cell.textView.delegate = self;
         cell.textView.inputAccessoryView = self.doneBar;
         cell.textView.text = self.entry.note;
+        self.onlyTextView = cell.textView;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -261,7 +293,8 @@
 #pragma mark - UIScrollViewDelegate
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.tableView endEditing:YES];
+    if(scrollView.dragging || scrollView.decelerating)
+        [self.tableView endEditing:YES];
 }
 
 @end
