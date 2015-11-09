@@ -36,6 +36,20 @@
     }
 }
 
+-(void)sendNewEntryToiPhone:(NSNumber *)value note:(NSString *)note completion:(void (^)(NSNumber *))completionHandler failure:(void (^)(NSError *))failureHandler {
+    if(self.session.reachable) {
+        [self.session sendMessage:@{@"request" : @"newEntry", @"value" : value, @"note" : note} replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
+            completionHandler(replyMessage[@"newTotal"]);
+        } errorHandler:^(NSError * _Nonnull error) {
+            failureHandler(error);
+        }];
+    }
+    else {
+        if(failureHandler)
+            failureHandler([NSError errorWithDomain:@"reachability" code:0 userInfo:@{NSLocalizedDescriptionKey : @"iPhone not reachable"}]);
+    }
+}
+
 #pragma mark - WCSessionDelegate
 
 -(void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {

@@ -11,6 +11,7 @@
 @interface AddEntryInterfaceController ()
 
 @property (strong, nonatomic) NSNumber *currentValue;
+@property (strong, nonatomic) NSString *currentNote;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 
 @end
@@ -20,7 +21,7 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    // Configure interface objects here.
+    self.delegate = context;
     
     self.formatter = [NSNumberFormatter new];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -45,7 +46,22 @@
         [centItems addObject:item];
     }
     [self.centsPicker setItems:centItems];
+    
+    self.currentValue = @1;
+    self.currentNote = @"Posted from Apple Watch";
 }
+
+- (void)willActivate {
+    // This method is called when watch view controller is about to be visible to user
+    [super willActivate];
+}
+
+- (void)didDeactivate {
+    // This method is called when watch view controller is no longer visible
+    [super didDeactivate];
+}
+
+#pragma mark - IBAction
 
 - (IBAction)dollarsValueChanged:(NSInteger)value {
     NSLog(@"Value: %d", value);
@@ -59,14 +75,26 @@
     [self.valueLabel setText:[self.formatter stringFromNumber:self.currentValue]];
 }
 
-- (void)willActivate {
-    // This method is called when watch view controller is about to be visible to user
-    [super willActivate];
+- (IBAction)noteTapped {
+    [self presentTextInputControllerWithSuggestions:@[@"Haircut", @"Church"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
+        if(results && results[0]) {
+            NSLog(@"%@", results[0]);
+            [self.noteLabel setText:[NSString stringWithFormat:@"\"%@\"", results[0]]];
+            self.currentNote = results[0];
+        }
+    }];
 }
 
-- (void)didDeactivate {
-    // This method is called when watch view controller is no longer visible
-    [super didDeactivate];
+- (IBAction)saveTapped {
+    WatchSessionDelegate *watchDelegate = [WatchSessionDelegate new];
+    [watchDelegate sendNewEntryToiPhone:self.currentValue note:self.currentNote completion:^(NSNumber *newTotal) {
+        NSLog(@"New total: %@", newTotal);
+        // Temp
+        [self.delegate newEntryAdded:newTotal];
+    } failure:^(NSError *error) {
+        //TODO:
+        // if failed, show a modal that says it failed or something
+    }];
 }
 
 @end

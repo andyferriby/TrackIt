@@ -51,8 +51,10 @@
                 [self.totalLabel setText:@"Unable to Load"];
                 [self.totalLabel setTextColor:[UIColor redColor]];
             }
-            else
+            else {
                 [self.totalLabel setText:[self.formatter stringFromNumber:total]];
+                [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+            }
         }];
     }
 }
@@ -60,6 +62,20 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+}
+
+-(id)contextForSegueWithIdentifier:(NSString *)segueIdentifier {
+    if([segueIdentifier isEqualToString:@"addEntrySegue"]) {
+        return self;
+    }
+    return nil;
+}
+
+#pragma mark - EntryDelegate
+
+-(void)newEntryAdded:(NSNumber *)newTotal {
+    [self dismissController];
+    [[NSUserDefaults standardUserDefaults] setValue:newTotal forKey:@"TotalSpending"];
 }
 
 @end

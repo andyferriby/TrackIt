@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 @import WatchConnectivity;
+#import "EntriesModel.h"
 
 @interface WatchSessionDelegate : NSObject<WCSessionDelegate>
 
 -(void)sendTotalToWatch:(NSNumber *)total;
+@property (strong, nonatomic) EntriesModel *model;
 
 @end

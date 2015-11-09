@@ -30,7 +30,7 @@
                         <group width="1" height="4" alignment="left" id="eOD-bB-VSd"/>
                         <button width="1" alignment="left" title="Add Entry" id="v1r-V5-ILh">
                             <connections>
-                                <segue destination="Zkb-sm-ccz" kind="push" id="1OR-2V-BJK"/>
+                                <segue destination="Zkb-sm-ccz" kind="modal" identifier="addEntrySegue" id="1OR-2V-BJK"/>
                             </connections>
                         </button>
                     </items>
@@ -98,10 +98,19 @@
                                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="20"/>
                                 </label>
-                                <button width="50" height="50" alignment="center" backgroundImage="Microphone" id="oZH-Os-ZbY"/>
+                                <button width="50" height="50" alignment="center" backgroundImage="Microphone" id="oZH-Os-ZbY">
+                                    <connections>
+                                        <action selector="noteTapped" destination="Zkb-sm-ccz" id="S58-5b-98x"/>
+                                    </connections>
+                                </button>
                                 <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="7ei-tE-ZW5">
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
+                                <button width="1" alignment="left" title="Save" id="xDZ-zg-Oqe">
+                                    <connections>
+                                        <action selector="saveTapped" destination="Zkb-sm-ccz" id="rpP-bn-Myg"/>
+                                    </connections>
+                                </button>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="10"/>
                         </group>
@@ -109,6 +118,7 @@
                     <connections>
                         <outlet property="centsPicker" destination="80T-9W-haL" id="he4-Zy-WdU"/>
                         <outlet property="dollarPicker" destination="F0f-bj-5hi" id="CIC-gw-FN6"/>
+                        <outlet property="noteLabel" destination="7ei-tE-ZW5" id="Q8t-hR-NLI"/>
                         <outlet property="valueLabel" destination="brD-EX-ZXT" id="stT-3b-sPR"/>
                     </connections>
                 </controller>

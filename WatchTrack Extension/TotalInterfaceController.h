@@ -8,8 +8,9 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
+#import "AddEntryInterfaceController.h"
 
-@interface TotalInterfaceController : WKInterfaceController
+@interface TotalInterfaceController : WKInterfaceController<EntryDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *totalLabel;
 
