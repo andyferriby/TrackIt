@@ -54,6 +54,7 @@
             else {
                 [self.totalLabel setText:[self.formatter stringFromNumber:total]];
                 [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+                [self.totalLabel setTextColor:[UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1]];
             }
         }];
     }

@@ -78,10 +78,26 @@
 - (IBAction)noteTapped {
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.jyjapps.trackit"];
-    id foo = [defaults objectForKey:@"Quick Notes"];
-    NSlog(@"%@", foo);
+    NSLog(@"%@", defaults.dictionaryRepresentation);
+    NSString *first = [defaults objectForKey:@"quickNote"];
+    NSString *second = [defaults objectForKey:@"quickNote2"];
+    NSString *third = [defaults objectForKey:@"quickNote3"];
+    NSString *fourth = [defaults objectForKey:@"quickNote4"];
+    NSString *fifth = [defaults objectForKey:@"quickNote5"];
     
-    [self presentTextInputControllerWithSuggestions:@[@"Haircut", @"Church"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
+    NSMutableArray *options = [NSMutableArray new];
+    if(first)
+        [options addObject:first];
+    if(second)
+        [options addObject:second];
+    if(third)
+        [options addObject:third];
+    if(fourth)
+        [options addObject:fourth];
+    if(fifth)
+        [options addObject:fifth];
+    
+    [self presentTextInputControllerWithSuggestions:options allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
         if(results && results[0]) {
             NSLog(@"%@", results[0]);
             [self.noteLabel setText:[NSString stringWithFormat:@"\"%@\"", results[0]]];

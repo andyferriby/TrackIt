@@ -20,6 +20,10 @@
         session.delegate = self.watchDelegate;
         [session activateSession];
     }
+    
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.jyjapps.trackit"];
+    [defaults registerDefaults:@{@"quickNote" : @"Lunch", @"quickNote2" : @"Dinner", @"quickNote3" : @"Haircut"}];
+    [defaults synchronize];
 }
 
 - (void)applicationDidBecomeActive {

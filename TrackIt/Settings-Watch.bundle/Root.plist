@@ -16,7 +16,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Key</key>
-			<string>quickNote1</string>
+			<string>quickNote</string>
 			<key>DefaultValue</key>
 			<string>Lunch</string>
 			<key>IsSecure</key>
@@ -94,6 +94,6 @@
 		</dict>
 	</array>
 	<key>ApplicationGroupContainerIdentifier</key>
-	<string>Quick Notes</string>
+	<string>group.com.jyjapps.trackit</string>
 </dict>
 </plist>
