@@ -77,6 +77,7 @@
 -(void)newEntryAdded:(NSNumber *)newTotal {
     [self dismissController];
     [[NSUserDefaults standardUserDefaults] setValue:newTotal forKey:@"TotalSpending"];
+    [self.totalLabel setText:[self.formatter stringFromNumber:newTotal]];
 }
 
 @end

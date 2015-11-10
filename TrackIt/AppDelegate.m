@@ -20,6 +20,12 @@
 
 @implementation AppDelegate
 
+-(EntriesModel *)watchModel {
+    if(!_watchModel) {
+        _watchModel = [[EntriesModel alloc] initWithTimePeriod:@7];
+    }
+    return _watchModel;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -33,24 +39,21 @@
     
     // Watch Connectivity
     
-    self.watchDelegate = [WatchSessionDelegate new];
-    self.watchModel = [[EntriesModel alloc] initWithTimePeriod:@7];
-    [self.watchModel refreshEntries];
-    
     if([WCSession isSupported]) {
+        self.watchDelegate = [WatchSessionDelegate new];
         WCSession *session = [WCSession defaultSession];
         session.delegate = self.watchDelegate;
         [session activateSession];
-        
-        [self.watchDelegate sendTotalToWatch:[self.watchModel totalSpending]];
     }
     
     return YES;
 }
 
 -(void)sendNewTotalToWatch {
-    [self.watchModel refreshEntries];
-    [self.watchDelegate sendTotalToWatch:[self.watchModel totalSpending]];
+    if([WCSession isSupported]) {
+        [self.watchModel refreshEntries];
+        [self.watchDelegate sendTotalToWatch:[self.watchModel totalSpending]];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -69,14 +72,15 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self.watchModel refreshEntries];
-    [self.watchDelegate sendTotalToWatch:[self.watchModel totalSpending]];
+    if([WCSession isSupported]) {
+        [self.watchModel refreshEntries];
+        [self.watchDelegate sendTotalToWatch:[self.watchModel totalSpending]];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
 }
 
 #pragma mark - 3D Touch Quick Action

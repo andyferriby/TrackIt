@@ -34,6 +34,9 @@
                          completionHandler(nil, error);
                      }];
     }
+    else {
+        completionHandler(nil, [NSError errorWithDomain:@"reachability" code:0 userInfo:@{NSLocalizedDescriptionKey : @"iPhone not reachable"}]);
+    }
 }
 
 -(void)sendNewEntryToiPhone:(NSNumber *)value note:(NSString *)note completion:(void (^)(NSNumber *))completionHandler failure:(void (^)(NSError *))failureHandler {
