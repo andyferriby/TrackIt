@@ -76,6 +76,11 @@
 }
 
 - (IBAction)noteTapped {
+    
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.jyjapps.trackit"];
+    id foo = [defaults objectForKey:@"Quick Notes"];
+    NSlog(@"%@", foo);
+    
     [self presentTextInputControllerWithSuggestions:@[@"Haircut", @"Church"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
         if(results && results[0]) {
             NSLog(@"%@", results[0]);

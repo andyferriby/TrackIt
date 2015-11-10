@@ -38,6 +38,7 @@
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
 		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
 		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
+		967174C51BF1659800321787 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 967174C41BF1659800321787 /* Settings-Watch.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,9 @@
 		967174BD1BEC539200321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchSessionDelegate.m; path = Models/WatchSessionDelegate.m; sourceTree = "<group>"; };
 		967174C01BEC5DA600321787 /* WatchSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSessionDelegate.h; sourceTree = "<group>"; };
 		967174C11BEC5DA600321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionDelegate.m; sourceTree = "<group>"; };
+		967174C41BF1659800321787 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
+		967174C61BF16EC900321787 /* TrackIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrackIt.entitlements; sourceTree = "<group>"; };
+		967174C71BF1709900321787 /* WatchTrack Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchTrack Extension.entitlements"; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 		960105BF1BE843A100979763 /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
+				967174C61BF16EC900321787 /* TrackIt.entitlements */,
 				960105C91BE843A100979763 /* Main.storyboard */,
 				960105CF1BE843A100979763 /* Assets.xcassets */,
 				960105C31BE843A100979763 /* AppDelegate.h */,
@@ -220,6 +225,7 @@
 		960105C01BE843A100979763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				967174C41BF1659800321787 /* Settings-Watch.bundle */,
 				960105D41BE843A100979763 /* Info.plist */,
 				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
 				960105C11BE843A100979763 /* main.m */,
@@ -304,6 +310,7 @@
 		964A6E8E1BEAF8260024A2B3 /* WatchTrack Extension */ = {
 			isa = PBXGroup;
 			children = (
+				967174C71BF1709900321787 /* WatchTrack Extension.entitlements */,
 				967174C01BEC5DA600321787 /* WatchSessionDelegate.h */,
 				967174C11BEC5DA600321787 /* WatchSessionDelegate.m */,
 				964A6E921BEAF8260024A2B3 /* ExtensionDelegate.h */,
@@ -398,12 +405,22 @@
 				TargetAttributes = {
 					960105BC1BE843A100979763 = {
 						CreatedOnToolsVersion = 7.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					964A6E7D1BEAF8260024A2B3 = {
 						CreatedOnToolsVersion = 7.1;
 					};
 					964A6E891BEAF8260024A2B3 = {
 						CreatedOnToolsVersion = 7.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -434,6 +451,7 @@
 			files = (
 				960105D31BE843A100979763 /* LaunchScreen.storyboard in Resources */,
 				960105D01BE843A100979763 /* Assets.xcassets in Resources */,
+				967174C51BF1659800321787 /* Settings-Watch.bundle in Resources */,
 				960105CB1BE843A100979763 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,11 +688,14 @@
 			baseConfigurationReference = E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Ji (34WW5ZG33E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Ji (34WW5ZG33E)";
 				INFOPLIST_FILE = TrackIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bef81990-92c3-4446-8a96-c388726acbd4";
+				PROVISIONING_PROFILE = "5b630c1c-808b-40d6-ae2e-9411421866eb";
 			};
 			name = Debug;
 		};
@@ -683,6 +704,9 @@
 			baseConfigurationReference = CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = TrackIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
@@ -694,11 +718,14 @@
 		964A6E9F1BEAF8260024A2B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchTrack Extension/WatchTrack Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Ji (34WW5ZG33E)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				INFOPLIST_FILE = "WatchTrack Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "c901add0-d95f-4ff7-83cc-756e2a13decd";
+				PROVISIONING_PROFILE = "e5e06cda-740f-4b95-9998-6757dc87a1d1";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -709,10 +736,14 @@
 		964A6EA01BEAF8260024A2B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchTrack Extension/WatchTrack Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = "WatchTrack Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -724,11 +755,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Ji (34WW5ZG33E)";
 				IBSC_MODULE = WatchTrack_Extension;
 				INFOPLIST_FILE = WatchTrack/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e5330f94-5805-4c73-a667-c5befe3a0ef5";
+				PROVISIONING_PROFILE = "163288d3-994a-49ac-b21a-84811b3da4c5";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
