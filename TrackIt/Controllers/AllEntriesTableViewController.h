@@ -10,9 +10,11 @@
 #import "EntryCell.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "AddEntryViewController.h"
+#import "EntriesModel.h"
 
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
--(NSNumber *)updateValuesWithTimePeriod:(NSNumber *)numberOfDays;
+-(NSNumber *)updateValuesWithEntryModelType:(EntryModelType)type;
+-(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 
 @end

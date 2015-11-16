@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateTools.h"
 
 @interface ContainerViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
+@property (weak, nonatomic) IBOutlet UIButton *dateButton;
 
 @end

@@ -13,7 +13,7 @@
 
 -(EntriesModel *)model {
     if(!_model) {
-        _model = [[EntriesModel alloc] initWithTimePeriod:@7];
+        _model = [[EntriesModel alloc] initWithModelType:EntryModelTypeLast7Days];
     }
     return _model;
 }

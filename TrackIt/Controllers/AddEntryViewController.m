@@ -208,6 +208,7 @@
     }
     else if([identifier isEqualToString:@"datePickerCell"]) {
         DatePickerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"datePickerCell" forIndexPath:indexPath];
+        cell.datePicker.date = self.entry.date;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;

@@ -22,7 +22,7 @@
 
 -(EntriesModel *)watchModel {
     if(!_watchModel) {
-        _watchModel = [[EntriesModel alloc] initWithTimePeriod:@7];
+        _watchModel = [[EntriesModel alloc] initWithModelType:EntryModelTypeLast7Days];
     }
     return _watchModel;
 }

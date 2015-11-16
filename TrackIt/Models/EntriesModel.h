@@ -8,17 +8,27 @@
 
 #import "Entry.h"
 @import CoreData;
+#import "DateTools.h"
+
+typedef NS_ENUM(NSInteger, EntryModelType) {
+    EntryModelTypeLast7Days,
+    EntryModelTypeThisMonth,
+    EntryModelTypeAllTime,
+    EntryModelTypeDateRange
+};
 
 @interface EntriesModel : NSObject
 
--(instancetype)initWithTimePeriod:(NSNumber *)numberOfDays;
+-(instancetype)initWithModelType:(EntryModelType)type;
+-(instancetype)initWithModelType:(EntryModelType)type startDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 
 -(NSInteger)numberOfEntries;
 -(Entry *)entryAtIndex:(NSInteger)index;
 -(NSNumber *)totalSpending;
 
 -(void)refreshEntries;
--(void)refreshWithNewTimePeriod:(NSNumber *)numberOfDays;
+-(void)refreshEntriesWithModelType:(EntryModelType)type;
+-(void)refreshWithNewStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 -(void)deleteEntryAtIndex:(NSInteger)index;
 
 @end

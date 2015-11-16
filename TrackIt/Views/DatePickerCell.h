@@ -10,4 +10,6 @@
 
 @interface DatePickerCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
 @end

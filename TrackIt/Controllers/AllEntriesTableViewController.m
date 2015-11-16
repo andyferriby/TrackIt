@@ -7,7 +7,6 @@
 //
 
 #import "AllEntriesTableViewController.h"
-#import "EntriesModel.h"
 #import "NSDate+DateTools.h"
 #import "AppDelegate.h"
 
@@ -24,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.model = [[EntriesModel alloc] initWithTimePeriod:@7];
+    self.model = [[EntriesModel alloc] initWithModelType:EntryModelTypeThisMonth];
     
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -163,8 +162,15 @@
     [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
 }
 
--(NSNumber *)updateValuesWithTimePeriod:(NSNumber *)numberOfDays {
-    [self.model refreshWithNewTimePeriod:numberOfDays];
+-(NSNumber *)updateValuesWithEntryModelType:(EntryModelType)type {
+    [self.model refreshEntriesWithModelType:type];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadEmptyDataSet];
+    return [self.model totalSpending];
+}
+
+-(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    [self.model refreshWithNewStartDate:startDate endDate:endDate];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
     return [self.model totalSpending];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GAR-vC-gCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GAR-vC-gCy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -54,12 +54,12 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LpM-dA-MNm">
-                                <rect key="frame" x="160" y="72" width="281" height="29"/>
+                                <rect key="frame" x="176" y="72" width="248" height="29"/>
                                 <animations/>
                                 <segments>
-                                    <segment title="Last 7 Days"/>
-                                    <segment title="Last 30 Days"/>
+                                    <segment title="This Month"/>
                                     <segment title="All Time"/>
+                                    <segment title="By Date"/>
                                 </segments>
                                 <connections>
                                     <action selector="timePeriodSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="jcn-SB-diz"/>
@@ -72,12 +72,20 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZP-hs-NQC" userLabel="Date Button">
+                                <rect key="frame" x="232" y="104" width="137" height="30"/>
+                                <animations/>
+                                <state key="normal" title="10/01/15 to 10/15/15">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.96862745098039216" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="NrQ-A7-hma" firstAttribute="top" secondItem="5um-2P-1tn" secondAttribute="bottom" constant="3" id="38J-lm-yA4"/>
                             <constraint firstItem="2I1-FE-2Ti" firstAttribute="top" secondItem="NrQ-A7-hma" secondAttribute="bottom" id="4eh-1E-Mzv"/>
+                            <constraint firstItem="wZP-hs-NQC" firstAttribute="centerY" secondItem="Qzc-RH-hl1" secondAttribute="centerY" id="56V-Pv-4TA"/>
                             <constraint firstItem="2I1-FE-2Ti" firstAttribute="top" secondItem="5um-2P-1tn" secondAttribute="bottom" constant="4" id="5p6-dP-Je7"/>
                             <constraint firstItem="NrQ-A7-hma" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ay2-gc-5fQ"/>
                             <constraint firstItem="LpM-dA-MNm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="CSZ-ya-7DG"/>
@@ -91,6 +99,7 @@
                             <constraint firstItem="2I1-FE-2Ti" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="Ur5-T4-2Ii"/>
                             <constraint firstItem="Qzc-RH-hl1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="VdR-bK-ncH"/>
                             <constraint firstItem="2I1-FE-2Ti" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bGh-ce-Xkj"/>
+                            <constraint firstItem="wZP-hs-NQC" firstAttribute="centerX" secondItem="Qzc-RH-hl1" secondAttribute="centerX" id="jQ0-9B-6be"/>
                             <constraint firstItem="cas-Cc-OwH" firstAttribute="trailing" secondItem="2I1-FE-2Ti" secondAttribute="trailing" id="tBN-bI-L1h"/>
                             <constraint firstAttribute="trailing" secondItem="2I1-FE-2Ti" secondAttribute="trailing" id="tHp-aa-WfT"/>
                             <constraint firstItem="5um-2P-1tn" firstAttribute="top" secondItem="Qzc-RH-hl1" secondAttribute="bottom" constant="2" id="wWt-r3-Ghv"/>
@@ -104,6 +113,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Track It" id="cst-4o-ueh"/>
                     <connections>
+                        <outlet property="dateButton" destination="wZP-hs-NQC" id="VbP-0G-7kc"/>
                         <outlet property="dividerLineHeightConstraint" destination="oxj-gy-8iB" id="Npr-lX-8fv"/>
                         <outlet property="segmentedControl" destination="LpM-dA-MNm" id="SqH-1X-IEd"/>
                         <outlet property="totalTitleLabel" destination="Qzc-RH-hl1" id="Cf0-ez-VS5"/>
@@ -355,7 +365,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="216" id="DCI-4K-3hR" customClass="NoteCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="216" id="DCI-4K-3hR" customClass="DatePickerCell">
                                         <rect key="frame" x="0.0" y="326" width="600" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DCI-4K-3hR" id="CbT-IS-xmo">
@@ -381,6 +391,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="datePicker" destination="cYA-bJ-hlc" id="Bgn-ua-58A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

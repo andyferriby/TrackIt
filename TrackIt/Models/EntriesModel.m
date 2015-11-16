@@ -12,17 +12,27 @@
 
 @interface EntriesModel()
 
-@property (nonatomic) NSNumber *timePeriod;
+@property (nonatomic) EntryModelType type;
 @property (strong, nonatomic) NSArray *entries;
+@property (strong, nonatomic) DTTimePeriod *datePeriod;
 
 @end
 
 @implementation EntriesModel
 
--(instancetype)initWithTimePeriod:(NSNumber *)numberOfDays {
+-(instancetype)initWithModelType:(EntryModelType)type {
     self = [super init];
     if(self) {
-        _timePeriod = numberOfDays;
+        _type = type;
+    }
+    return self;
+}
+
+-(instancetype)initWithModelType:(EntryModelType)type startDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    self = [super init];
+    if(self) {
+        _type = type;
+        _datePeriod = [[DTTimePeriod alloc] initWithStartDate:startDate endDate:endDate];
     }
     return self;
 }
@@ -47,11 +57,27 @@
 
 -(void)refreshEntries {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Entry"];
-    if(self.timePeriod) {
-        NSDate *lowerBoundary = [[NSDate date] dateBySubtractingDays:self.timePeriod.integerValue];
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"date > %@", lowerBoundary];
+    switch(self.type) {
+        case EntryModelTypeLast7Days: {
+            NSDate *lowerBoundary = [[NSDate date] dateBySubtractingDays:7];
+            fetchRequest.predicate = [NSPredicate predicateWithFormat:@"date > %@", lowerBoundary];
+            break;
+        }
+        case EntryModelTypeThisMonth: {
+            NSDate *now = [NSDate date];
+            NSDate *lowerBoundary = [NSDate dateWithYear:now.year month:now.month day:1];
+            fetchRequest.predicate = [NSPredicate predicateWithFormat:@"date > %@", lowerBoundary];
+            break;
+        }
+        case EntryModelTypeAllTime: {
+            break;
+        }
+        case EntryModelTypeDateRange: {
+            fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[[NSPredicate predicateWithFormat:@"date > %@", self.datePeriod.StartDate], [NSPredicate predicateWithFormat:@"date < %@", self.datePeriod.EndDate]]];
+            break;
+        }
     }
-    
+
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     NSError *error;
     self.entries = [context executeFetchRequest:fetchRequest error:&error];
@@ -61,8 +87,16 @@
     }
 }
 
--(void)refreshWithNewTimePeriod:(NSNumber *)numberOfDays {
-    self.timePeriod = numberOfDays;
+-(void)refreshEntriesWithModelType:(EntryModelType)type {
+    self.type = type;
+    [self refreshEntries];
+}
+
+-(void)refreshWithNewStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    self.type = EntryModelTypeDateRange;
+    // Expect the date range to INCLUDE the end date, so add 1 to it
+    endDate = [endDate dateByAddingDays:1];
+    self.datePeriod = [[DTTimePeriod alloc] initWithStartDate:startDate endDate:endDate];
     [self refreshEntries];
 }
 
