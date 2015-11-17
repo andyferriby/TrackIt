@@ -38,6 +38,7 @@
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
 		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
 		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
+		96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B506531BF96C3700E2F083 /* SelectDatesViewController.m */; };
 		96BA74A21BF19CBC00CDDA46 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,8 @@
 		967174C11BEC5DA600321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionDelegate.m; sourceTree = "<group>"; };
 		967174C61BF16EC900321787 /* TrackIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrackIt.entitlements; sourceTree = "<group>"; };
 		967174C71BF1709900321787 /* WatchTrack Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchTrack Extension.entitlements"; sourceTree = "<group>"; };
+		96B506521BF96C3700E2F083 /* SelectDatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectDatesViewController.h; path = Controllers/SelectDatesViewController.h; sourceTree = "<group>"; };
+		96B506531BF96C3700E2F083 /* SelectDatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectDatesViewController.m; path = Controllers/SelectDatesViewController.m; sourceTree = "<group>"; };
 		96BA749B1BF17CFA00CDDA46 /* WatchTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchTrack.entitlements; sourceTree = "<group>"; };
 		96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				96434C9F1BE86CC9009342FC /* ContainerViewController.m */,
 				960105F01BE857CB00979763 /* AddEntryViewController.h */,
 				960105F11BE857CB00979763 /* AddEntryViewController.m */,
+				96B506521BF96C3700E2F083 /* SelectDatesViewController.h */,
+				96B506531BF96C3700E2F083 /* SelectDatesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */,
 				960105EE1BE84FAE00979763 /* EntryCell.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
 				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,

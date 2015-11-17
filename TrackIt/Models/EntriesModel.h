@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, EntryModelType) {
 @interface EntriesModel : NSObject
 
 -(instancetype)initWithModelType:(EntryModelType)type;
--(instancetype)initWithModelType:(EntryModelType)type startDate:(NSDate *)startDate endDate:(NSDate *)endDate;
+-(instancetype)initWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 
 -(NSInteger)numberOfEntries;
 -(Entry *)entryAtIndex:(NSInteger)index;

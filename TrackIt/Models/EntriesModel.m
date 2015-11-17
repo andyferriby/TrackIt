@@ -28,10 +28,10 @@
     return self;
 }
 
--(instancetype)initWithModelType:(EntryModelType)type startDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+-(instancetype)initWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
     self = [super init];
     if(self) {
-        _type = type;
+        _type = EntryModelTypeDateRange;
         _datePeriod = [[DTTimePeriod alloc] initWithStartDate:startDate endDate:endDate];
     }
     return self;
@@ -89,6 +89,8 @@
 
 -(void)refreshEntriesWithModelType:(EntryModelType)type {
     self.type = type;
+    self.datePeriod = nil;
+    NSAssert(type != EntryModelTypeDateRange, @"Cannot set model type date range without providing start and end dates");
     [self refreshEntries];
 }
 

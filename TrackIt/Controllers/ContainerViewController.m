@@ -81,9 +81,9 @@
         case 2:
             self.currentModelType = EntryModelTypeDateRange;
             // set current start/end dates if not set
-            // DEBUG: 10/1/15 to 10/15/2015
-            self.currentStartDate = [NSDate dateWithYear:2015 month:10 day:1];
-            self.currentEndDate = [NSDate dateWithYear:2015 month:10 day:15];
+            // DEBUG: 11/1/15 to 11/15/2015
+            self.currentStartDate = [NSDate dateWithYear:2015 month:11 day:1];
+            self.currentEndDate = [NSDate dateWithYear:2015 month:11 day:15];
             self.dateButton.hidden = NO;
             self.totalTitleLabel.hidden = YES;
             break;
@@ -109,6 +109,16 @@
     self.totalValueLabel.text = [self.formatter stringFromNumber:total];
 }
 
+#pragma mark - SelectDatesDelegate
+
+-(void)newDatesSelected {
+    
+}
+
+-(void)dateSelectionCanceled {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark - Navigation
 
@@ -116,9 +126,13 @@
     if([segue.identifier isEqualToString:@"embedAllEntriesController"]) {
         self.allEntriesVC = segue.destinationViewController;
     }
-    if([segue.identifier isEqualToString:@"addEntrySegue"]) {
+    else if([segue.identifier isEqualToString:@"addEntrySegue"]) {
         AddEntryViewController *vc = segue.destinationViewController;
         vc.delegate = self.allEntriesVC;
+    }
+    else if([segue.identifier isEqualToString:@"selectDatesSegue"]) {
+        SelectDatesViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
     }
 }
 
