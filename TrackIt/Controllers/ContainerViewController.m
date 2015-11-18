@@ -129,8 +129,6 @@
 #pragma mark - SelectDatesDelegate
 
 -(void)newDatesSelected {
-    NSLog(@"Start Date: %@", [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE]);
-    NSLog(@"End Date: %@", [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]);
     [self dismissViewControllerAnimated:YES completion:nil];
     [self updateTotalDisplay];
 }

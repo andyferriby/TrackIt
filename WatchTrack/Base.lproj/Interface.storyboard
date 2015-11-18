@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
@@ -48,82 +48,140 @@
                     <items>
                         <group width="1" alignment="left" layout="vertical" radius="6" id="3Zz-IY-rVj">
                             <items>
-                                <label width="1" alignment="left" text="Enter Value" textAlignment="center" id="5WO-K9-MdM">
-                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" type="system" pointSize="20"/>
-                                </label>
-                                <group width="1" alignment="left" id="Vt8-FS-lpL">
+                                <group width="1" alignment="left" layout="vertical" id="wM9-gG-TU6" userLabel="Add Entry Group">
                                     <items>
-                                        <group width="0.5" alignment="left" layout="vertical" id="tid-oZ-z8U">
+                                        <label width="1" alignment="left" text="Enter Value" textAlignment="center" id="5WO-K9-MdM">
+                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="20"/>
+                                        </label>
+                                        <group width="1" alignment="left" id="Vt8-FS-lpL">
                                             <items>
-                                                <label width="1" alignment="left" text="Dollars" textAlignment="center" id="n9s-ax-TTX">
-                                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                                </label>
-                                                <picker width="1" height="35" alignment="left" accessibilityLabel="Dollars" focusStyle="stack" indicatorMode="shownWhileFocused" id="F0f-bj-5hi">
-                                                    <connections>
-                                                        <action selector="dollarsValueChanged:" destination="Zkb-sm-ccz" id="3uj-cr-cYg"/>
-                                                    </connections>
-                                                </picker>
+                                                <group width="0.5" alignment="left" layout="vertical" id="tid-oZ-z8U">
+                                                    <items>
+                                                        <label width="1" alignment="left" text="Dollars" textAlignment="center" id="n9s-ax-TTX">
+                                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                        </label>
+                                                        <picker width="1" height="35" alignment="left" accessibilityLabel="Dollars" focusStyle="stack" indicatorMode="shownWhileFocused" id="F0f-bj-5hi">
+                                                            <connections>
+                                                                <action selector="dollarsValueChanged:" destination="Zkb-sm-ccz" id="3uj-cr-cYg"/>
+                                                            </connections>
+                                                        </picker>
+                                                    </items>
+                                                </group>
+                                                <group width="0.5" alignment="left" layout="vertical" id="95c-At-yPi">
+                                                    <items>
+                                                        <label width="1" alignment="left" text="Cents" textAlignment="center" id="GDC-Kx-PnD">
+                                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                        </label>
+                                                        <picker width="1" height="35" alignment="right" accessibilityLabel="Cents" focusStyle="stack" indicatorMode="shownWhileFocused" id="80T-9W-haL">
+                                                            <connections>
+                                                                <action selector="centsValueChanged:" destination="Zkb-sm-ccz" id="RU1-Zm-ZgM"/>
+                                                            </connections>
+                                                        </picker>
+                                                    </items>
+                                                </group>
                                             </items>
+                                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
                                         </group>
-                                        <group width="0.5" alignment="left" layout="vertical" id="95c-At-yPi">
+                                        <label width="1" alignment="left" text="$1.00" textAlignment="center" id="brD-EX-ZXT">
+                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="30"/>
+                                        </label>
+                                        <separator width="0.90000000000000002" alignment="center" alpha="0.40000000000000002" id="7gI-mf-ye5">
+                                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </separator>
+                                        <group width="1" alignment="left" layout="vertical" id="hiK-3y-2mm">
                                             <items>
-                                                <label width="1" alignment="left" text="Cents" textAlignment="center" id="GDC-Kx-PnD">
+                                                <label width="1" alignment="left" text="Enter Note" textAlignment="center" id="Lqp-R4-bbp" userLabel="Enter Note">
                                                     <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    <fontDescription key="font" type="system" pointSize="20"/>
                                                 </label>
-                                                <picker width="1" height="35" alignment="right" accessibilityLabel="Cents" focusStyle="stack" indicatorMode="shownWhileFocused" id="80T-9W-haL">
+                                                <button width="50" height="50" alignment="center" backgroundImage="Microphone" id="oZH-Os-ZbY">
                                                     <connections>
-                                                        <action selector="centsValueChanged:" destination="Zkb-sm-ccz" id="RU1-Zm-ZgM"/>
+                                                        <action selector="noteTapped" destination="Zkb-sm-ccz" id="S58-5b-98x"/>
                                                     </connections>
-                                                </picker>
+                                                </button>
+                                                <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="7ei-tE-ZW5">
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <button width="1" alignment="left" title="Save" id="xDZ-zg-Oqe">
+                                                    <connections>
+                                                        <action selector="saveTapped" destination="Zkb-sm-ccz" id="Evx-Hz-a96"/>
+                                                    </connections>
+                                                </button>
                                             </items>
+                                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="10"/>
                                         </group>
                                     </items>
-                                    <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
                                 </group>
-                                <label width="1" alignment="left" text="$1.00" textAlignment="center" id="brD-EX-ZXT">
-                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" type="system" weight="semibold" pointSize="30"/>
-                                </label>
+                                <group width="1" alignment="left" hidden="YES" layout="vertical" id="OHD-p9-T3H" userLabel="Saving Group">
+                                    <items>
+                                        <label width="1" alignment="left" text="Saving..." textAlignment="center" id="zDx-tJ-Oad">
+                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="18"/>
+                                        </label>
+                                        <label width="1" alignment="left" hidden="YES" text="iPhone not reachable" textAlignment="center" numberOfLines="0" id="eN0-Pp-x9q">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <group width="1" alignment="left" hidden="YES" layout="vertical" radius="7" spacing="0.0" id="lqT-fx-Pwp">
+                                            <items>
+                                                <label width="1" alignment="left" text="New entry:" textAlignment="center" numberOfLines="0" id="EEb-FG-xNz">
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                                </label>
+                                                <label width="1" alignment="left" text="$1.00" textAlignment="center" minimumScaleFactor="0.5" id="XTp-FL-6ng">
+                                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="22"/>
+                                                </label>
+                                                <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="k4E-m6-Rkd">
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                                </label>
+                                            </items>
+                                            <color key="backgroundColor" red="0.91764705879999997" green="0.96862745100000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                        </group>
+                                        <button width="1" alignment="left" hidden="YES" title="Done" id="HOP-JI-wej">
+                                            <connections>
+                                                <action selector="doneTapped" destination="Zkb-sm-ccz" id="heh-Ch-sf8"/>
+                                            </connections>
+                                        </button>
+                                        <button width="1" alignment="left" hidden="YES" title="Try Again" id="ILD-6m-AZh">
+                                            <connections>
+                                                <action selector="tryAgainTapped" destination="Zkb-sm-ccz" id="UT1-QR-XxU"/>
+                                            </connections>
+                                        </button>
+                                        <button width="1" alignment="left" hidden="YES" title="Cancel" id="wwl-CO-x0y">
+                                            <connections>
+                                                <action selector="cancelTapped" destination="Zkb-sm-ccz" id="CJC-Bm-ed7"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
                             </items>
-                        </group>
-                        <separator width="0.90000000000000002" alignment="center" alpha="0.40000000000000002" id="7gI-mf-ye5">
-                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </separator>
-                        <group width="1" alignment="left" layout="vertical" id="hiK-3y-2mm">
-                            <items>
-                                <label width="1" alignment="left" text="Enter Note" textAlignment="center" id="Lqp-R4-bbp" userLabel="Enter Note">
-                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="font" type="system" pointSize="20"/>
-                                </label>
-                                <button width="50" height="50" alignment="center" backgroundImage="Microphone" id="oZH-Os-ZbY">
-                                    <connections>
-                                        <action selector="noteTapped" destination="Zkb-sm-ccz" id="S58-5b-98x"/>
-                                    </connections>
-                                </button>
-                                <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="7ei-tE-ZW5">
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </label>
-                                <button width="1" alignment="left" title="Save" id="xDZ-zg-Oqe">
-                                    <connections>
-                                        <action selector="saveTapped" destination="Zkb-sm-ccz" id="rpP-bn-Myg"/>
-                                    </connections>
-                                </button>
-                            </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="10"/>
                         </group>
                     </items>
                     <connections>
+                        <outlet property="addEntryGroup" destination="wM9-gG-TU6" id="ack-4l-0ff"/>
+                        <outlet property="cancelButton" destination="wwl-CO-x0y" id="oC9-Zn-YZd"/>
                         <outlet property="centsPicker" destination="80T-9W-haL" id="he4-Zy-WdU"/>
                         <outlet property="dollarPicker" destination="F0f-bj-5hi" id="CIC-gw-FN6"/>
+                        <outlet property="doneButton" destination="HOP-JI-wej" id="Xat-1V-9Ps"/>
                         <outlet property="noteLabel" destination="7ei-tE-ZW5" id="Q8t-hR-NLI"/>
+                        <outlet property="savedDetailGroup" destination="lqT-fx-Pwp" id="ocw-mE-7yl"/>
+                        <outlet property="savedNoteLabel" destination="k4E-m6-Rkd" id="QTt-I6-qMM"/>
+                        <outlet property="savedValueLabel" destination="XTp-FL-6ng" id="40Y-cU-sEf"/>
+                        <outlet property="savingErrorLabel" destination="eN0-Pp-x9q" id="DLz-3r-Jlm"/>
+                        <outlet property="savingGroup" destination="OHD-p9-T3H" id="v7f-0E-aHl"/>
+                        <outlet property="savingTitleLabel" destination="zDx-tJ-Oad" id="MUm-ZH-EJz"/>
+                        <outlet property="tryAgainButton" destination="ILD-6m-AZh" id="KEK-4o-sZU"/>
                         <outlet property="valueLabel" destination="brD-EX-ZXT" id="stT-3b-sPR"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="360" y="216"/>
+            <point key="canvasLocation" x="418" y="216.5"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">

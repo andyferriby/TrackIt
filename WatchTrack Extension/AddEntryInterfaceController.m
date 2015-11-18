@@ -13,6 +13,9 @@
 @property (strong, nonatomic) NSNumber *currentValue;
 @property (strong, nonatomic) NSString *currentNote;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
+@property (strong, nonatomic) NSNumber *theNewTotal;
+
+@property (weak, nonatomic) id<EntryDelegate>delegate;
 
 @end
 
@@ -64,13 +67,11 @@
 #pragma mark - IBAction
 
 - (IBAction)dollarsValueChanged:(NSInteger)value {
-    NSLog(@"Value: %d", value);
     value = value + 1;
     self.currentValue = @( self.currentValue.doubleValue - self.currentValue.integerValue + value );
     [self.valueLabel setText:[self.formatter stringFromNumber:self.currentValue]];
 }
 - (IBAction)centsValueChanged:(NSInteger)value {
-    NSLog(@"Value: %d", value);
     self.currentValue = @( self.currentValue.integerValue + (double)(value/100.0) );
     [self.valueLabel setText:[self.formatter stringFromNumber:self.currentValue]];
 }
@@ -78,7 +79,7 @@
 - (IBAction)noteTapped {
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.jyjapps.trackit"];
-    NSLog(@"%@", defaults.dictionaryRepresentation);
+
     NSString *first = [defaults objectForKey:@"quickNote"];
     NSString *second = [defaults objectForKey:@"quickNote2"];
     NSString *third = [defaults objectForKey:@"quickNote3"];
@@ -99,23 +100,60 @@
     
     [self presentTextInputControllerWithSuggestions:options allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
         if(results && results[0]) {
-            NSLog(@"%@", results[0]);
             [self.noteLabel setText:[NSString stringWithFormat:@"\"%@\"", results[0]]];
             self.currentNote = results[0];
         }
     }];
 }
 
+-(id)contextForSegueWithIdentifier:(NSString *)segueIdentifier {
+    if([segueIdentifier isEqualToString:@"savingSegue"]) {
+        return @{@"value" : self.currentValue, @"note" : self.currentNote, @"delegate" : self.delegate};
+    }
+    return nil;
+}
+
 - (IBAction)saveTapped {
+    [self.addEntryGroup setHidden:YES];
+    [self.savingGroup setHidden:NO];
+    
     WatchSessionDelegate *watchDelegate = [WatchSessionDelegate new];
     [watchDelegate sendNewEntryToiPhone:self.currentValue note:self.currentNote completion:^(NSNumber *newTotal) {
-        NSLog(@"New total: %@", newTotal);
-        // Temp
-        [self.delegate newEntryAdded:newTotal];
+        [self setTitle:@" "];
+        self.theNewTotal = newTotal;
+        [self.savingTitleLabel setText:@"Success"];
+        [self.savedDetailGroup setHidden:NO];
+        [self.savedValueLabel setText:[self.formatter stringFromNumber:self.currentValue]];
+        [self.savedNoteLabel setText:[NSString stringWithFormat:@"\"%@\"", self.currentNote]];
+        [self.doneButton setHidden:NO];
+        
     } failure:^(NSError *error) {
         //TODO:
         // if failed, show a modal that says it failed or something
+        [self.savedDetailGroup setHidden:YES];
+        [self.savingErrorLabel setHidden:NO];
+        [self.savingTitleLabel setText:@"Save Failed"];
+        [self.savingErrorLabel setText:error.localizedDescription];
+        [self.savingTitleLabel setTextColor:[UIColor redColor]];
+        [self.doneButton setHidden:YES];
+        [self.tryAgainButton setHidden:NO];
+        [self.cancelButton setHidden:NO];
     }];
+}
+
+- (IBAction)doneTapped {
+    [self.delegate newEntryAdded:self.theNewTotal];
+}
+- (IBAction)tryAgainTapped {
+    [self.savedDetailGroup setHidden:YES];
+    [self.savingErrorLabel setHidden:YES];
+    [self.doneButton setHidden:YES];
+    [self.tryAgainButton setHidden:YES];
+    [self.cancelButton setHidden:YES];
+    [self saveTapped];
+}
+- (IBAction)cancelTapped {
+    [self.delegate newEntryCanceled];
 }
 
 @end

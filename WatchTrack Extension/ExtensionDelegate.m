@@ -19,6 +19,15 @@
         WCSession *session = [WCSession defaultSession];
         session.delegate = self.watchDelegate;
         [session activateSession];
+        
+        [self.watchDelegate requestTotalFromiPhoneWithCompletion:^(NSNumber *total, NSError *error) {
+            if(error) {
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+        }];
     }
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.jyjapps.trackit"];

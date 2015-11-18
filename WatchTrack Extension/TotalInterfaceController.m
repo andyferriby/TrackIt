@@ -28,12 +28,13 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
+    
     // Configure interface objects here.
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalReceived" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         NSNumber *total = note.userInfo[@"total"];
         [self.totalLabel setText:[self.formatter stringFromNumber:total]];
+        [self.totalLabel setTextColor:[UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1]];
     }];
 }
 
@@ -54,6 +55,7 @@
             else {
                 [self.totalLabel setText:[self.formatter stringFromNumber:total]];
                 [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 [self.totalLabel setTextColor:[UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1]];
             }
         }];
@@ -78,6 +80,10 @@
     [self dismissController];
     [[NSUserDefaults standardUserDefaults] setValue:newTotal forKey:@"TotalSpending"];
     [self.totalLabel setText:[self.formatter stringFromNumber:newTotal]];
+}
+
+-(void)newEntryCanceled {
+    [self dismissController];
 }
 
 @end

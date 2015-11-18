@@ -9,20 +9,26 @@
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
 #import "WatchSessionDelegate.h"
-
-@protocol EntryDelegate <NSObject>
-
--(void)newEntryAdded:(NSNumber *)newTotal;
-
-@end
+#import "EntryDelegate.h"
 
 @interface AddEntryInterfaceController : WKInterfaceController
+
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *addEntryGroup;
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfacePicker *dollarPicker;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfacePicker *centsPicker;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *valueLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *noteLabel;
 
-@property (weak, nonatomic) id<EntryDelegate>delegate;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *savingGroup;
+
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *savingTitleLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *savingErrorLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *savedDetailGroup;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *savedValueLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *savedNoteLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *doneButton;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *tryAgainButton;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceButton *cancelButton;
 
 @end

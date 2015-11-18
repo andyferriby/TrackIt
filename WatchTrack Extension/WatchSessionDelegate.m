@@ -57,7 +57,6 @@
 
 -(void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *,id> *)applicationContext {
     NSNumber *total = applicationContext[@"total"];
-    NSLog(@"%@", total);
     
     [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
     

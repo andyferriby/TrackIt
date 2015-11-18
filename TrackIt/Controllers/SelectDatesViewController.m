@@ -62,11 +62,11 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Date Range";
+    return section == 0 ? @"Date Range" : nil;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return @"The range of dates to filter your spending entries.";
+    return section == 0 ? @"The range of dates to filter your spending entries." : nil;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
