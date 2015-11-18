@@ -9,6 +9,7 @@
 #import "ContainerViewController.h"
 #import "AddEntryViewController.h"
 #import "AllEntriesTableViewController.h"
+#import "DateTools.h"
 
 @interface ContainerViewController ()
 
@@ -18,8 +19,6 @@
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @property (nonatomic) EntryModelType currentModelType;
-@property (strong, nonatomic) NSDate *currentStartDate;
-@property (strong, nonatomic) NSDate *currentEndDate;
 
 @end
 
@@ -52,6 +51,23 @@
         NSNumber *value = note.userInfo[@"total"];
         self.totalValueLabel.text = [weakSelf.formatter stringFromNumber:value];
     }];
+    
+    NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
+    NSDate *currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
+    if(!currentStartDate) {
+        NSDate *now = [NSDate date];
+        currentStartDate = [NSDate dateWithYear:now.year month:now.month day:1];
+        [[NSUserDefaults standardUserDefaults] setValue:currentStartDate forKey:USER_START_DATE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if(!currentEndDate) {
+        NSDate *now = [NSDate date];
+        currentEndDate = [NSDate dateWithYear:now.year month:now.month day:now.day];
+        [[NSUserDefaults standardUserDefaults] setValue:currentEndDate forKey:USER_END_DATE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -81,9 +97,6 @@
         case 2:
             self.currentModelType = EntryModelTypeDateRange;
             // set current start/end dates if not set
-            // DEBUG: 11/1/15 to 11/15/2015
-            self.currentStartDate = [NSDate dateWithYear:2015 month:11 day:1];
-            self.currentEndDate = [NSDate dateWithYear:2015 month:11 day:15];
             self.dateButton.hidden = NO;
             self.totalTitleLabel.hidden = YES;
             break;
@@ -103,16 +116,23 @@
             total = [self.allEntriesVC updateValuesWithEntryModelType:EntryModelTypeAllTime];
             break;
         case EntryModelTypeDateRange:
-            total = [self.allEntriesVC updateValuesWithStartDate:self.currentStartDate endDate:self.currentEndDate];
+            total = [self.allEntriesVC updateValuesWithStartDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
             break;
     }
     self.totalValueLabel.text = [self.formatter stringFromNumber:total];
+    
+    NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
+    NSDate *currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
+    [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
 }
 
 #pragma mark - SelectDatesDelegate
 
 -(void)newDatesSelected {
-    
+    NSLog(@"Start Date: %@", [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE]);
+    NSLog(@"End Date: %@", [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]);
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self updateTotalDisplay];
 }
 
 -(void)dateSelectionCanceled {

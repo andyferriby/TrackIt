@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DateTools.h"
 
+#define USER_START_DATE @"userStartDate"
+#define USER_END_DATE @"userEndDate"
+
 @protocol SelectDatesDelegate <NSObject>
 
 -(void)newDatesSelected;

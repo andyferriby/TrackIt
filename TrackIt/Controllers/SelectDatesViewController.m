@@ -6,9 +6,6 @@
 //  Copyright © 2015 Jason Ji. All rights reserved.
 //
 
-#define USER_START_DATE @"userStartDate"
-#define USER_END_DATE @"userEndDate"
-
 #import "SelectDatesViewController.h"
 #import "DatePickerCell.h"
 
@@ -28,17 +25,28 @@
     
     self.currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
     self.currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
-    if(!self.currentStartDate) {
-        NSDate *now = [NSDate date];
-        self.currentStartDate = [NSDate dateWithYear:now.year month:now.month day:1];
-        [[NSUserDefaults standardUserDefaults] setValue:self.currentStartDate forKey:USER_START_DATE];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (IBAction)dateSelected:(UIDatePicker *)sender {
+    if([self.datePickerIndexPath isEqual:[NSIndexPath indexPathForRow:1 inSection:0]]) {
+        self.currentStartDate = sender.date;
+        
+        if([self.currentStartDate compare:self.currentEndDate] == NSOrderedDescending) {
+            self.currentEndDate = self.currentStartDate;
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     }
-    if(!self.currentEndDate) {
-        self.currentEndDate = [NSDate date];
-        [[NSUserDefaults standardUserDefaults] setValue:self.currentEndDate forKey:USER_END_DATE];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    else {
+        self.currentEndDate = sender.date;
+        if([self.currentStartDate compare:self.currentEndDate] == NSOrderedDescending) {
+            self.currentStartDate = self.currentEndDate;
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     }
+    
+
 }
 
 #pragma mark - UIBarPositioningDelegate
@@ -51,6 +59,14 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return  2;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Date Range";
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return @"The range of dates to filter your spending entries.";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -68,7 +84,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         NSDate *thisDate = [identifier isEqualToString:@"startDateCell"] ? self.currentStartDate : self.currentEndDate;
         cell.textLabel.text = [identifier isEqualToString:@"startDateCell"] ? @"Start Date" : @"End Date";
-        cell.detailTextLabel.text = [thisDate formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
+        cell.detailTextLabel.text = [thisDate formattedDateWithFormat:@"MM/dd/YYYY"];
         cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
@@ -77,6 +93,8 @@
     else if([identifier isEqualToString:@"datePickerCell"]) {
         DatePickerCell *cell = (DatePickerCell *)[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.datePicker.date = (indexPath.row == 1) ? self.currentStartDate : self.currentEndDate;
+        cell.datePicker.maximumDate = [NSDate date];
         
         return cell;
     }
@@ -99,49 +117,34 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *identifier = [self identifierForRowAtIndexPath:indexPath];
-    if([identifier isEqualToString:@"startDateCell"]) {
+    if([identifier isEqualToString:@"startDateCell"] || [identifier isEqualToString:@"endDateCell"]) {
         if(!self.datePickerIndexPath) {
-            self.datePickerIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+            self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
             [tableView insertRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
         else {
-            if(self.datePickerIndexPath.row == 1) {
+            NSIndexPath *newDatePickerIndexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+            if([newDatePickerIndexPath isEqual:self.datePickerIndexPath]) {
                 [tableView beginUpdates];
                 [tableView deleteRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 self.datePickerIndexPath = nil;
                 [tableView endUpdates];
             }
             else {
+                if(indexPath.row != 0)
+                    newDatePickerIndexPath = indexPath;
                 [tableView beginUpdates];
                 [tableView deleteRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                self.datePickerIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-                [tableView insertRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                [tableView endUpdates];
-            }
-        }
-    }
-    else if([identifier isEqualToString:@"endDateCell"]) {
-        if(!self.datePickerIndexPath) {
-            self.datePickerIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-            [tableView insertRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
-        else {
-            if(self.datePickerIndexPath.row == 2) {
-                [tableView beginUpdates];
-                [tableView deleteRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                self.datePickerIndexPath = nil;
-                [tableView endUpdates];
-            }
-            else {
-                [tableView beginUpdates];
-                [tableView deleteRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-                self.datePickerIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-                [tableView insertRowsAtIndexPaths:@[self.datePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                self.datePickerIndexPath = newDatePickerIndexPath;
+                [tableView insertRowsAtIndexPaths:@[newDatePickerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 [tableView endUpdates];
             }
         }
     }
     else if([identifier isEqualToString:@"saveCell"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:self.currentStartDate forKey:USER_START_DATE];
+        [[NSUserDefaults standardUserDefaults] setValue:self.currentEndDate forKey:USER_END_DATE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self.delegate newDatesSelected];
     }
     else if([identifier isEqualToString:@"cancelCell"]) {
