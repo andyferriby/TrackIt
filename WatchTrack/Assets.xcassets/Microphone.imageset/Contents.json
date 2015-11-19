@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Microphone50.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Microphone@2x.png",
+      "filename" : "Microphone50@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Microphone50@3x.png",
       "scale" : "3x"
     }
   ],
