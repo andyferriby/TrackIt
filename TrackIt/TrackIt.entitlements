@@ -6,5 +6,7 @@
 	<array>
 		<string>group.com.jyjapps.trackit</string>
 	</array>
+    <key>beta-reports-active</key>
+    <true/>
 </dict>
 </plist>

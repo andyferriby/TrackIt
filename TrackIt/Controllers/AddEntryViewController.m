@@ -113,8 +113,10 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    if([textField.text isEqualToString:@"$"])
+    if([textField.text isEqualToString:@"$"]) {
         textField.text = nil;
+        self.entry.amount = nil;
+    }
     else {
         self.entry.amount = [self.formatter numberFromString:textField.text];
         if(self.entry.amount)
@@ -130,7 +132,7 @@
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView {
-    self.entry.note = textView.text;
+    self.entry.note = [textView.text isEqualToString:@""] ? nil : textView.text;
 }
 
 #pragma mark - UITableView
