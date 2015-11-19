@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,7 +32,6 @@
 		964A6E8B1BEAF8260024A2B3 /* WatchTrack Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 964A6E8A1BEAF8260024A2B3 /* WatchTrack Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		964A6E911BEAF8260024A2B3 /* TotalInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */; };
 		964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */; };
-		964A6E971BEAF8260024A2B3 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E961BEAF8260024A2B3 /* GlanceController.m */; };
 		964A6E991BEAF8260024A2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E981BEAF8260024A2B3 /* Assets.xcassets */; };
 		964A6E9D1BEAF8260024A2B3 /* WatchTrack.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 964A6E7E1BEAF8260024A2B3 /* WatchTrack.app */; };
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
@@ -129,8 +128,6 @@
 		964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotalInterfaceController.m; sourceTree = "<group>"; };
 		964A6E921BEAF8260024A2B3 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
-		964A6E951BEAF8260024A2B3 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
-		964A6E961BEAF8260024A2B3 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		964A6E981BEAF8260024A2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964A6E9A1BEAF8260024A2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		967174B81BEB069F00321787 /* AddEntryInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryInterfaceController.h; path = "WatchTrack Extension/AddEntryInterfaceController.h"; sourceTree = SOURCE_ROOT; };
@@ -338,8 +335,6 @@
 				964A6E901BEAF8260024A2B3 /* TotalInterfaceController.m */,
 				967174B81BEB069F00321787 /* AddEntryInterfaceController.h */,
 				967174B91BEB069F00321787 /* AddEntryInterfaceController.m */,
-				964A6E951BEAF8260024A2B3 /* GlanceController.h */,
-				964A6E961BEAF8260024A2B3 /* GlanceController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -442,7 +437,7 @@
 				};
 			};
 			buildConfigurationList = 960105B81BE843A100979763 /* Build configuration list for PBXProject "TrackIt" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -574,7 +569,6 @@
 				967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */,
 				964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */,
 				964A6E911BEAF8260024A2B3 /* TotalInterfaceController.m in Sources */,
-				964A6E971BEAF8260024A2B3 /* GlanceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,7 +723,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d90cda7d-b68b-431f-9459-80b47203ec8d";
 			};
 			name = Release;
 		};
@@ -761,7 +755,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8c35acbf-b79c-40a4-914a-f4a512839d0a";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -800,7 +794,7 @@
 				INFOPLIST_FILE = WatchTrack/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff4b9e36-670c-4054-8306-ecc911d7e083";
+				PROVISIONING_PROFILE = "9530a20e-6c4a-48bd-8f93-270e2818c06c";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
