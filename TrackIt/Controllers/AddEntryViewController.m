@@ -32,6 +32,8 @@
     
     self.formatter = [[NSNumberFormatter alloc] init];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    self.formatter.locale = [NSLocale currentLocale];
+    self.formatter.lenient = YES;
     
     if(!self.entry)
         self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
@@ -90,7 +92,7 @@
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if(!textField.text || [textField.text isEqualToString:@""])
-        textField.text = @"$";
+        textField.text = [[NSLocale currentLocale] objectForKey:NSLocaleCurrencySymbol];
     return YES;
 }
 
@@ -100,7 +102,9 @@
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if(range.location == 0 && range.length == 1 && ![string isEqualToString:@"$"])
+    NSString * proposedNewString = [[textField text] stringByReplacingCharactersInRange:range withString:string];
+    
+    if([proposedNewString rangeOfString:[[NSLocale currentLocale] objectForKey:NSLocaleCurrencySymbol]].location == NSNotFound)
         return NO;
     else return YES;
 }
@@ -113,7 +117,7 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    if([textField.text isEqualToString:@"$"]) {
+    if([textField.text isEqualToString:[[NSLocale currentLocale] objectForKey:NSLocaleCurrencySymbol]]) {
         textField.text = nil;
         self.entry.amount = nil;
     }
