@@ -707,7 +707,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5b630c1c-808b-40d6-ae2e-9411421866eb";
+				PROVISIONING_PROFILE = "afd7c7e1-5853-4fed-8340-e283e0e8400a";
 			};
 			name = Debug;
 		};
@@ -737,7 +737,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "e5e06cda-740f-4b95-9998-6757dc87a1d1";
+				PROVISIONING_PROFILE = "25361f49-bcf0-42a1-906c-4fd9b93a897a";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -776,7 +776,7 @@
 				INFOPLIST_FILE = WatchTrack/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff4b9e36-670c-4054-8306-ecc911d7e083";
+				PROVISIONING_PROFILE = "d1305694-9515-4338-9cc0-ef122cad581d";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
