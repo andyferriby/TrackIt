@@ -146,12 +146,22 @@
     }
     else if([segue.identifier isEqualToString:@"addEntrySegue"]) {
         AddEntryViewController *vc = segue.destinationViewController;
-        vc.delegate = self.allEntriesVC;
+        vc.delegate = self;
     }
     else if([segue.identifier isEqualToString:@"selectDatesSegue"]) {
         SelectDatesViewController *vc = segue.destinationViewController;
         vc.delegate = self;
     }
+}
+
+#pragma mark - EntryDelegate
+// This is delegate because 3D touch may be invoked from cold app start, and self.allEntriesVC wouldn't exist yet
+-(void)entryAddedOrChanged {
+    [self.allEntriesVC entryAddedOrChanged];
+}
+
+-(void)entryCanceled {
+    [self.allEntriesVC entryCanceled];
 }
 
 @end

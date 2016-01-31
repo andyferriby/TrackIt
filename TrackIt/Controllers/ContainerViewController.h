@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DateTools.h"
 #import "SelectDatesViewController.h"
+#import "AddEntryViewController.h"
 
-@interface ContainerViewController : UIViewController<SelectDatesDelegate>
+@interface ContainerViewController : UIViewController<SelectDatesDelegate, EntryDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;
