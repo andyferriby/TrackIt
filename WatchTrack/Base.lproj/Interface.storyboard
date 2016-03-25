@@ -95,7 +95,7 @@
                                         <group width="1" alignment="left" layout="vertical" id="hiK-3y-2mm">
                                             <items>
                                                 <button alignment="center" id="oZH-Os-ZbY">
-                                                    <group key="contentGroup" width="1" height="40" alignment="left" id="zqC-Qy-kbs">
+                                                    <group key="contentGroup" width="1" height="38" alignment="left" id="zqC-Qy-kbs">
                                                         <items>
                                                             <group width="0.25" alignment="left" verticalAlignment="center" id="8ZK-v4-39e">
                                                                 <items>
@@ -105,7 +105,9 @@
                                                             </group>
                                                             <group width="0.75" height="1" alignment="left" id="bKs-Bl-KXw">
                                                                 <items>
-                                                                    <label alignment="left" verticalAlignment="center" text="Edit Note" id="Oh1-IR-esr"/>
+                                                                    <label alignment="left" verticalAlignment="center" text="Edit Note" id="Oh1-IR-esr">
+                                                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                                                    </label>
                                                                 </items>
                                                                 <edgeInsets key="margins" left="3" right="0.0" top="0.0" bottom="0.0"/>
                                                             </group>

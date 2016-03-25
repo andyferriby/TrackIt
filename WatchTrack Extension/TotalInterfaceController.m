@@ -34,7 +34,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalReceived" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         NSNumber *total = note.userInfo[@"total"];
         [self.totalLabel setText:[self.formatter stringFromNumber:total]];
-        [self.totalLabel setTextColor:[UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1]];
+        [self.totalLabel setTextColor: total.doubleValue > 0 ? [UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1] : [UIColor orangeColor]];
     }];
 }
 
@@ -43,8 +43,10 @@
     [super willActivate];
     
     NSNumber *totalSpending = [[NSUserDefaults standardUserDefaults] valueForKey:@"TotalSpending"];
-    if(totalSpending)
+    if(totalSpending) {
         [self.totalLabel setText:[self.formatter stringFromNumber:totalSpending]];
+        [self.totalLabel setTextColor: totalSpending.doubleValue > 0 ? [UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1] : [UIColor orangeColor]];
+    }
     else {
         WatchSessionDelegate *watchDelegate = [WatchSessionDelegate new];
         [watchDelegate requestTotalFromiPhoneWithCompletion:^(NSNumber *total, NSError *error) {
@@ -56,7 +58,7 @@
                 [self.totalLabel setText:[self.formatter stringFromNumber:total]];
                 [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
-                [self.totalLabel setTextColor:[UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1]];
+                [self.totalLabel setTextColor: total.doubleValue > 0 ? [UIColor colorWithRed:76.0/255 green:190.0/255 blue:158.0/255 alpha:1] : [UIColor orangeColor]];
             }
         }];
     }
