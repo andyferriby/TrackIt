@@ -15,6 +15,8 @@
 #import "NSDate+DateTools.h"
 #import "RFKeyboardToolbar+DoneButton.h"
 
+static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
+
 @interface AddEntryViewController ()
 
 @property (nonatomic) BOOL datePickerShowing;
@@ -38,7 +40,16 @@
     if(!self.entry)
         self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
     
-    self.doneBar = [RFKeyboardToolbar toolbarWithButtons:nil];
+    RFToolbarButton *minusButton = [RFToolbarButton buttonWithTitle:@"+/-" andEventHandler:^{
+        UITextField *textField = (UITextField *)[self.view viewWithTag:AMOUNT_TEXT_FIELD_CELL_TAG];
+        NSString *firstChar = [textField.text substringWithRange:NSMakeRange(0, 1)];
+        if([firstChar isEqualToString:@"-"])
+            textField.text = [textField.text substringFromIndex:1];
+        else
+            textField.text = [NSString stringWithFormat:@"-%@", textField.text];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+    self.doneBar = [RFKeyboardToolbar toolbarWithButtons:@[minusButton]];
     __weak AddEntryViewController *weakSelf = self;
     [self.doneBar addDoneButtonWithHandler:^(id sender) {
         [weakSelf.tableView endEditing:YES];
@@ -195,6 +206,7 @@
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
         cell.textField.inputAccessoryView = self.doneBar;
         cell.textField.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+        cell.textField.tag = AMOUNT_TEXT_FIELD_CELL_TAG;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.textField.text = [self.formatter stringFromNumber:self.entry.amount];

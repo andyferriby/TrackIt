@@ -63,7 +63,7 @@
     
     Entry *entry = [self.model entryAtIndex:indexPath.row];
     cell.amountLabel.text = [self.numberFormatter stringFromNumber:entry.amount];
-    cell.amountLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+    cell.amountLabel.textColor = entry.amount.doubleValue > 0 ? [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0] : [UIColor orangeColor];
     cell.dateLabel.text = [entry.date formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
     cell.noteLabel.text = entry.note;
     
