@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
         <!--Total Interface Controller-->
@@ -50,7 +50,7 @@
                             <items>
                                 <group width="1" alignment="left" layout="vertical" id="wM9-gG-TU6" userLabel="Add Entry Group">
                                     <items>
-                                        <label width="1" alignment="left" text="Enter Value" textAlignment="center" id="5WO-K9-MdM">
+                                        <label width="1" alignment="left" text="New Entry" textAlignment="center" id="5WO-K9-MdM">
                                             <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="font" type="system" pointSize="20"/>
                                         </label>
@@ -59,7 +59,7 @@
                                                 <group width="0.5" alignment="left" layout="vertical" id="tid-oZ-z8U">
                                                     <items>
                                                         <label width="1" alignment="left" text="Dollars" textAlignment="center" id="n9s-ax-TTX">
-                                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                         </label>
                                                         <picker width="1" height="35" alignment="left" accessibilityLabel="Dollars" focusStyle="stack" indicatorMode="shownWhileFocused" id="F0f-bj-5hi">
@@ -72,7 +72,7 @@
                                                 <group width="0.5" alignment="left" layout="vertical" id="95c-At-yPi">
                                                     <items>
                                                         <label width="1" alignment="left" text="Cents" textAlignment="center" id="GDC-Kx-PnD">
-                                                            <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                         </label>
                                                         <picker width="1" height="35" alignment="right" accessibilityLabel="Cents" focusStyle="stack" indicatorMode="shownWhileFocused" id="80T-9W-haL">
@@ -89,23 +89,33 @@
                                             <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="font" type="system" weight="semibold" pointSize="30"/>
                                         </label>
-                                        <separator width="0.90000000000000002" alignment="center" alpha="0.40000000000000002" id="7gI-mf-ye5">
-                                            <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </separator>
+                                        <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="7ei-tE-ZW5">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                         <group width="1" alignment="left" layout="vertical" id="hiK-3y-2mm">
                                             <items>
-                                                <label width="1" alignment="left" text="Enter Note" textAlignment="center" id="Lqp-R4-bbp" userLabel="Enter Note">
-                                                    <color key="textColor" red="0.29803921570000003" green="0.74509803919999995" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" type="system" pointSize="20"/>
-                                                </label>
-                                                <button width="50" height="50" alignment="center" backgroundImage="Microphone" id="oZH-Os-ZbY">
+                                                <button alignment="center" id="oZH-Os-ZbY">
+                                                    <group key="contentGroup" width="1" height="40" alignment="left" id="zqC-Qy-kbs">
+                                                        <items>
+                                                            <group width="0.25" alignment="left" verticalAlignment="center" id="8ZK-v4-39e">
+                                                                <items>
+                                                                    <imageView width="25" height="25" alignment="center" verticalAlignment="center" image="Microphone" id="N7l-N4-r6B"/>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
+                                                            </group>
+                                                            <group width="0.75" height="1" alignment="left" id="bKs-Bl-KXw">
+                                                                <items>
+                                                                    <label alignment="left" verticalAlignment="center" text="Edit Note" id="Oh1-IR-esr"/>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="3" right="0.0" top="0.0" bottom="0.0"/>
+                                                            </group>
+                                                        </items>
+                                                        <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </group>
                                                     <connections>
                                                         <action selector="noteTapped" destination="Zkb-sm-ccz" id="S58-5b-98x"/>
                                                     </connections>
                                                 </button>
-                                                <label width="1" alignment="left" text="&quot;Posted from Apple Watch&quot;" textAlignment="center" numberOfLines="0" id="7ei-tE-ZW5">
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <button width="1" alignment="left" title="Save" id="xDZ-zg-Oqe">
                                                     <connections>
                                                         <action selector="saveTapped" destination="Zkb-sm-ccz" id="Evx-Hz-a96"/>
@@ -181,7 +191,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="418" y="216.5"/>
+            <point key="canvasLocation" x="418" y="216"/>
         </scene>
     </scenes>
 </document>
