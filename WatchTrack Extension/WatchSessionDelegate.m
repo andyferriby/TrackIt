@@ -21,7 +21,7 @@
 
 -(void)requestTotalFromiPhoneWithCompletion:(void (^)(NSNumber * total, NSError *error))completionHandler {
     
-    if(self.session.reachable) {
+    if(self.session.activationState == WCSessionActivationStateActivated && self.session.reachable) {
         [self.session sendMessage:@{@"request" : @"total"}
                      replyHandler:^(NSDictionary<NSString *,id> * _Nonnull replyMessage) {
                          NSNumber *total = replyMessage[@"total"];

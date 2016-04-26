@@ -21,7 +21,7 @@
 -(void)sendTotalToWatch:(NSNumber *)total {
     NSError *error;
     WCSession *session = [WCSession defaultSession];
-    if(session.isPaired && session.isWatchAppInstalled) {
+    if(session.activationState == WCSessionActivationStateActivated && session.isPaired && session.isWatchAppInstalled) {
         [session updateApplicationContext:@{@"total" : total} error:&error];
         if(error) {
             NSLog(@"%@", error.localizedDescription);
@@ -33,6 +33,18 @@
 
 -(void)sessionWatchStateDidChange:(WCSession *)session {
     
+}
+
+-(void)session:(WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(NSError *)error {
+    
+}
+
+-(void)sessionDidBecomeInactive:(WCSession *)session {
+    
+}
+
+-(void)sessionDidDeactivate:(WCSession *)session {
+    [[WCSession defaultSession] activateSession];
 }
 
 -(void)session:(WCSession *)session didReceiveUserInfo:(NSDictionary<NSString *,id> *)userInfo {
