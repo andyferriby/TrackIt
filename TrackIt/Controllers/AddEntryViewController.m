@@ -154,7 +154,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 #pragma mark - UITableView
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -162,6 +162,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         return @"Details";
     else if(section == 1)
         return @"Notes";
+    else if(section == 2)
+        return @"Tags";
     else return nil;
 }
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
@@ -169,6 +171,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         return @"Enter the date and amount you spent.";
     else if(section == 1)
         return @"Write a quick note to remind yourself what you spent this money on.";
+    else if(section == 2)
+        return @"Optionally, add tags to sort your entries.";
     else return nil;
 }
 
@@ -186,9 +190,14 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0)
         return self.datePickerShowing ? 3 : 2;
+    else if(section == 1)
+        return 1;
     else if(section == 2)
+        return 1;
+    else if(section == 3)
         return 2;
-    else return 1;
+    
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -230,6 +239,11 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         cell.datePicker.date = self.entry.date;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        return cell;
+    }
+    else if([identifier isEqualToString:@"tagsCell"]) {
+        TagsCell *cell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"tagsCell" forIndexPath:indexPath];
+        [cell configure];
         return cell;
     }
     else {
@@ -306,6 +320,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     }
     else if(indexPath.section == 1)
         return @"noteCell";
+    else if(indexPath.section == 2)
+        return @"tagsCell";
     else
         return indexPath.row == 0 ? @"saveCell" : @"cancelCell";
 }

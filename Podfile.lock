@@ -2,15 +2,18 @@ PODS:
   - DateTools (1.7.0)
   - DZNEmptyDataSet (1.7.2)
   - RFKeyboardToolbar (1.3)
+  - TagListView (1.0.0)
 
 DEPENDENCIES:
   - DateTools
   - DZNEmptyDataSet
   - RFKeyboardToolbar (~> 1.3)
+  - TagListView (~> 1.0)
 
 SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
   RFKeyboardToolbar: c96a7d9458564d1fedc8ef6844b6c467934aade2
+  TagListView: 6bf4bded034c4c90b1e90d8cd3d8e1d852dba0a8
 
 COCOAPODS: 0.39.0
