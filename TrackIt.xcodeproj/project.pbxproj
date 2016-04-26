@@ -13,8 +13,6 @@
 		960105CB1BE843A100979763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105C91BE843A100979763 /* Main.storyboard */; };
 		960105D01BE843A100979763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960105CF1BE843A100979763 /* Assets.xcassets */; };
 		960105D31BE843A100979763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105D11BE843A100979763 /* LaunchScreen.storyboard */; };
-		960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */; };
-		960105E21BE8445E00979763 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E01BE8445E00979763 /* Entry.m */; };
 		960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105E31BE8449500979763 /* TrackIt.xcdatamodeld */; };
 		960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesTableViewController.m */; };
 		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
@@ -22,6 +20,10 @@
 		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
 		960105F51BE85CCF00979763 /* AmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F41BE85CCF00979763 /* AmountCell.m */; };
 		960105F81BE85CD800979763 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F71BE85CD800979763 /* NoteCell.m */; };
+		961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */; };
+		961271141CCEF86A002268F7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271101CCEF86A002268F7 /* Entry.swift */; };
+		961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */; };
+		961271161CCEF86A002268F7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271121CCEF86A002268F7 /* Tag.swift */; };
 		96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C991BE86195009342FC /* UIColor+FlatUI.m */; };
 		96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9C1BE862FF009342FC /* DatePickerCell.m */; };
 		96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9F1BE86CC9009342FC /* ContainerViewController.m */; };
@@ -92,10 +94,6 @@
 		960105CF1BE843A100979763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		960105D21BE843A100979763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		960105D41BE843A100979763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		960105DD1BE8445E00979763 /* Entry+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Entry+CoreDataProperties.h"; path = "Core Data/Entry+CoreDataProperties.h"; sourceTree = "<group>"; };
-		960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Entry+CoreDataProperties.m"; path = "Core Data/Entry+CoreDataProperties.m"; sourceTree = "<group>"; };
-		960105DF1BE8445E00979763 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entry.h; path = "Core Data/Entry.h"; sourceTree = "<group>"; };
-		960105E01BE8445E00979763 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entry.m; path = "Core Data/Entry.m"; sourceTree = "<group>"; };
 		960105E41BE8449500979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
 		960105E61BE8453300979763 /* AllEntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesTableViewController.h; path = Controllers/AllEntriesTableViewController.h; sourceTree = "<group>"; };
 		960105E71BE8453300979763 /* AllEntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesTableViewController.m; path = Controllers/AllEntriesTableViewController.m; sourceTree = "<group>"; };
@@ -109,6 +107,12 @@
 		960105F41BE85CCF00979763 /* AmountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmountCell.m; path = Views/AmountCell.m; sourceTree = "<group>"; };
 		960105F61BE85CD800979763 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteCell.h; path = Views/NoteCell.h; sourceTree = "<group>"; };
 		960105F71BE85CD800979763 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteCell.m; path = Views/NoteCell.m; sourceTree = "<group>"; };
+		9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TrackIt 2.xcdatamodel"; sourceTree = "<group>"; };
+		9612710E1CCEF86A002268F7 /* TrackIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackIt-Bridging-Header.h"; sourceTree = "<group>"; };
+		9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		961271101CCEF86A002268F7 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		961271121CCEF86A002268F7 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		96434C981BE86195009342FC /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatUI.h"; path = "Utilities/UIColor+FlatUI.h"; sourceTree = "<group>"; };
 		96434C991BE86195009342FC /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatUI.m"; path = "Utilities/UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		96434C9B1BE862FF009342FC /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerCell.h; path = Views/DatePickerCell.h; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 		960105C01BE843A100979763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9612710E1CCEF86A002268F7 /* TrackIt-Bridging-Header.h */,
 				96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */,
 				960105D41BE843A100979763 /* Info.plist */,
 				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
@@ -238,11 +243,11 @@
 		960105DA1BE8440200979763 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */,
+				961271101CCEF86A002268F7 /* Entry.swift */,
+				961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */,
+				961271121CCEF86A002268F7 /* Tag.swift */,
 				960105E31BE8449500979763 /* TrackIt.xcdatamodeld */,
-				960105DD1BE8445E00979763 /* Entry+CoreDataProperties.h */,
-				960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */,
-				960105DF1BE8445E00979763 /* Entry.h */,
-				960105E01BE8445E00979763 /* Entry.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 		960105B51BE843A100979763 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Jason Ji";
 				TargetAttributes = {
@@ -540,22 +546,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961271141CCEF86A002268F7 /* Entry.swift in Sources */,
 				96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */,
 				960105EE1BE84FAE00979763 /* EntryCell.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
 				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,
 				96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */,
+				961271161CCEF86A002268F7 /* Tag.swift in Sources */,
 				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
-				960105E21BE8445E00979763 /* Entry.m in Sources */,
 				960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */,
 				960105F51BE85CCF00979763 /* AmountCell.m in Sources */,
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
-				960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */,
+				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
 				96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */,
 				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */,
+				961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */,
 				960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */,
 				96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */,
 			);
@@ -700,6 +708,7 @@
 			baseConfigurationReference = E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Ji (34WW5ZG33E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Ji (34WW5ZG33E)";
@@ -708,6 +717,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "afd7c7e1-5853-4fed-8340-e283e0e8400a";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -716,6 +727,7 @@
 			baseConfigurationReference = CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
@@ -724,6 +736,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d90cda7d-b68b-431f-9459-80b47203ec8d";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -848,9 +861,10 @@
 		960105E31BE8449500979763 /* TrackIt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */,
 				960105E41BE8449500979763 /* TrackIt.xcdatamodel */,
 			);
-			currentVersion = 960105E41BE8449500979763 /* TrackIt.xcdatamodel */;
+			currentVersion = 9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */;
 			name = TrackIt.xcdatamodeld;
 			path = "Core Data/TrackIt.xcdatamodeld";
 			sourceTree = "<group>";

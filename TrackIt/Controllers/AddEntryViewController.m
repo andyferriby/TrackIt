@@ -38,7 +38,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     self.formatter.lenient = YES;
     
     if(!self.entry)
-        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] tags:nil inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+    
     
     RFToolbarButton *minusButton = [RFToolbarButton buttonWithTitle:@"+/-" andEventHandler:^{
         UITextField *textField = (UITextField *)[self.view viewWithTag:AMOUNT_TEXT_FIELD_CELL_TAG];

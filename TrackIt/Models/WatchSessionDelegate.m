@@ -57,7 +57,7 @@
             NSString *note = message[@"note"];
             NSError *error;
             NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-            [Entry entryWithAmount:value note:note date:[NSDate date] inManagedObjectContext:context];
+            [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:context];
             
             [context save:&error];
             

@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-#import "Entry.h"
+#import "TrackIt-Swift.h"
 
 @protocol EntryDelegate <NSObject>
 

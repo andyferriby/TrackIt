@@ -6,8 +6,8 @@
 //  Copyright © 2015 Jason Ji. All rights reserved.
 //
 
-#import "Entry.h"
 @import CoreData;
+#import "TrackIt-Swift.h"
 #import "DateTools.h"
 
 typedef NS_ENUM(NSInteger, EntryModelType) {
