@@ -65,6 +65,9 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    self.tableView.estimatedRowHeight = 44.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 #pragma mark - Keyboard
@@ -92,12 +95,6 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 - (IBAction)dateChanged:(id)sender {
     self.entry.date = ((UIDatePicker *)sender).date;
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - UIBarPositioningDelegate
-
--(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-    return UIBarPositionTopAttached;
 }
 
 #pragma mark - UITextFieldDelegate, UITextViewDelegate
@@ -177,13 +174,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = [self identifierForIndexPath:indexPath];
-    if([identifier isEqualToString:@"datePickerCell"])
-        return 216.0;
-    else if([identifier isEqualToString:@"noteCell"])
-        return 100.0;
-    else return 44.0;
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return 100;
 
 }
 
@@ -243,7 +235,9 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     }
     else if([identifier isEqualToString:@"tagsCell"]) {
         TagsCell *cell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"tagsCell" forIndexPath:indexPath];
-        [cell configure];
+        [cell configureWithEntry:self.entry];
+        cell.delegate = self;
+        
         return cell;
     }
     else {
@@ -331,6 +325,20 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(scrollView.dragging || scrollView.decelerating)
         [self.tableView endEditing:YES];
+}
+
+#pragma mark - TagsCellDelegate
+
+-(void)tagsCellDidTapAddTag:(TagsCell *)cell {
+    [self performSegueWithIdentifier:@"pushTags" sender:self];
+}
+
+-(void)tagsCell:(TagsCell *)cell didTapTagTitle:(NSString *)title {
+    
+}
+
+-(void)tagsCell:(TagsCell *)cell didTapRemoveButtonForTitle:(NSString *)title {
+    
 }
 
 @end
