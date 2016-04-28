@@ -16,7 +16,7 @@
 
 @end
 
-@interface AddEntryViewController : UITableViewController<UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, TagsCellDelegate>
+@interface AddEntryViewController : UITableViewController<UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, TagsCellDelegate, AddTagsControllerDelegate>
 
 @property (strong, nonatomic) Entry *entry;
 @property (weak, nonatomic) id<EntryDelegate>delegate;

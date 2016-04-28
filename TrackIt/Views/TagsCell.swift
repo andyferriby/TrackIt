@@ -9,33 +9,41 @@
 import UIKit
 import TagListView
 
-let addTagTitle = "+ Add Tag"
+let addTagTitle = "+ Add Tags"
 
 class TagsCell: UITableViewCell {
     @IBOutlet weak var tagListView: TagListView!
     weak var delegate: TagsCellDelegate?
 }
 
-extension TagsCell: Configurable {
+extension TagsCell: EntryConfigurable {
     func configureWithEntry(entry: Entry) {
         guard let tags = entry.tags else { return }
+        tagListView.removeAllTags()
+        tagListView.delegate = self
         let sortedTags = tags.allObjects.sort { return $0.name < $1.name }
         for tag in sortedTags {
             let tagView = tagListView.addTag(tag.name)
             tagView.enableRemoveButton = true
             
-        }
-        
-        tagListView.delegate = self
-        
-        let foo = tagListView.addTag("Foo")
-        foo.enableRemoveButton = true
-        
+        }        
         let addTagView = tagListView.addTag(addTagTitle)
-        addTagView.backgroundColor = UIColor.orangeColor()
+        addTagView.tagBackgroundColor = UIColor.orangeColor()
         addTagView.onTap = { tagView in
-            self.delegate?.tagsCellDidTapAddTag(self)
+            self.delegate?.tagsCellDidTapAddTag?(self)
         }
+    }
+}
+
+extension TagsCell: TagConfigurable {
+    func configureWithTags(tags: [Tag]) {
+        tagListView.removeAllTags()
+        tagListView.delegate = self
+        for tag in tags {
+            let tagView = tagListView.addTag(tag.name!)
+            tagView.enableRemoveButton = true
+        }
+        selectionStyle = .None
     }
 }
 

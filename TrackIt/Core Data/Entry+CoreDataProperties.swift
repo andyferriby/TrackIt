@@ -19,4 +19,9 @@ extension Entry {
     @NSManaged var note: String?
     @NSManaged var tags: NSSet?
 
+    @NSManaged func addTagsObject(tag: Tag)
+    @NSManaged func removeTagsObject(tag: Tag)
+    @NSManaged func addTags(tags: NSSet)
+    @NSManaged func removeTags(tags: NSSet)
+    
 }

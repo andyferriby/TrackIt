@@ -11,5 +11,5 @@ import UIKit
 @objc protocol TagsCellDelegate {
     func tagsCell(cell: TagsCell, didTapTagTitle title: String)
     func tagsCell(cell: TagsCell, didTapRemoveButtonForTitle title: String)
-    func tagsCellDidTapAddTag(cell: TagsCell)
+    optional func tagsCellDidTapAddTag(cell: TagsCell)
 }

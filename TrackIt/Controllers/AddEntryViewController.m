@@ -330,7 +330,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 #pragma mark - TagsCellDelegate
 
 -(void)tagsCellDidTapAddTag:(TagsCell *)cell {
-    [self performSegueWithIdentifier:@"pushTags" sender:self];
+    [self performSegueWithIdentifier:@"addTags" sender:self];
 }
 
 -(void)tagsCell:(TagsCell *)cell didTapTagTitle:(NSString *)title {
@@ -338,7 +338,29 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 }
 
 -(void)tagsCell:(TagsCell *)cell didTapRemoveButtonForTitle:(NSString *)title {
-    
+    NSArray<Tag *> *filteredTags = [self.entry.tags.allObjects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name == %@", title]];
+    if(filteredTags.count > 0) {
+        Tag *tag = filteredTags.firstObject;
+        [self.entry removeTagsObject:tag];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+#pragma mark - AddTagsControllerDelegate
+-(void)didFinishAddingTags:(NSArray<Tag *> *)tags {
+    [self.entry addTags:[NSSet setWithArray:tags]];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationNone];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"addTags"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        AddTagsTableViewController *tagsVC = (AddTagsTableViewController *)navVC.topViewController;
+        tagsVC.delegate = self;
+    }
 }
 
 @end

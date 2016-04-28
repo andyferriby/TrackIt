@@ -1,0 +1,30 @@
+//
+//  Cell+ConfigureWithEntry.swift
+//  TrackIt
+//
+//  Created by Jason Ji on 4/26/16.
+//  Copyright © 2016 Jason Ji. All rights reserved.
+//
+
+import UIKit
+
+@objc protocol EntryConfigurable {
+    func configureWithEntry(entry: Entry)
+}
+
+@objc protocol TagConfigurable {
+    func configureWithTags(tags: [Tag])
+}
+
+protocol AddTagConfigurable {
+    func configureWithModel(model: AddTagsModel, row: Int)
+}
+
+extension UITableViewCell: AddTagConfigurable {
+    func configureWithModel(model: AddTagsModel, row: Int) {
+        guard let name = model.allTags[row].name else { return }
+        textLabel?.text = name
+        accessoryType = model.containsTag(name) ? .Checkmark : .None
+        selectionStyle = .Default
+    }
+}
