@@ -21,6 +21,7 @@ class AddTagsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
     }
 
     @IBAction func doneTapped(sender: UIBarButtonItem) {

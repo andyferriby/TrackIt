@@ -481,16 +481,26 @@
                                     <outlet property="textField" destination="kg8-ls-D7S" id="BbP-K0-5Qs"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectedTagsCell" rowHeight="216" id="iDx-GU-mSw" customClass="TagsCell" customModule="TrackIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="202" width="320" height="216"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectedTagsCell" rowHeight="44" id="iDx-GU-mSw" customClass="TagsCell" customModule="TrackIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="202" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iDx-GU-mSw" id="heL-m0-fCr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpw-9U-d0k" customClass="TagListView" customModule="TagListView">
-                                            <rect key="frame" x="16" y="8" width="288" height="199"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWr-Vu-DiD">
+                                            <rect key="frame" x="0.0" y="0.0" width="312" height="43"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="BnQ-be-iRN"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpw-9U-d0k" customClass="TagListView" customModule="TagListView">
+                                            <rect key="frame" x="16" y="8" width="288" height="27"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="999" constant="27" id="dbq-DT-737"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="5"/>
@@ -508,14 +518,29 @@
                                                     <real key="value" value="2"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="dbq-DT-737"/>
+                                                </mask>
+                                            </variation>
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="CWr-Vu-DiD" firstAttribute="top" secondItem="heL-m0-fCr" secondAttribute="top" id="0e1-VL-laZ"/>
+                                        <constraint firstItem="CWr-Vu-DiD" firstAttribute="leading" secondItem="heL-m0-fCr" secondAttribute="leading" id="5Bd-il-cbw"/>
                                         <constraint firstItem="cpw-9U-d0k" firstAttribute="leading" secondItem="heL-m0-fCr" secondAttribute="leadingMargin" constant="8" id="K08-9K-e2b"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="cpw-9U-d0k" secondAttribute="bottom" id="MXP-oL-tBy"/>
+                                        <constraint firstAttribute="bottom" secondItem="CWr-Vu-DiD" secondAttribute="bottom" id="NPH-oe-84u"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="cpw-9U-d0k" secondAttribute="trailing" constant="8" id="T7x-rP-jVP"/>
+                                        <constraint firstItem="cpw-9U-d0k" firstAttribute="leading" secondItem="CWr-Vu-DiD" secondAttribute="trailing" id="jFA-st-bpn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CWr-Vu-DiD" secondAttribute="trailing" id="jFi-Ph-vLR"/>
                                         <constraint firstItem="cpw-9U-d0k" firstAttribute="top" secondItem="heL-m0-fCr" secondAttribute="topMargin" id="l7I-xD-vzd"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="jFA-st-bpn"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="tagListView" destination="cpw-9U-d0k" id="k9y-c3-Lnv"/>
