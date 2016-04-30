@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-#import "EntryCell.h"
+#import "TrackIt-Swift.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "AddEntryViewController.h"
 #import "EntriesModel.h"

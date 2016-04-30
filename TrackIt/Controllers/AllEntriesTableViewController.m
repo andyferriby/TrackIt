@@ -60,14 +60,9 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EntryCell *cell = (EntryCell *)[tableView dequeueReusableCellWithIdentifier:@"entryCell"];
-    
     Entry *entry = [self.model entryAtIndex:indexPath.row];
-    cell.amountLabel.text = [self.numberFormatter stringFromNumber:entry.amount];
-    cell.amountLabel.textColor = entry.amount.doubleValue >= 0 ? [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0] : [UIColor orangeColor];
-    cell.dateLabel.text = [entry.date formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
-    cell.noteLabel.text = entry.note;
     
-    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [cell configureWithEntry:entry numberFormatter:self.numberFormatter];
     cell.selectionStyle = self.editing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
     
     return cell;

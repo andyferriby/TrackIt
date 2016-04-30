@@ -16,7 +16,6 @@
 		960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105E31BE8449500979763 /* TrackIt.xcdatamodeld */; };
 		960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesTableViewController.m */; };
 		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
-		960105EE1BE84FAE00979763 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105ED1BE84FAE00979763 /* EntryCell.m */; };
 		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
 		960105F51BE85CCF00979763 /* AmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F41BE85CCF00979763 /* AmountCell.m */; };
 		960105F81BE85CD800979763 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F71BE85CD800979763 /* NoteCell.m */; };
@@ -42,6 +41,7 @@
 		964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */; };
 		964A6E991BEAF8260024A2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E981BEAF8260024A2B3 /* Assets.xcassets */; };
 		964A6E9D1BEAF8260024A2B3 /* WatchTrack.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 964A6E7E1BEAF8260024A2B3 /* WatchTrack.app */; };
+		966F052A1CD44DA1005A11C2 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F05291CD44DA1005A11C2 /* EntryCell.swift */; };
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
 		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
 		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
@@ -105,8 +105,6 @@
 		960105E71BE8453300979763 /* AllEntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesTableViewController.m; path = Controllers/AllEntriesTableViewController.m; sourceTree = "<group>"; };
 		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntriesModel.h; path = Models/EntriesModel.h; sourceTree = "<group>"; };
 		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntriesModel.m; path = Models/EntriesModel.m; sourceTree = "<group>"; };
-		960105EC1BE84FAE00979763 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryCell.h; path = Views/EntryCell.h; sourceTree = "<group>"; };
-		960105ED1BE84FAE00979763 /* EntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryCell.m; path = Views/EntryCell.m; sourceTree = "<group>"; };
 		960105F01BE857CB00979763 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryViewController.h; path = Controllers/AddEntryViewController.h; sourceTree = "<group>"; };
 		960105F11BE857CB00979763 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryViewController.m; path = Controllers/AddEntryViewController.m; sourceTree = "<group>"; };
 		960105F31BE85CCF00979763 /* AmountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmountCell.h; path = Views/AmountCell.h; sourceTree = "<group>"; };
@@ -146,6 +144,7 @@
 		964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		964A6E981BEAF8260024A2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964A6E9A1BEAF8260024A2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966F05291CD44DA1005A11C2 /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryCell.swift; path = Views/EntryCell.swift; sourceTree = "<group>"; };
 		967174B81BEB069F00321787 /* AddEntryInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryInterfaceController.h; path = "WatchTrack Extension/AddEntryInterfaceController.h"; sourceTree = SOURCE_ROOT; };
 		967174B91BEB069F00321787 /* AddEntryInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryInterfaceController.m; path = "WatchTrack Extension/AddEntryInterfaceController.m"; sourceTree = SOURCE_ROOT; };
 		967174BC1BEC539200321787 /* WatchSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchSessionDelegate.h; path = Models/WatchSessionDelegate.h; sourceTree = "<group>"; };
@@ -304,8 +303,7 @@
 				960105F41BE85CCF00979763 /* AmountCell.m */,
 				960105F61BE85CD800979763 /* NoteCell.h */,
 				960105F71BE85CD800979763 /* NoteCell.m */,
-				960105EC1BE84FAE00979763 /* EntryCell.h */,
-				960105ED1BE84FAE00979763 /* EntryCell.m */,
+				966F05291CD44DA1005A11C2 /* EntryCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -575,7 +573,6 @@
 				961271451CD18930002268F7 /* AddTagCell.swift in Sources */,
 				961271141CCEF86A002268F7 /* Entry.swift in Sources */,
 				96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */,
-				960105EE1BE84FAE00979763 /* EntryCell.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
 				961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */,
 				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,
@@ -585,6 +582,7 @@
 				960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */,
 				961271181CCF0803002268F7 /* TagsCell.swift in Sources */,
 				960105F51BE85CCF00979763 /* AmountCell.m in Sources */,
+				966F052A1CD44DA1005A11C2 /* EntryCell.swift in Sources */,
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
 				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
 				9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */,

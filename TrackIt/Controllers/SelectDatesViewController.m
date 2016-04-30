@@ -84,7 +84,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         NSDate *thisDate = [identifier isEqualToString:@"startDateCell"] ? self.currentStartDate : self.currentEndDate;
         cell.textLabel.text = [identifier isEqualToString:@"startDateCell"] ? @"Start Date" : @"End Date";
-        cell.detailTextLabel.text = [thisDate formattedDateWithFormat:@"MM/dd/YYYY"];
+        cell.detailTextLabel.text = [thisDate formattedDateWithFormat:@"M/dd/YYYY"];
         cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         

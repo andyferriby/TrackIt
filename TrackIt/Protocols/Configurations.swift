@@ -9,7 +9,8 @@
 import UIKit
 
 @objc protocol EntryConfigurable {
-    func configureWithEntry(entry: Entry)
+    optional func configureWithEntry(entry: Entry)
+    optional func configureWithEntry(entry: Entry, numberFormatter: NSNumberFormatter)
 }
 
 @objc protocol TagConfigurable {
