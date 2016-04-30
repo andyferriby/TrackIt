@@ -32,6 +32,8 @@ extension TagsCell: EntryConfigurable {
         addTagView.onTap = { tagView in
             self.delegate?.tagsCellDidTapAddTag?(self)
         }
+        
+        selectionStyle = .None
     }
 }
 

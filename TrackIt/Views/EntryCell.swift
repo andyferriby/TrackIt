@@ -12,7 +12,6 @@ import DateTools
 
 class EntryCell: UITableViewCell {
 
-    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
