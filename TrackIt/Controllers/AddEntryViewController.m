@@ -43,11 +43,11 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     
     RFToolbarButton *minusButton = [RFToolbarButton buttonWithTitle:@"+/-" andEventHandler:^{
         UITextField *textField = (UITextField *)[self.view viewWithTag:AMOUNT_TEXT_FIELD_CELL_TAG];
-        NSString *firstChar = [textField.text substringWithRange:NSMakeRange(0, 1)];
-        if([firstChar isEqualToString:@"-"])
-            textField.text = [textField.text substringFromIndex:1];
-        else
-            textField.text = [NSString stringWithFormat:@"-%@", textField.text];
+        NSNumber *amount = [self.formatter numberFromString:textField.text];
+        if(amount) {
+            amount = @(-1*amount.doubleValue);
+            textField.text = [self.formatter stringFromNumber:amount];
+        }
     } forControlEvents:UIControlEventTouchUpInside];
     
     self.doneBar = [RFKeyboardToolbar toolbarWithButtons:@[minusButton]];
