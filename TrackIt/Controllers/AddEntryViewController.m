@@ -202,7 +202,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     NSString *identifier = [self identifierForIndexPath:indexPath];
     if([identifier isEqualToString:@"dateCell"]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
-        cell.detailTextLabel.text = [self.entry.date formattedDateWithFormat:@"M/dd/YYYY hh:mm a"];
+        cell.detailTextLabel.text = [self.entry.date formattedDateWithFormat:@"M/dd/YYYY"];
         cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         

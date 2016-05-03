@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.datePicker.maximumDate = [NSDate date];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
