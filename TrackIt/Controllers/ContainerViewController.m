@@ -147,8 +147,7 @@
         self.allEntriesVC = segue.destinationViewController;
     }
     else if([segue.identifier isEqualToString:@"addEntrySegue"]) {
-        UINavigationController *nav = segue.destinationViewController;
-        AddEntryViewController *vc = (AddEntryViewController *)nav.topViewController;
+        AddEntryViewController *vc = segue.destinationViewController;
         vc.delegate = self;
     }
     else if([segue.identifier isEqualToString:@"selectDatesSegue"]) {

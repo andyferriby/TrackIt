@@ -70,6 +70,12 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
+#pragma mark - UINavigationBarDelegate
+
+-(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
 #pragma mark - Keyboard
 
 - (void)keyboardDidShow:(NSNotification *)notification {

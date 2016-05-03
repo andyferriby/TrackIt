@@ -88,12 +88,11 @@
     if(!self.editing)
         return;
     
-    UINavigationController *navVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addEditEntryNavVC"];
-    AddEntryViewController *editVC = (AddEntryViewController *)navVC.topViewController;
+    AddEntryViewController *editVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addEditEntryVC"];
     editVC.delegate = self;
     editVC.title = @"Edit Entry";
     editVC.entry = [self.model entryAtIndex:indexPath.row];
-    [self presentViewController:navVC animated:YES completion:nil];
+    [self presentViewController:editVC animated:YES completion:nil];
 }
 
 -(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
