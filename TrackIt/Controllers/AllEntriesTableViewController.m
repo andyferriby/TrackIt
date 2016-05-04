@@ -59,7 +59,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EntryCell *cell = (EntryCell *)[tableView dequeueReusableCellWithIdentifier:@"entryCell2"];
+    EntryCell *cell = (EntryCell *)[tableView dequeueReusableCellWithIdentifier:@"entryCell"];
     Entry *entry = [self.model entryAtIndex:indexPath.row];
     
     [cell configureWithEntry:entry numberFormatter:self.numberFormatter];
