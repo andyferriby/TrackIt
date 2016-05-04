@@ -28,7 +28,7 @@ extension TagsCell: EntryConfigurable {
             
         }        
         let addTagView = tagListView.addTag(addTagTitle)
-        addTagView.tagBackgroundColor = UIColor.orangeColor()
+        addTagView.tagBackgroundColor = UIColor.flatGreenColor()
         addTagView.onTap = { tagView in
             self.delegate?.tagsCellDidTapAddTag?(self)
         }

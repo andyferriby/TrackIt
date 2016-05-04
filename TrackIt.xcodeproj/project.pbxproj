@@ -29,7 +29,7 @@
 		961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271401CD0590B002268F7 /* AddTagsTableViewController.swift */; };
 		961271431CD18677002268F7 /* AddTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271421CD18677002268F7 /* AddTagsModel.swift */; };
 		961271451CD18930002268F7 /* AddTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271441CD18930002268F7 /* AddTagCell.swift */; };
-		96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C991BE86195009342FC /* UIColor+FlatUI.m */; };
+		9618C1ED1CD971E800EC5BC1 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */; };
 		96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9C1BE862FF009342FC /* DatePickerCell.m */; };
 		96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9F1BE86CC9009342FC /* ContainerViewController.m */; };
 		964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */; };
@@ -123,8 +123,7 @@
 		961271401CD0590B002268F7 /* AddTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsTableViewController.swift; path = Controllers/AddTagsTableViewController.swift; sourceTree = "<group>"; };
 		961271421CD18677002268F7 /* AddTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsModel.swift; path = Models/AddTagsModel.swift; sourceTree = "<group>"; };
 		961271441CD18930002268F7 /* AddTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagCell.swift; path = Views/AddTagCell.swift; sourceTree = "<group>"; };
-		96434C981BE86195009342FC /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatUI.h"; path = "Utilities/UIColor+FlatUI.h"; sourceTree = "<group>"; };
-		96434C991BE86195009342FC /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatUI.m"; path = "Utilities/UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorManager.swift; path = Models/ColorManager.swift; sourceTree = "<group>"; };
 		96434C9B1BE862FF009342FC /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerCell.h; path = Views/DatePickerCell.h; sourceTree = "<group>"; };
 		96434C9C1BE862FF009342FC /* DatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerCell.m; path = Views/DatePickerCell.m; sourceTree = "<group>"; };
 		96434C9E1BE86CC9009342FC /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = Controllers/ContainerViewController.h; sourceTree = "<group>"; };
@@ -288,6 +287,7 @@
 				967174BC1BEC539200321787 /* WatchSessionDelegate.h */,
 				967174BD1BEC539200321787 /* WatchSessionDelegate.m */,
 				961271421CD18677002268F7 /* AddTagsModel.swift */,
+				9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -324,8 +324,6 @@
 				964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */,
 				964A6E4B1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.h */,
 				964A6E4C1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m */,
-				96434C981BE86195009342FC /* UIColor+FlatUI.h */,
-				96434C991BE86195009342FC /* UIColor+FlatUI.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -576,6 +574,7 @@
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
 				961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */,
 				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,
+				9618C1ED1CD971E800EC5BC1 /* ColorManager.swift in Sources */,
 				96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */,
 				961271161CCEF86A002268F7 /* Tag.swift in Sources */,
 				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
@@ -586,7 +585,6 @@
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
 				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
 				9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */,
-				96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */,
 				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,

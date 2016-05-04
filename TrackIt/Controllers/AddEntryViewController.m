@@ -10,10 +10,10 @@
 #import "AmountCell.h"
 #import "NoteCell.h"
 #import "DatePickerCell.h"
-#import "UIColor+FlatUI.h"
 #import "AppDelegate.h"
 #import "NSDate+DateTools.h"
 #import "RFKeyboardToolbar+DoneButton.h"
+#import "TrackIt-Swift.h"
 
 static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 
@@ -203,7 +203,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     if([identifier isEqualToString:@"dateCell"]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
         cell.detailTextLabel.text = [self.entry.date formattedDateWithFormat:@"M/dd/YYYY"];
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+        cell.detailTextLabel.textColor = [ColorManager moneyColor];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
         return cell;
@@ -213,7 +213,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         cell.textField.delegate = self;
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
         cell.textField.inputAccessoryView = self.doneBar;
-        cell.textField.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+        cell.textField.textColor = [ColorManager moneyColor];
         cell.textField.tag = AMOUNT_TEXT_FIELD_CELL_TAG;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -250,7 +250,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"saveCell" forIndexPath:indexPath];
         if(indexPath.row == 0) {
             cell.textLabel.text = @"Save";
-            cell.textLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+            cell.textLabel.textColor = [ColorManager moneyColor];
         }
         else {
             cell.textLabel.text = @"Cancel";

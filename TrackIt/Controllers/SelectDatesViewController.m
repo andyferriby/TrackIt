@@ -8,6 +8,7 @@
 
 #import "SelectDatesViewController.h"
 #import "DatePickerCell.h"
+#import "TrackIt-Swift.h"
 
 @interface SelectDatesViewController ()
 
@@ -85,7 +86,7 @@
         NSDate *thisDate = [identifier isEqualToString:@"startDateCell"] ? self.currentStartDate : self.currentEndDate;
         cell.textLabel.text = [identifier isEqualToString:@"startDateCell"] ? @"Start Date" : @"End Date";
         cell.detailTextLabel.text = [thisDate formattedDateWithFormat:@"M/dd/YYYY"];
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+        cell.detailTextLabel.textColor = [ColorManager moneyColor];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
         return cell;
@@ -102,7 +103,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"saveCell" forIndexPath:indexPath];
         if(indexPath.row == 0) {
             cell.textLabel.text = @"Save";
-            cell.textLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+            cell.textLabel.textColor = [ColorManager moneyColor];
         }
         else {
             cell.textLabel.text = @"Cancel";

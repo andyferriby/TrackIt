@@ -32,7 +32,8 @@ class AddTagsModel {
             tags.sortInPlace { $0.name < $1.name }
         }
         else {
-            let tag = Tag.tagWithName(tagName, inManagedObjectContext: context)
+            let colorIndex = ColorManager.firstAvailableColorIndex(allTags)
+            let tag = Tag.tagWithName(tagName, colorIndex: colorIndex, inManagedObjectContext: context)
             tags.append(tag)
             allTags = refreshAllTags()
         }

@@ -10,6 +10,7 @@
 #import "AddEntryViewController.h"
 #import "AllEntriesTableViewController.h"
 #import "DateTools.h"
+#import "TrackIt-Swift.h"
 
 @interface ContainerViewController ()
 
@@ -50,7 +51,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalSpending" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         NSNumber *value = note.userInfo[@"total"];
         weakSelf.totalValueLabel.text = [weakSelf.formatter stringFromNumber:value];
-        weakSelf.totalValueLabel.textColor = value.doubleValue >= 0 ? [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0] : [UIColor orangeColor];
+        weakSelf.totalValueLabel.textColor = value.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
     }];
     
     NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
@@ -121,7 +122,7 @@
             break;
     }
     self.totalValueLabel.text = [self.formatter stringFromNumber:total];
-    self.totalValueLabel.textColor = total.doubleValue >= 0 ? [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0] : [UIColor orangeColor];
+    self.totalValueLabel.textColor = total.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
     
     NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
     NSDate *currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];

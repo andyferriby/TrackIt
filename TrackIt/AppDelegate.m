@@ -10,6 +10,7 @@
 #import "ContainerViewController.h"
 #import "EntriesModel.h"
 #import "WatchSessionDelegate.h"
+#import "TrackIt-Swift.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    UIColor *moneyColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+    UIColor *moneyColor = [ColorManager moneyColor];
     UIFont *lightFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:19.0];
     UIFont *lightFontSmall = [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0];
     self.window.tintColor = moneyColor;

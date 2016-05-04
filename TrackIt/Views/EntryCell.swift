@@ -44,9 +44,10 @@ extension EntryCell: EntryConfigurable {
         if entry.tags?.count > 0, let tags = entry.tags {
             tagListView.hidden = false
             tagListView.removeAllTags()
-            let sortedTags = tags.allObjects.sort { return $0.name < $1.name }
+            let sortedTags = tags.allObjects.sort { return $0.name < $1.name } as! [Tag]
             for tag in sortedTags {
-                tagListView.addTag(tag.name)
+                let tagView = tagListView.addTag(tag.name!)
+                tagView.backgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
             }
         }
         else {
