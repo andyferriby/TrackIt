@@ -8,7 +8,6 @@
 
 #import "EntriesModel.h"
 #import "AppDelegate.h"
-#import "NSDate+DateTools.h"
 
 @interface EntriesModel()
 

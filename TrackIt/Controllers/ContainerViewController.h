@@ -10,12 +10,14 @@
 #import "DateTools.h"
 #import "SelectDatesViewController.h"
 #import "AddEntryViewController.h"
+#import "TrackIt-Swift.h"
 
-@interface ContainerViewController : UIViewController<SelectDatesDelegate, EntryDelegate>
+@interface ContainerViewController : UIViewController<SelectDatesDelegate, EntryDelegate, FilterTitleViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
+@property (weak, nonatomic) IBOutlet FilterTitleView *filterTitleView;
 
 @end

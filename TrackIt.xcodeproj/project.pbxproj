@@ -19,6 +19,7 @@
 		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
 		960105F51BE85CCF00979763 /* AmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F41BE85CCF00979763 /* AmountCell.m */; };
 		960105F81BE85CD800979763 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F71BE85CD800979763 /* NoteCell.m */; };
+		960C7A031CDADAB50027A9C3 /* FilterTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */; };
 		961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */; };
 		961271141CCEF86A002268F7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271101CCEF86A002268F7 /* Entry.swift */; };
 		961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */; };
@@ -111,6 +112,7 @@
 		960105F41BE85CCF00979763 /* AmountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmountCell.m; path = Views/AmountCell.m; sourceTree = "<group>"; };
 		960105F61BE85CD800979763 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteCell.h; path = Views/NoteCell.h; sourceTree = "<group>"; };
 		960105F71BE85CD800979763 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteCell.m; path = Views/NoteCell.m; sourceTree = "<group>"; };
+		960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTitleView.swift; path = Views/FilterTitleView.swift; sourceTree = "<group>"; };
 		9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TrackIt 2.xcdatamodel"; sourceTree = "<group>"; };
 		9612710E1CCEF86A002268F7 /* TrackIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entry+CoreDataProperties.swift"; path = "Core Data/Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 		960105EF1BE84FB200979763 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */,
 				961271171CCF0803002268F7 /* TagsCell.swift */,
 				961271441CD18930002268F7 /* AddTagCell.swift */,
 				96434C9B1BE862FF009342FC /* DatePickerCell.h */,
@@ -569,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				961271451CD18930002268F7 /* AddTagCell.swift in Sources */,
+				960C7A031CDADAB50027A9C3 /* FilterTitleView.swift in Sources */,
 				961271141CCEF86A002268F7 /* Entry.swift in Sources */,
 				96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,

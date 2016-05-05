@@ -10,11 +10,13 @@
 #import "AddEntryViewController.h"
 #import "AllEntriesTableViewController.h"
 #import "DateTools.h"
-#import "TrackIt-Swift.h"
+
+const CGFloat defaultFilterTitleViewHeight = 30.0f;
 
 @interface ContainerViewController ()
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerLineHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomDividerLineHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterTitleViewHeightConstraint;
 @property (strong, nonatomic) AllEntriesTableViewController *allEntriesVC;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -38,7 +40,7 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.dividerLineHeightConstraint.constant = 0.5;
+    self.bottomDividerLineHeightConstraint.constant = 0.5;
     
     self.formatter = [[NSNumberFormatter alloc] init];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -70,6 +72,8 @@
     }
     
     [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
+    
+    self.filterTitleView.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -129,6 +133,22 @@
     [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
 }
 
+-(void)showFilterTitleView {
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.filterTitleView.alpha = 1.0;
+        self.filterTitleViewHeightConstraint.constant = defaultFilterTitleViewHeight;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
+-(void)hideFilterTitleView {
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.filterTitleView.alpha = 0;
+        self.filterTitleViewHeightConstraint.constant = 0;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
 #pragma mark - SelectDatesDelegate
 
 -(void)newDatesSelected {
@@ -140,6 +160,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - FilterTitleViewDelegate
+
+-(void)closeViewTapped {
+    [self hideFilterTitleView];
+}
 
 #pragma mark - Navigation
 
