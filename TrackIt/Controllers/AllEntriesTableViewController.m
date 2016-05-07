@@ -28,7 +28,6 @@
     DateFilter *thisMonthFilter = [[DateFilter alloc] initWithType:DateFilterTypeThisMonth];
     self.model = [[EntriesModel alloc] initWithFilters:@[thisMonthFilter] context:context];
     
-    
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
     
@@ -161,17 +160,8 @@
     [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
 }
 
--(NSNumber *)updateValuesWithDateFilterType:(DateFilterType)type {
-    DateFilter *filter = [[DateFilter alloc] initWithType:type];
-    [self.model refreshWithFilter:filter];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView reloadEmptyDataSet];
-    return [self.model totalSpending];
-}
-
--(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
-    DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeDateRange startDate:startDate endDate:endDate];
-    [self.model refreshWithFilter:filter];
+-(NSNumber *)updateValuesWithFilters:(NSArray <id<Filterable>> *)filters {
+    [self.model refreshWithFilters:filters];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
     return [self.model totalSpending];

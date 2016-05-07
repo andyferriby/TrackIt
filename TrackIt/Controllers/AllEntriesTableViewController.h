@@ -13,7 +13,6 @@
 
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
--(NSNumber *)updateValuesWithDateFilterType:(DateFilterType)type;
--(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
+-(NSNumber *)updateValuesWithFilters:(NSArray <id<Filterable>> *)filters;
 
 @end

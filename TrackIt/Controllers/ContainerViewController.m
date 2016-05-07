@@ -115,15 +115,21 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
     switch(self.currentModelType) {
         case DateFilterTypeLast7Days:
             break;
-        case DateFilterTypeThisMonth:
-            total = [self.allEntriesVC updateValuesWithDateFilterType:DateFilterTypeThisMonth];
+        case DateFilterTypeThisMonth: {
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeThisMonth];
+            total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
-        case DateFilterTypeAllTime:
-            total = [self.allEntriesVC updateValuesWithDateFilterType:DateFilterTypeAllTime];
+        }
+        case DateFilterTypeAllTime: {
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeAllTime];
+            total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
-        case DateFilterTypeDateRange:
-            total = [self.allEntriesVC updateValuesWithStartDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
+        }
+        case DateFilterTypeDateRange: {
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeDateRange startDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
+            total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
+        }
     }
     self.totalValueLabel.text = [self.formatter stringFromNumber:total];
     self.totalValueLabel.textColor = total.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
@@ -164,6 +170,8 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
 
 -(void)closeViewTapped {
     [self hideFilterTitleView];
+    TagFilter *noTagFilter = [[TagFilter alloc] initWithTags:@[]];
+    [self.allEntriesVC updateValuesWithFilters:@[noTagFilter]];
 }
 
 #pragma mark - Navigation

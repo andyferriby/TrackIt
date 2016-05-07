@@ -44,10 +44,12 @@ class EntriesModel: NSObject {
             print(error.localizedDescription)
         }
     }
-
-    func refreshWithFilter(filter: Filterable) {
-        filters = filters.filter { return $0.filterType() != filter.filterType() }
-        filters.append(filter)
+    
+    func refreshWithFilters(newFilters: [Filterable]) {
+        for filter in newFilters {
+            filters = filters.filter { return $0.filterType() != filter.filterType() }
+            filters.append(filter)
+        }
         filters = filters.filter { $0.predicate() != nil }
         refreshEntries()
     }

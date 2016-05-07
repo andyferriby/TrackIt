@@ -8,17 +8,10 @@
 
 import DateTools
 
-@objc protocol Filterable {
-    func predicate() -> NSPredicate?
-    func filterType() -> FilterType
-}
+// MARK: Date Filters
 
 @objc enum DateFilterType: Int {
     case Last7Days, ThisMonth, AllTime, DateRange
-}
-
-@objc enum FilterType: Int {
-    case Date, Tag
 }
 
 @objc class DateFilter: NSObject {
@@ -63,3 +56,24 @@ extension DateFilter: Filterable {
         }
     }
 }
+
+// MARK: Tag Filters
+
+@objc class TagFilter: NSObject {
+    var tags: [Tag]
+    init(tags: [Tag]) {
+        self.tags = tags
+    }
+}
+
+extension TagFilter: Filterable {
+    func predicate() -> NSPredicate? {
+        return tags.count == 0 ? nil : NSPredicate(format: "ANY tags IN %@", tags)
+    }
+    func filterType() -> FilterType {
+        return .Tag
+    }
+}
+
+
+
