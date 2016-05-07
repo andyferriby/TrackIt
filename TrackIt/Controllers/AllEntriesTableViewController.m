@@ -42,7 +42,6 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -165,6 +164,10 @@
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
     return [self.model totalSpending];
+}
+
+-(BOOL)filteringTags {
+    return [self.model filteringTags];
 }
 
 @end

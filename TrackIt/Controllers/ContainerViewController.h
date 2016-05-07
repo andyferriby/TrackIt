@@ -12,7 +12,7 @@
 #import "AddEntryViewController.h"
 #import "TrackIt-Swift.h"
 
-@interface ContainerViewController : UIViewController<SelectDatesDelegate, EntryDelegate, FilterTitleViewDelegate>
+@interface ContainerViewController : UIViewController<UIPopoverPresentationControllerDelegate, SelectDatesDelegate, EntryDelegate, FilterTitleViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;

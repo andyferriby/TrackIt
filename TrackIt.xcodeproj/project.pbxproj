@@ -48,6 +48,7 @@
 		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
 		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
 		96880E541CDE6F1D003FA573 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E531CDE6F1D003FA573 /* Filterable.swift */; };
+		96880E561CDE7BDC003FA573 /* SelectTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */; };
 		96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B506531BF96C3700E2F083 /* SelectDatesViewController.m */; };
 		96BA74A21BF19CBC00CDDA46 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */; };
 /* End PBXBuildFile section */
@@ -157,6 +158,7 @@
 		967174C61BF16EC900321787 /* TrackIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrackIt.entitlements; sourceTree = "<group>"; };
 		967174C71BF1709900321787 /* WatchTrack Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchTrack Extension.entitlements"; sourceTree = "<group>"; };
 		96880E531CDE6F1D003FA573 /* Filterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filterable.swift; path = Protocols/Filterable.swift; sourceTree = "<group>"; };
+		96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTagsViewController.swift; path = Controllers/SelectTagsViewController.swift; sourceTree = "<group>"; };
 		96B506521BF96C3700E2F083 /* SelectDatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectDatesViewController.h; path = Controllers/SelectDatesViewController.h; sourceTree = "<group>"; };
 		96B506531BF96C3700E2F083 /* SelectDatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectDatesViewController.m; path = Controllers/SelectDatesViewController.m; sourceTree = "<group>"; };
 		96BA749B1BF17CFA00CDDA46 /* WatchTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchTrack.entitlements; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				96B506521BF96C3700E2F083 /* SelectDatesViewController.h */,
 				96B506531BF96C3700E2F083 /* SelectDatesViewController.m */,
 				961271401CD0590B002268F7 /* AddTagsTableViewController.swift */,
+				96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				961271431CD18677002268F7 /* AddTagsModel.swift in Sources */,
 				961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */,
 				9612713C1CD0400D002268F7 /* Configurations.swift in Sources */,
+				96880E561CDE7BDC003FA573 /* SelectTagsViewController.swift in Sources */,
 				960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */,
 				96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */,
 			);

@@ -23,9 +23,23 @@ class EntriesModel: NSObject {
     func numberOfEntries() -> Int {
         return entries.count
     }
+    
     func entryAt(index: Int) -> Entry {
         return entries[index]
     }
+    
+    func deleteEntryAt(index: Int) {
+        let entry = entries[index]
+        do {
+            context.deleteObject(entry)
+            try context.save()
+        }
+        catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        refreshEntries()
+    }
+    
     func totalSpending() -> NSNumber {
         let total = entries.reduce(0, combine: {
             $0 + $1.amount!.doubleValue
@@ -54,16 +68,9 @@ class EntriesModel: NSObject {
         refreshEntries()
     }
     
-    func deleteEntryAt(index: Int) {
-        let entry = entries[index]
-        do {
-            context.deleteObject(entry)
-            try context.save()
-        }
-        catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        refreshEntries()
+    func filteringTags() -> Bool {
+        return filters.filter { return $0.filterType() == .Tag }.count > 0
     }
+
 }
 

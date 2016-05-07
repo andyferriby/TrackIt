@@ -74,6 +74,8 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
     [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
     
     self.filterTitleView.delegate = self;
+    self.filterTitleViewHeightConstraint.constant = self.allEntriesVC.filteringTags ? defaultFilterTitleViewHeight : 0;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -188,6 +190,10 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
         SelectDatesViewController *vc = segue.destinationViewController;
         vc.delegate = self;
     }
+    else if([segue.identifier isEqualToString:@"showTagFilter"]) {
+        UIViewController *vc = segue.destinationViewController;
+        vc.popoverPresentationController.delegate = self;
+    }
 }
 
 #pragma mark - EntryDelegate
@@ -198,6 +204,12 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
 
 -(void)entryCanceled {
     [self.allEntriesVC entryCanceled];
+}
+
+#pragma mark - UIPopoverPresentationController
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
 
 @end
