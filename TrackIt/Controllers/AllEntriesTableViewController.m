@@ -9,6 +9,7 @@
 #import "AllEntriesTableViewController.h"
 #import "NSDate+DateTools.h"
 #import "AppDelegate.h"
+#import "TrackIt-Swift.h"
 
 @interface AllEntriesTableViewController ()
 
@@ -23,7 +24,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.model = [[EntriesModel alloc] initWithModelType:EntryModelTypeThisMonth];
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    DateFilter *thisMonthFilter = [[DateFilter alloc] initWithType:DateFilterTypeThisMonth];
+    self.model = [[EntriesModel alloc] initWithFilters:@[thisMonthFilter] context:context];
+    
     
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -60,7 +64,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EntryCell *cell = (EntryCell *)[tableView dequeueReusableCellWithIdentifier:@"entryCell"];
-    Entry *entry = [self.model entryAtIndex:indexPath.row];
+    Entry *entry = [self.model entryAt:indexPath.row];
     
     [cell configureWithEntry:entry numberFormatter:self.numberFormatter];
     cell.selectionStyle = self.editing ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
@@ -74,7 +78,7 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.model deleteEntryAtIndex:indexPath.row];
+        [self.model deleteEntryAt:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadEmptyDataSet];
 
@@ -91,7 +95,7 @@
     AddEntryViewController *editVC = [self.storyboard instantiateViewControllerWithIdentifier:@"addEditEntryVC"];
     editVC.delegate = self;
     editVC.title = @"Edit Entry";
-    editVC.entry = [self.model entryAtIndex:indexPath.row];
+    editVC.entry = [self.model entryAt:indexPath.row];
     [self presentViewController:editVC animated:YES completion:nil];
 }
 
@@ -157,15 +161,17 @@
     [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
 }
 
--(NSNumber *)updateValuesWithEntryModelType:(EntryModelType)type {
-    [self.model refreshEntriesWithModelType:type];
+-(NSNumber *)updateValuesWithDateFilterType:(DateFilterType)type {
+    DateFilter *filter = [[DateFilter alloc] initWithType:type];
+    [self.model refreshWithFilter:filter];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
     return [self.model totalSpending];
 }
 
 -(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
-    [self.model refreshWithNewStartDate:startDate endDate:endDate];
+    DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeDateRange startDate:startDate endDate:endDate];
+    [self.model refreshWithFilter:filter];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView reloadEmptyDataSet];
     return [self.model totalSpending];

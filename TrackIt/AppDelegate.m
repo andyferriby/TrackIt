@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ContainerViewController.h"
-#import "EntriesModel.h"
 #import "WatchSessionDelegate.h"
 #import "TrackIt-Swift.h"
 
@@ -23,7 +22,9 @@
 
 -(EntriesModel *)watchModel {
     if(!_watchModel) {
-        _watchModel = [[EntriesModel alloc] initWithModelType:EntryModelTypeLast7Days];
+        DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeLast7Days];
+        _watchModel = [[EntriesModel alloc] initWithFilters:@[filter] context:self.managedObjectContext];
+        
     }
     return _watchModel;
 }

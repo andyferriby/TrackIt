@@ -21,7 +21,7 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
-@property (nonatomic) EntryModelType currentModelType;
+@property (nonatomic) DateFilterType currentModelType;
 
 @end
 
@@ -45,7 +45,7 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
     self.formatter = [[NSNumberFormatter alloc] init];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     
-    self.currentModelType = EntryModelTypeThisMonth;
+    self.currentModelType = DateFilterTypeThisMonth;
     
     self.totalTitleLabel.text = [NSString stringWithFormat:@"%@ Total", [self.dateFormatter stringFromDate:[NSDate date]]];
     
@@ -88,20 +88,20 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
 - (IBAction)timePeriodSelected:(UISegmentedControl *)sender {
     switch(sender.selectedSegmentIndex) {
         case 0: {
-            self.currentModelType = EntryModelTypeThisMonth;
+            self.currentModelType = DateFilterTypeThisMonth;
             self.dateButton.hidden = YES;
             self.totalTitleLabel.hidden = NO;
             self.totalTitleLabel.text = [NSString stringWithFormat:@"%@ Total", [self.dateFormatter stringFromDate:[NSDate date]]];
             break;
         }
         case 1:
-            self.currentModelType = EntryModelTypeAllTime;
+            self.currentModelType = DateFilterTypeAllTime;
             self.dateButton.hidden = YES;
             self.totalTitleLabel.hidden = NO;
             self.totalTitleLabel.text = @"All Time Total";
             break;
         case 2:
-            self.currentModelType = EntryModelTypeDateRange;
+            self.currentModelType = DateFilterTypeDateRange;
             // set current start/end dates if not set
             self.dateButton.hidden = NO;
             self.totalTitleLabel.hidden = YES;
@@ -113,15 +113,15 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
 -(void)updateTotalDisplay {
     NSNumber *total;
     switch(self.currentModelType) {
-        case EntryModelTypeLast7Days:
+        case DateFilterTypeLast7Days:
             break;
-        case EntryModelTypeThisMonth:
-            total = [self.allEntriesVC updateValuesWithEntryModelType:EntryModelTypeThisMonth];
+        case DateFilterTypeThisMonth:
+            total = [self.allEntriesVC updateValuesWithDateFilterType:DateFilterTypeThisMonth];
             break;
-        case EntryModelTypeAllTime:
-            total = [self.allEntriesVC updateValuesWithEntryModelType:EntryModelTypeAllTime];
+        case DateFilterTypeAllTime:
+            total = [self.allEntriesVC updateValuesWithDateFilterType:DateFilterTypeAllTime];
             break;
-        case EntryModelTypeDateRange:
+        case DateFilterTypeDateRange:
             total = [self.allEntriesVC updateValuesWithStartDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
             break;
     }

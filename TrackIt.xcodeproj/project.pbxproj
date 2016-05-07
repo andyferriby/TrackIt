@@ -15,11 +15,12 @@
 		960105D31BE843A100979763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105D11BE843A100979763 /* LaunchScreen.storyboard */; };
 		960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105E31BE8449500979763 /* TrackIt.xcdatamodeld */; };
 		960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesTableViewController.m */; };
-		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
 		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
 		960105F51BE85CCF00979763 /* AmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F41BE85CCF00979763 /* AmountCell.m */; };
 		960105F81BE85CD800979763 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F71BE85CD800979763 /* NoteCell.m */; };
 		960C7A031CDADAB50027A9C3 /* FilterTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */; };
+		960C7A051CDAE9BB0027A9C3 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A041CDAE9BB0027A9C3 /* Filterable.swift */; };
+		960C7A071CDAEF140027A9C3 /* EntriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A061CDAEF140027A9C3 /* EntriesModel.swift */; };
 		961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */; };
 		961271141CCEF86A002268F7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271101CCEF86A002268F7 /* Entry.swift */; };
 		961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */; };
@@ -104,8 +105,6 @@
 		960105E41BE8449500979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
 		960105E61BE8453300979763 /* AllEntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesTableViewController.h; path = Controllers/AllEntriesTableViewController.h; sourceTree = "<group>"; };
 		960105E71BE8453300979763 /* AllEntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesTableViewController.m; path = Controllers/AllEntriesTableViewController.m; sourceTree = "<group>"; };
-		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntriesModel.h; path = Models/EntriesModel.h; sourceTree = "<group>"; };
-		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntriesModel.m; path = Models/EntriesModel.m; sourceTree = "<group>"; };
 		960105F01BE857CB00979763 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryViewController.h; path = Controllers/AddEntryViewController.h; sourceTree = "<group>"; };
 		960105F11BE857CB00979763 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryViewController.m; path = Controllers/AddEntryViewController.m; sourceTree = "<group>"; };
 		960105F31BE85CCF00979763 /* AmountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmountCell.h; path = Views/AmountCell.h; sourceTree = "<group>"; };
@@ -113,6 +112,8 @@
 		960105F61BE85CD800979763 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteCell.h; path = Views/NoteCell.h; sourceTree = "<group>"; };
 		960105F71BE85CD800979763 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteCell.m; path = Views/NoteCell.m; sourceTree = "<group>"; };
 		960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTitleView.swift; path = Views/FilterTitleView.swift; sourceTree = "<group>"; };
+		960C7A041CDAE9BB0027A9C3 /* Filterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filterable.swift; path = Models/Filterable.swift; sourceTree = "<group>"; };
+		960C7A061CDAEF140027A9C3 /* EntriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesModel.swift; sourceTree = "<group>"; };
 		9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TrackIt 2.xcdatamodel"; sourceTree = "<group>"; };
 		9612710E1CCEF86A002268F7 /* TrackIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackIt-Bridging-Header.h"; sourceTree = "<group>"; };
 		9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entry+CoreDataProperties.swift"; path = "Core Data/Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -284,8 +285,8 @@
 		960105DC1BE8441100979763 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				960105E91BE84C8600979763 /* EntriesModel.h */,
-				960105EA1BE84C8600979763 /* EntriesModel.m */,
+				960C7A061CDAEF140027A9C3 /* EntriesModel.swift */,
+				960C7A041CDAE9BB0027A9C3 /* Filterable.swift */,
 				967174BC1BEC539200321787 /* WatchSessionDelegate.h */,
 				967174BD1BEC539200321787 /* WatchSessionDelegate.m */,
 				961271421CD18677002268F7 /* AddTagsModel.swift */,
@@ -580,8 +581,8 @@
 				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,
 				9618C1ED1CD971E800EC5BC1 /* ColorManager.swift in Sources */,
 				96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */,
+				960C7A051CDAE9BB0027A9C3 /* Filterable.swift in Sources */,
 				961271161CCEF86A002268F7 /* Tag.swift in Sources */,
-				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
 				960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */,
 				961271181CCF0803002268F7 /* TagsCell.swift in Sources */,
 				960105F51BE85CCF00979763 /* AmountCell.m in Sources */,
@@ -593,6 +594,7 @@
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */,
+				960C7A071CDAEF140027A9C3 /* EntriesModel.swift in Sources */,
 				961271431CD18677002268F7 /* AddTagsModel.swift in Sources */,
 				961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */,
 				9612713C1CD0400D002268F7 /* Configurations.swift in Sources */,

@@ -13,7 +13,9 @@
 
 -(EntriesModel *)model {
     if(!_model) {
-        _model = [[EntriesModel alloc] initWithModelType:EntryModelTypeLast7Days];
+        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeLast7Days];
+        _model = [[EntriesModel alloc] initWithFilters:@[filter] context:context];
     }
     return _model;
 }

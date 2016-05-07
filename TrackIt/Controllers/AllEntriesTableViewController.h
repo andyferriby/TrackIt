@@ -10,11 +10,10 @@
 #import "TrackIt-Swift.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "AddEntryViewController.h"
-#import "EntriesModel.h"
 
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
--(NSNumber *)updateValuesWithEntryModelType:(EntryModelType)type;
+-(NSNumber *)updateValuesWithDateFilterType:(DateFilterType)type;
 -(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 
 @end

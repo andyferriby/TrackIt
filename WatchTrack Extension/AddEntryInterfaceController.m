@@ -128,7 +128,6 @@
         [self.doneButton setHidden:NO];
         
     } failure:^(NSError *error) {
-        //TODO:
         // if failed, show a modal that says it failed or something
         [self.savedDetailGroup setHidden:YES];
         [self.savingErrorLabel setHidden:NO];
