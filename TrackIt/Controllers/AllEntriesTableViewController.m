@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) EntriesModel *model;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
+@property (strong, nonatomic) EmptyDataSetDataSource *emptyDataSetDataSource;
 
 @end
 
@@ -34,8 +35,10 @@
     self.tableView.estimatedRowHeight = 96;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
+    self.emptyDataSetDataSource = [[EmptyDataSetDataSource alloc] initWithTitle:@"No Spending Recorded"
+                                                             dataSetDescription:@"I guess you haven't spent any money recently! When you do, tap the + button below to record it."
+                                                                 verticalOffset:-1*self.navigationController.navigationBar.frame.size.height];
+    self.tableView.emptyDataSetSource = self.emptyDataSetDataSource;
     
     self.tableView.tableFooterView = [UIView new];
     
@@ -100,35 +103,6 @@
 
 -(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     // Needed to prevent setEditing:animated: from being called during swipe-to-delete
-}
-
-#pragma mark - DZNEmptyDataSet
-
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @"No Spending Recorded";
-    
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:20.0f],
-                                 NSForegroundColorAttributeName: [UIColor colorWithRed:1/255.0 green:152/255.0 blue:117/255.0 alpha:1.0]};
-    
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @"I guess you haven't spent any money recently! When you do, tap the + button below to record it.";
-    
-    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraph.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
-                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
-                                 NSParagraphStyleAttributeName: paragraph};
-    
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
-    return -1*self.navigationController.navigationBar.frame.size.height;
 }
 
 #pragma mark - EntryDelegate

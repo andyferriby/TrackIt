@@ -19,6 +19,7 @@ class SelectTagsViewController: UIViewController {
     var delegate: TagFilterDelegate?
     var managedObjectContext: NSManagedObjectContext?
     var selectedTags: [Tag] = []
+    let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: -22.0)
     
     lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
         guard let context = self.managedObjectContext else { return nil }
@@ -40,8 +41,8 @@ class SelectTagsViewController: UIViewController {
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
+        tableView.emptyDataSetSource = emptyDataSetDataSource
     }
-    // TODO: DZNEmptyDataSetDelegate
 }
 
 extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
