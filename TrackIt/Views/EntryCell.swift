@@ -47,7 +47,7 @@ extension EntryCell: EntryConfigurable {
             let sortedTags = tags.allObjects.sort { return $0.name < $1.name } as! [Tag]
             for tag in sortedTags {
                 let tagView = tagListView.addTag(tag.name!)
-                tagView.backgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
+                tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
             }
         }
         else {

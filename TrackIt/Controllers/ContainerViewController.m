@@ -11,7 +11,7 @@
 #import "AllEntriesTableViewController.h"
 #import "DateTools.h"
 
-const CGFloat defaultFilterTitleViewHeight = 30.0f;
+const CGFloat minFilterTitleViewHeight = 34.0f;
 
 @interface ContainerViewController ()
 
@@ -74,7 +74,7 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
     [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
     
     self.filterTitleView.delegate = self;
-    self.filterTitleViewHeightConstraint.constant = self.allEntriesVC.filteringTags ? defaultFilterTitleViewHeight : 0;
+    self.filterTitleViewHeightConstraint.constant = [self.allEntriesVC currentTagFilter].tags.count > 0 ? minFilterTitleViewHeight : 0;
     
 }
 
@@ -142,19 +142,23 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
 }
 
 -(void)showFilterTitleView {
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.filterTitleView.alpha = 1.0;
-        self.filterTitleViewHeightConstraint.constant = defaultFilterTitleViewHeight;
-        [self.view layoutIfNeeded];
-    } completion:nil];
+    if(self.filterTitleViewHeightConstraint.constant != [self.filterTitleView preferredContentHeight]) {
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.filterTitleView.alpha = 1.0;
+            self.filterTitleViewHeightConstraint.constant = [self.filterTitleView preferredContentHeight];
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
 }
 
 -(void)hideFilterTitleView {
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.filterTitleView.alpha = 0;
-        self.filterTitleViewHeightConstraint.constant = 0;
-        [self.view layoutIfNeeded];
-    } completion:nil];
+    if(self.filterTitleViewHeightConstraint.constant > 0) {
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.filterTitleView.alpha = 0;
+            self.filterTitleViewHeightConstraint.constant = 0;
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
 }
 
 #pragma mark - SelectDatesDelegate
@@ -176,6 +180,28 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
     [self.allEntriesVC updateValuesWithFilters:@[noTagFilter]];
 }
 
+#pragma mark - EntryDelegate
+// This is delegate because 3D touch may be invoked from cold app start, and self.allEntriesVC wouldn't exist yet
+-(void)entryAddedOrChanged {
+    [self.allEntriesVC entryAddedOrChanged];
+}
+
+-(void)entryCanceled {
+    [self.allEntriesVC entryCanceled];
+}
+
+#pragma mark - TagFilterDelegate
+-(void)didSelectTags:(NSArray<Tag *> *)tags {
+    TagFilter *tagFilter = [[TagFilter alloc] initWithTags:tags];
+    [self.allEntriesVC updateValuesWithFilters:@[tagFilter]];
+    if(tags.count > 0) {
+        [self.filterTitleView updateWithTags:tags];
+        [self showFilterTitleView];
+    }
+    else
+        [self hideFilterTitleView];
+}
+
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -191,19 +217,12 @@ const CGFloat defaultFilterTitleViewHeight = 30.0f;
         vc.delegate = self;
     }
     else if([segue.identifier isEqualToString:@"showTagFilter"]) {
-        UIViewController *vc = segue.destinationViewController;
+        SelectTagsViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
         vc.popoverPresentationController.delegate = self;
+        vc.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        vc.selectedTags = [self.allEntriesVC currentTagFilter].tags;
     }
-}
-
-#pragma mark - EntryDelegate
-// This is delegate because 3D touch may be invoked from cold app start, and self.allEntriesVC wouldn't exist yet
--(void)entryAddedOrChanged {
-    [self.allEntriesVC entryAddedOrChanged];
-}
-
--(void)entryCanceled {
-    [self.allEntriesVC entryCanceled];
 }
 
 #pragma mark - UIPopoverPresentationController

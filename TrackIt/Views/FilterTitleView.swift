@@ -9,6 +9,8 @@
 import UIKit
 import TagListView
 
+let preferredVerticalPadding: CGFloat = 14.0
+
 @objc protocol FilterTitleViewDelegate {
     func closeViewTapped()
 }
@@ -26,5 +28,17 @@ class FilterTitleView: UIView {
     
     @IBAction func closePressed() {
         delegate?.closeViewTapped()
+    }
+    
+    func preferredContentHeight() -> CGFloat {
+        return tagListView.intrinsicContentSize().height + preferredVerticalPadding
+    }
+    
+    func updateWithTags(tags: [Tag]) {
+        tagListView.removeAllTags()
+        for tag in tags {
+            let tagView = tagListView.addTag(tag.name!)
+            tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
+        }
     }
 }

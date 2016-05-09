@@ -11,8 +11,9 @@
 #import "SelectDatesViewController.h"
 #import "AddEntryViewController.h"
 #import "TrackIt-Swift.h"
+#import "AppDelegate.h"
 
-@interface ContainerViewController : UIViewController<UIPopoverPresentationControllerDelegate, SelectDatesDelegate, EntryDelegate, FilterTitleViewDelegate>
+@interface ContainerViewController : UIViewController<UIPopoverPresentationControllerDelegate, SelectDatesDelegate, EntryDelegate, FilterTitleViewDelegate, TagFilterDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *totalTitleLabel;

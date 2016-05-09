@@ -14,6 +14,6 @@
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
 -(NSNumber *)updateValuesWithFilters:(NSArray <id<Filterable>> *)filters;
--(BOOL)filteringTags;
+-(TagFilter *)currentTagFilter;
 
 @end

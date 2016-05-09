@@ -65,7 +65,7 @@
             
             [self.model refreshEntries];
             
-            // TODO: post notifications for new total spending and to refresh table of entries
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NewEntryFromWatch" object:self];
             replyHandler(@{@"newTotal" : [self.model totalSpending]});
             [[UIApplication sharedApplication] endBackgroundTask:identifier];
         });

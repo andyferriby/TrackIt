@@ -68,8 +68,8 @@ class EntriesModel: NSObject {
         refreshEntries()
     }
     
-    func filteringTags() -> Bool {
-        return filters.filter { return $0.filterType() == .Tag }.count > 0
+    func currentTagFilter() -> TagFilter? {
+        return filters.filter { return $0.filterType() == .Tag }.first as? TagFilter ?? nil
     }
 
 }

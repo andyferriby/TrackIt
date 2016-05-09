@@ -14,7 +14,8 @@ import UIKit
 }
 
 @objc protocol TagConfigurable {
-    func configureWithTags(tags: [Tag])
+    optional func configureWithTags(tags: [Tag])
+    optional func configureWithTag(tag: Tag, selected: Bool)
 }
 
 protocol AddTagConfigurable {

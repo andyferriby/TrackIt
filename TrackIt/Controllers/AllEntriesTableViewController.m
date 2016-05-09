@@ -42,6 +42,7 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:@"NewEntryFromWatch" object:nil];
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -147,16 +148,18 @@
     [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
 }
 
-#pragma mark - Totals
+#pragma mark - Updates
 
 -(void)updateScreenFromBackground {
-    [self.model refreshEntries];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView reloadEmptyDataSet];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
-    
-    [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.model refreshEntries];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadEmptyDataSet];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
+        
+        [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
+    });
 }
 
 -(NSNumber *)updateValuesWithFilters:(NSArray <id<Filterable>> *)filters {
@@ -166,8 +169,8 @@
     return [self.model totalSpending];
 }
 
--(BOOL)filteringTags {
-    return [self.model filteringTags];
+-(TagFilter *)currentTagFilter {
+    return [self.model currentTagFilter];
 }
 
 @end
