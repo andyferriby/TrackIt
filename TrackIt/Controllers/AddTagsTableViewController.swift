@@ -67,8 +67,9 @@ class AddTagsTableViewController: UITableViewController {
             return cell
             
             case "tagCell":
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
-            cell.configureWithModel(model, row: indexPath.row)
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TagCell
+            let tag = model.allTags[indexPath.row]
+            cell.configureWithTag(tag, selected: model.containsTag(tag.name!))
             return cell
             
             default: return UITableViewCell()

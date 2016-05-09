@@ -569,25 +569,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" textLabel="esX-u6-P7k" style="IBUITableViewCellStyleDefault" id="08Q-Mq-pRt">
-                                <rect key="frame" x="0.0" y="114" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="08Q-Mq-pRt" id="rsj-IW-iib">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="esX-u6-P7k">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addTagCell" id="J0m-ym-c6j" customClass="AddTagCell" customModule="TrackIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="158" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J0m-ym-c6j" id="saI-dS-J8u">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -625,6 +608,42 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textField" destination="kg8-ls-D7S" id="BbP-K0-5Qs"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tagCell" id="Hj4-x1-52D" customClass="TagCell" customModule="TrackIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="158" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hj4-x1-52D" id="KlJ-pH-zkZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noA-RW-6c1">
+                                            <rect key="frame" x="16" y="18" width="8" height="8"/>
+                                            <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="8" id="5K6-Vg-Ysf"/>
+                                                <constraint firstAttribute="height" constant="8" id="YPu-Jf-wUA"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-3d-0mc">
+                                            <rect key="frame" x="32" y="11" width="272" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Boe-3d-0mc" firstAttribute="top" secondItem="KlJ-pH-zkZ" secondAttribute="topMargin" constant="3" id="7EF-q1-Wm0"/>
+                                        <constraint firstItem="Boe-3d-0mc" firstAttribute="leading" secondItem="noA-RW-6c1" secondAttribute="trailing" constant="8" id="G8y-gR-H1U"/>
+                                        <constraint firstItem="noA-RW-6c1" firstAttribute="leading" secondItem="KlJ-pH-zkZ" secondAttribute="leadingMargin" constant="8" id="IOD-an-L4R"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Boe-3d-0mc" secondAttribute="trailing" constant="8" id="QQb-sf-tUX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Boe-3d-0mc" secondAttribute="bottom" constant="3" id="hBS-ES-tvv"/>
+                                        <constraint firstItem="noA-RW-6c1" firstAttribute="centerY" secondItem="KlJ-pH-zkZ" secondAttribute="centerY" id="yWa-16-FwX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dotView" destination="noA-RW-6c1" id="Lav-W2-0ea"/>
+                                    <outlet property="label" destination="Boe-3d-0mc" id="lB5-cE-yen"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectedTagsCell" rowHeight="44" id="iDx-GU-mSw" customClass="TagsCell" customModule="TrackIt" customModuleProvider="target">
@@ -899,11 +918,11 @@
                         <viewControllerLayoutGuide type="bottom" id="n6i-lX-oyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ncq-2m-PxS">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Yh-lnA">
-                                <rect key="frame" x="0.0" y="44" width="200" height="256"/>
+                                <rect key="frame" x="0.0" y="44" width="200" height="206"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tagCell" id="sYW-Wm-9I2" customClass="TagCell" customModule="TrackIt" customModuleProvider="target">
@@ -966,9 +985,9 @@
                             <constraint firstItem="ZlW-Yh-lnA" firstAttribute="top" secondItem="seZ-34-TMm" secondAttribute="bottom" id="zHc-PO-eIo"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="200" height="300"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="200" height="300"/>
+                    <size key="freeformSize" width="200" height="250"/>
                     <connections>
                         <outlet property="tableView" destination="ZlW-Yh-lnA" id="E4u-FC-Cyf"/>
                     </connections>

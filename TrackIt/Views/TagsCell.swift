@@ -21,9 +21,10 @@ extension TagsCell: EntryConfigurable {
         guard let tags = entry.tags else { return }
         tagListView.removeAllTags()
         tagListView.delegate = self
-        let sortedTags = tags.allObjects.sort { return $0.name < $1.name }
+        let sortedTags = tags.allObjects.sort { return $0.name < $1.name } as! [Tag]
         for tag in sortedTags {
-            let tagView = tagListView.addTag(tag.name)
+            let tagView = tagListView.addTag(tag.name!)
+            tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
             tagView.enableRemoveButton = true
             
         }        
@@ -43,6 +44,7 @@ extension TagsCell: TagConfigurable {
         tagListView.delegate = self
         for tag in tags {
             let tagView = tagListView.addTag(tag.name!)
+            tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
             tagView.enableRemoveButton = true
         }
         selectionStyle = .None
