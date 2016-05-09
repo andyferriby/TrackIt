@@ -71,7 +71,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
+    [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle locale:[NSLocale currentLocale]], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle locale:[NSLocale currentLocale]]] forState:UIControlStateNormal];
     
     self.filterTitleView.delegate = self;
     self.filterTitleViewHeightConstraint.constant = [self.allEntriesVC currentTagFilter].tags.count > 0 ? minFilterTitleViewHeight : 0;

@@ -38,7 +38,7 @@ extension EntryCell: EntryConfigurable {
         
         amountLabel.text = numberFormatter.stringFromNumber(amount)
         amountLabel.textColor = Double(amount) >= 0 ? UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0) : UIColor.orangeColor()
-        dateLabel.text = date.formattedDateWithFormat("M/d/YYYY")
+        dateLabel.text = date.formattedDateWithStyle(.ShortStyle, locale: NSLocale.currentLocale())
         noteLabel.text = note
         
         if entry.tags?.count > 0, let tags = entry.tags {
