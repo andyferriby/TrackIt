@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 @property (weak, nonatomic) IBOutlet FilterTitleView *filterTitleView;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
 
 @end

@@ -18,7 +18,11 @@ class SelectTagsViewController: UIViewController {
     
     var delegate: TagFilterDelegate?
     var managedObjectContext: NSManagedObjectContext?
-    var selectedTags: [Tag] = []
+    var selectedTags: [Tag] = [] {
+        didSet {
+            selectedTags.sortInPlace { return $0.name < $1.name }
+        }
+    }
     let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: -22.0)
     
     lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
@@ -46,6 +50,7 @@ class SelectTagsViewController: UIViewController {
 }
 
 extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
@@ -74,7 +79,7 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             selectedTags.append(tag)
         }
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+        tableView.reloadData()
         delegate?.didSelectTags(selectedTags)
     }
 }

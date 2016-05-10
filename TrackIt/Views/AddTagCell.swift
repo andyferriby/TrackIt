@@ -30,7 +30,7 @@ extension AddTagCell: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let text = textField.text {
             if !text.isEmpty {
-                delegate?.didAddTag(text)
+                delegate?.didAddTag(text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
                 textField.text = nil
             }
         }

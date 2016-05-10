@@ -13,7 +13,6 @@
 
 @interface AllEntriesTableViewController ()
 
-@property (strong, nonatomic) EntriesModel *model;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 @property (strong, nonatomic) EmptyDataSetDataSource *emptyDataSetDataSource;
 
@@ -46,6 +45,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:@"NewEntryFromWatch" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateScreenFromBackground) name:@"TagWasDeleted" object:nil];
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {

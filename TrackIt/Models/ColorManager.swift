@@ -15,6 +15,7 @@ class ColorManager: NSObject {
         UIColor.flatSkyBlueColor(),
         UIColor.flatRedColor(),
         UIColor.flatYellowColor(),
+        UIColor.flatGreenColor(),
         UIColor.flatOrangeColor(),
         UIColor.flatPinkColor(),
         UIColor.flatLimeColor(),

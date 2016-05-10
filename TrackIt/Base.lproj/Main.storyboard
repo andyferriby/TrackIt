@@ -91,7 +91,14 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5wp-UP-aRd"/>
                                     <barButtonItem systemItem="add" id="b9h-ED-Sfc">
                                         <connections>
-                                            <segue destination="klr-Nl-MjY" kind="presentation" identifier="addEntrySegue" id="pSG-uZ-FQa"/>
+                                            <segue destination="klr-Nl-MjY" kind="presentation" identifier="addEntrySegue" id="big-5p-rdY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Edit Tags" id="9g5-UG-eKC">
+                                        <connections>
+                                            <segue destination="jxD-m9-b1I" kind="popoverPresentation" identifier="manageTagsSegue" popoverAnchorBarButtonItem="9g5-UG-eKC" id="8g2-qa-OJB">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5IJ-zO-tZj"/>
@@ -185,8 +192,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="b9h-ED-Sfc" id="nyE-nf-XqW"/>
                         <outlet property="bottomDividerLineHeightConstraint" destination="oxj-gy-8iB" id="9VO-Vj-MHc"/>
+                        <outlet property="bottomToolbar" destination="cas-Cc-OwH" id="sCv-mV-TDg"/>
                         <outlet property="dateButton" destination="wZP-hs-NQC" id="VbP-0G-7kc"/>
+                        <outlet property="editTagsButton" destination="9g5-UG-eKC" id="7a1-SM-yjP"/>
                         <outlet property="filterTitleView" destination="W2R-Wx-9L6" id="hQv-q1-JZY"/>
                         <outlet property="filterTitleViewHeightConstraint" destination="8RE-07-lhy" id="7yF-KL-VdJ"/>
                         <outlet property="segmentedControl" destination="LpM-dA-MNm" id="SqH-1X-IEd"/>
@@ -558,7 +568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hs4-qZ-nDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963" y="421"/>
+            <point key="canvasLocation" x="1963" y="109"/>
         </scene>
         <!--Add Tags-->
         <scene sceneID="1nT-Cy-kni">
@@ -729,7 +739,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5S-nL-jEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3288" y="421"/>
+            <point key="canvasLocation" x="3288" y="109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H2B-fe-gmm">
@@ -907,7 +917,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlK-7r-quL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="1087"/>
+            <point key="canvasLocation" x="2103" y="775"/>
         </scene>
         <!--Select Tags View Controller-->
         <scene sceneID="iuC-kF-Q3M">
@@ -994,7 +1004,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaR-jc-Htp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="1609"/>
+            <point key="canvasLocation" x="1903" y="1891"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EiQ-HP-KxP">
@@ -1012,7 +1022,150 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEs-7a-tJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2744" y="421"/>
+            <point key="canvasLocation" x="2744" y="109"/>
+        </scene>
+        <!--Manage Tags View Controller-->
+        <scene sceneID="OLj-Rg-ZNK">
+            <objects>
+                <viewController id="jxD-m9-b1I" customClass="ManageTagsViewController" customModule="TrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L0f-WO-Kxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="MOQ-fG-pKx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="at1-ix-sy5">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5V8-Ye-UOL">
+                                <rect key="frame" x="0.0" y="44" width="250" height="232"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tagCell" id="nDP-95-Wah" customClass="TagCell" customModule="TrackIt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="250" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nDP-95-Wah" id="LPj-kc-kbg">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dML-JZ-jtN">
+                                                    <rect key="frame" x="16" y="18" width="8" height="8"/>
+                                                    <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="8" id="NG4-jo-CNS"/>
+                                                        <constraint firstAttribute="height" constant="8" id="xZD-b1-Zir"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-6c-hD8">
+                                                    <rect key="frame" x="32" y="11" width="202" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZeE-6c-hD8" firstAttribute="top" secondItem="LPj-kc-kbg" secondAttribute="topMargin" constant="3" id="Aa4-YJ-2Pa"/>
+                                                <constraint firstItem="dML-JZ-jtN" firstAttribute="centerY" secondItem="LPj-kc-kbg" secondAttribute="centerY" id="X63-bN-SRO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZeE-6c-hD8" secondAttribute="trailing" constant="8" id="h8X-Vg-Hmj"/>
+                                                <constraint firstItem="dML-JZ-jtN" firstAttribute="leading" secondItem="LPj-kc-kbg" secondAttribute="leadingMargin" constant="8" id="jh6-hw-ags"/>
+                                                <constraint firstItem="ZeE-6c-hD8" firstAttribute="leading" secondItem="dML-JZ-jtN" secondAttribute="trailing" constant="8" id="lI9-aC-JtF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZeE-6c-hD8" secondAttribute="bottom" constant="3" id="n5s-pz-OIh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dotView" destination="dML-JZ-jtN" id="shu-gt-0lc"/>
+                                            <outlet property="label" destination="ZeE-6c-hD8" id="iuo-1L-LfV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jxD-m9-b1I" id="nSV-fh-lX1"/>
+                                    <outlet property="delegate" destination="jxD-m9-b1I" id="5or-F2-SJ4"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp0-AG-q7M" userLabel="Warning View">
+                                <rect key="frame" x="0.0" y="276" width="250" height="44"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-fn-4GP" userLabel="Divider">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="JKh-G6-x77"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deleting a tag will remove it from any entries currently using the tag." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCh-dd-MmI">
+                                        <rect key="frame" x="16" y="0.0" width="218" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vW5-fn-4GP" secondAttribute="trailing" id="1Ic-0D-jMW"/>
+                                    <constraint firstItem="oCh-dd-MmI" firstAttribute="top" secondItem="hp0-AG-q7M" secondAttribute="top" id="25c-Tz-CFg"/>
+                                    <constraint firstAttribute="height" constant="44" id="5HC-bK-OS5"/>
+                                    <constraint firstItem="oCh-dd-MmI" firstAttribute="leading" secondItem="hp0-AG-q7M" secondAttribute="leading" constant="16" id="J5d-FY-A2n"/>
+                                    <constraint firstItem="oCh-dd-MmI" firstAttribute="leading" secondItem="hp0-AG-q7M" secondAttribute="leading" id="Ved-hP-OE6"/>
+                                    <constraint firstItem="vW5-fn-4GP" firstAttribute="top" secondItem="hp0-AG-q7M" secondAttribute="top" id="ZKG-0T-g6g"/>
+                                    <constraint firstItem="vW5-fn-4GP" firstAttribute="leading" secondItem="hp0-AG-q7M" secondAttribute="leading" id="c6M-FN-pCQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="oCh-dd-MmI" secondAttribute="trailing" constant="16" id="eA7-Af-t9d"/>
+                                    <constraint firstAttribute="bottom" secondItem="oCh-dd-MmI" secondAttribute="bottom" id="oNT-Il-Zm5"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ved-hP-OE6"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyc-xe-jr3">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+                                <items>
+                                    <navigationItem title="Manage Tags" id="j7A-2j-ALZ"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MOQ-fG-pKx" firstAttribute="top" secondItem="hp0-AG-q7M" secondAttribute="bottom" id="6BH-3h-QVZ"/>
+                            <constraint firstItem="jyc-xe-jr3" firstAttribute="top" secondItem="at1-ix-sy5" secondAttribute="top" id="786-ni-MYd"/>
+                            <constraint firstItem="hp0-AG-q7M" firstAttribute="top" secondItem="5V8-Ye-UOL" secondAttribute="bottom" id="7O4-Ix-oQZ"/>
+                            <constraint firstItem="hp0-AG-q7M" firstAttribute="top" secondItem="jyc-xe-jr3" secondAttribute="bottom" id="Btj-48-LT0"/>
+                            <constraint firstItem="jyc-xe-jr3" firstAttribute="leading" secondItem="at1-ix-sy5" secondAttribute="leading" id="Cia-wm-EuM"/>
+                            <constraint firstItem="MOQ-fG-pKx" firstAttribute="top" secondItem="hp0-AG-q7M" secondAttribute="bottom" id="Juu-bp-QLI"/>
+                            <constraint firstAttribute="trailing" secondItem="5V8-Ye-UOL" secondAttribute="trailing" id="Kru-Pk-31B"/>
+                            <constraint firstItem="hp0-AG-q7M" firstAttribute="leading" secondItem="at1-ix-sy5" secondAttribute="leading" id="LRO-Fw-lAb"/>
+                            <constraint firstAttribute="trailing" secondItem="jyc-xe-jr3" secondAttribute="trailing" id="Rpg-5s-S1Q"/>
+                            <constraint firstItem="5V8-Ye-UOL" firstAttribute="top" secondItem="hp0-AG-q7M" secondAttribute="bottom" id="SWJ-iG-wxa"/>
+                            <constraint firstItem="hp0-AG-q7M" firstAttribute="top" secondItem="5V8-Ye-UOL" secondAttribute="bottom" id="X7E-8O-zZ5"/>
+                            <constraint firstItem="MOQ-fG-pKx" firstAttribute="top" secondItem="5V8-Ye-UOL" secondAttribute="bottom" id="fF6-NE-iQn"/>
+                            <constraint firstItem="5V8-Ye-UOL" firstAttribute="top" secondItem="jyc-xe-jr3" secondAttribute="bottom" constant="50" id="hi9-4K-db5"/>
+                            <constraint firstAttribute="trailing" secondItem="hp0-AG-q7M" secondAttribute="trailing" id="m6M-Jq-B1t"/>
+                            <constraint firstItem="5V8-Ye-UOL" firstAttribute="leading" secondItem="at1-ix-sy5" secondAttribute="leading" id="mPg-ic-zEa"/>
+                            <constraint firstItem="5V8-Ye-UOL" firstAttribute="top" secondItem="jyc-xe-jr3" secondAttribute="bottom" id="zE7-sI-jHz"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SWJ-iG-wxa"/>
+                                <exclude reference="hi9-4K-db5"/>
+                                <exclude reference="7O4-Ix-oQZ"/>
+                                <exclude reference="Btj-48-LT0"/>
+                                <exclude reference="6BH-3h-QVZ"/>
+                                <exclude reference="fF6-NE-iQn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="250" height="320"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="320"/>
+                    <connections>
+                        <outlet property="dividerHeightConstraint" destination="JKh-G6-x77" id="8gn-rD-CpS"/>
+                        <outlet property="tableView" destination="5V8-Ye-UOL" id="nTJ-wQ-vgc"/>
+                        <outlet property="warningView" destination="hp0-AG-q7M" id="ZZ3-hY-Slq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UL3-Fu-7Le" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1963" y="1413"/>
         </scene>
     </scenes>
     <resources>

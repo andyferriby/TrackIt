@@ -13,6 +13,7 @@
 
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
+@property (strong, nonatomic) EntriesModel *model;
 -(NSNumber *)updateValuesWithFilters:(NSArray <id<Filterable>> *)filters;
 -(TagFilter *)currentTagFilter;
 

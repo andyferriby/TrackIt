@@ -17,6 +17,10 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomDividerLineHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterTitleViewHeightConstraint;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editTagsButton;
+
+
 @property (strong, nonatomic) AllEntriesTableViewController *allEntriesVC;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -55,6 +59,16 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
         weakSelf.totalValueLabel.text = [weakSelf.formatter stringFromNumber:value];
         weakSelf.totalValueLabel.textColor = value.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
     }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"ModelFiltersUpdated" object:self.allEntriesVC.model queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        TagFilter *tagFilter = [weakSelf.allEntriesVC currentTagFilter];
+        if(tagFilter.tags.count > 0) {
+            [self.filterTitleView updateWithTags:tagFilter.tags];
+            [self showFilterTitleView];
+        }
+        else {
+            [self hideFilterTitleView];
+        }
+    }];
     
     NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
     NSDate *currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
@@ -76,6 +90,8 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     self.filterTitleView.delegate = self;
     self.filterTitleViewHeightConstraint.constant = [self.allEntriesVC currentTagFilter].tags.count > 0 ? minFilterTitleViewHeight : 0;
     
+    [self setEditing:NO];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -84,6 +100,23 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
+    if(editing) {
+        self.editTagsButton = [[UIBarButtonItem alloc] initWithTitle:@"Manage Tags" style:UIBarButtonItemStylePlain target:self action:@selector(editTagsTapped)];
+        self.bottomToolbar.items = @[
+                                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                       self.editTagsButton,
+                                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
+                                       ];
+    }
+    else {
+        self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTapped:)];
+        self.bottomToolbar.items = @[
+                                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                     self.addButton,
+                                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
+                                     ];
+    }
+    
     [self.allEntriesVC setEditing:editing animated:animated];
 }
 
@@ -161,6 +194,14 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     }
 }
 
+- (IBAction)addTapped:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"addEntrySegue" sender:self];
+}
+
+-(void)editTagsTapped {
+    [self performSegueWithIdentifier:@"manageTagsSegue" sender:self];
+}
+
 #pragma mark - SelectDatesDelegate
 
 -(void)newDatesSelected {
@@ -191,6 +232,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 }
 
 #pragma mark - TagFilterDelegate
+
 -(void)didSelectTags:(NSArray<Tag *> *)tags {
     TagFilter *tagFilter = [[TagFilter alloc] initWithTags:tags];
     [self.allEntriesVC updateValuesWithFilters:@[tagFilter]];
@@ -211,6 +253,12 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     else if([segue.identifier isEqualToString:@"addEntrySegue"]) {
         AddEntryViewController *vc = segue.destinationViewController;
         vc.delegate = self;
+    }
+    else if([segue.identifier isEqualToString:@"manageTagsSegue"]) {
+        ManageTagsViewController *vc = segue.destinationViewController;
+        vc.popoverPresentationController.delegate = self;
+        vc.popoverPresentationController.barButtonItem = self.editTagsButton;
+        vc.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     }
     else if([segue.identifier isEqualToString:@"selectDatesSegue"]) {
         SelectDatesViewController *vc = segue.destinationViewController;

@@ -18,6 +18,7 @@ class EntriesModel: NSObject {
         self.filters = filters
         self.context = context
         super.init()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshCurrentFilters), name: "TagWillBeDeleted", object: nil)
     }
     
     func numberOfEntries() -> Int {
@@ -57,6 +58,21 @@ class EntriesModel: NSObject {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+    }
+    
+    func refreshCurrentFilters(notification: NSNotification) {
+        for filter in filters {
+            switch filter.filterType() {
+            case .Date: break
+            case .Tag:
+                guard let filter = filter as? TagFilter else { continue }
+                let deletedTagName = notification.userInfo?["name"] as! String
+                filter.tags = filter.tags.filter { return $0.name! != deletedTagName }
+            }
+        }
+        filters = filters.filter { $0.predicate() != nil }
+        refreshEntries()
+        NSNotificationCenter.defaultCenter().postNotificationName("ModelFiltersUpdated", object: self)  
     }
     
     func refreshWithFilters(newFilters: [Filterable]) {
