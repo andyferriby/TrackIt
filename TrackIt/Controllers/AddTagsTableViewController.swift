@@ -14,7 +14,7 @@ import UIKit
 
 class AddTagsTableViewController: UITableViewController {
 
-    let model = AddTagsModel()
+    let model = AddTagsModel(coreDataManager: CoreDataStackManager.sharedInstance)
     weak var delegate: AddTagsControllerDelegate?
     
     override func viewDidLoad() {

@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 @property (strong, nonatomic) EmptyDataSetDataSource *emptyDataSetDataSource;
+@property (strong, nonatomic) AppDelegate *appDelegate;
 
 @end
 
@@ -24,9 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     DateFilter *thisMonthFilter = [[DateFilter alloc] initWithType:DateFilterTypeThisMonth];
-    self.model = [[EntriesModel alloc] initWithFilters:@[thisMonthFilter] context:context];
+    self.model = [[EntriesModel alloc] initWithFilters:@[thisMonthFilter] coreDataManager:[CoreDataStackManager sharedInstance]];
     
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     self.numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
@@ -86,7 +88,7 @@
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
         
-        [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
+        [self.appDelegate sendNewTotalToWatch];
     }
 }
 
@@ -119,7 +121,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
     
-    [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
+    [self.appDelegate sendNewTotalToWatch];
 }
 
 #pragma mark - Updates
@@ -132,7 +134,7 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalSpending" object:self userInfo:@{@"total" : [self.model totalSpending]}];
         
-        [(AppDelegate *)[UIApplication sharedApplication].delegate sendNewTotalToWatch];
+        [self.appDelegate sendNewTotalToWatch];
     });
 }
 

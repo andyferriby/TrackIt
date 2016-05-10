@@ -13,9 +13,8 @@
 
 -(EntriesModel *)model {
     if(!_model) {
-        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
         DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeLast7Days];
-        _model = [[EntriesModel alloc] initWithFilters:@[filter] context:context];
+        _model = [[EntriesModel alloc] initWithFilters:@[filter] coreDataManager:[CoreDataStackManager sharedInstance]];
     }
     return _model;
 }
@@ -57,11 +56,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSNumber *value = message[@"value"];
             NSString *note = message[@"note"];
-            NSError *error;
-            NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-            [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:context];
             
-            [context save:&error];
+            [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
+            
+            [[CoreDataStackManager sharedInstance] save];
             
             [self.model refreshEntries];
             

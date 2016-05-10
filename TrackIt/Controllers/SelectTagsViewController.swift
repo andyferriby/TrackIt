@@ -17,7 +17,7 @@ class SelectTagsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: TagFilterDelegate?
-    var managedObjectContext: NSManagedObjectContext?
+    var coreDataManager: CoreDataStackManager?
     var selectedTags: [Tag] = [] {
         didSet {
             selectedTags.sortInPlace { return $0.name < $1.name }
@@ -26,7 +26,7 @@ class SelectTagsViewController: UIViewController {
     let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: -22.0)
     
     lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
-        guard let context = self.managedObjectContext else { return nil }
+        guard let context = self.coreDataManager?.managedObjectContext else { return nil }
         let fetchRequest = NSFetchRequest(entityName: "Tag")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)

@@ -12,11 +12,11 @@ class EntriesModel: NSObject {
     
     private var entries: [Entry] = []
     private var filters: [Filterable]
-    private var context: NSManagedObjectContext
+    private var coreDataManager: CoreDataStackManager
     
-    init(filters: [Filterable], context: NSManagedObjectContext) {
+    init(filters: [Filterable], coreDataManager: CoreDataStackManager) {
         self.filters = filters
-        self.context = context
+        self.coreDataManager = coreDataManager
         super.init()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshCurrentFilters), name: "TagWillBeDeleted", object: nil)
     }
@@ -31,13 +31,9 @@ class EntriesModel: NSObject {
     
     func deleteEntryAt(index: Int) {
         let entry = entries[index]
-        do {
-            context.deleteObject(entry)
-            try context.save()
-        }
-        catch let error as NSError {
-            print(error.localizedDescription)
-        }
+        coreDataManager.managedObjectContext.deleteObject(entry)
+        coreDataManager.save()
+
         refreshEntries()
     }
     
@@ -53,7 +49,7 @@ class EntriesModel: NSObject {
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: filters.map { return $0.predicate()! })
 
         do {
-            entries = try context.executeFetchRequest(fetchRequest) as! [Entry]
+            entries = try coreDataManager.managedObjectContext.executeFetchRequest(fetchRequest) as! [Entry]
             entries.sortInPlace { $0.date!.compare($1.date!) == .OrderedAscending }
         } catch let error as NSError {
             print(error.localizedDescription)

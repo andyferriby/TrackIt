@@ -10,16 +10,16 @@ import UIKit
 import DZNEmptyDataSet
 
 class ManageTagsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var dividerHeightConstraint: NSLayoutConstraint!
     
-    var managedObjectContext: NSManagedObjectContext?
+    var coreDataManager: CoreDataStackManager?
     let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: -22.0)
     
     lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
-        guard let context = self.managedObjectContext else { return nil }
+        guard let context = self.coreDataManager?.managedObjectContext else { return nil }
         let fetchRequest = NSFetchRequest(entityName: "Tag")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -35,7 +35,7 @@ class ManageTagsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
@@ -48,7 +48,7 @@ class ManageTagsViewController: UIViewController {
 }
 
 extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
@@ -79,14 +79,10 @@ extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
-        do {
-            NSNotificationCenter.defaultCenter().postNotificationName("TagWillBeDeleted", object: self, userInfo: ["name":tag.name!])
-            managedObjectContext?.deleteObject(tag)
-            try managedObjectContext?.save()
-            NSNotificationCenter.defaultCenter().postNotificationName("TagWasDeleted", object: self)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
+        NSNotificationCenter.defaultCenter().postNotificationName("TagWillBeDeleted", object: self, userInfo: ["name":tag.name!])
+        coreDataManager?.managedObjectContext.deleteObject(tag)
+        coreDataManager?.save()
+        NSNotificationCenter.defaultCenter().postNotificationName("TagWasDeleted", object: self)
     }
 }
 

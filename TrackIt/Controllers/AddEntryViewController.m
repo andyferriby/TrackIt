@@ -38,7 +38,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     self.formatter.lenient = YES;
     
     if(!self.entry)
-        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] tags:nil inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
     
     
     RFToolbarButton *minusButton = [RFToolbarButton buttonWithTitle:@"+/-" andEventHandler:^{
@@ -290,14 +290,14 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         }
         else {
             NSError *error;
-            [((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext save:&error];
+            [[CoreDataStackManager sharedInstance] save];
             if(error)
                 NSLog(@"%@", error.localizedDescription);
             [self.delegate entryAddedOrChanged];
         }
     }
     else if([identifier isEqualToString:@"cancelCell"]){
-        [((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext rollback];
+        [[CoreDataStackManager sharedInstance].managedObjectContext rollback];
         [self.delegate entryCanceled];
     }
     

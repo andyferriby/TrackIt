@@ -15,14 +15,16 @@ class AddTagsModel {
             tags.sortInPlace { $0.name < $1.name }
         }
     }
+    var coreDataManager: CoreDataStackManager?
     
-    init() {
+    init(coreDataManager: CoreDataStackManager) {
+        self.coreDataManager = coreDataManager
         allTags = refreshAllTags()
         
     }
     
     func tryAddTag(tagName: String) {
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        guard let context = coreDataManager?.managedObjectContext else { return }
         
         let fetch = NSFetchRequest(entityName: "Tag")
         fetch.predicate = NSPredicate(format: "name == %@", tagName)
@@ -58,7 +60,7 @@ class AddTagsModel {
     }
     
     func refreshAllTags() -> [Tag] {
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        guard let context = coreDataManager?.managedObjectContext else { return [] }
 
         let fetchRequest = NSFetchRequest(entityName: "Tag")
         var result = try? context.executeFetchRequest(fetchRequest) as! [Tag]

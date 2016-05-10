@@ -258,7 +258,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
         ManageTagsViewController *vc = segue.destinationViewController;
         vc.popoverPresentationController.delegate = self;
         vc.popoverPresentationController.barButtonItem = self.editTagsButton;
-        vc.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        vc.coreDataManager = [CoreDataStackManager sharedInstance];
     }
     else if([segue.identifier isEqualToString:@"selectDatesSegue"]) {
         SelectDatesViewController *vc = segue.destinationViewController;
@@ -268,7 +268,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
         SelectTagsViewController *vc = segue.destinationViewController;
         vc.delegate = self;
         vc.popoverPresentationController.delegate = self;
-        vc.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        vc.coreDataManager = [CoreDataStackManager sharedInstance];
         vc.selectedTags = [self.allEntriesVC currentTagFilter].tags;
     }
 }

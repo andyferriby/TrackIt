@@ -54,6 +54,7 @@
 		96BA74A21BF19CBC00CDDA46 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */; };
 		96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */; };
 		96F333171CE1482400F828F4 /* ManageTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333161CE1482400F828F4 /* ManageTagsViewController.swift */; };
+		96F333191CE1706500F828F4 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333181CE1706500F828F4 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
 		96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetDataSource.swift; path = Models/EmptyDataSetDataSource.swift; sourceTree = "<group>"; };
 		96F333161CE1482400F828F4 /* ManageTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageTagsViewController.swift; path = Controllers/ManageTagsViewController.swift; sourceTree = "<group>"; };
+		96F333181CE1706500F828F4 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "Core Data/CoreDataStackManager.swift"; sourceTree = "<group>"; };
 		96F389331BFC18A100DC131B /* EntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDelegate.h; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */,
+				96F333181CE1706500F828F4 /* CoreDataStackManager.swift */,
 				961271101CCEF86A002268F7 /* Entry.swift */,
 				961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */,
 				961271121CCEF86A002268F7 /* Tag.swift */,
@@ -616,6 +619,7 @@
 				960C7A071CDAEF140027A9C3 /* EntriesModel.swift in Sources */,
 				961271431CD18677002268F7 /* AddTagsModel.swift in Sources */,
 				961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */,
+				96F333191CE1706500F828F4 /* CoreDataStackManager.swift in Sources */,
 				9612713C1CD0400D002268F7 /* Configurations.swift in Sources */,
 				96880E561CDE7BDC003FA573 /* SelectTagsViewController.swift in Sources */,
 				960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */,
