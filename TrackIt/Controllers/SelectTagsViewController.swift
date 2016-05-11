@@ -9,12 +9,14 @@
 import UIKit
 
 @objc protocol TagFilterDelegate {
-    func didSelectTags(tags: [Tag])
+    func didSelectTags(tags: [Tag], withType type: TagFilterType)
 }
 
 class SelectTagsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var dividerHeightConstraint: NSLayoutConstraint!
     
     var delegate: TagFilterDelegate?
     var coreDataManager: CoreDataStackManager?
@@ -42,11 +44,22 @@ class SelectTagsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dividerHeightConstraint.constant = 0.5
+        
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = emptyDataSetDataSource
     }
+}
+
+extension SelectTagsViewController {
+    
+    @IBAction func typeChanged(sender: UISegmentedControl) {
+        guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
+        delegate?.didSelectTags(selectedTags, withType: type)
+    }
+
 }
 
 extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -72,6 +85,7 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
         let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
         if let index = selectedTags.indexOf(tag) {
             selectedTags.removeAtIndex(index)
@@ -80,6 +94,6 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
             selectedTags.append(tag)
         }
         tableView.reloadData()
-        delegate?.didSelectTags(selectedTags)
+        delegate?.didSelectTags(selectedTags, withType: type)
     }
 }

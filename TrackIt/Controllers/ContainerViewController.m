@@ -62,7 +62,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     [[NSNotificationCenter defaultCenter] addObserverForName:@"ModelFiltersUpdated" object:self.allEntriesVC.model queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         TagFilter *tagFilter = [weakSelf.allEntriesVC currentTagFilter];
         if(tagFilter.tags.count > 0) {
-            [self.filterTitleView updateWithTags:tagFilter.tags];
+            [self.filterTitleView updateWithTags:tagFilter.tags type:tagFilter.type];
             [self showFilterTitleView];
         }
         else {
@@ -217,7 +217,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 
 -(void)closeViewTapped {
     [self hideFilterTitleView];
-    TagFilter *noTagFilter = [[TagFilter alloc] initWithTags:@[]];
+    TagFilter *noTagFilter = [[TagFilter alloc] initWithType:TagFilterTypeShow tags:@[]];
     [self.allEntriesVC updateValuesWithFilters:@[noTagFilter]];
 }
 
@@ -233,11 +233,11 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 
 #pragma mark - TagFilterDelegate
 
--(void)didSelectTags:(NSArray<Tag *> *)tags {
-    TagFilter *tagFilter = [[TagFilter alloc] initWithTags:tags];
+-(void)didSelectTags:(NSArray<Tag *> *)tags withType:(enum TagFilterType)type {
+    TagFilter *tagFilter = [[TagFilter alloc] initWithType:type tags:tags];
     [self.allEntriesVC updateValuesWithFilters:@[tagFilter]];
     if(tags.count > 0) {
-        [self.filterTitleView updateWithTags:tags];
+        [self.filterTitleView updateWithTags:tags type:type];
         [self showFilterTitleView];
     }
     else

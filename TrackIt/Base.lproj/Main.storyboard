@@ -77,6 +77,7 @@
                                 <connections>
                                     <outlet property="dividerLineHeightConstraint" destination="Jrm-e3-Tdc" id="iky-mW-57l"/>
                                     <outlet property="tagListView" destination="Klq-oF-Bjn" id="DXg-yp-Ill"/>
+                                    <outlet property="titleLabel" destination="8Da-oM-zIA" id="QM9-cE-7zQ"/>
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2I1-FE-2Ti">
@@ -931,8 +932,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MMI-LT-44S">
+                                <rect key="frame" x="33" y="52" width="135" height="29"/>
+                                <segments>
+                                    <segment title="Show By"/>
+                                    <segment title="Hide By"/>
+                                </segments>
+                                <connections>
+                                    <action selector="typeChanged:" destination="S4B-DB-QYS" eventType="valueChanged" id="R4F-uA-mx4"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZlW-Yh-lnA">
-                                <rect key="frame" x="0.0" y="44" width="200" height="206"/>
+                                <rect key="frame" x="0.0" y="89" width="200" height="161"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tagCell" id="sYW-Wm-9I2" customClass="TagCell" customModule="TrackIt" customModuleProvider="target">
@@ -983,22 +994,46 @@
                                     <navigationItem title="Filter By Tags" id="hmN-HD-lu9"/>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg5-Bc-yqL" userLabel="Divider">
+                                <rect key="frame" x="0.0" y="88" width="200" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Xet-FK-BFx"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.96862745098039216" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ZlW-Yh-lnA" firstAttribute="top" secondItem="MMI-LT-44S" secondAttribute="bottom" constant="8" id="0Zx-Ut-DBv"/>
                             <constraint firstItem="seZ-34-TMm" firstAttribute="leading" secondItem="ncq-2m-PxS" secondAttribute="leading" id="0up-8g-tYZ"/>
+                            <constraint firstItem="Gg5-Bc-yqL" firstAttribute="leading" secondItem="ncq-2m-PxS" secondAttribute="leading" id="2Xt-cG-7AQ"/>
+                            <constraint firstItem="Gg5-Bc-yqL" firstAttribute="top" secondItem="MMI-LT-44S" secondAttribute="bottom" constant="8" id="3d2-1G-3H8"/>
                             <constraint firstItem="seZ-34-TMm" firstAttribute="top" secondItem="ncq-2m-PxS" secondAttribute="top" id="60c-Po-7hT"/>
+                            <constraint firstItem="Gg5-Bc-yqL" firstAttribute="top" secondItem="MMI-LT-44S" secondAttribute="bottom" constant="8" id="9mo-JE-gnq"/>
                             <constraint firstAttribute="trailing" secondItem="ZlW-Yh-lnA" secondAttribute="trailing" id="Bv3-Xd-nfe"/>
                             <constraint firstAttribute="trailing" secondItem="seZ-34-TMm" secondAttribute="trailing" id="VmU-Qe-Etw"/>
+                            <constraint firstAttribute="trailing" secondItem="Gg5-Bc-yqL" secondAttribute="trailing" id="Xtp-f8-eK4"/>
                             <constraint firstItem="ZlW-Yh-lnA" firstAttribute="leading" secondItem="ncq-2m-PxS" secondAttribute="leading" id="aQZ-Fw-kMC"/>
+                            <constraint firstItem="MMI-LT-44S" firstAttribute="centerX" secondItem="ncq-2m-PxS" secondAttribute="centerX" id="da2-Mt-2ut"/>
+                            <constraint firstItem="MMI-LT-44S" firstAttribute="top" secondItem="seZ-34-TMm" secondAttribute="bottom" constant="8" id="f4h-WR-ISs"/>
                             <constraint firstItem="n6i-lX-oyd" firstAttribute="top" secondItem="ZlW-Yh-lnA" secondAttribute="bottom" id="hLP-EY-EbB"/>
-                            <constraint firstItem="ZlW-Yh-lnA" firstAttribute="top" secondItem="seZ-34-TMm" secondAttribute="bottom" id="zHc-PO-eIo"/>
+                            <constraint firstItem="ZlW-Yh-lnA" firstAttribute="top" secondItem="Gg5-Bc-yqL" secondAttribute="bottom" id="j2g-h1-9zy"/>
+                            <constraint firstItem="ZlW-Yh-lnA" firstAttribute="top" secondItem="seZ-34-TMm" secondAttribute="bottom" constant="44" id="zHc-PO-eIo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9mo-JE-gnq"/>
+                                <exclude reference="0Zx-Ut-DBv"/>
+                                <exclude reference="zHc-PO-eIo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="200" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="200" height="250"/>
                     <connections>
+                        <outlet property="dividerHeightConstraint" destination="Xet-FK-BFx" id="V4f-kP-kdc"/>
+                        <outlet property="segmentedControl" destination="MMI-LT-44S" id="biP-uP-HLO"/>
                         <outlet property="tableView" destination="ZlW-Yh-lnA" id="E4u-FC-Cyf"/>
                     </connections>
                 </viewController>

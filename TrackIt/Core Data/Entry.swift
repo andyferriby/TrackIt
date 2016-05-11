@@ -20,6 +20,9 @@ class Entry: NSManagedObject {
         entry.amount = amount
         entry.note = note
         entry.date = date
+        if let tags = tags {
+            entry.tags = NSSet(array: tags)
+        }
         
         return entry
     }

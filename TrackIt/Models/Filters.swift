@@ -59,16 +59,28 @@ extension DateFilter: Filterable {
 
 // MARK: Tag Filters
 
+@objc enum TagFilterType: Int {
+    case Show, Hide
+}
+
 @objc class TagFilter: NSObject {
+    var type: TagFilterType
     var tags: [Tag]
-    init(tags: [Tag]) {
+    init(type: TagFilterType, tags: [Tag]) {
+        self.type = type
         self.tags = tags
     }
 }
 
 extension TagFilter: Filterable {
     func predicate() -> NSPredicate? {
-        return tags.count == 0 ? nil : NSPredicate(format: "ANY tags IN %@", tags)
+        switch type {
+        case .Show:
+            return tags.count == 0 ? nil : NSPredicate(format: "ANY tags IN %@", tags)
+        case .Hide:
+            return tags.count == 0 ? nil : NSPredicate(format: "tags.@count == 0 OR (NOT (ANY tags IN %@))", tags)
+        }
+        
     }
     func filterType() -> FilterType {
         return .Tag

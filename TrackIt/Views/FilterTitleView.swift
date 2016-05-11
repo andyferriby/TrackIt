@@ -18,6 +18,8 @@ let preferredVerticalPadding: CGFloat = 14.0
 class FilterTitleView: UIView {
     @IBOutlet weak var dividerLineHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tagListView: TagListView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     weak var delegate: FilterTitleViewDelegate?
     
     override func awakeFromNib() {
@@ -34,11 +36,17 @@ class FilterTitleView: UIView {
         return tagListView.intrinsicContentSize().height + preferredVerticalPadding
     }
     
-    func updateWithTags(tags: [Tag]) {
+    func updateWithTags(tags: [Tag], type: TagFilterType) {
         tagListView.removeAllTags()
         for tag in tags {
             let tagView = tagListView.addTag(tag.name!)
             tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
+        }
+        switch type {
+        case .Show:
+            titleLabel.text = "Showing:";
+        case .Hide:
+            titleLabel.text = "Hiding:";
         }
     }
 }
