@@ -18,7 +18,7 @@ class SelectTagsViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var dividerHeightConstraint: NSLayoutConstraint!
     
-    var delegate: TagFilterDelegate?
+    weak var delegate: TagFilterDelegate?
     var coreDataManager: CoreDataStackManager?
     var selectedTags: [Tag] = [] {
         didSet {
