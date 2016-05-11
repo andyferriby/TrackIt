@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TrackIt-Swift.h"
 
 @interface AmountCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet ImmobileCursorTextField *textField;
 
 @end

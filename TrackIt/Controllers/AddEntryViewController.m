@@ -218,6 +218,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     }
     else if([identifier isEqualToString:@"amountCell"]) {
         AmountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"amountCell" forIndexPath:indexPath];
+        cell.textField.currencySymbol = [[NSLocale currentLocale] objectForKey:NSLocaleCurrencySymbol];
         cell.textField.delegate = self;
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
         cell.textField.inputAccessoryView = self.doneBar;
