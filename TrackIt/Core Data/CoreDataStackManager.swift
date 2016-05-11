@@ -59,4 +59,19 @@ class CoreDataStackManager: NSObject {
             }
         }
     }
+    
+    func saveWithTemporaryContext(context: NSManagedObjectContext) {
+        // Assumes the passed context has our managedObjectContext as its parent.
+        if !context.hasChanges {
+            return
+        }
+        context.performBlockAndWait {
+            do {
+                try context.save()
+                self.save()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

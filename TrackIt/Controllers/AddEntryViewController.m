@@ -23,6 +23,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) RFKeyboardToolbar *doneBar;
 @property (weak, nonatomic) UITextView *onlyTextView;
+@property (strong, nonatomic) NSManagedObjectContext *temporaryContext;
 
 @end
 
@@ -32,13 +33,20 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.temporaryContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.temporaryContext.parentContext = [CoreDataStackManager sharedInstance].managedObjectContext;
+    
     self.formatter = [[NSNumberFormatter alloc] init];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     self.formatter.locale = [NSLocale currentLocale];
     self.formatter.lenient = YES;
     
-    if(!self.entry)
-        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
+    if(self.entry) {
+        self.entry = [self.temporaryContext objectWithID:self.entry.objectID];
+    }
+    else {
+        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] tags:nil inManagedObjectContext:self.temporaryContext];
+    }
     
     
     RFToolbarButton *minusButton = [RFToolbarButton buttonWithTitle:@"+/-" andEventHandler:^{
@@ -290,14 +298,14 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         }
         else {
             NSError *error;
-            [[CoreDataStackManager sharedInstance] save];
+            [[CoreDataStackManager sharedInstance] saveWithTemporaryContext:self.temporaryContext];
             if(error)
                 NSLog(@"%@", error.localizedDescription);
             [self.delegate entryAddedOrChanged];
         }
     }
     else if([identifier isEqualToString:@"cancelCell"]){
-        [[CoreDataStackManager sharedInstance].managedObjectContext rollback];
+        [self.temporaryContext rollback];
         [self.delegate entryCanceled];
     }
     
