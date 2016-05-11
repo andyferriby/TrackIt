@@ -38,9 +38,8 @@
     
     self.emptyDataSetDataSource = [[EmptyDataSetDataSource alloc] initWithTitle:@"No Spending Recorded"
                                                              dataSetDescription:@"I guess you haven't spent any money recently! When you do, tap the + button below to record it."
-                                                                 verticalOffset:-1*self.navigationController.navigationBar.frame.size.height];
+                                                                 verticalOffset:-44.0f];
     self.tableView.emptyDataSetSource = self.emptyDataSetDataSource;
-    
     self.tableView.tableFooterView = [UIView new];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;

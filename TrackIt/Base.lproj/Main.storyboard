@@ -369,7 +369,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SwN-KM-tDj">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SwN-KM-tDj" customClass="ImmobileCursorTextField" customModule="TrackIt" customModuleProvider="target">
                                                     <rect key="frame" x="104" y="0.0" width="200" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="bkN-Cs-8Ym"/>

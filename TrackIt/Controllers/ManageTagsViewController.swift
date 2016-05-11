@@ -16,7 +16,7 @@ class ManageTagsViewController: UIViewController {
     @IBOutlet weak var dividerHeightConstraint: NSLayoutConstraint!
     
     var coreDataManager: CoreDataStackManager?
-    let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: -22.0)
+    let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: 0)
     
     lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
         guard let context = self.coreDataManager?.managedObjectContext else { return nil }

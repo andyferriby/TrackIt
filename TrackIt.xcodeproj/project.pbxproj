@@ -47,6 +47,7 @@
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
 		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
 		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
+		9678D3D61CE2BFD000D838B7 /* ImmobileCursorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678D3D51CE2BFD000D838B7 /* ImmobileCursorTextField.swift */; };
 		96880E541CDE6F1D003FA573 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E531CDE6F1D003FA573 /* Filterable.swift */; };
 		96880E561CDE7BDC003FA573 /* SelectTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */; };
 		96880E5A1CDFB2D3003FA573 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E591CDFB2D3003FA573 /* TagCell.swift */; };
@@ -161,6 +162,7 @@
 		967174C11BEC5DA600321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionDelegate.m; sourceTree = "<group>"; };
 		967174C61BF16EC900321787 /* TrackIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrackIt.entitlements; sourceTree = "<group>"; };
 		967174C71BF1709900321787 /* WatchTrack Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchTrack Extension.entitlements"; sourceTree = "<group>"; };
+		9678D3D51CE2BFD000D838B7 /* ImmobileCursorTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImmobileCursorTextField.swift; path = Views/ImmobileCursorTextField.swift; sourceTree = "<group>"; };
 		96880E531CDE6F1D003FA573 /* Filterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filterable.swift; path = Protocols/Filterable.swift; sourceTree = "<group>"; };
 		96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTagsViewController.swift; path = Controllers/SelectTagsViewController.swift; sourceTree = "<group>"; };
 		96880E591CDFB2D3003FA573 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = Views/TagCell.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				960105F61BE85CD800979763 /* NoteCell.h */,
 				960105F71BE85CD800979763 /* NoteCell.m */,
 				966F05291CD44DA1005A11C2 /* EntryCell.swift */,
+				9678D3D51CE2BFD000D838B7 /* ImmobileCursorTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				961271141CCEF86A002268F7 /* Entry.swift in Sources */,
 				96F333171CE1482400F828F4 /* ManageTagsViewController.swift in Sources */,
 				96880E541CDE6F1D003FA573 /* Filterable.swift in Sources */,
+				9678D3D61CE2BFD000D838B7 /* ImmobileCursorTextField.swift in Sources */,
 				96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
 				961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */,
