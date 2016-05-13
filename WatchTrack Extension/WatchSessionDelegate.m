@@ -70,8 +70,10 @@
                 
             }
             else {
-                [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalReceived" object:self userInfo:@{@"total" : total}];
+                if(total) {
+                    [[NSUserDefaults standardUserDefaults] setValue:total forKey:@"TotalSpending"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewTotalReceived" object:self userInfo:@{@"total" : total}];
+                }
             }
         }];
     }

@@ -95,6 +95,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self updateTotalDisplay];
 }
 
@@ -270,6 +271,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
         vc.popoverPresentationController.delegate = self;
         vc.coreDataManager = [CoreDataStackManager sharedInstance];
         vc.selectedTags = [self.allEntriesVC currentTagFilter].tags;
+        vc.currentFilterType = [self.allEntriesVC currentTagFilter].type;
     }
 }
 

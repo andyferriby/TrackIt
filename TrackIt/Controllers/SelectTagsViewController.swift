@@ -20,6 +20,7 @@ class SelectTagsViewController: UIViewController {
     
     weak var delegate: TagFilterDelegate?
     var coreDataManager: CoreDataStackManager?
+    var currentFilterType: TagFilterType = .Show
     var selectedTags: [Tag] = [] {
         didSet {
             selectedTags.sortInPlace { return $0.name < $1.name }
@@ -50,6 +51,8 @@ class SelectTagsViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = emptyDataSetDataSource
+        
+        segmentedControl.selectedSegmentIndex = currentFilterType.rawValue
     }
 }
 
@@ -57,7 +60,8 @@ extension SelectTagsViewController {
     
     @IBAction func typeChanged(sender: UISegmentedControl) {
         guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
-        delegate?.didSelectTags(selectedTags, withType: type)
+        currentFilterType = type
+        delegate?.didSelectTags(selectedTags, withType: currentFilterType)
     }
 
 }
@@ -86,6 +90,7 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
+        currentFilterType = type
         let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
         if let index = selectedTags.indexOf(tag) {
             selectedTags.removeAtIndex(index)
@@ -94,6 +99,6 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
             selectedTags.append(tag)
         }
         tableView.reloadData()
-        delegate?.didSelectTags(selectedTags, withType: type)
+        delegate?.didSelectTags(selectedTags, withType: currentFilterType)
     }
 }
