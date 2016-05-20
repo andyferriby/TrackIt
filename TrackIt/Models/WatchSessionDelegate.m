@@ -13,7 +13,8 @@
 
 -(EntriesModel *)model {
     if(!_model) {
-        _model = [[EntriesModel alloc] initWithModelType:EntryModelTypeLast7Days];
+        DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeLast7Days];
+        _model = [[EntriesModel alloc] initWithFilters:@[filter] coreDataManager:[CoreDataStackManager sharedInstance]];
     }
     return _model;
 }
@@ -40,7 +41,7 @@
 }
 
 -(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
-    UIBackgroundTaskIdentifier identifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+    __block UIBackgroundTaskIdentifier identifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         replyHandler(@{@"error" : @"expired"});
         [[UIApplication sharedApplication] endBackgroundTask:identifier];
     }];
@@ -55,15 +56,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSNumber *value = message[@"value"];
             NSString *note = message[@"note"];
-            NSError *error;
-            NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-            [Entry entryWithAmount:value note:note date:[NSDate date] inManagedObjectContext:context];
             
-            [context save:&error];
+            [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
+            
+            [[CoreDataStackManager sharedInstance] save];
             
             [self.model refreshEntries];
             
-            // TODO: post notifications for new total spending and to refresh table of entries
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NewEntryFromWatch" object:self];
             replyHandler(@{@"newTotal" : [self.model totalSpending]});
             [[UIApplication sharedApplication] endBackgroundTask:identifier];
         });

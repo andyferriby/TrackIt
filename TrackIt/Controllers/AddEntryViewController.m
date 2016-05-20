@@ -10,10 +10,10 @@
 #import "AmountCell.h"
 #import "NoteCell.h"
 #import "DatePickerCell.h"
-#import "UIColor+FlatUI.h"
 #import "AppDelegate.h"
 #import "NSDate+DateTools.h"
 #import "RFKeyboardToolbar+DoneButton.h"
+#import "TrackIt-Swift.h"
 
 static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 
@@ -23,6 +23,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) RFKeyboardToolbar *doneBar;
 @property (weak, nonatomic) UITextView *onlyTextView;
+@property (strong, nonatomic) NSManagedObjectContext *temporaryContext;
 
 @end
 
@@ -32,21 +33,29 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.temporaryContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.temporaryContext.parentContext = [CoreDataStackManager sharedInstance].managedObjectContext;
+    
     self.formatter = [[NSNumberFormatter alloc] init];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     self.formatter.locale = [NSLocale currentLocale];
     self.formatter.lenient = YES;
     
-    if(!self.entry)
-        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] inManagedObjectContext:((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+    if(self.entry) {
+        self.entry = [self.temporaryContext objectWithID:self.entry.objectID];
+    }
+    else {
+        self.entry = [Entry entryWithAmount:nil note:nil date:[NSDate date] tags:nil inManagedObjectContext:self.temporaryContext];
+    }
+    
     
     RFToolbarButton *minusButton = [RFToolbarButton buttonWithTitle:@"+/-" andEventHandler:^{
         UITextField *textField = (UITextField *)[self.view viewWithTag:AMOUNT_TEXT_FIELD_CELL_TAG];
-        NSString *firstChar = [textField.text substringWithRange:NSMakeRange(0, 1)];
-        if([firstChar isEqualToString:@"-"])
-            textField.text = [textField.text substringFromIndex:1];
-        else
-            textField.text = [NSString stringWithFormat:@"-%@", textField.text];
+        NSNumber *amount = [self.formatter numberFromString:textField.text];
+        if(amount) {
+            amount = @(-1*amount.doubleValue);
+            textField.text = [self.formatter stringFromNumber:amount];
+        }
     } forControlEvents:UIControlEventTouchUpInside];
     
     self.doneBar = [RFKeyboardToolbar toolbarWithButtons:@[minusButton]];
@@ -64,6 +73,15 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    self.tableView.estimatedRowHeight = 44.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+#pragma mark - UINavigationBarDelegate
+
+-(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
 }
 
 #pragma mark - Keyboard
@@ -91,12 +109,6 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 - (IBAction)dateChanged:(id)sender {
     self.entry.date = ((UIDatePicker *)sender).date;
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - UIBarPositioningDelegate
-
--(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-    return UIBarPositionTopAttached;
 }
 
 #pragma mark - UITextFieldDelegate, UITextViewDelegate
@@ -153,7 +165,7 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 #pragma mark - UITableView
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -161,6 +173,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         return @"Details";
     else if(section == 1)
         return @"Notes";
+    else if(section == 2)
+        return @"Tags";
     else return nil;
 }
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
@@ -168,44 +182,47 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         return @"Enter the date and amount you spent.";
     else if(section == 1)
         return @"Write a quick note to remind yourself what you spent this money on.";
+    else if(section == 2)
+        return @"Optionally, add tags to sort your entries.";
     else return nil;
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = [self identifierForIndexPath:indexPath];
-    if([identifier isEqualToString:@"datePickerCell"])
-        return 216.0;
-    else if([identifier isEqualToString:@"noteCell"])
-        return 100.0;
-    else return 44.0;
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return 100;
 
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0)
         return self.datePickerShowing ? 3 : 2;
+    else if(section == 1)
+        return 1;
     else if(section == 2)
+        return 1;
+    else if(section == 3)
         return 2;
-    else return 1;
+    
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = [self identifierForIndexPath:indexPath];
     if([identifier isEqualToString:@"dateCell"]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dateCell" forIndexPath:indexPath];
-        cell.detailTextLabel.text = [self.entry.date formattedDateWithFormat:@"MM/dd/YYYY hh:mm a"];
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+        cell.detailTextLabel.text = [self.entry.date formattedDateWithStyle:NSDateFormatterShortStyle locale:[NSLocale currentLocale]];
+        cell.detailTextLabel.textColor = [ColorManager moneyColor];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
         return cell;
     }
     else if([identifier isEqualToString:@"amountCell"]) {
         AmountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"amountCell" forIndexPath:indexPath];
+        cell.textField.currencySymbol = [[NSLocale currentLocale] objectForKey:NSLocaleCurrencySymbol];
         cell.textField.delegate = self;
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
         cell.textField.inputAccessoryView = self.doneBar;
-        cell.textField.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+        cell.textField.textColor = [ColorManager moneyColor];
         cell.textField.tag = AMOUNT_TEXT_FIELD_CELL_TAG;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -231,11 +248,18 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         
         return cell;
     }
+    else if([identifier isEqualToString:@"tagsCell"]) {
+        TagsCell *cell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"tagsCell" forIndexPath:indexPath];
+        [cell configureWithEntry:self.entry];
+        cell.delegate = self;
+        
+        return cell;
+    }
     else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"saveCell" forIndexPath:indexPath];
         if(indexPath.row == 0) {
             cell.textLabel.text = @"Save";
-            cell.textLabel.textColor = [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0];
+            cell.textLabel.textColor = [ColorManager moneyColor];
         }
         else {
             cell.textLabel.text = @"Cancel";
@@ -275,14 +299,14 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
         }
         else {
             NSError *error;
-            [((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext save:&error];
+            [[CoreDataStackManager sharedInstance] saveWithTemporaryContext:self.temporaryContext];
             if(error)
                 NSLog(@"%@", error.localizedDescription);
             [self.delegate entryAddedOrChanged];
         }
     }
     else if([identifier isEqualToString:@"cancelCell"]){
-        [((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext rollback];
+        [self.temporaryContext rollback];
         [self.delegate entryCanceled];
     }
     
@@ -305,6 +329,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     }
     else if(indexPath.section == 1)
         return @"noteCell";
+    else if(indexPath.section == 2)
+        return @"tagsCell";
     else
         return indexPath.row == 0 ? @"saveCell" : @"cancelCell";
 }
@@ -314,6 +340,42 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(scrollView.dragging || scrollView.decelerating)
         [self.tableView endEditing:YES];
+}
+
+#pragma mark - TagsCellDelegate
+
+-(void)tagsCellDidTapAddTag:(TagsCell *)cell {
+    [self performSegueWithIdentifier:@"addTags" sender:self];
+}
+
+-(void)tagsCell:(TagsCell *)cell didTapTagTitle:(NSString *)title {
+    
+}
+
+-(void)tagsCell:(TagsCell *)cell didTapRemoveButtonForTitle:(NSString *)title {
+    NSArray<Tag *> *filteredTags = [self.entry.tags.allObjects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name == %@", title]];
+    if(filteredTags.count > 0) {
+        Tag *tag = filteredTags.firstObject;
+        [self.entry removeTagsObject:tag];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+#pragma mark - AddTagsControllerDelegate
+-(void)didFinishAddingTags:(NSArray<Tag *> *)tags {
+    [self.entry addTags:[NSSet setWithArray:tags]];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationNone];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"addTags"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        AddTagsTableViewController *tagsVC = (AddTagsTableViewController *)navVC.topViewController;
+        tagsVC.delegate = self;
+    }
 }
 
 @end

@@ -7,14 +7,14 @@
 //
 
 @import UIKit;
-#import "EntryCell.h"
+#import "TrackIt-Swift.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "AddEntryViewController.h"
-#import "EntriesModel.h"
 
 @interface AllEntriesTableViewController : UITableViewController<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EntryDelegate>
 
--(NSNumber *)updateValuesWithEntryModelType:(EntryModelType)type;
--(NSNumber *)updateValuesWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
+@property (strong, nonatomic) EntriesModel *model;
+-(NSNumber *)updateValuesWithFilters:(NSArray <id<Filterable>> *)filters;
+-(TagFilter *)currentTagFilter;
 
 @end

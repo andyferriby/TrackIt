@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-#import "Entry.h"
+#import "TrackIt-Swift.h"
 
 @protocol EntryDelegate <NSObject>
 
@@ -16,10 +16,10 @@
 
 @end
 
-@interface AddEntryViewController : UIViewController<UIBarPositioningDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
+@interface AddEntryViewController : UIViewController<UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, TagsCellDelegate, AddTagsControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Entry *entry;
 @property (weak, nonatomic) id<EntryDelegate>delegate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -8,6 +8,8 @@ target 'TrackIt' do
 pod 'DZNEmptyDataSet'
 pod 'DateTools'
 pod 'RFKeyboardToolbar', '~>1.3'
+pod 'TagListView', '~> 1.0'
+pod 'ChameleonFramework'
 
 end
 

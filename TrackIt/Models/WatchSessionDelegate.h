@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @import WatchConnectivity;
-#import "EntriesModel.h"
+#import "TrackIt-Swift.h"
 
 @interface WatchSessionDelegate : NSObject<WCSessionDelegate>
 

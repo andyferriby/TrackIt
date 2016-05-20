@@ -13,16 +13,25 @@
 		960105CB1BE843A100979763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105C91BE843A100979763 /* Main.storyboard */; };
 		960105D01BE843A100979763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960105CF1BE843A100979763 /* Assets.xcassets */; };
 		960105D31BE843A100979763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960105D11BE843A100979763 /* LaunchScreen.storyboard */; };
-		960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */; };
-		960105E21BE8445E00979763 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E01BE8445E00979763 /* Entry.m */; };
 		960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 960105E31BE8449500979763 /* TrackIt.xcdatamodeld */; };
 		960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105E71BE8453300979763 /* AllEntriesTableViewController.m */; };
-		960105EB1BE84C8600979763 /* EntriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105EA1BE84C8600979763 /* EntriesModel.m */; };
-		960105EE1BE84FAE00979763 /* EntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105ED1BE84FAE00979763 /* EntryCell.m */; };
 		960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F11BE857CB00979763 /* AddEntryViewController.m */; };
 		960105F51BE85CCF00979763 /* AmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F41BE85CCF00979763 /* AmountCell.m */; };
 		960105F81BE85CD800979763 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960105F71BE85CD800979763 /* NoteCell.m */; };
-		96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C991BE86195009342FC /* UIColor+FlatUI.m */; };
+		960C7A031CDADAB50027A9C3 /* FilterTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */; };
+		960C7A051CDAE9BB0027A9C3 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A041CDAE9BB0027A9C3 /* Filters.swift */; };
+		960C7A071CDAEF140027A9C3 /* EntriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C7A061CDAEF140027A9C3 /* EntriesModel.swift */; };
+		961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */; };
+		961271141CCEF86A002268F7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271101CCEF86A002268F7 /* Entry.swift */; };
+		961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */; };
+		961271161CCEF86A002268F7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271121CCEF86A002268F7 /* Tag.swift */; };
+		961271181CCF0803002268F7 /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271171CCF0803002268F7 /* TagsCell.swift */; };
+		9612713C1CD0400D002268F7 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713B1CD0400D002268F7 /* Configurations.swift */; };
+		9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */; };
+		961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271401CD0590B002268F7 /* AddTagsTableViewController.swift */; };
+		961271431CD18677002268F7 /* AddTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271421CD18677002268F7 /* AddTagsModel.swift */; };
+		961271451CD18930002268F7 /* AddTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271441CD18930002268F7 /* AddTagCell.swift */; };
+		9618C1ED1CD971E800EC5BC1 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */; };
 		96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9C1BE862FF009342FC /* DatePickerCell.m */; };
 		96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434C9F1BE86CC9009342FC /* ContainerViewController.m */; };
 		964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */; };
@@ -34,11 +43,19 @@
 		964A6E941BEAF8260024A2B3 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */; };
 		964A6E991BEAF8260024A2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A6E981BEAF8260024A2B3 /* Assets.xcassets */; };
 		964A6E9D1BEAF8260024A2B3 /* WatchTrack.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 964A6E7E1BEAF8260024A2B3 /* WatchTrack.app */; };
+		966F052A1CD44DA1005A11C2 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F05291CD44DA1005A11C2 /* EntryCell.swift */; };
 		967174BA1BEB069F00321787 /* AddEntryInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174B91BEB069F00321787 /* AddEntryInterfaceController.m */; };
 		967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174BD1BEC539200321787 /* WatchSessionDelegate.m */; };
 		967174C21BEC5DA600321787 /* WatchSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967174C11BEC5DA600321787 /* WatchSessionDelegate.m */; };
+		9678D3D61CE2BFD000D838B7 /* ImmobileCursorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678D3D51CE2BFD000D838B7 /* ImmobileCursorTextField.swift */; };
+		96880E541CDE6F1D003FA573 /* Filterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E531CDE6F1D003FA573 /* Filterable.swift */; };
+		96880E561CDE7BDC003FA573 /* SelectTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */; };
+		96880E5A1CDFB2D3003FA573 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96880E591CDFB2D3003FA573 /* TagCell.swift */; };
 		96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B506531BF96C3700E2F083 /* SelectDatesViewController.m */; };
 		96BA74A21BF19CBC00CDDA46 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */; };
+		96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */; };
+		96F333171CE1482400F828F4 /* ManageTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333161CE1482400F828F4 /* ManageTagsViewController.swift */; };
+		96F333191CE1706500F828F4 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333181CE1706500F828F4 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,25 +109,31 @@
 		960105CF1BE843A100979763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		960105D21BE843A100979763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		960105D41BE843A100979763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		960105DD1BE8445E00979763 /* Entry+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Entry+CoreDataProperties.h"; path = "Core Data/Entry+CoreDataProperties.h"; sourceTree = "<group>"; };
-		960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Entry+CoreDataProperties.m"; path = "Core Data/Entry+CoreDataProperties.m"; sourceTree = "<group>"; };
-		960105DF1BE8445E00979763 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entry.h; path = "Core Data/Entry.h"; sourceTree = "<group>"; };
-		960105E01BE8445E00979763 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Entry.m; path = "Core Data/Entry.m"; sourceTree = "<group>"; };
 		960105E41BE8449500979763 /* TrackIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackIt.xcdatamodel; sourceTree = "<group>"; };
 		960105E61BE8453300979763 /* AllEntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllEntriesTableViewController.h; path = Controllers/AllEntriesTableViewController.h; sourceTree = "<group>"; };
 		960105E71BE8453300979763 /* AllEntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllEntriesTableViewController.m; path = Controllers/AllEntriesTableViewController.m; sourceTree = "<group>"; };
-		960105E91BE84C8600979763 /* EntriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntriesModel.h; path = Models/EntriesModel.h; sourceTree = "<group>"; };
-		960105EA1BE84C8600979763 /* EntriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntriesModel.m; path = Models/EntriesModel.m; sourceTree = "<group>"; };
-		960105EC1BE84FAE00979763 /* EntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryCell.h; path = Views/EntryCell.h; sourceTree = "<group>"; };
-		960105ED1BE84FAE00979763 /* EntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryCell.m; path = Views/EntryCell.m; sourceTree = "<group>"; };
 		960105F01BE857CB00979763 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryViewController.h; path = Controllers/AddEntryViewController.h; sourceTree = "<group>"; };
 		960105F11BE857CB00979763 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryViewController.m; path = Controllers/AddEntryViewController.m; sourceTree = "<group>"; };
 		960105F31BE85CCF00979763 /* AmountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmountCell.h; path = Views/AmountCell.h; sourceTree = "<group>"; };
 		960105F41BE85CCF00979763 /* AmountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmountCell.m; path = Views/AmountCell.m; sourceTree = "<group>"; };
 		960105F61BE85CD800979763 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteCell.h; path = Views/NoteCell.h; sourceTree = "<group>"; };
 		960105F71BE85CD800979763 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteCell.m; path = Views/NoteCell.m; sourceTree = "<group>"; };
-		96434C981BE86195009342FC /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatUI.h"; path = "Utilities/UIColor+FlatUI.h"; sourceTree = "<group>"; };
-		96434C991BE86195009342FC /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatUI.m"; path = "Utilities/UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTitleView.swift; path = Views/FilterTitleView.swift; sourceTree = "<group>"; };
+		960C7A041CDAE9BB0027A9C3 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filters.swift; path = Models/Filters.swift; sourceTree = "<group>"; };
+		960C7A061CDAEF140027A9C3 /* EntriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesModel.swift; sourceTree = "<group>"; };
+		9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TrackIt 2.xcdatamodel"; sourceTree = "<group>"; };
+		9612710E1CCEF86A002268F7 /* TrackIt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackIt-Bridging-Header.h"; sourceTree = "<group>"; };
+		9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entry+CoreDataProperties.swift"; path = "Core Data/Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		961271101CCEF86A002268F7 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = "Core Data/Entry.swift"; sourceTree = "<group>"; };
+		961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "Core Data/Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		961271121CCEF86A002268F7 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = "Core Data/Tag.swift"; sourceTree = "<group>"; };
+		961271171CCF0803002268F7 /* TagsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsCell.swift; path = Views/TagsCell.swift; sourceTree = "<group>"; };
+		9612713B1CD0400D002268F7 /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurations.swift; path = Protocols/Configurations.swift; sourceTree = "<group>"; };
+		9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsCellDelegate.swift; path = Protocols/TagsCellDelegate.swift; sourceTree = "<group>"; };
+		961271401CD0590B002268F7 /* AddTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsTableViewController.swift; path = Controllers/AddTagsTableViewController.swift; sourceTree = "<group>"; };
+		961271421CD18677002268F7 /* AddTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsModel.swift; path = Models/AddTagsModel.swift; sourceTree = "<group>"; };
+		961271441CD18930002268F7 /* AddTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagCell.swift; path = Views/AddTagCell.swift; sourceTree = "<group>"; };
+		9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorManager.swift; path = Models/ColorManager.swift; sourceTree = "<group>"; };
 		96434C9B1BE862FF009342FC /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerCell.h; path = Views/DatePickerCell.h; sourceTree = "<group>"; };
 		96434C9C1BE862FF009342FC /* DatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerCell.m; path = Views/DatePickerCell.m; sourceTree = "<group>"; };
 		96434C9E1BE86CC9009342FC /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = Controllers/ContainerViewController.h; sourceTree = "<group>"; };
@@ -130,6 +153,7 @@
 		964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		964A6E981BEAF8260024A2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964A6E9A1BEAF8260024A2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966F05291CD44DA1005A11C2 /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryCell.swift; path = Views/EntryCell.swift; sourceTree = "<group>"; };
 		967174B81BEB069F00321787 /* AddEntryInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryInterfaceController.h; path = "WatchTrack Extension/AddEntryInterfaceController.h"; sourceTree = SOURCE_ROOT; };
 		967174B91BEB069F00321787 /* AddEntryInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryInterfaceController.m; path = "WatchTrack Extension/AddEntryInterfaceController.m"; sourceTree = SOURCE_ROOT; };
 		967174BC1BEC539200321787 /* WatchSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchSessionDelegate.h; path = Models/WatchSessionDelegate.h; sourceTree = "<group>"; };
@@ -138,10 +162,17 @@
 		967174C11BEC5DA600321787 /* WatchSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSessionDelegate.m; sourceTree = "<group>"; };
 		967174C61BF16EC900321787 /* TrackIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrackIt.entitlements; sourceTree = "<group>"; };
 		967174C71BF1709900321787 /* WatchTrack Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchTrack Extension.entitlements"; sourceTree = "<group>"; };
+		9678D3D51CE2BFD000D838B7 /* ImmobileCursorTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImmobileCursorTextField.swift; path = Views/ImmobileCursorTextField.swift; sourceTree = "<group>"; };
+		96880E531CDE6F1D003FA573 /* Filterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filterable.swift; path = Protocols/Filterable.swift; sourceTree = "<group>"; };
+		96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTagsViewController.swift; path = Controllers/SelectTagsViewController.swift; sourceTree = "<group>"; };
+		96880E591CDFB2D3003FA573 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = Views/TagCell.swift; sourceTree = "<group>"; };
 		96B506521BF96C3700E2F083 /* SelectDatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectDatesViewController.h; path = Controllers/SelectDatesViewController.h; sourceTree = "<group>"; };
 		96B506531BF96C3700E2F083 /* SelectDatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectDatesViewController.m; path = Controllers/SelectDatesViewController.m; sourceTree = "<group>"; };
 		96BA749B1BF17CFA00CDDA46 /* WatchTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchTrack.entitlements; sourceTree = "<group>"; };
 		96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
+		96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetDataSource.swift; path = Models/EmptyDataSetDataSource.swift; sourceTree = "<group>"; };
+		96F333161CE1482400F828F4 /* ManageTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageTagsViewController.swift; path = Controllers/ManageTagsViewController.swift; sourceTree = "<group>"; };
+		96F333181CE1706500F828F4 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "Core Data/CoreDataStackManager.swift"; sourceTree = "<group>"; };
 		96F389331BFC18A100DC131B /* EntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDelegate.h; sourceTree = "<group>"; };
 		CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF1F15D803E9797F01B995F5 /* Pods_TrackIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,14 +240,13 @@
 		960105BF1BE843A100979763 /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
-				967174C61BF16EC900321787 /* TrackIt.entitlements */,
 				960105C91BE843A100979763 /* Main.storyboard */,
-				960105CF1BE843A100979763 /* Assets.xcassets */,
 				960105C31BE843A100979763 /* AppDelegate.h */,
 				960105C41BE843A100979763 /* AppDelegate.m */,
 				960105DC1BE8441100979763 /* Models */,
 				960105DB1BE8440B00979763 /* Controllers */,
 				960105EF1BE84FB200979763 /* Views */,
+				9612713D1CD042F4002268F7 /* Protocols */,
 				960105DA1BE8440200979763 /* Core Data */,
 				964A6E481BE876FE0024A2B3 /* Utilities */,
 				960105C01BE843A100979763 /* Supporting Files */,
@@ -227,6 +257,9 @@
 		960105C01BE843A100979763 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				960105CF1BE843A100979763 /* Assets.xcassets */,
+				9612710E1CCEF86A002268F7 /* TrackIt-Bridging-Header.h */,
+				967174C61BF16EC900321787 /* TrackIt.entitlements */,
 				96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */,
 				960105D41BE843A100979763 /* Info.plist */,
 				960105D11BE843A100979763 /* LaunchScreen.storyboard */,
@@ -238,11 +271,12 @@
 		960105DA1BE8440200979763 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				9612710F1CCEF86A002268F7 /* Entry+CoreDataProperties.swift */,
+				96F333181CE1706500F828F4 /* CoreDataStackManager.swift */,
+				961271101CCEF86A002268F7 /* Entry.swift */,
+				961271111CCEF86A002268F7 /* Tag+CoreDataProperties.swift */,
+				961271121CCEF86A002268F7 /* Tag.swift */,
 				960105E31BE8449500979763 /* TrackIt.xcdatamodeld */,
-				960105DD1BE8445E00979763 /* Entry+CoreDataProperties.h */,
-				960105DE1BE8445E00979763 /* Entry+CoreDataProperties.m */,
-				960105DF1BE8445E00979763 /* Entry.h */,
-				960105E01BE8445E00979763 /* Entry.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -250,14 +284,17 @@
 		960105DB1BE8440B00979763 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				960105E61BE8453300979763 /* AllEntriesTableViewController.h */,
-				960105E71BE8453300979763 /* AllEntriesTableViewController.m */,
 				96434C9E1BE86CC9009342FC /* ContainerViewController.h */,
 				96434C9F1BE86CC9009342FC /* ContainerViewController.m */,
+				960105E61BE8453300979763 /* AllEntriesTableViewController.h */,
+				960105E71BE8453300979763 /* AllEntriesTableViewController.m */,
 				960105F01BE857CB00979763 /* AddEntryViewController.h */,
 				960105F11BE857CB00979763 /* AddEntryViewController.m */,
 				96B506521BF96C3700E2F083 /* SelectDatesViewController.h */,
 				96B506531BF96C3700E2F083 /* SelectDatesViewController.m */,
+				961271401CD0590B002268F7 /* AddTagsTableViewController.swift */,
+				96880E551CDE7BDC003FA573 /* SelectTagsViewController.swift */,
+				96F333161CE1482400F828F4 /* ManageTagsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,10 +302,12 @@
 		960105DC1BE8441100979763 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				960105E91BE84C8600979763 /* EntriesModel.h */,
-				960105EA1BE84C8600979763 /* EntriesModel.m */,
+				96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */,
+				960C7A061CDAEF140027A9C3 /* EntriesModel.swift */,
 				967174BC1BEC539200321787 /* WatchSessionDelegate.h */,
 				967174BD1BEC539200321787 /* WatchSessionDelegate.m */,
+				961271421CD18677002268F7 /* AddTagsModel.swift */,
+				9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -276,16 +315,31 @@
 		960105EF1BE84FB200979763 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				960C7A021CDADAB50027A9C3 /* FilterTitleView.swift */,
+				96880E591CDFB2D3003FA573 /* TagCell.swift */,
+				961271171CCF0803002268F7 /* TagsCell.swift */,
+				961271441CD18930002268F7 /* AddTagCell.swift */,
 				96434C9B1BE862FF009342FC /* DatePickerCell.h */,
 				96434C9C1BE862FF009342FC /* DatePickerCell.m */,
 				960105F31BE85CCF00979763 /* AmountCell.h */,
 				960105F41BE85CCF00979763 /* AmountCell.m */,
 				960105F61BE85CD800979763 /* NoteCell.h */,
 				960105F71BE85CD800979763 /* NoteCell.m */,
-				960105EC1BE84FAE00979763 /* EntryCell.h */,
-				960105ED1BE84FAE00979763 /* EntryCell.m */,
+				966F05291CD44DA1005A11C2 /* EntryCell.swift */,
+				9678D3D51CE2BFD000D838B7 /* ImmobileCursorTextField.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		9612713D1CD042F4002268F7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				960C7A041CDAE9BB0027A9C3 /* Filters.swift */,
+				96880E531CDE6F1D003FA573 /* Filterable.swift */,
+				9612713B1CD0400D002268F7 /* Configurations.swift */,
+				9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		964A6E481BE876FE0024A2B3 /* Utilities */ = {
@@ -295,8 +349,6 @@
 				964A6E4A1BE877080024A2B3 /* UIControl+Blocks.m */,
 				964A6E4B1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.h */,
 				964A6E4C1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m */,
-				96434C981BE86195009342FC /* UIColor+FlatUI.h */,
-				96434C991BE86195009342FC /* UIColor+FlatUI.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -404,6 +456,7 @@
 		960105B51BE843A100979763 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Jason Ji";
 				TargetAttributes = {
@@ -540,22 +593,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96880E5A1CDFB2D3003FA573 /* TagCell.swift in Sources */,
+				961271451CD18930002268F7 /* AddTagCell.swift in Sources */,
+				960C7A031CDADAB50027A9C3 /* FilterTitleView.swift in Sources */,
+				961271141CCEF86A002268F7 /* Entry.swift in Sources */,
+				96F333171CE1482400F828F4 /* ManageTagsViewController.swift in Sources */,
+				96880E541CDE6F1D003FA573 /* Filterable.swift in Sources */,
+				9678D3D61CE2BFD000D838B7 /* ImmobileCursorTextField.swift in Sources */,
 				96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */,
-				960105EE1BE84FAE00979763 /* EntryCell.m in Sources */,
 				960105C51BE843A100979763 /* AppDelegate.m in Sources */,
+				961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */,
 				964A6E4E1BE877080024A2B3 /* RFKeyboardToolbar+DoneButton.m in Sources */,
+				9618C1ED1CD971E800EC5BC1 /* ColorManager.swift in Sources */,
 				96434CA01BE86CC9009342FC /* ContainerViewController.m in Sources */,
-				960105EB1BE84C8600979763 /* EntriesModel.m in Sources */,
-				960105E21BE8445E00979763 /* Entry.m in Sources */,
+				960C7A051CDAE9BB0027A9C3 /* Filters.swift in Sources */,
+				961271161CCEF86A002268F7 /* Tag.swift in Sources */,
 				960105F21BE857CB00979763 /* AddEntryViewController.m in Sources */,
+				961271181CCF0803002268F7 /* TagsCell.swift in Sources */,
 				960105F51BE85CCF00979763 /* AmountCell.m in Sources */,
+				966F052A1CD44DA1005A11C2 /* EntryCell.swift in Sources */,
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
-				960105E11BE8445E00979763 /* Entry+CoreDataProperties.m in Sources */,
-				96434C9A1BE86195009342FC /* UIColor+FlatUI.m in Sources */,
+				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
+				9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */,
 				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
+				96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */,
 				964A6E4D1BE877080024A2B3 /* UIControl+Blocks.m in Sources */,
+				960C7A071CDAEF140027A9C3 /* EntriesModel.swift in Sources */,
+				961271431CD18677002268F7 /* AddTagsModel.swift in Sources */,
+				961271131CCEF86A002268F7 /* Entry+CoreDataProperties.swift in Sources */,
+				96F333191CE1706500F828F4 /* CoreDataStackManager.swift in Sources */,
+				9612713C1CD0400D002268F7 /* Configurations.swift in Sources */,
+				96880E561CDE7BDC003FA573 /* SelectTagsViewController.swift in Sources */,
 				960105E81BE8453300979763 /* AllEntriesTableViewController.m in Sources */,
 				96434C9D1BE862FF009342FC /* DatePickerCell.m in Sources */,
 			);
@@ -700,6 +770,7 @@
 			baseConfigurationReference = E2F9D59B9723CDE7DF30F082 /* Pods-TrackIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Ji (34WW5ZG33E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason Ji (34WW5ZG33E)";
@@ -707,7 +778,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afd7c7e1-5853-4fed-8340-e283e0e8400a";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -716,6 +789,7 @@
 			baseConfigurationReference = CA62EA34F330EFA6D8D03F63 /* Pods-TrackIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
@@ -723,7 +797,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d90cda7d-b68b-431f-9459-80b47203ec8d";
+				PROVISIONING_PROFILE = "11476215-d0e5-4717-a01d-eb7ca5178b56";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -737,7 +812,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "25361f49-bcf0-42a1-906c-4fd9b93a897a";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -756,7 +831,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "8c35acbf-b79c-40a4-914a-f4a512839d0a";
+				PROVISIONING_PROFILE = "82c40c50-de05-4a96-b241-9b381502138f";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -776,7 +851,7 @@
 				INFOPLIST_FILE = WatchTrack/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1305694-9515-4338-9cc0-ef122cad581d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -795,7 +870,7 @@
 				INFOPLIST_FILE = WatchTrack/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9530a20e-6c4a-48bd-8f93-270e2818c06c";
+				PROVISIONING_PROFILE = "359615a1-7b13-443f-9729-649918c9c954";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -848,9 +923,10 @@
 		960105E31BE8449500979763 /* TrackIt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */,
 				960105E41BE8449500979763 /* TrackIt.xcdatamodel */,
 			);
-			currentVersion = 960105E41BE8449500979763 /* TrackIt.xcdatamodel */;
+			currentVersion = 9612710D1CCEF7A7002268F7 /* TrackIt 2.xcdatamodel */;
 			name = TrackIt.xcdatamodeld;
 			path = "Core Data/TrackIt.xcdatamodeld";
 			sourceTree = "<group>";

@@ -11,14 +11,21 @@
 #import "AllEntriesTableViewController.h"
 #import "DateTools.h"
 
+const CGFloat minFilterTitleViewHeight = 34.0f;
+
 @interface ContainerViewController ()
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dividerLineHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomDividerLineHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterTitleViewHeightConstraint;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editTagsButton;
+
+
 @property (strong, nonatomic) AllEntriesTableViewController *allEntriesVC;
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
-@property (nonatomic) EntryModelType currentModelType;
+@property (nonatomic) DateFilterType currentModelType;
 
 @end
 
@@ -37,12 +44,12 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.dividerLineHeightConstraint.constant = 0.5;
+    self.bottomDividerLineHeightConstraint.constant = 0.5;
     
     self.formatter = [[NSNumberFormatter alloc] init];
     self.formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     
-    self.currentModelType = EntryModelTypeThisMonth;
+    self.currentModelType = DateFilterTypeThisMonth;
     
     self.totalTitleLabel.text = [NSString stringWithFormat:@"%@ Total", [self.dateFormatter stringFromDate:[NSDate date]]];
     
@@ -50,7 +57,17 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"NewTotalSpending" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         NSNumber *value = note.userInfo[@"total"];
         weakSelf.totalValueLabel.text = [weakSelf.formatter stringFromNumber:value];
-        weakSelf.totalValueLabel.textColor = value.doubleValue >= 0 ? [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0] : [UIColor orangeColor];
+        weakSelf.totalValueLabel.textColor = value.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"ModelFiltersUpdated" object:self.allEntriesVC.model queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        TagFilter *tagFilter = [weakSelf.allEntriesVC currentTagFilter];
+        if(tagFilter.tags.count > 0) {
+            [self.filterTitleView updateWithTags:tagFilter.tags type:tagFilter.type];
+            [self showFilterTitleView];
+        }
+        else {
+            [self hideFilterTitleView];
+        }
     }];
     
     NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
@@ -68,35 +85,59 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
+    [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle locale:[NSLocale currentLocale]], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle locale:[NSLocale currentLocale]]] forState:UIControlStateNormal];
+    
+    self.filterTitleView.delegate = self;
+    self.filterTitleViewHeightConstraint.constant = [self.allEntriesVC currentTagFilter].tags.count > 0 ? minFilterTitleViewHeight : 0;
+    
+    [self setEditing:NO];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self updateTotalDisplay];
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
+    if(editing) {
+        self.editTagsButton = [[UIBarButtonItem alloc] initWithTitle:@"Manage Tags" style:UIBarButtonItemStylePlain target:self action:@selector(editTagsTapped)];
+        self.bottomToolbar.items = @[
+                                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                       self.editTagsButton,
+                                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
+                                       ];
+    }
+    else {
+        self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTapped:)];
+        self.bottomToolbar.items = @[
+                                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                     self.addButton,
+                                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
+                                     ];
+    }
+    
     [self.allEntriesVC setEditing:editing animated:animated];
 }
 
 - (IBAction)timePeriodSelected:(UISegmentedControl *)sender {
     switch(sender.selectedSegmentIndex) {
         case 0: {
-            self.currentModelType = EntryModelTypeThisMonth;
+            self.currentModelType = DateFilterTypeThisMonth;
             self.dateButton.hidden = YES;
             self.totalTitleLabel.hidden = NO;
             self.totalTitleLabel.text = [NSString stringWithFormat:@"%@ Total", [self.dateFormatter stringFromDate:[NSDate date]]];
             break;
         }
         case 1:
-            self.currentModelType = EntryModelTypeAllTime;
+            self.currentModelType = DateFilterTypeAllTime;
             self.dateButton.hidden = YES;
             self.totalTitleLabel.hidden = NO;
             self.totalTitleLabel.text = @"All Time Total";
             break;
         case 2:
-            self.currentModelType = EntryModelTypeDateRange;
+            self.currentModelType = DateFilterTypeDateRange;
             // set current start/end dates if not set
             self.dateButton.hidden = NO;
             self.totalTitleLabel.hidden = YES;
@@ -108,24 +149,58 @@
 -(void)updateTotalDisplay {
     NSNumber *total;
     switch(self.currentModelType) {
-        case EntryModelTypeLast7Days:
+        case DateFilterTypeLast7Days:
             break;
-        case EntryModelTypeThisMonth:
-            total = [self.allEntriesVC updateValuesWithEntryModelType:EntryModelTypeThisMonth];
+        case DateFilterTypeThisMonth: {
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeThisMonth];
+            total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
-        case EntryModelTypeAllTime:
-            total = [self.allEntriesVC updateValuesWithEntryModelType:EntryModelTypeAllTime];
+        }
+        case DateFilterTypeAllTime: {
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeAllTime];
+            total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
-        case EntryModelTypeDateRange:
-            total = [self.allEntriesVC updateValuesWithStartDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
+        }
+        case DateFilterTypeDateRange: {
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeDateRange startDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
+            total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
+        }
     }
     self.totalValueLabel.text = [self.formatter stringFromNumber:total];
-    self.totalValueLabel.textColor = total.doubleValue >= 0 ? [UIColor colorWithRed:3/255.0 green:166/255.0 blue:120/255.0 alpha:1.0] : [UIColor orangeColor];
+    self.totalValueLabel.textColor = total.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
     
     NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
     NSDate *currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
     [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
+}
+
+-(void)showFilterTitleView {
+    if(self.filterTitleViewHeightConstraint.constant != [self.filterTitleView preferredContentHeight]) {
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.filterTitleView.alpha = 1.0;
+            self.filterTitleViewHeightConstraint.constant = [self.filterTitleView preferredContentHeight];
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
+}
+
+-(void)hideFilterTitleView {
+    if(self.filterTitleViewHeightConstraint.constant > 0) {
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.filterTitleView.alpha = 0;
+            self.filterTitleViewHeightConstraint.constant = 0;
+            [self.view layoutIfNeeded];
+        } completion:nil];
+    }
+}
+
+- (IBAction)addTapped:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"addEntrySegue" sender:self];
+}
+
+-(void)editTagsTapped {
+    [self performSegueWithIdentifier:@"manageTagsSegue" sender:self];
 }
 
 #pragma mark - SelectDatesDelegate
@@ -139,6 +214,36 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - FilterTitleViewDelegate
+
+-(void)closeViewTapped {
+    [self hideFilterTitleView];
+    TagFilter *noTagFilter = [[TagFilter alloc] initWithType:TagFilterTypeShow tags:@[]];
+    [self.allEntriesVC updateValuesWithFilters:@[noTagFilter]];
+}
+
+#pragma mark - EntryDelegate
+// This is delegate because 3D touch may be invoked from cold app start, and self.allEntriesVC wouldn't exist yet
+-(void)entryAddedOrChanged {
+    [self.allEntriesVC entryAddedOrChanged];
+}
+
+-(void)entryCanceled {
+    [self.allEntriesVC entryCanceled];
+}
+
+#pragma mark - TagFilterDelegate
+
+-(void)didSelectTags:(NSArray<Tag *> *)tags withType:(enum TagFilterType)type {
+    TagFilter *tagFilter = [[TagFilter alloc] initWithType:type tags:tags];
+    [self.allEntriesVC updateValuesWithFilters:@[tagFilter]];
+    if(tags.count > 0) {
+        [self.filterTitleView updateWithTags:tags type:type];
+        [self showFilterTitleView];
+    }
+    else
+        [self hideFilterTitleView];
+}
 
 #pragma mark - Navigation
 
@@ -150,20 +255,30 @@
         AddEntryViewController *vc = segue.destinationViewController;
         vc.delegate = self;
     }
+    else if([segue.identifier isEqualToString:@"manageTagsSegue"]) {
+        ManageTagsViewController *vc = segue.destinationViewController;
+        vc.popoverPresentationController.delegate = self;
+        vc.popoverPresentationController.barButtonItem = self.editTagsButton;
+        vc.coreDataManager = [CoreDataStackManager sharedInstance];
+    }
     else if([segue.identifier isEqualToString:@"selectDatesSegue"]) {
         SelectDatesViewController *vc = segue.destinationViewController;
         vc.delegate = self;
     }
+    else if([segue.identifier isEqualToString:@"showTagFilter"]) {
+        SelectTagsViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
+        vc.popoverPresentationController.delegate = self;
+        vc.coreDataManager = [CoreDataStackManager sharedInstance];
+        vc.selectedTags = [self.allEntriesVC currentTagFilter].tags;
+        vc.currentFilterType = [self.allEntriesVC currentTagFilter].type;
+    }
 }
 
-#pragma mark - EntryDelegate
-// This is delegate because 3D touch may be invoked from cold app start, and self.allEntriesVC wouldn't exist yet
--(void)entryAddedOrChanged {
-    [self.allEntriesVC entryAddedOrChanged];
-}
+#pragma mark - UIPopoverPresentationController
 
--(void)entryCanceled {
-    [self.allEntriesVC entryCanceled];
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
 
 @end
