@@ -221,6 +221,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     [self hideFilterTitleView];
     TagFilter *noTagFilter = [[TagFilter alloc] initWithType:TagFilterTypeShow tags:@[]];
     [self.allEntriesVC updateValuesWithFilters:@[noTagFilter]];
+    [self updateTotalDisplay];
 }
 
 #pragma mark - EntryDelegate
@@ -244,6 +245,8 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     }
     else
         [self hideFilterTitleView];
+    
+    [self updateTotalDisplay];
 }
 
 #pragma mark - Navigation
