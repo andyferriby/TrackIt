@@ -62,11 +62,11 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     [[NSNotificationCenter defaultCenter] addObserverForName:@"ModelFiltersUpdated" object:self.allEntriesVC.model queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         TagFilter *tagFilter = [weakSelf.allEntriesVC currentTagFilter];
         if(tagFilter.tags.count > 0) {
-            [self.filterTitleView updateWithTags:tagFilter.tags type:tagFilter.type];
-            [self showFilterTitleView];
+            [weakSelf.filterTitleView updateWithTags:tagFilter.tags type:tagFilter.type];
+            [weakSelf showFilterTitleView];
         }
         else {
-            [self hideFilterTitleView];
+            [weakSelf hideFilterTitleView];
         }
     }];
     
@@ -148,6 +148,9 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
 
 -(void)updateTotalDisplay {
     NSNumber *total;
+    NSDate *currentStartDate = (NSDate *)[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
+    NSDate *currentEndDate = (NSDate *)[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
+    
     switch(self.currentModelType) {
         case DateFilterTypeLast7Days:
             break;
@@ -162,7 +165,7 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
             break;
         }
         case DateFilterTypeDateRange: {
-            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeDateRange startDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE] endDate:[[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE]];
+            DateFilter *filter = [[DateFilter alloc] initWithType:DateFilterTypeDateRange startDate:currentStartDate endDate:currentEndDate];
             total = [self.allEntriesVC updateValuesWithFilters:@[filter]];
             break;
         }
@@ -170,8 +173,6 @@ const CGFloat minFilterTitleViewHeight = 34.0f;
     self.totalValueLabel.text = [self.formatter stringFromNumber:total];
     self.totalValueLabel.textColor = total.doubleValue >= 0 ? [ColorManager moneyColor] : [UIColor orangeColor];
     
-    NSDate *currentStartDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_START_DATE];
-    NSDate *currentEndDate = [[NSUserDefaults standardUserDefaults] valueForKey:USER_END_DATE];
     [self.dateButton setTitle:[NSString stringWithFormat:@"%@ to %@", [currentStartDate formattedDateWithStyle:NSDateFormatterMediumStyle], [currentEndDate formattedDateWithStyle:NSDateFormatterMediumStyle]] forState:UIControlStateNormal];
 }
 
