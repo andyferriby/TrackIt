@@ -9,11 +9,11 @@
 import UIKit
 
 @objc protocol EntryConfigurable {
-    optional func configureWithEntry(entry: Entry)
-    optional func configureWithEntry(entry: Entry, numberFormatter: NSNumberFormatter)
+    @objc optional func configureWithEntry(_ entry: Entry)
+    @objc optional func configureWithEntry(_ entry: Entry, numberFormatter: NumberFormatter)
 }
 
 @objc protocol TagConfigurable {
-    optional func configureWithTags(tags: [Tag])
-    optional func configureWithTag(tag: Tag, selected: Bool)
+    @objc optional func configureWithTags(_ tags: [Tag])
+    @objc optional func configureWithTag(_ tag: Tag, selected: Bool)
 }

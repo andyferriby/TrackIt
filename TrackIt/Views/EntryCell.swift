@@ -9,6 +9,26 @@
 import UIKit
 import TagListView
 import DateTools
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class EntryCell: UITableViewCell {
 
@@ -25,29 +45,29 @@ class EntryCell: UITableViewCell {
 }
 
 extension EntryCell: EntryConfigurable {
-    func configureWithEntry(entry: Entry, numberFormatter: NSNumberFormatter) {
+    func configureWithEntry(_ entry: Entry, numberFormatter: NumberFormatter) {
         guard let amount = entry.amount,
-                    date = entry.date,
-                    note = entry.note else { return }
+                    let date = entry.date,
+                    let note = entry.note else { return }
         
-        amountLabel.text = numberFormatter.stringFromNumber(amount)
-        amountLabel.textColor = Double(amount) >= 0 ? UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0) : UIColor.orangeColor()
-        dateLabel.text = date.formattedDateWithStyle(.ShortStyle, locale: NSLocale.currentLocale())
+        amountLabel.text = numberFormatter.string(from: amount)
+        amountLabel.textColor = Double(amount) >= 0 ? UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0) : UIColor.orange
+        dateLabel.text = (date as NSDate).formattedDate(with: .short, locale: Locale.current)
         noteLabel.text = note
         
-        if entry.tags?.count > 0, let tags = entry.tags {
-            tagListView.hidden = false
+        if entry.tags?.count > 0, let tags = entry.tags?.allObjects as? [Tag] {
+            tagListView.isHidden = false
             tagListView.removeAllTags()
-            let sortedTags = tags.allObjects.sort { return $0.name < $1.name } as! [Tag]
+            let sortedTags = tags.sorted { return $0.name < $1.name }
             for tag in sortedTags {
                 let tagView = tagListView.addTag(tag.name!)
                 tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
             }
         }
         else {
-            tagListView.hidden = true
+            tagListView.isHidden = true
         }
         
-        self.editingAccessoryType = .DisclosureIndicator
+        self.editingAccessoryType = .disclosureIndicator
     }
 }

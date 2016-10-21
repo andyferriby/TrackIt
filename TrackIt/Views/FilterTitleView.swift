@@ -33,19 +33,19 @@ class FilterTitleView: UIView {
     }
     
     func preferredContentHeight() -> CGFloat {
-        return tagListView.intrinsicContentSize().height + preferredVerticalPadding
+        return tagListView.intrinsicContentSize.height + preferredVerticalPadding
     }
     
-    func updateWithTags(tags: [Tag], type: TagFilterType) {
+    func updateWithTags(_ tags: [Tag], type: TagFilterType) {
         tagListView.removeAllTags()
         for tag in tags {
             let tagView = tagListView.addTag(tag.name!)
             tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
         }
         switch type {
-        case .Show:
+        case .show:
             titleLabel.text = "Showing:";
-        case .Hide:
+        case .hide:
             titleLabel.text = "Hiding:";
         }
     }

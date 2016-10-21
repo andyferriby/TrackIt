@@ -11,47 +11,47 @@ import ChameleonFramework
 
 class ColorManager: NSObject {
     
-    private static let colors: [UIColor] = [
-        UIColor.flatSkyBlueColor(),
-        UIColor.flatRedColor(),
-        UIColor.flatYellowColor(),
-        UIColor.flatGreenColor(),
-        UIColor.flatOrangeColor(),
-        UIColor.flatPinkColor(),
-        UIColor.flatLimeColor(),
-        UIColor.flatMaroonColor(),
-        UIColor.flatMagentaColor(),
-        UIColor.flatNavyBlueColor(),
-        UIColor.flatGrayColor(),
-        UIColor.flatSandColor(),
-        UIColor.flatTealColor(),
-        UIColor.flatMintColor(),
-        UIColor.flatForestGreenColor(),
-        UIColor.flatPurpleColor(),
-        UIColor.flatBrownColor(),
-        UIColor.flatPlumColor(),
-        UIColor.flatWatermelonColor(),
-        UIColor.flatCoffeeColor(),
-        UIColor.flatPowderBlueColor(),
-        UIColor.flatBlueColor(),
-        UIColor.flatBlackColor()
+    fileprivate static let colors: [UIColor] = [
+        UIColor.flatSkyBlue(),
+        UIColor.flatRed(),
+        UIColor.flatYellow(),
+        UIColor.flatGreen(),
+        UIColor.flatOrange(),
+        UIColor.flatPink(),
+        UIColor.flatLime(),
+        UIColor.flatMaroon(),
+        UIColor.flatMagenta(),
+        UIColor.flatNavyBlue(),
+        UIColor.flatGray(),
+        UIColor.flatSand(),
+        UIColor.flatTeal(),
+        UIColor.flatMint(),
+        UIColor.flatForestGreen(),
+        UIColor.flatPurple(),
+        UIColor.flatBrown(),
+        UIColor.flatPlum(),
+        UIColor.flatWatermelon(),
+        UIColor.flatCoffee(),
+        UIColor.flatPowderBlue(),
+        UIColor.flatBlue(),
+        UIColor.flatBlack()
     ]
     
     class func moneyColor() -> UIColor {
         return UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0)
     }
     
-    class func colorForIndex(index: Int) -> UIColor {
+    class func colorForIndex(_ index: Int) -> UIColor {
         if index < 0 || index >= colors.count {
-            return UIColor.grayColor()
+            return UIColor.gray
         }
         
         return colors[index]
     }
     
-    class func firstAvailableColorIndex(tags: [Tag]) -> Int {
+    class func firstAvailableColorIndex(_ tags: [Tag]) -> Int {
         for i in 0..<colors.count {
-            let tagsUsingColor = tags.filter { $0.colorIndex == i }
+            let tagsUsingColor = tags.filter { $0.colorIndex?.intValue == i }
             if tagsUsingColor.count == 0 {
                 return i
             }

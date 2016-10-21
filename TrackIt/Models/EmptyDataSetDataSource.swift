@@ -23,30 +23,30 @@ class EmptyDataSetDataSource: NSObject {
 
 extension EmptyDataSetDataSource: DZNEmptyDataSetSource {
     
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         guard let title = title else { return nil }
         
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(20.0),
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 20.0),
                           NSForegroundColorAttributeName: ColorManager.moneyColor()]
         
         return NSAttributedString(string: title, attributes: attributes)
     }
     
-    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         guard let dataSetDescription = dataSetDescription else { return nil }
         
         let paragraph = NSMutableParagraphStyle()
-        paragraph.lineBreakMode = .ByWordWrapping
-        paragraph.alignment = .Center
+        paragraph.lineBreakMode = .byWordWrapping
+        paragraph.alignment = .center
         
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14.0),
-                          NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0),
+                          NSForegroundColorAttributeName: UIColor.lightGray,
                           NSParagraphStyleAttributeName: paragraph]
         
         return NSAttributedString(string: dataSetDescription, attributes: attributes)
     }
     
-    func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
         guard let verticalOffset = verticalOffset else { return 0 }
         return verticalOffset
     }

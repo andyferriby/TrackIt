@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol TagsCellDelegate {
-    func tagsCell(cell: TagsCell, didTapTagTitle title: String)
-    func tagsCell(cell: TagsCell, didTapRemoveButtonForTitle title: String)
-    optional func tagsCellDidTapAddTag(cell: TagsCell)
+    func tagsCell(_ cell: TagsCell, didTapTagTitle title: String)
+    func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String)
+    @objc optional func tagsCellDidTapAddTag(_ cell: TagsCell)
 }

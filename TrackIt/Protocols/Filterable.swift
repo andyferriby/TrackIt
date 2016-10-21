@@ -13,5 +13,5 @@
 }
 
 @objc enum FilterType: Int {
-    case Date, Tag
+    case date, tag
 }

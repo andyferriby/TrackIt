@@ -11,10 +11,10 @@ import CoreData
 
 
 class Tag: NSManagedObject {
-    class func tagWithName(name: String, colorIndex: Int, inManagedObjectContext context: NSManagedObjectContext) -> Tag {
-        let tag = NSEntityDescription.insertNewObjectForEntityForName("Tag", inManagedObjectContext: context) as! Tag
+    class func tagWithName(_ name: String, colorIndex: Int, inManagedObjectContext context: NSManagedObjectContext) -> Tag {
+        let tag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context) as! Tag
         tag.name = name
-        tag.colorIndex = NSNumber(integer: colorIndex)
+        tag.colorIndex = NSNumber(value: colorIndex as Int)
         return tag
     }
 }

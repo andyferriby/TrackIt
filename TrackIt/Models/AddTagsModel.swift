@@ -7,12 +7,23 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class AddTagsModel {
     var allTags: [Tag] = []
     var tags: [Tag] = [] {
         didSet {
-            tags.sortInPlace { $0.name < $1.name }
+            tags.sort { $0.name < $1.name }
         }
     }
     var coreDataManager: CoreDataStackManager?
@@ -23,15 +34,15 @@ class AddTagsModel {
         
     }
     
-    func tryAddTag(tagName: String) {
+    func tryAddTag(_ tagName: String) {
         guard let context = coreDataManager?.managedObjectContext else { return }
         
-        let fetch = NSFetchRequest(entityName: "Tag")
+        let fetch = NSFetchRequest<Tag>(entityName: "Tag")
         fetch.predicate = NSPredicate(format: "name == %@", tagName)
-        guard let results = try? context.executeFetchRequest(fetch) as! [Tag] else { return }
+        guard let results = try? context.fetch(fetch) else { return }
         if let first = results.first {
             tags.append(first)
-            tags.sortInPlace { $0.name < $1.name }
+            tags.sort { $0.name < $1.name }
         }
         else {
             let colorIndex = ColorManager.firstAvailableColorIndex(allTags)
@@ -41,18 +52,18 @@ class AddTagsModel {
         }
     }
     
-    func removeTag(tagName: String) {
+    func removeTag(_ tagName: String) {
         let tag = tags.filter { $0.name == tagName }.first
         if let tag = tag {
-            tags.removeAtIndex(tags.indexOf(tag)!)
+            tags.remove(at: tags.index(of: tag)!)
         }
     }
     
-    func didSelectTagAtIndex(index: Int) {
+    func didSelectTagAtIndex(_ index: Int) {
         guard index < allTags.count else { return }
         let tag = allTags[index]
         if tags.contains(tag) {
-            tags.removeAtIndex(tags.indexOf(tag)!)
+            tags.remove(at: tags.index(of: tag)!)
         }
         else {
             tags.append(allTags[index])
@@ -62,13 +73,13 @@ class AddTagsModel {
     func refreshAllTags() -> [Tag] {
         guard let context = coreDataManager?.managedObjectContext else { return [] }
 
-        let fetchRequest = NSFetchRequest(entityName: "Tag")
-        var result = try? context.executeFetchRequest(fetchRequest) as! [Tag]
-        result?.sortInPlace { $0.name < $1.name }
+        let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
+        var result = try? context.fetch(fetchRequest)
+        result?.sort { $0.name < $1.name }
         return result ?? []
     }
     
-    func containsTag(tag: String) -> Bool {
+    func containsTag(_ tag: String) -> Bool {
         return tags.map { t in return t.name }.filter { $0 == tag }.count == 1
     }
 }

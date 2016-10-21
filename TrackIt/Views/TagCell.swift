@@ -18,7 +18,7 @@ class TagCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         let backgroundColor = dotView.backgroundColor
         super.setHighlighted(highlighted, animated: animated)
         dotView.backgroundColor = backgroundColor
@@ -27,10 +27,10 @@ class TagCell: UITableViewCell {
 }
 
 extension TagCell: TagConfigurable {
-    func configureWithTag(tag: Tag, selected: Bool) {
+    func configureWithTag(_ tag: Tag, selected: Bool) {
         label.text = tag.name!
         dotView.backgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
         dotView.layer.cornerRadius = 4.0
-        accessoryType = selected ? .Checkmark : .None
+        accessoryType = selected ? .checkmark : .none
     }
 }

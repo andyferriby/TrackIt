@@ -11,47 +11,47 @@ import DateTools
 // MARK: Date Filters
 
 @objc enum DateFilterType: Int {
-    case Last7Days, ThisMonth, AllTime, DateRange
+    case last7Days, thisMonth, allTime, dateRange
 }
 
 @objc class DateFilter: NSObject {
     var type: DateFilterType
-    var startDate: NSDate?
-    var endDate: NSDate?
+    var startDate: Date?
+    var endDate: Date?
     
     init(type: DateFilterType) {
         self.type = type
     }
     
-    init(type: DateFilterType, startDate: NSDate, endDate: NSDate) {
+    init(type: DateFilterType, startDate: Date, endDate: Date) {
         self.type = type
         // Start at midnight on startDate, end at midnight on endDate+1 day
-        self.startDate = NSDate(year: startDate.year(), month: startDate.month(), day: startDate.day())
-        self.endDate = NSDate(year: endDate.year(), month: endDate.month(), day: endDate.day()+1)
+        self.startDate = NSDate(year: (startDate as NSDate).year(), month: (startDate as NSDate).month(), day: (startDate as NSDate).day()) as Date?
+        self.endDate = NSDate(year: (endDate as NSDate).year(), month: (endDate as NSDate).month(), day: (endDate as NSDate).day()+1) as Date?
     }
     
     func filterType() -> FilterType {
-        return .Date
+        return .date
     }
 }
 
 extension DateFilter: Filterable {
     func predicate() -> NSPredicate? {
         switch(type) {
-        case .Last7Days:
-            let lowerBoundary = NSDate().dateBySubtractingDays(7)
-            return NSPredicate(format: "date > %@", lowerBoundary)
-        case  .ThisMonth:
-            let now = NSDate()
-            let lowerBoundary = NSDate(year: now.year(), month: now.month(), day: 1)
-            return NSPredicate(format: "date > %@", lowerBoundary)
-        case .AllTime:
+        case .last7Days:
+            let lowerBoundary = (Date() as NSDate).subtractingDays(7)
+            return NSPredicate(format: "date > %@", lowerBoundary as! CVarArg)
+        case  .thisMonth:
+            let now = Date()
+            let lowerBoundary = NSDate(year: (now as NSDate).year(), month: (now as NSDate).month(), day: 1)
+            return NSPredicate(format: "date > %@", lowerBoundary!)
+        case .allTime:
             return nil
-        case .DateRange:
-            guard let startDate = startDate, endDate = endDate else { return nil }
+        case .dateRange:
+            guard let startDate = startDate, let endDate = endDate else { return nil }
             return NSCompoundPredicate(andPredicateWithSubpredicates: [
-                NSPredicate(format: "date > %@", startDate),
-                NSPredicate(format: "date < %@", endDate)
+                NSPredicate(format: "date > %@", startDate as CVarArg),
+                NSPredicate(format: "date < %@", endDate as CVarArg)
                 ])
         }
     }
@@ -60,7 +60,7 @@ extension DateFilter: Filterable {
 // MARK: Tag Filters
 
 @objc enum TagFilterType: Int {
-    case Show, Hide
+    case show, hide
 }
 
 @objc class TagFilter: NSObject {
@@ -75,15 +75,15 @@ extension DateFilter: Filterable {
 extension TagFilter: Filterable {
     func predicate() -> NSPredicate? {
         switch type {
-        case .Show:
+        case .show:
             return tags.count == 0 ? nil : NSPredicate(format: "ANY tags IN %@", tags)
-        case .Hide:
+        case .hide:
             return tags.count == 0 ? nil : NSPredicate(format: "tags.@count == 0 OR (NOT (ANY tags IN %@))", tags)
         }
         
     }
     func filterType() -> FilterType {
-        return .Tag
+        return .tag
     }
 }
 

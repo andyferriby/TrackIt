@@ -17,11 +17,11 @@ class TagsCell: UITableViewCell {
 }
 
 extension TagsCell: EntryConfigurable {
-    func configureWithEntry(entry: Entry) {
+    func configureWithEntry(_ entry: Entry) {
         guard let tags = entry.tags else { return }
         tagListView.removeAllTags()
         tagListView.delegate = self
-        let sortedTags = tags.allObjects.sort { return $0.name < $1.name } as! [Tag]
+        let sortedTags = tags.allObjects.sorted { return ($0 as AnyObject).name < ($1 as AnyObject).name } as! [Tag]
         for tag in sortedTags {
             let tagView = tagListView.addTag(tag.name!)
             tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
@@ -29,7 +29,7 @@ extension TagsCell: EntryConfigurable {
             
         }        
         let addTagView = tagListView.addTag(addTagTitle)
-        addTagView.tagBackgroundColor = UIColor.whiteColor()
+        addTagView.tagBackgroundColor = UIColor.white
         addTagView.borderColor = UIColor.flatGreenColorDark()
         addTagView.borderWidth = 1.0
         addTagView.textColor = UIColor.flatGreenColorDark()
@@ -37,12 +37,12 @@ extension TagsCell: EntryConfigurable {
             self.delegate?.tagsCellDidTapAddTag?(self)
         }
         
-        selectionStyle = .None
+        selectionStyle = .none
     }
 }
 
 extension TagsCell: TagConfigurable {
-    func configureWithTags(tags: [Tag]) {
+    func configureWithTags(_ tags: [Tag]) {
         tagListView.removeAllTags()
         tagListView.delegate = self
         for tag in tags {
@@ -50,18 +50,18 @@ extension TagsCell: TagConfigurable {
             tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
             tagView.enableRemoveButton = true
         }
-        selectionStyle = .None
+        selectionStyle = .none
     }
 }
 
 extension TagsCell: TagListViewDelegate {
     
-    func tagPressed(title: String, tagView: TagView, sender: TagListView) {
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
         if title != addTagTitle {
             self.delegate?.tagsCell(self, didTapTagTitle: title)
         }
     }
-    func tagRemoveButtonPressed(title: String, tagView: TagView, sender: TagListView) {
+    func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
         self.delegate?.tagsCell(self, didTapRemoveButtonForTitle: title)
     }
 }

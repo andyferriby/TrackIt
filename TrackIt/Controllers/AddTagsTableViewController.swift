@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol AddTagsControllerDelegate {
-    func didFinishAddingTags(tags: [Tag])
+    func didFinishAddingTags(_ tags: [Tag])
 }
 
 class AddTagsTableViewController: UITableViewController {
@@ -24,13 +24,13 @@ class AddTagsTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 44.0
     }
 
-    @IBAction func doneTapped(sender: UIBarButtonItem) {
+    @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         delegate?.didFinishAddingTags(model.tags)
     }
     
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "New Tag"
         case 1: return "Selected Tags"
@@ -38,11 +38,11 @@ class AddTagsTableViewController: UITableViewController {
         default: return nil
         }
     }
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return model.allTags.count == 0 ? 2 : 3
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
         case 1: return 1
@@ -51,24 +51,24 @@ class AddTagsTableViewController: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = identifierForRowAtIndexPath(indexPath)
         
         switch identifier {
             case "addTagCell":
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! AddTagCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AddTagCell
             cell.configure(delegate: self)
             return cell
             
             case "selectedTagsCell":
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TagsCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! TagsCell
             cell.configureWithTags(model.tags)
             cell.delegate = self
             return cell
             
             case "tagCell":
-            let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! TagCell
-            let tag = model.allTags[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! TagCell
+            let tag = model.allTags[(indexPath as NSIndexPath).row]
             cell.configureWithTag(tag, selected: model.containsTag(tag.name!))
             return cell
             
@@ -76,16 +76,16 @@ class AddTagsTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let identifier = identifierForRowAtIndexPath(indexPath)
         if identifier == "tagCell" {
-            model.didSelectTagAtIndex(indexPath.row)
+            model.didSelectTagAtIndex((indexPath as NSIndexPath).row)
             tableView.reloadData()
         }
     }
     
-    func identifierForRowAtIndexPath(indexPath: NSIndexPath) -> String {
-        switch(indexPath.section) {
+    func identifierForRowAtIndexPath(_ indexPath: IndexPath) -> String {
+        switch((indexPath as NSIndexPath).section) {
         case 0: return "addTagCell"
         case 1: return "selectedTagsCell"
         case 2: return "tagCell"
@@ -95,10 +95,10 @@ class AddTagsTableViewController: UITableViewController {
 }
 
 extension AddTagsTableViewController: TagsCellDelegate {
-    func tagsCell(cell: TagsCell, didTapTagTitle title: String) {
+    func tagsCell(_ cell: TagsCell, didTapTagTitle title: String) {
         
     }
-    func tagsCell(cell: TagsCell, didTapRemoveButtonForTitle title: String) {
+    func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String) {
         model.removeTag(title)
         tableView.reloadData()
     }
@@ -106,7 +106,7 @@ extension AddTagsTableViewController: TagsCellDelegate {
 }
 
 extension AddTagsTableViewController: AddTagCellDelegate {
-    func didAddTag(tag: String) {
+    func didAddTag(_ tag: String) {
         model.tryAddTag(tag)
         tableView.reloadData()
     }

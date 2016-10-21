@@ -8,6 +8,26 @@
 
 import UIKit
 import DZNEmptyDataSet
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
+}
+
 
 class ManageTagsViewController: UIViewController {
     
@@ -18,9 +38,9 @@ class ManageTagsViewController: UIViewController {
     var coreDataManager: CoreDataStackManager?
     let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: 0)
     
-    lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
+    lazy var fetchedResultsController: NSFetchedResultsController<Tag>? = {
         guard let context = self.coreDataManager?.managedObjectContext else { return nil }
-        let fetchRequest = NSFetchRequest(entityName: "Tag")
+        let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         do {
@@ -31,7 +51,7 @@ class ManageTagsViewController: UIViewController {
         }
         controller.delegate = self
         return controller
-        }()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,18 +62,18 @@ class ManageTagsViewController: UIViewController {
         tableView.emptyDataSetSource = emptyDataSetDataSource
         tableView.emptyDataSetDelegate = self
         
-        tableView.editing = true
+        tableView.isEditing = true
         dividerHeightConstraint.constant = 0.5
     }
 }
 
 extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if fetchedResultsController?.sections?.count > 0 {
             return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
         }
@@ -62,52 +82,54 @@ extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
-        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as! TagCell
-        cell.configureWithTag(tag, selected: false)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell", for: indexPath) as! TagCell
+        if let tag = fetchedResultsController?.object(at: indexPath) {
+            cell.configureWithTag(tag, selected: false)
+        }
         return cell
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
-        NSNotificationCenter.defaultCenter().postNotificationName("TagWillBeDeleted", object: self, userInfo: ["name":tag.name!])
-        coreDataManager?.managedObjectContext.deleteObject(tag)
-        coreDataManager?.save()
-        NSNotificationCenter.defaultCenter().postNotificationName("TagWasDeleted", object: self)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if let tag = fetchedResultsController?.object(at: indexPath) {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "TagWillBeDeleted"), object: self, userInfo: ["name":tag.name!])
+            coreDataManager?.managedObjectContext.delete(tag)
+            coreDataManager?.save()
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "TagWasDeleted"), object: self)
+        }
     }
 }
 
 extension ManageTagsViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
         switch type {
-        case .Delete:
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath], with: .fade)
         default: break
         }
     }
 }
 
 extension ManageTagsViewController: DZNEmptyDataSetDelegate {
-    func emptyDataSetWillAppear(scrollView: UIScrollView!) {
-        warningView.hidden = true
+    func emptyDataSetWillAppear(_ scrollView: UIScrollView!) {
+        warningView.isHidden = true
     }
-    func emptyDataSetWillDisappear(scrollView: UIScrollView!) {
-        warningView.hidden = false
+    func emptyDataSetWillDisappear(_ scrollView: UIScrollView!) {
+        warningView.isHidden = false
     }
 }

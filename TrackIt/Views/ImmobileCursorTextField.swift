@@ -14,16 +14,16 @@ class ImmobileCursorTextField: UITextField {
     
     // assume currencySymbol is always at position 0 with some length x
     
-    override func closestPositionToPoint(point: CGPoint) -> UITextPosition? {
+    override func closestPosition(to point: CGPoint) -> UITextPosition? {
         
         guard let currencySymbol = currencySymbol,
-            currentPosition = super.closestPositionToPoint(point)
-            else { return super.closestPositionToPoint(point) }
+            let currentPosition = super.closestPosition(to: point)
+            else { return super.closestPosition(to: point) }
 
-        let currentPositionOffset = offsetFromPosition(beginningOfDocument, toPosition: currentPosition)
+        let currentPositionOffset = offset(from: beginningOfDocument, to: currentPosition)
         
         if currentPositionOffset <= currencySymbol.characters.count {
-            return positionFromPosition(beginningOfDocument, offset: currencySymbol.characters.count)
+            return position(from: beginningOfDocument, offset: currencySymbol.characters.count)
         }
         else {
             return currentPosition

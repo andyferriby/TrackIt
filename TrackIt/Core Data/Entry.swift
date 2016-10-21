@@ -14,8 +14,8 @@ class Entry: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
-    class func entry(withAmount amount: NSNumber?, note: String?, date: NSDate?, tags: [Tag]?, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Entry {
-        let entry = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: managedObjectContext) as! Entry
+    class func entry(withAmount amount: NSNumber?, note: String?, date: Date?, tags: [Tag]?, inManagedObjectContext managedObjectContext: NSManagedObjectContext) -> Entry {
+        let entry = NSEntityDescription.insertNewObject(forEntityName: "Entry", into: managedObjectContext) as! Entry
         
         entry.amount = amount
         entry.note = note

@@ -12,10 +12,10 @@ class CoreDataStackManager: NSObject {
     static let sharedInstance = CoreDataStackManager()
     
     var applicationDocumentsDirectory = {
-        return NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last!
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
     }()
-    let managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-    private let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+    let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    fileprivate let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
     
     override init() {
         super.init()
@@ -23,31 +23,31 @@ class CoreDataStackManager: NSObject {
     }
     
     func initializeCoreData() {
-        guard let modelURL = NSBundle.mainBundle().URLForResource("TrackIt", withExtension: "momd") else { fatalError("Invalid model URL") }
-        guard let model = NSManagedObjectModel(contentsOfURL: modelURL) else { fatalError("Invalid model") }
+        guard let modelURL = Bundle.main.url(forResource: "TrackIt", withExtension: "momd") else { fatalError("Invalid model URL") }
+        guard let model = NSManagedObjectModel(contentsOf: modelURL) else { fatalError("Invalid model") }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
-        let storeURL: NSURL = applicationDocumentsDirectory.URLByAppendingPathComponent("TrackIt.sqlite")
+        let storeURL: URL = applicationDocumentsDirectory.appendingPathComponent("TrackIt.sqlite")
         do {
             let options = [NSMigratePersistentStoresAutomaticallyOption: true,
                            NSInferMappingModelAutomaticallyOption: true]
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
         }catch {
             fatalError("Could not add the persistent store: \(error).")
         }
         
         privateContext.persistentStoreCoordinator = coordinator
-        managedObjectContext.parentContext = privateContext
+        managedObjectContext.parent = privateContext
     }
     
     func save() {
         if !privateContext.hasChanges && !self.managedObjectContext.hasChanges {
             return
         }
-        managedObjectContext.performBlockAndWait {
+        managedObjectContext.performAndWait {
             do {
                 try self.managedObjectContext.save()
-                self.privateContext.performBlock {
+                self.privateContext.perform {
                     do {
                         try self.privateContext.save()
                     } catch let error as NSError {
@@ -60,12 +60,12 @@ class CoreDataStackManager: NSObject {
         }
     }
     
-    func saveWithTemporaryContext(context: NSManagedObjectContext) {
+    func saveWithTemporaryContext(_ context: NSManagedObjectContext) {
         // Assumes the passed context has our managedObjectContext as its parent.
         if !context.hasChanges {
             return
         }
-        context.performBlockAndWait {
+        context.performAndWait {
             do {
                 try context.save()
                 self.save()

@@ -15,13 +15,13 @@ import CoreData
 extension Entry {
 
     @NSManaged var amount: NSNumber?
-    @NSManaged var date: NSDate?
+    @NSManaged var date: Date?
     @NSManaged var note: String?
     @NSManaged var tags: NSSet?
 
-    @NSManaged func addTagsObject(tag: Tag)
-    @NSManaged func removeTagsObject(tag: Tag)
-    @NSManaged func addTags(tags: NSSet)
-    @NSManaged func removeTags(tags: NSSet)
+    @NSManaged func addTagsObject(_ tag: Tag)
+    @NSManaged func removeTagsObject(_ tag: Tag)
+    @NSManaged func addTags(_ tags: NSSet)
+    @NSManaged func removeTags(_ tags: NSSet)
     
 }

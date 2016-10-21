@@ -7,9 +7,29 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 @objc protocol TagFilterDelegate {
-    func didSelectTags(tags: [Tag], withType type: TagFilterType)
+    func didSelectTags(_ tags: [Tag], withType type: TagFilterType)
 }
 
 class SelectTagsViewController: UIViewController {
@@ -20,17 +40,17 @@ class SelectTagsViewController: UIViewController {
     
     weak var delegate: TagFilterDelegate?
     var coreDataManager: CoreDataStackManager?
-    var currentFilterType: TagFilterType = .Show
+    var currentFilterType: TagFilterType = .show
     var selectedTags: [Tag] = [] {
         didSet {
-            selectedTags.sortInPlace { return $0.name < $1.name }
+            selectedTags.sort { return $0.name < $1.name }
         }
     }
     let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: -22.0)
     
-    lazy var fetchedResultsController: NSFetchedResultsController? = { [unowned self] in
+    lazy var fetchedResultsController: NSFetchedResultsController<Tag>? = {
         guard let context = self.coreDataManager?.managedObjectContext else { return nil }
-        let fetchRequest = NSFetchRequest(entityName: "Tag")
+        let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         do {
@@ -58,7 +78,7 @@ class SelectTagsViewController: UIViewController {
 
 extension SelectTagsViewController {
     
-    @IBAction func typeChanged(sender: UISegmentedControl) {
+    @IBAction func typeChanged(_ sender: UISegmentedControl) {
         guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
         currentFilterType = type
         delegate?.didSelectTags(selectedTags, withType: currentFilterType)
@@ -68,11 +88,11 @@ extension SelectTagsViewController {
 
 extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if fetchedResultsController?.sections?.count > 0 {
             return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
         }
@@ -81,19 +101,20 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
-        let cell = tableView.dequeueReusableCellWithIdentifier("tagCell", forIndexPath: indexPath) as! TagCell
-        cell.configureWithTag(tag, selected: selectedTags.contains(tag) ?? false)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell", for: indexPath) as! TagCell
+        if let tag = fetchedResultsController?.object(at: indexPath) {
+            cell.configureWithTag(tag, selected: selectedTags.contains(tag))
+        }
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
         currentFilterType = type
-        let tag = fetchedResultsController?.objectAtIndexPath(indexPath) as! Tag
-        if let index = selectedTags.indexOf(tag) {
-            selectedTags.removeAtIndex(index)
+        guard let tag = fetchedResultsController?.object(at: indexPath) else { return }
+        if let index = selectedTags.index(of: tag) {
+            selectedTags.remove(at: index)
         }
         else {
             selectedTags.append(tag)
