@@ -40,7 +40,7 @@ extension DateFilter: Filterable {
         switch(type) {
         case .last7Days:
             let lowerBoundary = (Date() as NSDate).subtractingDays(7)
-            return NSPredicate(format: "date > %@", lowerBoundary as! CVarArg)
+            return NSPredicate(format: "date > %@", lowerBoundary! as CVarArg)
         case  .thisMonth:
             let now = Date()
             let lowerBoundary = NSDate(year: (now as NSDate).year(), month: (now as NSDate).month(), day: 1)
