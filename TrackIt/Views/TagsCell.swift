@@ -18,10 +18,10 @@ class TagsCell: UITableViewCell {
 
 extension TagsCell: EntryConfigurable {
     func configureWithEntry(_ entry: Entry) {
-        guard let tags = entry.tags else { return }
+        guard let tags = entry.tags as? [Tag] else { return }
         tagListView.removeAllTags()
         tagListView.delegate = self
-        let sortedTags = tags.allObjects.sorted { return ($0 as AnyObject).name < ($1 as AnyObject).name } as! [Tag]
+        let sortedTags = tags.allObjects.sorted { return $0.name < $1.name } as! [Tag]
         for tag in sortedTags {
             let tagView = tagListView.addTag(tag.name!)
             tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
