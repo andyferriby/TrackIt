@@ -1,14 +1,10 @@
 PODS:
-  - ChameleonFramework (2.1.0):
-    - ChameleonFramework/Default (= 2.1.0)
-  - ChameleonFramework/Default (2.1.0)
   - DateTools (1.7.0)
   - DZNEmptyDataSet (1.8.1)
   - RFKeyboardToolbar (1.3)
   - TagListView (1.0.0)
 
 DEPENDENCIES:
-  - ChameleonFramework
   - DateTools
   - DZNEmptyDataSet
   - RFKeyboardToolbar (~> 1.3)
@@ -24,12 +20,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/UberJason/TagListView.git
 
 SPEC CHECKSUMS:
-  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   RFKeyboardToolbar: c96a7d9458564d1fedc8ef6844b6c467934aade2
   TagListView: 6bf4bded034c4c90b1e90d8cd3d8e1d852dba0a8
 
-PODFILE CHECKSUM: 02a0e25a888f25da22e4a91c7bd6746f5b1708dc
+PODFILE CHECKSUM: 5077918c2be97207029ab2d21b0897798f2ec510
 
 COCOAPODS: 1.0.1
