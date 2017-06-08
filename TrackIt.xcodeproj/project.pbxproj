@@ -465,7 +465,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Jason Ji";
 				TargetAttributes = {
 					960105BC1BE843A100979763 = {
@@ -812,11 +812,13 @@
 				CODE_SIGN_ENTITLEMENTS = TrackIt/TrackIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = TrackIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "11476215-d0e5-4717-a01d-eb7ca5178b56";
+				PROVISIONING_PROFILE = "5bc564c7-6466-4b9d-b4c3-5e0faf3bb93b";
+				PROVISIONING_PROFILE_SPECIFIER = "Track It (iOS) Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -849,11 +851,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				INFOPLIST_FILE = "WatchTrack Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "82c40c50-de05-4a96-b241-9b381502138f";
+				PROVISIONING_PROFILE = "6ce800e0-2da8-4ff2-8bf1-4083d2b17cb9";
+				PROVISIONING_PROFILE_SPECIFIER = "Track It (WatchKit Extension) Distribution Profile";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -890,11 +894,13 @@
 				CODE_SIGN_ENTITLEMENTS = WatchTrack/WatchTrack.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Jason Ji (2GPQ8GE99T)";
+				DEVELOPMENT_TEAM = 2GPQ8GE99T;
 				IBSC_MODULE = WatchTrack_Extension;
 				INFOPLIST_FILE = WatchTrack/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JYJApps.TrackIt.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "359615a1-7b13-443f-9729-649918c9c954";
+				PROVISIONING_PROFILE = "2e6ecb56-1036-4f9a-b7b7-45d89e606da2";
+				PROVISIONING_PROFILE_SPECIFIER = "Track It (WatchKitApp) Distribution Profile";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
