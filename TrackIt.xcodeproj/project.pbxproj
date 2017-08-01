@@ -54,6 +54,7 @@
 		96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B506531BF96C3700E2F083 /* SelectDatesViewController.m */; };
 		96BA74A21BF19CBC00CDDA46 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */; };
 		96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */; };
+		96E548981F30139100C2C547 /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E548971F30139100C2C547 /* FileImporter.swift */; };
 		96F333171CE1482400F828F4 /* ManageTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333161CE1482400F828F4 /* ManageTagsViewController.swift */; };
 		96F333191CE1706500F828F4 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333181CE1706500F828F4 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
@@ -174,6 +175,8 @@
 		96BA749B1BF17CFA00CDDA46 /* WatchTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchTrack.entitlements; sourceTree = "<group>"; };
 		96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
 		96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetDataSource.swift; path = Models/EmptyDataSetDataSource.swift; sourceTree = "<group>"; };
+		96E548971F30139100C2C547 /* FileImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileImporter.swift; path = Models/FileImporter.swift; sourceTree = "<group>"; };
+		96E548991F30153700C2C547 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = TrackIt/MyPlayground.playground; sourceTree = "<group>"; };
 		96F333161CE1482400F828F4 /* ManageTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageTagsViewController.swift; path = Controllers/ManageTagsViewController.swift; sourceTree = "<group>"; };
 		96F333181CE1706500F828F4 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "Core Data/CoreDataStackManager.swift"; sourceTree = "<group>"; };
 		96F389331BFC18A100DC131B /* EntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDelegate.h; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		960105B41BE843A100979763 = {
 			isa = PBXGroup;
 			children = (
+				96E548991F30153700C2C547 /* MyPlayground.playground */,
 				960105BF1BE843A100979763 /* TrackIt */,
 				964A6E7F1BEAF8260024A2B3 /* WatchTrack */,
 				964A6E8E1BEAF8260024A2B3 /* WatchTrack Extension */,
@@ -315,6 +319,7 @@
 				967174BD1BEC539200321787 /* WatchSessionDelegate.m */,
 				961271421CD18677002268F7 /* AddTagsModel.swift */,
 				9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */,
+				96E548971F30139100C2C547 /* FileImporter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -592,7 +597,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -625,6 +630,7 @@
 				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
 				9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */,
 				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
+				96E548981F30139100C2C547 /* FileImporter.swift in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */,
@@ -732,7 +738,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -771,7 +777,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
