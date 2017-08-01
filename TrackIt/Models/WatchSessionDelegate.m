@@ -57,7 +57,7 @@
             NSNumber *value = message[@"value"];
             NSString *note = message[@"note"];
             
-            [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
+            Entry *e __attribute__((unused)) = [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
             
             [[CoreDataStackManager sharedInstance] save];
             

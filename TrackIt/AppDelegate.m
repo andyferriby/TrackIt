@@ -92,11 +92,16 @@
 #pragma mark - Importing CSVs
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        FileImporter *f = [FileImporter new];
-        NSError *error;
-        [f importEntriesFrom:url error:&error];
-    });
+    UINavigationController *navVC = (UINavigationController *)self.window.rootViewController;
+    ContainerViewController *rootVC = (ContainerViewController *)navVC.topViewController;
+    if(!rootVC.presentedViewController) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            FileImporter *f = [FileImporter new];
+            f.delegate = rootVC;
+            NSError *error;
+            [f importEntriesFrom:url error:&error];
+        });
+    }
     
     return YES;
 }

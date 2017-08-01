@@ -13,3 +13,8 @@ import UIKit
     func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String)
     @objc optional func tagsCellDidTapAddTag(_ cell: TagsCell)
 }
+
+@objc protocol EntryDelegate {
+    func entryAddedOrChanged()
+    func entryCanceled()
+}

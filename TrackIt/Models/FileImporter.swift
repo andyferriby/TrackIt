@@ -15,6 +15,8 @@ extension String: LocalizedError {
 
 @objc public class FileImporter: NSObject {
     
+    weak var delegate: EntryDelegate?
+    
     static let dateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "MM/dd/yy"
@@ -66,6 +68,8 @@ extension String: LocalizedError {
             newEntries.append(entry)
         }
         CoreDataStackManager.sharedInstance.save()
+        delegate?.entryAddedOrChanged()
+        
     }
 }
 

@@ -9,7 +9,7 @@
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
 #import "WatchSessionDelegate.h"
-#import "EntryDelegate.h"
+#import "NewEntryDelegate.h"
 
 @interface AddEntryInterfaceController : WKInterfaceController
 

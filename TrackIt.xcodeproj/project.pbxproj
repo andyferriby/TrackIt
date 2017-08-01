@@ -27,7 +27,7 @@
 		961271161CCEF86A002268F7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271121CCEF86A002268F7 /* Tag.swift */; };
 		961271181CCF0803002268F7 /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271171CCF0803002268F7 /* TagsCell.swift */; };
 		9612713C1CD0400D002268F7 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713B1CD0400D002268F7 /* Configurations.swift */; };
-		9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */; };
+		9612713F1CD046E7002268F7 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713E1CD046E7002268F7 /* Delegates.swift */; };
 		961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271401CD0590B002268F7 /* AddTagsTableViewController.swift */; };
 		961271431CD18677002268F7 /* AddTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271421CD18677002268F7 /* AddTagsModel.swift */; };
 		961271451CD18930002268F7 /* AddTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271441CD18930002268F7 /* AddTagCell.swift */; };
@@ -133,7 +133,7 @@
 		961271121CCEF86A002268F7 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = "Core Data/Tag.swift"; sourceTree = "<group>"; };
 		961271171CCF0803002268F7 /* TagsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsCell.swift; path = Views/TagsCell.swift; sourceTree = "<group>"; };
 		9612713B1CD0400D002268F7 /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurations.swift; path = Protocols/Configurations.swift; sourceTree = "<group>"; };
-		9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsCellDelegate.swift; path = Protocols/TagsCellDelegate.swift; sourceTree = "<group>"; };
+		9612713E1CD046E7002268F7 /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delegates.swift; path = Protocols/Delegates.swift; sourceTree = "<group>"; };
 		961271401CD0590B002268F7 /* AddTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsTableViewController.swift; path = Controllers/AddTagsTableViewController.swift; sourceTree = "<group>"; };
 		961271421CD18677002268F7 /* AddTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsModel.swift; path = Models/AddTagsModel.swift; sourceTree = "<group>"; };
 		961271441CD18930002268F7 /* AddTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagCell.swift; path = Views/AddTagCell.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		96E548991F30153700C2C547 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = TrackIt/MyPlayground.playground; sourceTree = "<group>"; };
 		96F333161CE1482400F828F4 /* ManageTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageTagsViewController.swift; path = Controllers/ManageTagsViewController.swift; sourceTree = "<group>"; };
 		96F333181CE1706500F828F4 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "Core Data/CoreDataStackManager.swift"; sourceTree = "<group>"; };
-		96F389331BFC18A100DC131B /* EntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDelegate.h; sourceTree = "<group>"; };
+		96F389331BFC18A100DC131B /* NewEntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEntryDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,7 +349,7 @@
 				960C7A041CDAE9BB0027A9C3 /* Filters.swift */,
 				96880E531CDE6F1D003FA573 /* Filterable.swift */,
 				9612713B1CD0400D002268F7 /* Configurations.swift */,
-				9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */,
+				9612713E1CD046E7002268F7 /* Delegates.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -384,7 +384,7 @@
 				964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */,
 				967174C01BEC5DA600321787 /* WatchSessionDelegate.h */,
 				967174C11BEC5DA600321787 /* WatchSessionDelegate.m */,
-				96F389331BFC18A100DC131B /* EntryDelegate.h */,
+				96F389331BFC18A100DC131B /* NewEntryDelegate.h */,
 				967174BB1BEB06AB00321787 /* Controllers */,
 				964A6E981BEAF8260024A2B3 /* Assets.xcassets */,
 				964A6E9A1BEAF8260024A2B3 /* Info.plist */,
@@ -628,7 +628,7 @@
 				966F052A1CD44DA1005A11C2 /* EntryCell.swift in Sources */,
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
 				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
-				9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */,
+				9612713F1CD046E7002268F7 /* Delegates.swift in Sources */,
 				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
 				96E548981F30139100C2C547 /* FileImporter.swift in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,

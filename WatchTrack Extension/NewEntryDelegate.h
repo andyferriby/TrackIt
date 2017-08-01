@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol EntryDelegate <NSObject>
+@protocol NewEntryDelegate <NSObject>
 
 -(void)newEntryAdded:(NSNumber *)newTotal;
 -(void)newEntryCanceled;

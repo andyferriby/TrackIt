@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSNumberFormatter *formatter;
 @property (strong, nonatomic) NSNumber *theNewTotal;
 
-@property (weak, nonatomic) id<EntryDelegate>delegate;
+@property (weak, nonatomic) id<NewEntryDelegate>delegate;
 
 @end
 
