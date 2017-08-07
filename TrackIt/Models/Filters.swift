@@ -44,14 +44,14 @@ extension DateFilter: Filterable {
         case  .thisMonth:
             let now = Date()
             let lowerBoundary = NSDate(year: (now as NSDate).year(), month: (now as NSDate).month(), day: 1)
-            return NSPredicate(format: "date > %@", lowerBoundary!)
+            return NSPredicate(format: "date >= %@", lowerBoundary!)
         case .allTime:
             return nil
         case .dateRange:
             guard let startDate = startDate, let endDate = endDate else { return nil }
             return NSCompoundPredicate(andPredicateWithSubpredicates: [
-                NSPredicate(format: "date > %@", startDate as CVarArg),
-                NSPredicate(format: "date < %@", endDate as CVarArg)
+                NSPredicate(format: "date >= %@", startDate as CVarArg),
+                NSPredicate(format: "date <= %@", endDate as CVarArg)
                 ])
         }
     }
