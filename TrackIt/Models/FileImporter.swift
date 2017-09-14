@@ -15,7 +15,7 @@ extension String: LocalizedError {
 
 @objc public class FileImporter: NSObject {
     
-    weak var delegate: EntryDelegate?
+    @objc weak var delegate: EntryDelegate?
     
     static let dateFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -23,7 +23,7 @@ extension String: LocalizedError {
         return f
     }()
     
-    public func importEntries(from url: URL) throws {
+    @objc public func importEntries(from url: URL) throws {
         let pathExtension = url.pathExtension
         switch pathExtension {
         case "csv":
@@ -74,7 +74,7 @@ extension String: LocalizedError {
 }
 
 extension CoreDataStackManager {
-    func allTags() -> [Tag] {
+    @objc func allTags() -> [Tag] {
         let fetchRequest = Tag.fetchRequest()
         if let tags = try? managedObjectContext.fetch(fetchRequest) as! [Tag] {
             return tags

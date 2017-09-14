@@ -29,7 +29,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 @objc protocol TagFilterDelegate {
-    func didSelectTags(_ tags: [Tag], withType type: TagFilterType)
+    @objc func didSelectTags(_ tags: [Tag], withType type: TagFilterType)
 }
 
 class SelectTagsViewController: UIViewController {
@@ -38,10 +38,10 @@ class SelectTagsViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var dividerHeightConstraint: NSLayoutConstraint!
     
-    weak var delegate: TagFilterDelegate?
-    var coreDataManager: CoreDataStackManager?
-    var currentFilterType: TagFilterType = .show
-    var selectedTags: [Tag] = [] {
+    @objc weak var delegate: TagFilterDelegate?
+    @objc var coreDataManager: CoreDataStackManager?
+    @objc var currentFilterType: TagFilterType = .show
+    @objc var selectedTags: [Tag] = [] {
         didSet {
             selectedTags.sort { return $0.name < $1.name }
         }
@@ -88,11 +88,11 @@ extension SelectTagsViewController {
 
 extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    @objc func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if fetchedResultsController?.sections?.count > 0 {
             return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
         }
@@ -101,7 +101,7 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @objc func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell", for: indexPath) as! TagCell
         if let tag = fetchedResultsController?.object(at: indexPath) {
             cell.configureWithTag(tag, selected: selectedTags.contains(tag))
@@ -109,7 +109,7 @@ extension SelectTagsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = TagFilterType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
         currentFilterType = type
         guard let tag = fetchedResultsController?.object(at: indexPath) else { return }

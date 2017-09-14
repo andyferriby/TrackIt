@@ -9,13 +9,13 @@
 import UIKit
 
 @objc protocol AddTagsControllerDelegate {
-    func didFinishAddingTags(_ tags: [Tag])
+    @objc func didFinishAddingTags(_ tags: [Tag])
 }
 
 class AddTagsTableViewController: UITableViewController {
 
     let model = AddTagsModel(coreDataManager: CoreDataStackManager.sharedInstance)
-    weak var delegate: AddTagsControllerDelegate?
+    @objc weak var delegate: AddTagsControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +84,7 @@ class AddTagsTableViewController: UITableViewController {
         }
     }
     
-    func identifierForRowAtIndexPath(_ indexPath: IndexPath) -> String {
+    @objc func identifierForRowAtIndexPath(_ indexPath: IndexPath) -> String {
         switch((indexPath as NSIndexPath).section) {
         case 0: return "addTagCell"
         case 1: return "selectedTagsCell"
@@ -95,10 +95,10 @@ class AddTagsTableViewController: UITableViewController {
 }
 
 extension AddTagsTableViewController: TagsCellDelegate {
-    func tagsCell(_ cell: TagsCell, didTapTagTitle title: String) {
+    @objc func tagsCell(_ cell: TagsCell, didTapTagTitle title: String) {
         
     }
-    func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String) {
+    @objc func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String) {
         model.removeTag(title)
         tableView.reloadData()
     }
@@ -106,7 +106,7 @@ extension AddTagsTableViewController: TagsCellDelegate {
 }
 
 extension AddTagsTableViewController: AddTagCellDelegate {
-    func didAddTag(_ tag: String) {
+    @objc func didAddTag(_ tag: String) {
         model.tryAddTag(tag)
         tableView.reloadData()
     }

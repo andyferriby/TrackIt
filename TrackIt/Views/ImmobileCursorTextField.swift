@@ -10,7 +10,7 @@ import UIKit
 
 class ImmobileCursorTextField: UITextField {
     
-    var currencySymbol: String?
+    @objc var currencySymbol: String?
     
     // assume currencySymbol is always at position 0 with some length x
     

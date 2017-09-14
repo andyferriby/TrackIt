@@ -9,12 +9,12 @@
 import UIKit
 
 @objc protocol TagsCellDelegate {
-    func tagsCell(_ cell: TagsCell, didTapTagTitle title: String)
-    func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String)
+    @objc func tagsCell(_ cell: TagsCell, didTapTagTitle title: String)
+    @objc func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String)
     @objc optional func tagsCellDidTapAddTag(_ cell: TagsCell)
 }
 
 @objc protocol EntryDelegate {
-    func entryAddedOrChanged()
-    func entryCanceled()
+    @objc func entryAddedOrChanged()
+    @objc func entryCanceled()
 }

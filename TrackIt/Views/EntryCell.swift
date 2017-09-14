@@ -45,13 +45,13 @@ class EntryCell: UITableViewCell {
 }
 
 extension EntryCell: EntryConfigurable {
-    func configureWithEntry(_ entry: Entry, numberFormatter: NumberFormatter) {
+    @objc func configureWithEntry(_ entry: Entry, numberFormatter: NumberFormatter) {
         guard let amount = entry.amount,
                     let date = entry.date,
                     let note = entry.note else { return }
         
         amountLabel.text = numberFormatter.string(from: amount)
-        amountLabel.textColor = Double(amount) >= 0 ? UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0) : UIColor.orange
+        amountLabel.textColor = Double(truncating: amount) >= 0 ? UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0) : UIColor.orange
         dateLabel.text = (date as NSDate).formattedDate(with: .short, locale: Locale.current)
         noteLabel.text = note
         
@@ -61,7 +61,7 @@ extension EntryCell: EntryConfigurable {
             let sortedTags = tags.sorted { return $0.name < $1.name }
             for tag in sortedTags {
                 let tagView = tagListView.addTag(tag.name!)
-                tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
+                tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(truncating: tag.colorIndex!))
             }
         }
         else {

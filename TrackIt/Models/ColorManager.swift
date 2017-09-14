@@ -9,7 +9,7 @@
 import UIKit
 //import ChameleonFramework
 
-class ColorManager: NSObject {
+@objc class ColorManager: NSObject {
     
     fileprivate static let colors: [UIColor] = [
         UIColor.flatSkyBlue(),
@@ -37,11 +37,11 @@ class ColorManager: NSObject {
         UIColor.flatBlack()
     ]
     
-    class func moneyColor() -> UIColor {
+    @objc class func moneyColor() -> UIColor {
         return UIColor(red: 3/255.0, green: 166/255.0, blue: 120/255.0, alpha: 1.0)
     }
     
-    class func colorForIndex(_ index: Int) -> UIColor {
+    @objc class func colorForIndex(_ index: Int) -> UIColor {
         if index < 0 || index >= colors.count {
             return UIColor.gray
         }
@@ -49,7 +49,7 @@ class ColorManager: NSObject {
         return colors[index]
     }
     
-    class func firstAvailableColorIndex(_ tags: [Tag]) -> Int {
+    @objc class func firstAvailableColorIndex(_ tags: [Tag]) -> Int {
         for i in 0..<colors.count {
             let tagsUsingColor = tags.filter { $0.colorIndex?.intValue == i }
             if tagsUsingColor.count == 0 {

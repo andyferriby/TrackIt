@@ -12,7 +12,7 @@ import TagListView
 let preferredVerticalPadding: CGFloat = 14.0
 
 @objc protocol FilterTitleViewDelegate {
-    func closeViewTapped()
+    @objc func closeViewTapped()
 }
 
 class FilterTitleView: UIView {
@@ -20,7 +20,7 @@ class FilterTitleView: UIView {
     @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    weak var delegate: FilterTitleViewDelegate?
+    @objc weak var delegate: FilterTitleViewDelegate?
     
     override func awakeFromNib() {
         dividerLineHeightConstraint.constant = 0.5
@@ -32,15 +32,15 @@ class FilterTitleView: UIView {
         delegate?.closeViewTapped()
     }
     
-    func preferredContentHeight() -> CGFloat {
+    @objc func preferredContentHeight() -> CGFloat {
         return tagListView.intrinsicContentSize.height + preferredVerticalPadding
     }
     
-    func updateWithTags(_ tags: [Tag], type: TagFilterType) {
+    @objc func updateWithTags(_ tags: [Tag], type: TagFilterType) {
         tagListView.removeAllTags()
         for tag in tags {
             let tagView = tagListView.addTag(tag.name!)
-            tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
+            tagView.tagBackgroundColor = ColorManager.colorForIndex(Int(truncating: tag.colorIndex!))
         }
         switch type {
         case .show:

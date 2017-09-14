@@ -478,7 +478,7 @@
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cYA-bJ-hlc">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="216" id="0s4-TA-Bgx"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="216" id="0s4-TA-Bgx"/>
                                                     </constraints>
                                                     <date key="date" timeIntervalSinceReferenceDate="468214395.46599501">
                                                         <!--2015-11-03 03:33:15 +0000-->
