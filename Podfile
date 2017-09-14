@@ -7,10 +7,9 @@ target 'TrackIt' do
 
 pod 'DZNEmptyDataSet'
 pod 'DateTools'
-pod 'RFKeyboardToolbar', '~>1.3'
-pod 'TagListView', :git => 'https://github.com/UberJason/TagListView.git'
-#pod 'ChameleonFramework'
-pod 'CSwiftV'
+pod 'RFKeyboardToolbar', :git => 'https://github.com/UberJason/RFKeyboardToolbar.git'
+pod 'TagListView'#, :git => 'https://github.com/UberJason/TagListView.git'
+pod 'CSwiftV', :git => 'https://github.com/UberJason/CSwiftV.git'
 
 end
 

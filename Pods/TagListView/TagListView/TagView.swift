@@ -82,7 +82,7 @@ open class TagView: UIButton {
         }
     }
     
-    fileprivate func reloadStyles() {
+    private func reloadStyles() {
         if isHighlighted {
             if let highlightedBackgroundColor = highlightedBackgroundColor {
                 // For highlighted, if it's nil, we should not fallback to backgroundColor.
@@ -162,33 +162,35 @@ open class TagView: UIButton {
         setupView()
     }
     
-    fileprivate func setupView() {
+    private func setupView() {
         frame.size = intrinsicContentSize
         addSubview(removeButton)
         removeButton.tagView = self
         
-        //BY HUSAM
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
         self.addGestureRecognizer(longPress)
     }
-    func longPress (){
-        if onLongPress != nil {
-            onLongPress!(self)
-        }
+    
+    @objc func longPress() {
+        onLongPress?(self)
     }
+    
     // MARK: - layout
 
     override open var intrinsicContentSize: CGSize {
-        var size = titleLabel?.text?.size(attributes: [NSFontAttributeName: textFont]) ?? CGSize.zero
+        var size = titleLabel?.text?.size(withAttributes: [NSAttributedStringKey.font: textFont]) ?? CGSize.zero
         size.height = textFont.pointSize + paddingY * 2
         size.width += paddingX * 2
+        if size.width < size.height {
+            size.width = size.height
+        }
         if enableRemoveButton {
             size.width += removeButtonIconSize + paddingX
         }
         return size
     }
     
-    fileprivate func updateRightInsets() {
+    private func updateRightInsets() {
         if enableRemoveButton {
             titleEdgeInsets.right = paddingX  + removeButtonIconSize + paddingX
         }
