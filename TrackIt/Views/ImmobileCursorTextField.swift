@@ -22,8 +22,8 @@ class ImmobileCursorTextField: UITextField {
 
         let currentPositionOffset = offset(from: beginningOfDocument, to: currentPosition)
         
-        if currentPositionOffset <= currencySymbol.characters.count {
-            return position(from: beginningOfDocument, offset: currencySymbol.characters.count)
+        if currentPositionOffset <= currencySymbol.count {
+            return position(from: beginningOfDocument, offset: currencySymbol.count)
         }
         else {
             return currentPosition

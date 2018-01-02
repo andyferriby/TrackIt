@@ -1,13 +1,13 @@
 PODS:
   - CSwiftV (0.0.5)
-  - DateTools (1.7.0)
+  - DateTools (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - RFKeyboardToolbar (1.3)
   - TagListView (1.2.0)
 
 DEPENDENCIES:
   - CSwiftV (from `https://github.com/UberJason/CSwiftV.git`)
-  - DateTools
+  - DateTools (from `https://github.com/UberJason/DateTools.git`)
   - DZNEmptyDataSet
   - RFKeyboardToolbar
   - TagListView
@@ -15,19 +15,24 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   CSwiftV:
     :git: https://github.com/UberJason/CSwiftV.git
+  DateTools:
+    :git: https://github.com/UberJason/DateTools.git
 
 CHECKOUT OPTIONS:
   CSwiftV:
-    :commit: 8a702f858a3c8407b730b5df36b7df9f7dc86e1d
+    :commit: 1da904d79156c7580465084dbd4490b78125bc3c
     :git: https://github.com/UberJason/CSwiftV.git
+  DateTools:
+    :commit: 41a2735506cf98e22140de711b950cb771308316
+    :git: https://github.com/UberJason/DateTools.git
 
 SPEC CHECKSUMS:
   CSwiftV: 2560532e2e5b04d95c36b0f49a8dc745071fa525
-  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   RFKeyboardToolbar: c96a7d9458564d1fedc8ef6844b6c467934aade2
   TagListView: 999e1df50c0f6b9ca927fae705c86a7e3b6ee9ba
 
-PODFILE CHECKSUM: 49d494b3fe647c05cfeb32c014b6b3300ace243e
+PODFILE CHECKSUM: 1e86a0c59a39073cb55dfc185e0e8d77fe8d2375
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1
