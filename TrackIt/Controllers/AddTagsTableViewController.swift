@@ -9,12 +9,15 @@
 import UIKit
 
 @objc protocol AddTagsControllerDelegate {
-    @objc func didFinishAddingTags(_ tags: [Tag])
+    @objc func didFinishWithTags(_ tags: [Tag])
 }
 
 class AddTagsTableViewController: UITableViewController {
 
-    let model = AddTagsModel(coreDataManager: CoreDataStackManager.sharedInstance)
+    lazy var model: AddTagsModel = AddTagsModel(context: context)
+
+    @objc var context: NSManagedObjectContext = CoreDataStackManager.sharedInstance.managedObjectContext
+    @objc var existingTags: [Tag]?
     @objc weak var delegate: AddTagsControllerDelegate?
     
     override func viewDidLoad() {
@@ -22,10 +25,12 @@ class AddTagsTableViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
+        
+        existingTags?.filter { $0.name != nil }.forEach { model.tryAddTag($0.name!) }
     }
 
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
-        delegate?.didFinishAddingTags(model.tags)
+        delegate?.didFinishWithTags(model.tags)
     }
     
     // MARK: - Table view data source

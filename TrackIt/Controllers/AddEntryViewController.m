@@ -362,8 +362,20 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
 }
 
 #pragma mark - AddTagsControllerDelegate
--(void)didFinishAddingTags:(NSArray<Tag *> *)tags {
+-(void)didFinishWithTags:(NSArray<Tag *> *)tags {
+    // For each tag in Entry not in tags, delete it from Entry.
+    // Then, add all tags from tags array.
+    
+    NSMutableArray<Tag *> *tagsToRemove = [NSMutableArray new];
+    [self.entry.tags.allObjects enumerateObjectsUsingBlock:^(Tag * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(![tags containsObject:obj]) {
+            [tagsToRemove addObject:obj];
+        }
+    }];
+    [self.entry removeTags:[NSSet setWithArray:tagsToRemove]];
+    
     [self.entry addTags:[NSSet setWithArray:tags]];
+    
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationNone];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -374,6 +386,8 @@ static NSInteger AMOUNT_TEXT_FIELD_CELL_TAG = 99;
     if([segue.identifier isEqualToString:@"addTags"]) {
         UINavigationController *navVC = segue.destinationViewController;
         AddTagsTableViewController *tagsVC = (AddTagsTableViewController *)navVC.topViewController;
+        tagsVC.existingTags = self.entry.tags.allObjects;
+        tagsVC.context = self.temporaryContext;
         tagsVC.delegate = self;
     }
 }
