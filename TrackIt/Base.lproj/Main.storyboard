@@ -561,7 +561,7 @@
                             <constraint firstAttribute="trailing" secondItem="SqP-fK-TlM" secondAttribute="trailing" id="7OC-nO-iUV"/>
                             <constraint firstItem="Sj8-1q-Llm" firstAttribute="leading" secondItem="dJM-qh-ud0" secondAttribute="leading" id="F9Q-PY-WvU"/>
                             <constraint firstItem="SqP-fK-TlM" firstAttribute="leading" secondItem="dJM-qh-ud0" secondAttribute="leading" id="GKO-kq-UmO"/>
-                            <constraint firstItem="H9t-7l-awb" firstAttribute="top" secondItem="SqP-fK-TlM" secondAttribute="bottom" id="Jl6-BK-7nk"/>
+                            <constraint firstAttribute="bottom" secondItem="SqP-fK-TlM" secondAttribute="bottom" id="Jl6-BK-7nk"/>
                             <constraint firstItem="Sj8-1q-Llm" firstAttribute="top" secondItem="aRa-TO-3zT" secondAttribute="bottom" id="W2H-2W-OSr"/>
                             <constraint firstAttribute="trailing" secondItem="Sj8-1q-Llm" secondAttribute="trailing" id="dOY-pz-WaH"/>
                         </constraints>
@@ -1034,7 +1034,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="200" height="250"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="225" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="200" height="250"/>
                     <connections>
