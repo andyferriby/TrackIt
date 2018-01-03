@@ -35,8 +35,8 @@ class ManageTagsViewController: UIViewController {
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var dividerHeightConstraint: NSLayoutConstraint!
     
-    var coreDataManager: CoreDataStackManager?
-    let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: 0)
+    @objc var coreDataManager: CoreDataStackManager?
+    @objc let emptyDataSetDataSource = EmptyDataSetDataSource(title: "No Tags", dataSetDescription: "Add some tags the next time you add an entry.", verticalOffset: 0)
     
     lazy var fetchedResultsController: NSFetchedResultsController<Tag>? = {
         guard let context = self.coreDataManager?.managedObjectContext else { return nil }
@@ -69,11 +69,11 @@ class ManageTagsViewController: UIViewController {
 
 extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    @objc func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if fetchedResultsController?.sections?.count > 0 {
             return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
         }
@@ -82,7 +82,7 @@ extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @objc func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell", for: indexPath) as! TagCell
         if let tag = fetchedResultsController?.object(at: indexPath) {
             cell.configureWithTag(tag, selected: false)
@@ -90,15 +90,15 @@ extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    @objc func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+    @objc func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    @objc func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if let tag = fetchedResultsController?.object(at: indexPath) {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "TagWillBeDeleted"), object: self, userInfo: ["name":tag.name!])
             coreDataManager?.managedObjectContext.delete(tag)
@@ -109,13 +109,13 @@ extension ManageTagsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ManageTagsViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    @objc func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    @objc func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    @objc func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
         switch type {
         case .delete:
@@ -126,10 +126,10 @@ extension ManageTagsViewController: NSFetchedResultsControllerDelegate {
 }
 
 extension ManageTagsViewController: DZNEmptyDataSetDelegate {
-    func emptyDataSetWillAppear(_ scrollView: UIScrollView!) {
+    @objc func emptyDataSetWillAppear(_ scrollView: UIScrollView!) {
         warningView.isHidden = true
     }
-    func emptyDataSetWillDisappear(_ scrollView: UIScrollView!) {
+    @objc func emptyDataSetWillDisappear(_ scrollView: UIScrollView!) {
         warningView.isHidden = false
     }
 }

@@ -8,8 +8,8 @@
 
 
 @objc protocol Filterable {
-    func predicate() -> NSPredicate?
-    func filterType() -> FilterType
+    @objc func predicate() -> NSPredicate?
+    @objc func filterType() -> FilterType
 }
 
 @objc enum FilterType: Int {

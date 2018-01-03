@@ -27,9 +27,9 @@ class TagCell: UITableViewCell {
 }
 
 extension TagCell: TagConfigurable {
-    func configureWithTag(_ tag: Tag, selected: Bool) {
+    @objc func configureWithTag(_ tag: Tag, selected: Bool) {
         label.text = tag.name!
-        dotView.backgroundColor = ColorManager.colorForIndex(Int(tag.colorIndex!))
+        dotView.backgroundColor = ColorManager.colorForIndex(Int(truncating: tag.colorIndex!))
         dotView.layer.cornerRadius = 4.0
         accessoryType = selected ? .checkmark : .none
     }

@@ -9,23 +9,28 @@
 import UIKit
 
 @objc protocol AddTagsControllerDelegate {
-    func didFinishAddingTags(_ tags: [Tag])
+    @objc func didFinishWithTags(_ tags: [Tag])
 }
 
 class AddTagsTableViewController: UITableViewController {
 
-    let model = AddTagsModel(coreDataManager: CoreDataStackManager.sharedInstance)
-    weak var delegate: AddTagsControllerDelegate?
+    lazy var model: AddTagsModel = AddTagsModel(context: context)
+
+    @objc var context: NSManagedObjectContext = CoreDataStackManager.sharedInstance.managedObjectContext
+    @objc var existingTags: [Tag]?
+    @objc weak var delegate: AddTagsControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
+        
+        existingTags?.filter { $0.name != nil }.forEach { model.tryAddTag($0.name!) }
     }
 
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
-        delegate?.didFinishAddingTags(model.tags)
+        delegate?.didFinishWithTags(model.tags)
     }
     
     // MARK: - Table view data source
@@ -84,7 +89,7 @@ class AddTagsTableViewController: UITableViewController {
         }
     }
     
-    func identifierForRowAtIndexPath(_ indexPath: IndexPath) -> String {
+    @objc func identifierForRowAtIndexPath(_ indexPath: IndexPath) -> String {
         switch((indexPath as NSIndexPath).section) {
         case 0: return "addTagCell"
         case 1: return "selectedTagsCell"
@@ -95,10 +100,10 @@ class AddTagsTableViewController: UITableViewController {
 }
 
 extension AddTagsTableViewController: TagsCellDelegate {
-    func tagsCell(_ cell: TagsCell, didTapTagTitle title: String) {
+    @objc func tagsCell(_ cell: TagsCell, didTapTagTitle title: String) {
         
     }
-    func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String) {
+    @objc func tagsCell(_ cell: TagsCell, didTapRemoveButtonForTitle title: String) {
         model.removeTag(title)
         tableView.reloadData()
     }
@@ -106,7 +111,7 @@ extension AddTagsTableViewController: TagsCellDelegate {
 }
 
 extension AddTagsTableViewController: AddTagCellDelegate {
-    func didAddTag(_ tag: String) {
+    @objc func didAddTag(_ tag: String) {
         model.tryAddTag(tag)
         tableView.reloadData()
     }

@@ -89,6 +89,23 @@
     // Saves changes in the application's managed object context before the application terminates.
 }
 
+#pragma mark - Importing CSVs
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    UINavigationController *navVC = (UINavigationController *)self.window.rootViewController;
+    ContainerViewController *rootVC = (ContainerViewController *)navVC.topViewController;
+    if(!rootVC.presentedViewController) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            FileImporter *f = [FileImporter new];
+            f.delegate = rootVC;
+            NSError *error;
+            [f importEntriesFrom:url error:&error];
+        });
+    }
+    
+    return YES;
+}
+
 #pragma mark - 3D Touch Quick Action
 
 -(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {

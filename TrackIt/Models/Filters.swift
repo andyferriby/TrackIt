@@ -19,24 +19,24 @@ import DateTools
     var startDate: Date?
     var endDate: Date?
     
-    init(type: DateFilterType) {
+    @objc init(type: DateFilterType) {
         self.type = type
     }
     
-    init(type: DateFilterType, startDate: Date, endDate: Date) {
+    @objc init(type: DateFilterType, startDate: Date, endDate: Date) {
         self.type = type
         // Start at midnight on startDate, end at midnight on endDate+1 day
         self.startDate = NSDate(year: (startDate as NSDate).year(), month: (startDate as NSDate).month(), day: (startDate as NSDate).day()) as Date?
         self.endDate = NSDate(year: (endDate as NSDate).year(), month: (endDate as NSDate).month(), day: (endDate as NSDate).day()+1) as Date?
     }
     
-    func filterType() -> FilterType {
+    @objc func filterType() -> FilterType {
         return .date
     }
 }
 
 extension DateFilter: Filterable {
-    func predicate() -> NSPredicate? {
+    @objc func predicate() -> NSPredicate? {
         switch(type) {
         case .last7Days:
             let lowerBoundary = (Date() as NSDate).subtractingDays(7)
@@ -64,16 +64,16 @@ extension DateFilter: Filterable {
 }
 
 @objc class TagFilter: NSObject {
-    var type: TagFilterType
-    var tags: [Tag]
-    init(type: TagFilterType, tags: [Tag]) {
+    @objc var type: TagFilterType
+    @objc var tags: [Tag]
+    @objc init(type: TagFilterType, tags: [Tag]) {
         self.type = type
         self.tags = tags
     }
 }
 
 extension TagFilter: Filterable {
-    func predicate() -> NSPredicate? {
+    @objc func predicate() -> NSPredicate? {
         switch type {
         case .show:
             return tags.count == 0 ? nil : NSPredicate(format: "ANY tags IN %@", tags)
@@ -82,7 +82,7 @@ extension TagFilter: Filterable {
         }
         
     }
-    func filterType() -> FilterType {
+    @objc func filterType() -> FilterType {
         return .tag
     }
 }

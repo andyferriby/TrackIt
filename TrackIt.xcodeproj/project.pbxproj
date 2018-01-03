@@ -27,7 +27,7 @@
 		961271161CCEF86A002268F7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271121CCEF86A002268F7 /* Tag.swift */; };
 		961271181CCF0803002268F7 /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271171CCF0803002268F7 /* TagsCell.swift */; };
 		9612713C1CD0400D002268F7 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713B1CD0400D002268F7 /* Configurations.swift */; };
-		9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */; };
+		9612713F1CD046E7002268F7 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612713E1CD046E7002268F7 /* Delegates.swift */; };
 		961271411CD0590B002268F7 /* AddTagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271401CD0590B002268F7 /* AddTagsTableViewController.swift */; };
 		961271431CD18677002268F7 /* AddTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271421CD18677002268F7 /* AddTagsModel.swift */; };
 		961271451CD18930002268F7 /* AddTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961271441CD18930002268F7 /* AddTagCell.swift */; };
@@ -54,6 +54,7 @@
 		96B506541BF96C3700E2F083 /* SelectDatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B506531BF96C3700E2F083 /* SelectDatesViewController.m */; };
 		96BA74A21BF19CBC00CDDA46 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */; };
 		96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */; };
+		96E548981F30139100C2C547 /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E548971F30139100C2C547 /* FileImporter.swift */; };
 		96F333171CE1482400F828F4 /* ManageTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333161CE1482400F828F4 /* ManageTagsViewController.swift */; };
 		96F333191CE1706500F828F4 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F333181CE1706500F828F4 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
@@ -132,7 +133,7 @@
 		961271121CCEF86A002268F7 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = "Core Data/Tag.swift"; sourceTree = "<group>"; };
 		961271171CCF0803002268F7 /* TagsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsCell.swift; path = Views/TagsCell.swift; sourceTree = "<group>"; };
 		9612713B1CD0400D002268F7 /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurations.swift; path = Protocols/Configurations.swift; sourceTree = "<group>"; };
-		9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsCellDelegate.swift; path = Protocols/TagsCellDelegate.swift; sourceTree = "<group>"; };
+		9612713E1CD046E7002268F7 /* Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delegates.swift; path = Protocols/Delegates.swift; sourceTree = "<group>"; };
 		961271401CD0590B002268F7 /* AddTagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsTableViewController.swift; path = Controllers/AddTagsTableViewController.swift; sourceTree = "<group>"; };
 		961271421CD18677002268F7 /* AddTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagsModel.swift; path = Models/AddTagsModel.swift; sourceTree = "<group>"; };
 		961271441CD18930002268F7 /* AddTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTagCell.swift; path = Views/AddTagCell.swift; sourceTree = "<group>"; };
@@ -174,9 +175,11 @@
 		96BA749B1BF17CFA00CDDA46 /* WatchTrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchTrack.entitlements; sourceTree = "<group>"; };
 		96BA74A11BF19CBC00CDDA46 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "Settings-Watch.bundle"; sourceTree = "<group>"; };
 		96C98AD11CDFB80800D60262 /* EmptyDataSetDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetDataSource.swift; path = Models/EmptyDataSetDataSource.swift; sourceTree = "<group>"; };
+		96E548971F30139100C2C547 /* FileImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileImporter.swift; path = Models/FileImporter.swift; sourceTree = "<group>"; };
+		96E548991F30153700C2C547 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = TrackIt/MyPlayground.playground; sourceTree = "<group>"; };
 		96F333161CE1482400F828F4 /* ManageTagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageTagsViewController.swift; path = Controllers/ManageTagsViewController.swift; sourceTree = "<group>"; };
 		96F333181CE1706500F828F4 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = "Core Data/CoreDataStackManager.swift"; sourceTree = "<group>"; };
-		96F389331BFC18A100DC131B /* EntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDelegate.h; sourceTree = "<group>"; };
+		96F389331BFC18A100DC131B /* NewEntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEntryDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,7 @@
 		960105B41BE843A100979763 = {
 			isa = PBXGroup;
 			children = (
+				96E548991F30153700C2C547 /* MyPlayground.playground */,
 				960105BF1BE843A100979763 /* TrackIt */,
 				964A6E7F1BEAF8260024A2B3 /* WatchTrack */,
 				964A6E8E1BEAF8260024A2B3 /* WatchTrack Extension */,
@@ -315,6 +319,7 @@
 				967174BD1BEC539200321787 /* WatchSessionDelegate.m */,
 				961271421CD18677002268F7 /* AddTagsModel.swift */,
 				9618C1EC1CD971E800EC5BC1 /* ColorManager.swift */,
+				96E548971F30139100C2C547 /* FileImporter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -344,7 +349,7 @@
 				960C7A041CDAE9BB0027A9C3 /* Filters.swift */,
 				96880E531CDE6F1D003FA573 /* Filterable.swift */,
 				9612713B1CD0400D002268F7 /* Configurations.swift */,
-				9612713E1CD046E7002268F7 /* TagsCellDelegate.swift */,
+				9612713E1CD046E7002268F7 /* Delegates.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -379,7 +384,7 @@
 				964A6E931BEAF8260024A2B3 /* ExtensionDelegate.m */,
 				967174C01BEC5DA600321787 /* WatchSessionDelegate.h */,
 				967174C11BEC5DA600321787 /* WatchSessionDelegate.m */,
-				96F389331BFC18A100DC131B /* EntryDelegate.h */,
+				96F389331BFC18A100DC131B /* NewEntryDelegate.h */,
 				967174BB1BEB06AB00321787 /* Controllers */,
 				964A6E981BEAF8260024A2B3 /* Assets.xcassets */,
 				964A6E9A1BEAF8260024A2B3 /* Info.plist */,
@@ -465,13 +470,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Jason Ji";
 				TargetAttributes = {
 					960105BC1BE843A100979763 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 2GPQ8GE99T;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -571,9 +576,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TrackIt/Pods-TrackIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CSwiftV/CSwiftV.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/RFKeyboardToolbar/RFKeyboardToolbar.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CSwiftV.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RFKeyboardToolbar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -586,13 +602,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrackIt-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -623,8 +642,9 @@
 				966F052A1CD44DA1005A11C2 /* EntryCell.swift in Sources */,
 				960105F81BE85CD800979763 /* NoteCell.m in Sources */,
 				961271151CCEF86A002268F7 /* Tag+CoreDataProperties.swift in Sources */,
-				9612713F1CD046E7002268F7 /* TagsCellDelegate.swift in Sources */,
+				9612713F1CD046E7002268F7 /* Delegates.swift in Sources */,
 				967174BE1BEC539200321787 /* WatchSessionDelegate.m in Sources */,
+				96E548981F30139100C2C547 /* FileImporter.swift in Sources */,
 				960105C21BE843A100979763 /* main.m in Sources */,
 				960105E51BE8449500979763 /* TrackIt.xcdatamodeld in Sources */,
 				96C98AD21CDFB80800D60262 /* EmptyDataSetDataSource.swift in Sources */,
@@ -702,14 +722,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -732,7 +758,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -747,14 +773,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -771,7 +803,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -798,7 +830,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Track It (iOS) Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -820,7 +853,8 @@
 				PROVISIONING_PROFILE = "5bc564c7-6466-4b9d-b4c3-5e0faf3bb93b";
 				PROVISIONING_PROFILE_SPECIFIER = "Track It (iOS) Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "TrackIt/TrackIt-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

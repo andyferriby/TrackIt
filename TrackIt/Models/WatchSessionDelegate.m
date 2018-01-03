@@ -57,7 +57,7 @@
             NSNumber *value = message[@"value"];
             NSString *note = message[@"note"];
             
-            [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
+            Entry *e __attribute__((unused)) = [Entry entryWithAmount:value note:note date:[NSDate date] tags:nil inManagedObjectContext:[CoreDataStackManager sharedInstance].managedObjectContext];
             
             [[CoreDataStackManager sharedInstance] save];
             
@@ -69,5 +69,20 @@
         });
     }
 }
+
+- (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error { 
+    
+}
+
+
+- (void)sessionDidBecomeInactive:(nonnull WCSession *)session { 
+    
+}
+
+
+- (void)sessionDidDeactivate:(nonnull WCSession *)session { 
+    
+}
+
 
 @end

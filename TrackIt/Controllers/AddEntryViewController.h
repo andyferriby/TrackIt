@@ -9,13 +9,6 @@
 @import UIKit;
 #import "TrackIt-Swift.h"
 
-@protocol EntryDelegate <NSObject>
-
--(void)entryAddedOrChanged;
--(void)entryCanceled;
-
-@end
-
 @interface AddEntryViewController : UIViewController<UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, TagsCellDelegate, AddTagsControllerDelegate>
 
 @property (strong, nonatomic) Entry *entry;

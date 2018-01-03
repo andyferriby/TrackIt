@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol AddTagCellDelegate {
-    func didAddTag(_ tag: String)
+    @objc func didAddTag(_ tag: String)
 }
 
 class AddTagCell: UITableViewCell {
@@ -17,7 +17,7 @@ class AddTagCell: UITableViewCell {
     @IBOutlet weak var textField: UITextField!
     weak var delegate: AddTagCellDelegate?
     
-    func configure(delegate: AddTagCellDelegate) {
+    @objc func configure(delegate: AddTagCellDelegate) {
         self.delegate = delegate
         textField.delegate = self
         textField.returnKeyType = .done
@@ -27,7 +27,7 @@ class AddTagCell: UITableViewCell {
 }
 
 extension AddTagCell: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text {
             if !text.isEmpty {
                 delegate?.didAddTag(text.trimmingCharacters(in: CharacterSet.whitespaces))

@@ -8,28 +8,28 @@
 
 import UIKit
 
-class EntriesModel: NSObject {
+@objc class EntriesModel: NSObject {
     
     fileprivate var entries: [Entry] = []
     fileprivate var filters: [Filterable]
     fileprivate var coreDataManager: CoreDataStackManager
     
-    init(filters: [Filterable], coreDataManager: CoreDataStackManager) {
+    @objc init(filters: [Filterable], coreDataManager: CoreDataStackManager) {
         self.filters = filters
         self.coreDataManager = coreDataManager
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshCurrentFilters), name: NSNotification.Name(rawValue: "TagWillBeDeleted"), object: nil)
     }
     
-    func numberOfEntries() -> Int {
+    @objc func numberOfEntries() -> Int {
         return entries.count
     }
     
-    func entryAt(_ index: Int) -> Entry {
+    @objc func entryAt(_ index: Int) -> Entry {
         return entries[index]
     }
     
-    func deleteEntryAt(_ index: Int) {
+    @objc func deleteEntryAt(_ index: Int) {
         let entry = entries[index]
         coreDataManager.managedObjectContext.delete(entry)
         coreDataManager.save()
@@ -37,14 +37,14 @@ class EntriesModel: NSObject {
         refreshEntries()
     }
     
-    func totalSpending() -> NSNumber {
+    @objc func totalSpending() -> NSNumber {
         let total = entries.reduce(0, {
             $0 + $1.amount!.doubleValue
         })
         return NSNumber(value: total as Double)
     }
     
-    func refreshEntries() {
+    @objc func refreshEntries() {
         let fetchRequest = NSFetchRequest<Entry>(entityName: "Entry")
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: filters.map { return $0.predicate()! })
 
@@ -56,7 +56,7 @@ class EntriesModel: NSObject {
         }
     }
     
-    func refreshCurrentFilters(_ notification: Notification) {
+    @objc func refreshCurrentFilters(_ notification: Notification) {
         for filter in filters {
             switch filter.filterType() {
             case .date: break
@@ -71,7 +71,7 @@ class EntriesModel: NSObject {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ModelFiltersUpdated"), object: self)  
     }
     
-    func refreshWithFilters(_ newFilters: [Filterable]) {
+    @objc func refreshWithFilters(_ newFilters: [Filterable]) {
         for filter in newFilters {
             filters = filters.filter { return $0.filterType() != filter.filterType() }
             filters.append(filter)
@@ -80,7 +80,7 @@ class EntriesModel: NSObject {
         refreshEntries()
     }
     
-    func currentTagFilter() -> TagFilter? {
+    @objc func currentTagFilter() -> TagFilter? {
         return filters.filter { return $0.filterType() == .tag }.first as? TagFilter ?? nil
     }
 

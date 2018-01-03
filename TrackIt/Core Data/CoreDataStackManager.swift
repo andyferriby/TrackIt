@@ -8,21 +8,21 @@
 
 import UIKit
 
-class CoreDataStackManager: NSObject {
-    static let sharedInstance = CoreDataStackManager()
+@objc class CoreDataStackManager: NSObject {
+    @objc static let sharedInstance = CoreDataStackManager()
     
     var applicationDocumentsDirectory = {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
     }()
-    let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    @objc let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     fileprivate let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
     
-    override init() {
+    @objc override init() {
         super.init()
         initializeCoreData()
     }
     
-    func initializeCoreData() {
+    @objc func initializeCoreData() {
         guard let modelURL = Bundle.main.url(forResource: "TrackIt", withExtension: "momd") else { fatalError("Invalid model URL") }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else { fatalError("Invalid model") }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
@@ -40,7 +40,7 @@ class CoreDataStackManager: NSObject {
         managedObjectContext.parent = privateContext
     }
     
-    func save() {
+    @objc func save() {
         if !privateContext.hasChanges && !self.managedObjectContext.hasChanges {
             return
         }
@@ -60,7 +60,7 @@ class CoreDataStackManager: NSObject {
         }
     }
     
-    func saveWithTemporaryContext(_ context: NSManagedObjectContext) {
+    @objc func saveWithTemporaryContext(_ context: NSManagedObjectContext) {
         // Assumes the passed context has our managedObjectContext as its parent.
         if !context.hasChanges {
             return

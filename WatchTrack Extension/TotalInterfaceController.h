@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "AddEntryInterfaceController.h"
 
-@interface TotalInterfaceController : WKInterfaceController<EntryDelegate>
+@interface TotalInterfaceController : WKInterfaceController<NewEntryDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *totalLabel;
 
